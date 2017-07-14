@@ -1,5 +1,7 @@
 package com.jverson.springboot;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -16,11 +18,17 @@ import com.jverson.springboot.bean.Car;
 //@SpringBootApplication 
 public class HelloWorld {
 
+	private Logger logger = LoggerFactory.getLogger(getClass());
+	
 	@Autowired Car car;
 	
 	@RequestMapping("/")
 	@ResponseBody
 	String home(){
+		logger.info("info  "+car.toString());
+		logger.warn("warn  "+car.toString());
+		logger.error("error  "+car.toString());
+		
 		return car.toString();
 	}
 	
