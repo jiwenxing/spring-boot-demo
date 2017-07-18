@@ -34,7 +34,7 @@ public class HelloWorld {
 		logger.warn("warn  "+car.toString());
 		logger.error("error  "+car.toString());
 		
-		return person.toString();
+		return car.toString();
 	}
 	
 	@RequestMapping("/test")
