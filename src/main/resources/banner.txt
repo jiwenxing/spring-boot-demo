@@ -13,4 +13,3 @@ Author: Jverson
 Powered by Spring Boot${spring-boot.formatted-version}
 
 --------------------------------------------------------------------------------------
-                                            

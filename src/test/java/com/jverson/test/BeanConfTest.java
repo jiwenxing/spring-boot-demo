@@ -18,8 +18,8 @@ public class BeanConfTest {
 	@Test
 	public void getCar(){
 		assertNotNull(car);
-		assertEquals("red", car.getColor());
-		assertEquals("bmw", car.getBrand());
-		assertEquals((Double)29.2, car.getPrice());
+		assertEquals("ford red", car.getColor());
+		assertEquals("ford", car.getBrand());
+		assertEquals((Double)30.8, car.getPrice());
 	}
 }

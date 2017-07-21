@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="OFF" monitorInterval="1800">
+	<properties>
+		<property name="LOG_HOME">/export/Logs/jverson.com</property>
+		<property name="RUNNING_FILE_NAME">spring-boot-demo</property>
+		<property name="ERROR_FILE_NAME">spring-boot-demo-error</property>
+	</properties>
+
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
+			<PatternLayout pattern="%d{yyyy-MM-dd 'at' HH:mm:ss.SSS} %-5level %class{36} [%L] [%M] - %msg%xEx%n" />
+		</Console>
+
+		<RollingRandomAccessFile name="RUNNING-LOG" fileName="${LOG_HOME}/${RUNNING_FILE_NAME}.log" filePattern="${LOG_HOME}/${RUNNING_FILE_NAME}_%d{yyyy-MM-dd}_%i.log">
+			<ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+			<PatternLayout pattern="%d{yyyy-MM-dd 'at' HH:mm:ss.SSS} [%t] %-5level %class{36} [%L] [%M] - %msg%xEx%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy modulate="true" interval="24" />
+				<SizeBasedTriggeringPolicy size="51200 KB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingRandomAccessFile>
+
+		<RollingRandomAccessFile name="ERROR-LOG" fileName="${LOG_HOME}/${ERROR_FILE_NAME}.log" filePattern="${LOG_HOME}/${ERROR_FILE_NAME}_%d{yyyy-MM-dd}_%i.log">
+			<ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+			<PatternLayout pattern="%d{yyyy-MM-dd 'at' HH:mm:ss.SSS} [%t] %-5level %class{36} [%L] [%M] - %msg%xEx%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy modulate="true" interval="24" />
+				<SizeBasedTriggeringPolicy size="51200 KB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingRandomAccessFile>
+	</Appenders>
+
+	<Loggers>
+		<AsyncRoot level="DEBUG" includeLocation="true">
+			<appender-ref ref="Console" />
+			<appender-ref ref="RUNNING-LOG" />
+			<appender-ref ref="ERROR-LOG" />
+		</AsyncRoot>
+	</Loggers>
+</Configuration>
