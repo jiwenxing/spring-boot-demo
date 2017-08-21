@@ -5,8 +5,8 @@
     <title>统一异常处理</title>
   <body>
     <h1>Error Handler</h1>
-    <div>code: ${code}</div>
+    <div>status: ${status}</div>
     <div>message: ${message}</div>
-    <div>url: ${url}</div>
+    <div>path: ${path}</div>
   </body>
 </html>
