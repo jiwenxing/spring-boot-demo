@@ -15,7 +15,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import com.jverson.springboot.HelloWorld;
+import com.jverson.springboot.HelloSpringBoot;
 
 /*
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -28,7 +28,7 @@ public class HelloWorldTests {
 
 	@Before
 	public void setUp() {
-		mvc = MockMvcBuilders.standaloneSetup(new HelloWorld()).build();
+		mvc = MockMvcBuilders.standaloneSetup(new HelloSpringBoot()).build();
 	}
 
 	@Test

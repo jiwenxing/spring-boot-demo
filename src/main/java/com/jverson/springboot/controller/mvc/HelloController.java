@@ -15,7 +15,7 @@ import com.jverson.springboot.mapper.UserMapper;
 @Controller
 public class HelloController {
 
-	@Autowired UserMapper userMapper;
+	/*@Autowired UserMapper userMapper;
 	
 	@RequestMapping(value="hello.html", method={RequestMethod.GET, RequestMethod.POST}, produces = { "text/html;charset=UTF-8" })
 	public String Hello(Model model){
@@ -37,6 +37,6 @@ public class HelloController {
 	@ResponseBody
 	public Object mybatisTest() throws PageException{
 		return userMapper.findByName("jverson");
-	}
+	}*/
 	
 }

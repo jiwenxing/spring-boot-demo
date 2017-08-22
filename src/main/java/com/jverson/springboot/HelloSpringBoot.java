@@ -8,7 +8,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication 
-public class HelloWorld {
+public class HelloSpringBoot {
 
 	private static Logger logger = LoggerFactory.getLogger("com.jverson.springboot.HelloWorld");
 	
@@ -17,7 +17,7 @@ public class HelloWorld {
 //		SpringApplication app = new SpringApplication(HelloWorld.class);
 //		app.setBannerMode(Banner.Mode.OFF);
 //		app.run(args);
-		ApplicationContext ctx = new SpringApplicationBuilder().sources(HelloWorld.class)
+		ApplicationContext ctx = new SpringApplicationBuilder().sources(HelloSpringBoot.class)
 		    .bannerMode(Banner.Mode.LOG).run(args);
 		String[] activeProfiles = ctx.getEnvironment().getActiveProfiles();
 		for (String string : activeProfiles) {

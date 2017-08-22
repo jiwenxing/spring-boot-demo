@@ -34,7 +34,7 @@
 	</Appenders>
 
 	<Loggers>
-		<AsyncRoot level="DEBUG" includeLocation="true">
+		<AsyncRoot level="INFO" includeLocation="true">
 			<appender-ref ref="Console" />
 			<appender-ref ref="RUNNING-LOG" />
 			<appender-ref ref="ERROR-LOG" />
