@@ -2,7 +2,8 @@ package com.jverson.test;
 
 import static org.junit.Assert.assertTrue;
 
-import org.apache.ibatis.type.JdbcType;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,15 +18,24 @@ import com.jverson.springboot.mapper.UserMapper;
 @SpringBootTest(classes = HelloSpringBoot.class)
 public class MybatisTest {
 
+	//MyBatis-Spring-Boot-Starter已经将所有mapper注册到spring容器中，因此可以直接注入
 	@Autowired UserMapper userMapper;
-	JdbcType jdbcType;
 	
-//	@Test
+	//也可通sqlSessionFactory来获取mapper的实例
+	@Autowired SqlSessionFactory sqlSessionFactory;
+	
+	@Test
 	public void testInsert(){
+		SqlSession session = sqlSessionFactory.openSession();
+		UserMapper userMapper1 = session.getMapper(UserMapper.class);
 		User user = new User();
 		user.setName("kobe");
 		user.setAge(41);
-		userMapper.insert(user);
+		try {
+			userMapper1.insert(user);
+		} finally {
+			session.close();
+		}
 	}
 	
 //	@Test
@@ -33,7 +43,7 @@ public class MybatisTest {
 		assertTrue(userMapper.findByName("kobe").size()==1);
 	}
 	
-	@Test
+//	@Test
 	public void testQueryAll(){
 		assertTrue(userMapper.getAll().size()>0);
 	}
