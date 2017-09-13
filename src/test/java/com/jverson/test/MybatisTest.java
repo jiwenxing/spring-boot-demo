@@ -24,7 +24,7 @@ public class MybatisTest {
 	//也可通sqlSessionFactory来获取mapper的实例
 	@Autowired SqlSessionFactory sqlSessionFactory;
 	
-	@Test
+//	@Test
 	public void testInsert(){
 		SqlSession session = sqlSessionFactory.openSession();
 		UserMapper userMapper1 = session.getMapper(UserMapper.class);
@@ -38,14 +38,14 @@ public class MybatisTest {
 		}
 	}
 	
-//	@Test
+	@Test
 	public void testQuery(){
-		assertTrue(userMapper.findByName("kobe").size()==1);
+		assertTrue(userMapper.selectAll().size()==2);
 	}
 	
 //	@Test
 	public void testQueryAll(){
-		assertTrue(userMapper.getAll().size()>0);
+//		assertTrue(userMapper.getAll().size()>0);
 	}
 	
 //	@Test
@@ -53,8 +53,8 @@ public class MybatisTest {
 		User user = new User();
 		user.setId(1L);
 		user.setName("james");
-		userMapper.update(user);
-		assertTrue(userMapper.findByName("james").size()==1);
+//		userMapper.update(user);
+//		assertTrue(userMapper.findByName("james").size()==1);
 	}
 	
 }

@@ -1,5 +1,6 @@
 package com.jverson.springboot;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.Banner;
@@ -8,6 +9,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication 
+@MapperScan(basePackages = "com.jverson.springboot.mapper")
 public class HelloSpringBoot {
 
 	private static Logger logger = LoggerFactory.getLogger("com.jverson.springboot.HelloWorld");
