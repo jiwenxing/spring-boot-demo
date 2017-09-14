@@ -1,4 +1,4 @@
-package com.jverson.springboot.bean;
+package com.jverson.springboot.model;
 
 //@PropertySource("classpath:person.properties")
 //@ConfigurationProperties(prefix = "person", ignoreUnknownFields = false)

@@ -1,4 +1,4 @@
-package com.jverson.springboot.bean;
+package com.jverson.springboot.model;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

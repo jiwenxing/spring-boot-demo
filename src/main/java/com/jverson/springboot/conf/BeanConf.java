@@ -8,8 +8,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.HttpStatus;
 
-import com.jverson.springboot.bean.Person;
-import com.jverson.springboot.bean.Person2;
+import com.jverson.springboot.model.Person;
+import com.jverson.springboot.model.Person2;
 
 @Configuration
 @PropertySource("classpath:person.properties")

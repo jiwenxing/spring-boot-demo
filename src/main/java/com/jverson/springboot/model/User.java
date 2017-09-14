@@ -1,4 +1,4 @@
-package com.jverson.springboot.bean;
+package com.jverson.springboot.model;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;

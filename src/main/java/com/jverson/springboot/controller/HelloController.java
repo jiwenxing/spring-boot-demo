@@ -1,4 +1,4 @@
-package com.jverson.springboot.controller.mvc;
+package com.jverson.springboot.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

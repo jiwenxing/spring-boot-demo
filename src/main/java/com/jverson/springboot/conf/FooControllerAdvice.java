@@ -11,7 +11,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import com.jverson.springboot.common.CustomerErrorType;
 import com.jverson.springboot.common.RestException;
-import com.jverson.springboot.controller.mvc.HelloController;
+import com.jverson.springboot.controller.HelloController;
 
 /*@ControllerAdvice(basePackageClasses = HelloController.class)
 public class FooControllerAdvice extends ResponseEntityExceptionHandler {

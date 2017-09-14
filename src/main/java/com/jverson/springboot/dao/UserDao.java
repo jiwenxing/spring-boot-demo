@@ -3,7 +3,7 @@ package com.jverson.springboot.dao;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.jverson.springboot.bean.User;
+import com.jverson.springboot.model.User;
 
 public class UserDao {
 
