@@ -1,6 +1,9 @@
 
 package com.jverson.springboot.model;
 
+import javax.persistence.Table;
+
+@Table(name = "country")
 public class Country extends BaseEntity {
     /**
      * 名称
