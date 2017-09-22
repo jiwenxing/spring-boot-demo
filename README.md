@@ -1,7 +1,9 @@
 ## spring-boot-demo
-demo for spring boot
+
+demo & summaries for spring boot
 
 ## Contents
+
 - [Home](https://github.com/jiwenxing/spring-boot-demo/wiki)
 - [Why Spring Boot](https://github.com/jiwenxing/spring-boot-demo/wiki/Why-Spring-Boot)
 - [Getting Started](https://github.com/jiwenxing/spring-boot-demo/wiki/Getting-Started)
@@ -19,8 +21,8 @@ demo for spring boot
   - [Error Handling](https://github.com/jiwenxing/spring-boot-demo/wiki/Error-Handling)
   - [Custom Favicon](https://github.com/jiwenxing/spring-boot-demo/wiki/Custom-Favicon)
 - [Using Database](https://github.com/jiwenxing/spring-boot-demo/wiki/Using-Database)
-  - [About JDBC]()
+  - [About JDBC](https://github.com/jiwenxing/spring-boot-demo/wiki/About-JDBC)
   - [About ORM](https://github.com/jiwenxing/spring-boot-demo/wiki/Talking-About-ORM)
   - [MyBatis-Spring-Boot-Starter](https://github.com/jiwenxing/spring-boot-demo/wiki/Mybatis-Springboot-Starter)
   - [Mybatis Common Mapper](https://github.com/jiwenxing/spring-boot-demo/wiki/Mybatis-Common-Mapper)
-  - [Spring Data JPA]()
+  - [Spring Data JPA](https://github.com/jiwenxing/spring-boot-demo/wiki/Spring-Data-JPA)

@@ -21,9 +21,9 @@ public class TransactionTest {
 			conn.setAutoCommit(false); //關閉自動提交，默認開啟
 			
 			stmt = conn.createStatement();
-//			stmt.executeUpdate( "INSERT INTO user( name, age ) VALUES ( 'iverson', 40 ) " );
-			stmt.executeUpdate("UPDATE user SET age = 111 WHERE Name = 'james'");
-			stmt.executeUpdate("UPDATE user1 SET age = 2 WHERE Name = 'kobe1'");
+			stmt.executeUpdate("UPDATE user SET age = 222 WHERE Name = 'james'");
+			stmt.executeUpdate("UPDATE user1 SET age = 2 WHERE Name = 'kobe'"); //更新一個不存在的表
+			stmt.executeUpdate("UPDATE user SET age = 123 WHERE Name = 'iverson'");
 			conn.commit();
 			rs = stmt.executeQuery( "SELECT * FROM user" );
 			while ( rs.next() ) {
