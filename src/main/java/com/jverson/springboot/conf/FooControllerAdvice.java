@@ -13,7 +13,7 @@ import com.jverson.springboot.common.CustomerErrorType;
 import com.jverson.springboot.common.RestException;
 import com.jverson.springboot.controller.HelloController;
 
-/*@ControllerAdvice(basePackageClasses = HelloController.class)
+@ControllerAdvice(basePackageClasses = HelloController.class)
 public class FooControllerAdvice extends ResponseEntityExceptionHandler {
 
 	@ExceptionHandler(RestException.class)
@@ -29,4 +29,4 @@ public class FooControllerAdvice extends ResponseEntityExceptionHandler {
 		}
 		return HttpStatus.valueOf(statusCode);
 	}
-}*/
+}

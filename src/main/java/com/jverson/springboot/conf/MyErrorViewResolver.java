@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @date Jul 25, 2017 9:30:22 PM
  */
 
-//@Component  //uncomment this to enable
+@Component  //uncomment this to enable
 public class MyErrorViewResolver implements ErrorViewResolver {
 
 	public static final String DEFAULT_ERROR_VIEW = "error";

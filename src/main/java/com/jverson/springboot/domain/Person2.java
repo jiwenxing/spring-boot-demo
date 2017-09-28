@@ -1,4 +1,4 @@
-package com.jverson.springboot.model;
+package com.jverson.springboot.domain;
 
 //@PropertySource("classpath:person.properties")
 //@Component
