@@ -2,11 +2,13 @@ package com.jverson.springboot.conf;
 
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.boot.web.servlet.ErrorPage;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.client.RestTemplate;
 
 import com.jverson.springboot.domain.Person;
 import com.jverson.springboot.domain.Person2;
@@ -15,6 +17,20 @@ import com.jverson.springboot.domain.Person2;
 @PropertySource("classpath:person.properties")
 public class BeanConf {
 
+	/**
+	 * 定制多个RestTemplate
+	 * @param builder
+	 * @return
+	 */
+	@Bean(name = "restTemplateA")
+	public RestTemplate restTemplateA(RestTemplateBuilder builder) {
+		return builder.setConnectTimeout(1000).setReadTimeout(1000).build();
+	}
+	@Bean(name = "restTemplateB")
+	public RestTemplate restTemplateB(RestTemplateBuilder builder) {
+		return builder.setConnectTimeout(2000).setReadTimeout(2000).build();
+	}
+	
 	@Bean("person")
 	@ConfigurationProperties(prefix = "person")
 	public Person person(){

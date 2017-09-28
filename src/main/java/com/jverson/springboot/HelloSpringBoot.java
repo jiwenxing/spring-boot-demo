@@ -6,7 +6,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication 
 @MapperScan(basePackages = "com.jverson.springboot.mapper")
@@ -34,6 +37,11 @@ public class HelloSpringBoot {
 		for (String string : activeProfiles) {
 			logger.warn("the active profile is: " + string);
 		}
+	}
+	
+	@Bean
+	public RestTemplate restTemplate(RestTemplateBuilder builder) {
+		return builder.setConnectTimeout(1000).setReadTimeout(1000).build();
 	}
 	
 }

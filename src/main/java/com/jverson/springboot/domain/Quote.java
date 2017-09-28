@@ -7,7 +7,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @author jiwenxing
  * @date Sep 27, 2017 7:45:23 PM
  */
-@JsonIgnoreProperties(ignoreUnknown = true) // indicate that any properties not bound in this type should be ignored.
+//@JsonIgnoreProperties indicate that any properties not bound in this type should be ignored.
+@JsonIgnoreProperties(ignoreUnknown = true) 
 public class Quote {
 
 	private String type;
