@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -54,7 +55,7 @@ public class MailSenderTest {
         mailSenderService.send(mail);
 	}
 	
-	@Test
+//	@Test
 	public void sendTemplateMail() throws MessagingException, IOException, TemplateException{
 		MimeMessage mimeMessage = mailSender.createMimeMessage();
 		MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true); //第二个参数含义：whether to create a multipart message that supports alternative texts, inline elements and attachments
@@ -77,7 +78,7 @@ public class MailSenderTest {
 		mailSender.send(mimeMessage);
 	}
 	
-	/*@Test
+	@Test
 	public void sendAttachmentsMail() throws Exception {
 		MimeMessage mimeMessage = mailSender.createMimeMessage();
 		MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
@@ -86,12 +87,15 @@ public class MailSenderTest {
 		helper.setSubject("主题：有附件");
 		helper.setText("有附件的邮件");
 		
-		InputStream input = this.getClass().getResourceAsStream("resources/static/");
+		ClassLoader classLoader = getClass().getClassLoader();
+		URL url1 = classLoader.getResource("aaa.jpg");
+		URL url2 = classLoader.getResource("favicon.ico");
 		
-		FileSystemResource file = new FileSystemResource(new File("weixin.jpg"));
-		helper.addAttachment("附件-1.jpg", file);
-		helper.addAttachment("附件-2.jpg", file);
+		FileSystemResource file1 = new FileSystemResource(new File(url1.getFile()));
+		FileSystemResource file2 = new FileSystemResource(new File(url2.getFile()));
+		helper.addAttachment("附件-1.jpg", file1);
+		helper.addAttachment("附件-2.jpg", file2);
 		mailSender.send(mimeMessage);
-	}*/
+	}
 	
 }
