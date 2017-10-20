@@ -52,7 +52,9 @@ public class DataSourceTest {
         } catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-          if (con!=null) try {con.close();}catch (Exception ignore) {}
+          if (con!=null) {
+        	  try {con.close();}catch (Exception ignore) {}
+          }
         }
 	}
 	

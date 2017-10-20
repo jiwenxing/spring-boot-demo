@@ -28,4 +28,4 @@ spring-boot-demo是对spring boot的一些实践和总结，基本按照`1.5.4.R
   - [Spring Data JPA介绍](https://github.com/jiwenxing/spring-boot-demo/wiki/Spring-Data-JPA)
 - [使用RestTemplate调用RESTful接口](https://github.com/jiwenxing/spring-boot-demo/wiki/Using-RestTemplate)
 - [使用JavaMail发送邮件](https://github.com/jiwenxing/spring-boot-demo/wiki/JavaMailSender)
-
+- [跨域资源共享 CORS](https://github.com/jiwenxing/spring-boot-demo/wiki/CORS)
