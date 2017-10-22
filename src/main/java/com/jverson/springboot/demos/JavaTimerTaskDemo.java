@@ -48,16 +48,19 @@ public class JavaTimerTaskDemo extends TimerTask{
 		// 安排指定的任务job3在指定的时间开始进行重复的固定延迟执行（注意大于该时间时启动任务会立即执行）
 		// 同理 scheduleAtFixedRate(TimerTask task, Date firstTime, long period)
 		Calendar calendar1 = Calendar.getInstance();
-		calendar1.set(Calendar.HOUR_OF_DAY, 15);
-		calendar1.set(Calendar.MINUTE, 35);
+		calendar1.set(Calendar.HOUR_OF_DAY, 17);
+		calendar1.set(Calendar.MINUTE, 59);
 		calendar1.set(Calendar.SECOND, 00);
         Date time1 = calendar1.getTime();
         timer.schedule(new JavaTimerTaskDemo("job3 execute at set time."), time1, period); 
-		
+        // 等同于下面的 scheduleAtFixedRate
+//		timer.scheduleAtFixedRate(new JavaTimerTaskDemo("job3 execute at set time."), time1, period);
 		
 		// 在延迟指定时间后以指定的间隔时间循环执行定时任务
         // 同理scheduleAtFixedRate(TimerTask task, long delay, long period)
 		timer.schedule(new JavaTimerTaskDemo("job4 execute at fixed rate after fixed delay."), delay, period);
+		// 等同于下面的 scheduleAtFixedRate
+//		timer.scheduleAtFixedRate(new JavaTimerTaskDemo("job4 execute at fixed rate after fixed delay."), delay, period);
 		
 		
 	}
