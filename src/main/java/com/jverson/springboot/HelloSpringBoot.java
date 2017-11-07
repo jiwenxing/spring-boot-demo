@@ -1,5 +1,8 @@
 package com.jverson.springboot;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,15 +12,17 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication 
 @MapperScan(basePackages = "com.jverson.springboot.mapper")
+@EnableScheduling
 public class HelloSpringBoot {
 
 	private static Logger logger = LoggerFactory.getLogger("com.jverson.springboot.HelloWorld");
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws UnknownHostException {
 		/**
 		 * 启动方式1
 		 */
@@ -36,6 +41,7 @@ public class HelloSpringBoot {
 		String[] activeProfiles = ctx.getEnvironment().getActiveProfiles();
 		for (String string : activeProfiles) {
 			logger.warn("the active profile is: " + string);
+			logger.info("LocalHost address is: " + InetAddress.getLocalHost().getHostAddress());//ZB-9N81J32/10.13.152.39
 		}
 	}
 	

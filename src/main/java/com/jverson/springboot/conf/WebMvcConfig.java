@@ -37,9 +37,9 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
      */
     @Override
 	public void addCorsMappings(CorsRegistry registry) {
-		registry.addMapping("/cities/**")
-			.allowedOrigins("http://jverson.com")
-			.allowedMethods("GET", "DELETE")
+		registry.addMapping("/api/**")
+			.allowedOrigins("http://initem.m.jd.com")
+			.allowedMethods("GET", "POST", "DELETE", "OPTIONS")
 			.allowCredentials(true).maxAge(3600);
 	}
     
