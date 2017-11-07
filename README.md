@@ -29,3 +29,7 @@ spring-boot-demo是对spring boot的一些实践和总结，基本按照`1.5.4.R
 - [使用RestTemplate调用RESTful接口](https://github.com/jiwenxing/spring-boot-demo/wiki/Using-RestTemplate)
 - [使用JavaMail发送邮件](https://github.com/jiwenxing/spring-boot-demo/wiki/JavaMailSender)
 - [跨域资源共享 CORS](https://github.com/jiwenxing/spring-boot-demo/wiki/CORS)
+- [定时任务](https://github.com/jiwenxing/spring-boot-demo/wiki/schedule)
+  - [Java Timer & TimerTask](https://github.com/jiwenxing/spring-boot-demo/wiki/Timer)
+  - [Quartz介绍](https://github.com/jiwenxing/spring-boot-demo/wiki/quartz)
+  - [Spring Boot集成Quartz](https://github.com/jiwenxing/spring-boot-demo/wiki/quartz-springboot)

@@ -14,7 +14,7 @@ public class ScheduledTaskService {
 
 	/**
 	 * 如果在集群环境下可以限制只有某一台ip的容器可以执行定时任务
-	 * 这种方式的有点事比继承quartz简单，但是存在单点失效的风险
+	 * 这种方式的有点事比集成quartz简单，但是存在单点失效的风险
 	 */
 	@Value("${batch.exec.host}")
 	private String batchExecHost;
