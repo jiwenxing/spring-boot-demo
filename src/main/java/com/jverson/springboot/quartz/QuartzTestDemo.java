@@ -36,7 +36,7 @@ public class QuartzTestDemo {
 		// 4.1 Trigger the job with CronTrigger, and then repeat every 3 seconds
 		Trigger trigger1 = TriggerBuilder.newTrigger()
 				.withSchedule(CronScheduleBuilder.cronSchedule("0/2 * * * * ?")) //两秒执行一次，可以使用SimpleScheduleBuilder或者CronScheduleBuilder
-				.withDescription("tigger_desc")
+				.withDescription("cronTrigger_tigger_desc")
 				.withIdentity("trigger_name", "trigger_group")
 				.startNow()
 				.build();
@@ -44,6 +44,7 @@ public class QuartzTestDemo {
 		// 4.2 Trigger the job with SimpleTrigger, and then repeat every 3 seconds
 		Trigger trigger2 = TriggerBuilder.newTrigger()
 		        .withIdentity("trigger1", "group1")
+		        .withDescription("simpleTrigger_tigger_desc")
 		        .startNow()
 		        .withSchedule(SimpleScheduleBuilder.repeatSecondlyForever(3))
 		        .build();
