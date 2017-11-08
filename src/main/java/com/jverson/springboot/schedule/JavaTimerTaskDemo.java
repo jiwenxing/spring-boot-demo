@@ -1,4 +1,4 @@
-package com.jverson.springboot.demos;
+package com.jverson.springboot.schedule;
 
 import java.util.Calendar;
 import java.util.Date;
