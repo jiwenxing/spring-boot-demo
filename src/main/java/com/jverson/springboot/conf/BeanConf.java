@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.client.OkHttp3ClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
 import com.jverson.springboot.domain.Person;
@@ -29,6 +30,15 @@ public class BeanConf {
 	@Bean(name = "restTemplateB")
 	public RestTemplate restTemplateB(RestTemplateBuilder builder) {
 		return builder.setConnectTimeout(2000).setReadTimeout(2000).build();
+	}
+	
+	@Bean(name = "restTemplate")
+	public RestTemplate restTemplate(RestTemplateBuilder builder) {
+		OkHttp3ClientHttpRequestFactory httpRequestFactory = new OkHttp3ClientHttpRequestFactory();
+        httpRequestFactory.setConnectTimeout(2000);
+        httpRequestFactory.setReadTimeout(2000);
+        httpRequestFactory.setWriteTimeout(2000);
+        return new RestTemplate(httpRequestFactory);
 	}
 	
 	@Bean("person")

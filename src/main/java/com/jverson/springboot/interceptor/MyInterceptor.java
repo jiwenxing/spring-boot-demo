@@ -14,11 +14,11 @@ public class MyInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		String allowed = request.getParameter("allowed");
-		System.out.println(allowed);
+//		System.out.println(allowed);
 		if (!StringUtil.isEmpty(allowed) && allowed.equals("no")) {
 			return true;
 		}
-		System.out.println("interceptored...");
+//		System.out.println("interceptored...");
 		return true;
 	}
 

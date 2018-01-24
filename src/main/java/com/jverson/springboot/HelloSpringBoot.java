@@ -12,12 +12,11 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication 
 @MapperScan(basePackages = "com.jverson.springboot.mapper")
-@EnableScheduling
+//@EnableScheduling
 public class HelloSpringBoot {
 
 	private static Logger logger = LoggerFactory.getLogger("com.jverson.springboot.HelloWorld");
