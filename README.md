@@ -35,3 +35,4 @@ spring-boot-demo 是对 spring boot 的一些实践和总结，基本按照`1.5.
   - [Quartz 介绍](https://github.com/jiwenxing/spring-boot-demo/wiki/Quartz-%E4%BB%8B%E7%BB%8D)
   - [Spring Boot 集成 Quartz](https://github.com/jiwenxing/spring-boot-demo/wiki/quartz-springboot)
 - [Spring Events 事件机制](https://github.com/jiwenxing/spring-boot-demo/wiki/Spring-Events)
+- [Spring @Conditional Annotation](https://github.com/jiwenxing/spring-boot-demo/wiki/Spring-Conditional-Annotation)

@@ -6,15 +6,17 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class SpringConditionalConf {
+	
 	@Bean
-	@Conditional(WindowsCondition.class)
+	@Conditional(WindowsCondition.class) //WindowsCondition 条件成立时创建此 Bean
 	public CmdService windowsCmdService(){
 		return new WindowsCmdServiceImpl();
 	}
 	
 	@Bean
-	@Conditional(LinuxCondition.class)
+	@Conditional(LinuxCondition.class) //LinuxCondition 条件成立时创建此 Bean
 	public CmdService linuxCmdService(){
 		return new LinuxCmdServiceImpl();
 	}
+	
 }
