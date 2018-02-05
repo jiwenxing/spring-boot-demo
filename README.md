@@ -20,6 +20,7 @@ spring-boot-demo 是对 spring boot 的一些实践和总结，基本按照`1.5.
   - [Spring MVC 的配置](https://github.com/jiwenxing/spring-boot-demo/wiki/WebMvcConfig)
   - [Spring MVC 中优雅的异常和错误处理](https://github.com/jiwenxing/spring-boot-demo/wiki/Error-Handling)
   - [如何定制 Favicon](https://github.com/jiwenxing/spring-boot-demo/wiki/Custom-Favicon)
+  - [指定 @ResponseBody 的返回格式(Json or XML)](https://github.com/jiwenxing/spring-boot-demo/wiki/Custom-Return-Format)
 - [数据库相关](https://github.com/jiwenxing/spring-boot-demo/wiki/Using-Database)
   - [关于 JDBC 的基础知识](https://github.com/jiwenxing/spring-boot-demo/wiki/About-JDBC)
   - [对 ORM 框架的简单介绍](https://github.com/jiwenxing/spring-boot-demo/wiki/Talking-About-ORM)
