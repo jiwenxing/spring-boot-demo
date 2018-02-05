@@ -1,16 +1,20 @@
 package com.jverson.springboot.conf;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.jverson.springboot.interceptor.MyInterceptor;
 
 
 @Configuration
+@EnableWebMvc
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
 	/**
@@ -58,5 +62,11 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         // excludePathPatterns 用户排除拦截
         registry.addInterceptor(new MyInterceptor()).addPathPatterns("/**").excludePathPatterns("/cities","/login");
     }
+    
+    /*@Bean
+    public InternalResourceViewResolver viewResolver(){
+    	InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+    	return viewResolver;
+    }*/
     
 }
