@@ -38,3 +38,4 @@ spring-boot-demo 是对 spring boot 的一些实践和总结，基本按照`1.5.
 - [Spring Events 事件机制](https://github.com/jiwenxing/spring-boot-demo/wiki/Spring-Events)
 - [Spring @Conditional Annotation](https://github.com/jiwenxing/spring-boot-demo/wiki/Spring-Conditional-Annotation)
 - [Spring Data Cache(Guava Cache)]()
+- [构建部署可执行 jar](https://github.com/jiwenxing/spring-boot-demo/wiki/Spring-Boot-Deploy)
