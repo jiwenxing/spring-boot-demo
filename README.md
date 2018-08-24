@@ -1,6 +1,8 @@
-## Spring Boot Notes and Demo
+# Spring Boot Notes and Demo
 
 spring-boot-demo 是对 spring boot 的一些实践和总结，基本按照`1.5.4.RELEASE`版本官方文档 [Spring Boot Reference Guide](https://docs.spring.io/spring-boot/docs/1.5.4.RELEASE/reference/htmlsingle/#getting-started)的顺序进行，其中比较常用和重要的内容基本都有所涉及。
+
+**注意：** 文档已经从 wiki 迁移到 gitbook，请访问 [https://jverson.com/spring-boot-demo/](https://jverson.com/spring-boot-demo/) 查看
 
 ## Content
 
