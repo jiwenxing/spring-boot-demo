@@ -1,0 +1,836 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Java Timer & TimerTask · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Spring Schedule.html" />
+    
+    
+    <link rel="prev" href="Java Schedule.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Why Spring Boot.html">
+            
+                <a href="Why Spring Boot.html">
+            
+                    
+                    为什么要使用 Spring Boot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="Getting Started.html">
+            
+                <a href="Getting Started.html">
+            
+                    
+                    使用 Spring Boot 快速搭建工程实现 Hello World
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="Using Spring Boot.html">
+            
+                <a href="Using Spring Boot.html">
+            
+                    
+                    依赖管理、代码结构、配置类及热交换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="Customizing the Banner.html">
+            
+                <a href="Customizing the Banner.html">
+            
+                    
+                    如何定制 Banner
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    Spring Boot 的日志使用
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="Add color to eclipse console output by log level.html">
+            
+                <a href="Add color to eclipse console output by log level.html">
+            
+                    
+                    不同的日志级别展示不同的颜色
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="Spring Boot Log Configuration.html">
+            
+                <a href="Spring Boot Log Configuration.html">
+            
+                    
+                    日志的配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="Bean Configuration by Properties Files.html">
+            
+                <a href="Bean Configuration by Properties Files.html">
+            
+                    
+                    使用配置文件配置 Bean 的方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="Different Environment Different Profile.html">
+            
+                <a href="Different Environment Different Profile.html">
+            
+                    
+                    设置 Profiles- 不同环境读取不同 Profile 配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" >
+            
+                <span>
+            
+                    
+                    Web 开发相关
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="Using Velocity as Template Engine.html">
+            
+                <a href="Using Velocity as Template Engine.html">
+            
+                    
+                    使用 Velocity
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="Using FreeMaker as Template Engine.html">
+            
+                <a href="Using FreeMaker as Template Engine.html">
+            
+                    
+                    使用 FreeMaker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="WebMvcConfig.html">
+            
+                <a href="WebMvcConfig.html">
+            
+                    
+                    Spring MVC 的配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="Error Handling.html">
+            
+                <a href="Error Handling.html">
+            
+                    
+                    Spring MVC 中优雅的异常和错误处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="Custom Favicon.html">
+            
+                <a href="Custom Favicon.html">
+            
+                    
+                    如何定制 Favicon
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="Custom Return Format.html">
+            
+                <a href="Custom Return Format.html">
+            
+                    
+                    指定 @ResponseBody 的返回格式(Json or XML)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="Using Database.html">
+            
+                <a href="Using Database.html">
+            
+                    
+                    数据库相关
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="About JDBC.html">
+            
+                <a href="About JDBC.html">
+            
+                    
+                    关于 JDBC 的基础知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="Talking About ORM.html">
+            
+                <a href="Talking About ORM.html">
+            
+                    
+                    对 ORM 框架的简单介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="Mybatis Springboot Starter.md">
+            
+                <span>
+            
+                    
+                    通过 MyBatis-Spring-Boot-Starter 使用 Mybatis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="Mybatis Common Mapper.md">
+            
+                <span>
+            
+                    
+                    通过 Mybatis Common Mapper 使用通用 Mapper
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="Use PageHelper.html">
+            
+                <a href="Use PageHelper.html">
+            
+                    
+                    分页插件 PageHelper 使用 & 打印 sql 及运行时间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" data-path="Spring Data JPA.html">
+            
+                <a href="Spring Data JPA.html">
+            
+                    
+                    Spring Data JPA 介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="Using RestTemplate.html">
+            
+                <a href="Using RestTemplate.html">
+            
+                    
+                    使用 RestTemplate 调用 RESTful 接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="JavaMailSender.html">
+            
+                <a href="JavaMailSender.html">
+            
+                    
+                    使用 JavaMail 发送邮件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="CORS.html">
+            
+                <a href="CORS.html">
+            
+                    
+                    跨域资源共享 CORS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="Java Schedule.html">
+            
+                <a href="Java Schedule.html">
+            
+                    
+                    Java 定时任务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.14.1" data-path="Timer.html">
+            
+                <a href="Timer.html">
+            
+                    
+                    Java Timer & TimerTask
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="Spring Schedule.html">
+            
+                <a href="Spring Schedule.html">
+            
+                    
+                    Spring Schedule
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="Quartz Introduction.html">
+            
+                <a href="Quartz Introduction.html">
+            
+                    
+                    Quartz 介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.4" data-path="quartz springboot.html">
+            
+                <a href="quartz springboot.html">
+            
+                    
+                    Spring Boot 集成 Quartz
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="Spring Events.html">
+            
+                <a href="Spring Events.html">
+            
+                    
+                    Spring Events 事件机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" >
+            
+                <span>
+            
+                    
+                    Spring Data Cache(Guava Cache)
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="Spring Boot Deploy.html">
+            
+                <a href="Spring Boot Deploy.html">
+            
+                    
+                    构建部署可执行 jar
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Java Timer & TimerTask</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="java-&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x539F;&#x7406;">Java &#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x539F;&#x7406;</h3>
+<p>&#x5728;Java &#x4E2D;&#x8981;&#x5B9E;&#x73B0;&#x591A;&#x7EBF;&#x7A0B;&#x6709;&#x5B9E;&#x73B0;Runnable &#x63A5;&#x53E3;&#x548C;&#x6269;&#x5C55;Thread &#x7C7B;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x3002;&#x53EA;&#x8981;&#x5C06;&#x9700;&#x8981;&#x5F02;&#x6B65;&#x6267;&#x884C;&#x7684;&#x4EFB;&#x52A1;&#x653E;&#x5728;run() &#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x5728;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E2D;&#x542F;&#x52A8;&#x8981;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x7684;&#x5B50;&#x7EBF;&#x7A0B;&#x5C31;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x4EFB;&#x52A1;&#x7684;&#x5F02;&#x6B65;&#x6267;&#x884C;&#x3002;&#x5982;&#x679C;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x57FA;&#x4E8E;&#x65F6;&#x95F4;&#x70B9;&#x89E6;&#x53D1;&#x7684;&#x4EFB;&#x52A1;&#x8C03;&#x5EA6;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x5728;&#x5B50;&#x7EBF;&#x7A0B;&#x4E2D;&#x5FAA;&#x73AF;&#x7684;&#x68C0;&#x67E5;&#x7CFB;&#x7EDF;&#x5F53;&#x524D;&#x7684;&#x65F6;&#x95F4;&#x8DDF;&#x89E6;&#x53D1;&#x6761;&#x4EF6;&#x662F;&#x5426;&#x4E00;&#x81F4;&#xFF0C;&#x7136;&#x540E;&#x89E6;&#x53D1;&#x4EFB;&#x52A1;&#x7684;&#x6267;&#x884C;&#x3002;&#x6240;&#x4EE5;&#x6700;&#x539F;&#x59CB;&#x7684;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x662F;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;thread&#xFF0C;&#x7136;&#x540E;&#x8BA9;&#x5B83;&#x5728;while&#x5FAA;&#x73AF;&#x91CC;&#x4E00;&#x76F4;&#x8FD0;&#x884C;&#x7740;&#xFF0C;&#x901A;&#x8FC7;sleep&#x65B9;&#x6CD5;&#x6765;&#x8FBE;&#x5230;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x7684;&#x6548;&#x679C;&#x3002;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RunnableTaskDemo</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-keyword">final</span> <span class="hljs-keyword">long</span> timeInterval = <span class="hljs-number">2000</span>;  
+
+        Runnable runnable = <span class="hljs-keyword">new</span> Runnable() {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>){
+                    System.out.println(<span class="hljs-string">&quot;excute every 2 seconds, current time: &quot;</span> + <span class="hljs-keyword">new</span> Date());
+                    <span class="hljs-keyword">try</span> {
+                        Thread.sleep(timeInterval); <span class="hljs-comment">//&#x901A;&#x8FC7;&#x4F7F;&#x7EBF;&#x7A0B;&#x4F11;&#x7720;&#x8FBE;&#x5230;&#x95F4;&#x9694;&#x4E00;&#x5B9A;&#x65F6;&#x95F4;&#x7684;&#x76EE;&#x7684;</span>
+                    } <span class="hljs-keyword">catch</span> (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+        };
+
+        Thread thread = <span class="hljs-keyword">new</span> Thread(runnable);
+        thread.start();
+    }
+
+}
+</code></pre>
+<h3 id="java-timer-&#x548C;-timetask-&#x5B9E;&#x73B0;&#x4EFB;&#x52A1;&#x8C03;&#x5EA6;">Java Timer &#x548C; TimeTask &#x5B9E;&#x73B0;&#x4EFB;&#x52A1;&#x8C03;&#x5EA6;</h3>
+<p>&#x4F7F;&#x7528;Timer &#x548C; TimeTask&#x7684;&#x7B80;&#x5355;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TimerTaskDemo</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-comment">// TimerTask &#x662F;&#x5B9E;&#x73B0;&#x4E86;Runnable&#x7684;&#x62BD;&#x8C61;&#x7C7B;</span>
+        TimerTask timerTask = <span class="hljs-keyword">new</span> TimerTask() {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+                System.out.println(<span class="hljs-string">&quot;timerTask excute every 2 seconds, current time: &quot;</span> + <span class="hljs-keyword">new</span> Date());
+            }
+        };
+
+        Timer timer = <span class="hljs-keyword">new</span> Timer();
+        timer.scheduleAtFixedRate(timerTask, <span class="hljs-number">1000</span>, <span class="hljs-number">2000</span>);
+    }
+
+}
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x4E3A;&#x4E86;&#x4FBF;&#x4E8E;&#x5F00;&#x53D1;&#x8005;&#x5FEB;&#x901F;&#x5730;&#x5B9E;&#x73B0;&#x4EFB;&#x52A1;&#x8C03;&#x5EA6;&#xFF0C;Java JDK &#x5BF9;&#x4EFB;&#x52A1;&#x8C03;&#x5EA6;&#x7684;&#x529F;&#x80FD;&#x8FDB;&#x884C;&#x4E86;&#x5C01;&#x88C5;&#xFF0C;&#x5B9E;&#x73B0;&#x4E86;Timer &#x548C;TimerTask &#x4E24;&#x4E2A;&#x5DE5;&#x5177;&#x7C7B;&#x3002;&#x5176;&#x4E2D;TimeTask &#x62BD;&#x8C61;&#x7C7B;&#x5728;&#x5B9E;&#x73B0;Runnable &#x63A5;&#x53E3;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#x589E;&#x52A0;&#x4E86;&#x4EFB;&#x52A1;cancel() &#x548C;&#x4EFB;&#x52A1;scheduledExecuttionTime() &#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x3002;Timer&#x7C7B;&#x91C7;&#x7528;TaskQueue &#x6765;&#x5B9E;&#x73B0;&#x5BF9;&#x591A;&#x4E2A;TimeTask &#x7684;&#x7BA1;&#x7406;&#x3002;TimerThread &#x96C6;&#x6210;&#x81EA;Thread &#x7C7B;&#xFF0C;&#x5176;mainLoop() &#x7528;&#x6765;&#x5BF9;&#x4EFB;&#x52A1;&#x8FDB;&#x884C;&#x8C03;&#x5EA6;&#x3002;&#x800C;Timer &#x7C7B;&#x63D0;&#x4F9B;&#x4E86;&#x56DB;&#x79CD;&#x91CD;&#x8F7D;&#x7684;schedule() &#x65B9;&#x6CD5;&#x548C;&#x91CD;&#x8F7D;&#x4E86;&#x4E24;&#x79CD;sheduleAtFixedRate() &#x65B9;&#x6CD5;&#x6765;&#x5B9E;&#x73B0;&#x51E0;&#x79CD;&#x57FA;&#x672C;&#x7684;&#x4EFB;&#x52A1;&#x8C03;&#x5EA6;&#x7C7B;&#x578B;&#x3002;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#x5B9E;&#x73B0;&#x539F;&#x7406;&#x5176;&#x5B9E;&#x548C;&#x4E0A;&#x9762;&#x57FA;&#x672C;&#x4E00;&#x81F4;&#x90FD;&#x662F;<strong>&#x5229;&#x7528;Java &#x7684;&#x591A;&#x7EBF;&#x7A0B;&#x6280;&#x672F;</strong>&#xFF0C;&#x53EA;&#x662F;&#x505A;&#x4E86;&#x66F4;&#x591A;&#x7684;&#x5C01;&#x88C5;&#x66F4;&#x65B9;&#x4FBF;&#x5F00;&#x53D1;&#x8005;&#x4F7F;&#x7528;&#x3002;</p>
+<p>&#x8BE6;&#x7EC6;&#x7684;&#x7528;&#x6CD5;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">JavaTimerTaskDemo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TimerTask</span></span>{
+    <span class="hljs-keyword">private</span> String jobName = <span class="hljs-string">&quot;&quot;</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">JavaTimerTaskDemo</span><span class="hljs-params">(String jobName)</span> </span>{ 
+        <span class="hljs-keyword">super</span>(); 
+        <span class="hljs-keyword">this</span>.jobName = jobName; 
+    } 
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;execute: &quot;</span> + jobName);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-comment">// Timer &#x7C7B;&#x662F;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#xFF0C;&#x4E0B;&#x9762;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x53EF;&#x4EE5;&#x5171;&#x4EAB;&#x5355;&#x4E2A; Timer &#x5BF9;&#x8C61;&#x800C;&#x65E0;&#x9700;&#x8FDB;&#x884C;&#x5916;&#x90E8;&#x540C;&#x6B65;</span>
+        Timer timer = <span class="hljs-keyword">new</span> Timer();
+
+        <span class="hljs-keyword">long</span> delay = <span class="hljs-number">5</span> * <span class="hljs-number">1000</span>;
+        <span class="hljs-keyword">long</span> period = <span class="hljs-number">1</span> * <span class="hljs-number">1000</span>;
+        System.out.println(<span class="hljs-string">&quot;timer begin...&quot;</span>);
+
+        <span class="hljs-comment">// delay &#x65F6;&#x95F4;&#x540E;&#x6267;&#x884C; job1</span>
+        timer.schedule(<span class="hljs-keyword">new</span> JavaTimerTaskDemo(<span class="hljs-string">&quot;job1 execute after fixed delay.&quot;</span>), delay);
+
+        <span class="hljs-comment">// &#x6307;&#x5B9A;&#x65F6;&#x95F4;&#x6267;&#x884C; job2&#xFF08;&#x6CE8;&#x610F;&#x5927;&#x4E8E;&#x8BE5;&#x65F6;&#x95F4;&#x65F6;&#x542F;&#x52A8;&#x4EFB;&#x52A1;&#x4F1A;&#x7ACB;&#x5373;&#x6267;&#x884C;&#xFF09;</span>
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, <span class="hljs-number">15</span>);
+        calendar.set(Calendar.MINUTE, <span class="hljs-number">19</span>);
+        calendar.set(Calendar.SECOND, <span class="hljs-number">00</span>);
+        Date time = calendar.getTime();
+        timer.schedule(<span class="hljs-keyword">new</span> JavaTimerTaskDemo(<span class="hljs-string">&quot;job2 execute at set time.&quot;</span>), time);
+
+        <span class="hljs-comment">// &#x5B89;&#x6392;&#x6307;&#x5B9A;&#x7684;&#x4EFB;&#x52A1;job3&#x5728;&#x6307;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x5F00;&#x59CB;&#x8FDB;&#x884C;&#x91CD;&#x590D;&#x7684;&#x56FA;&#x5B9A;&#x5EF6;&#x8FDF;&#x6267;&#x884C;&#xFF08;&#x6CE8;&#x610F;&#x5927;&#x4E8E;&#x8BE5;&#x65F6;&#x95F4;&#x65F6;&#x542F;&#x52A8;&#x4EFB;&#x52A1;&#x4F1A;&#x7ACB;&#x5373;&#x6267;&#x884C;&#xFF09;</span>
+        <span class="hljs-comment">// &#x540C;&#x7406; scheduleAtFixedRate(TimerTask task, Date firstTime, long period)</span>
+        Calendar calendar1 = Calendar.getInstance();
+        calendar1.set(Calendar.HOUR_OF_DAY, <span class="hljs-number">17</span>);
+        calendar1.set(Calendar.MINUTE, <span class="hljs-number">59</span>);
+        calendar1.set(Calendar.SECOND, <span class="hljs-number">00</span>);
+        Date time1 = calendar1.getTime();
+        timer.schedule(<span class="hljs-keyword">new</span> JavaTimerTaskDemo(<span class="hljs-string">&quot;job3 execute at set time.&quot;</span>), time1, period); 
+        <span class="hljs-comment">// &#x7B49;&#x540C;&#x4E8E;&#x4E0B;&#x9762;&#x7684; scheduleAtFixedRate</span>
+<span class="hljs-comment">//        timer.scheduleAtFixedRate(new JavaTimerTaskDemo(&quot;job3 execute at set time.&quot;), time1, period);</span>
+
+        <span class="hljs-comment">// &#x5728;&#x5EF6;&#x8FDF;&#x6307;&#x5B9A;&#x65F6;&#x95F4;&#x540E;&#x4EE5;&#x6307;&#x5B9A;&#x7684;&#x95F4;&#x9694;&#x65F6;&#x95F4;&#x5FAA;&#x73AF;&#x6267;&#x884C;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;</span>
+        <span class="hljs-comment">// &#x540C;&#x7406;scheduleAtFixedRate(TimerTask task, long delay, long period)</span>
+        timer.schedule(<span class="hljs-keyword">new</span> JavaTimerTaskDemo(<span class="hljs-string">&quot;job4 execute at fixed rate after fixed delay.&quot;</span>), delay, period);
+        <span class="hljs-comment">// &#x7B49;&#x540C;&#x4E8E;&#x4E0B;&#x9762;&#x7684; scheduleAtFixedRate</span>
+<span class="hljs-comment">//        timer.scheduleAtFixedRate(new JavaTimerTaskDemo(&quot;job4 execute at fixed rate after fixed delay.&quot;), delay, period);</span>
+    }
+}
+</code></pre>
+<h3 id="timer--timetask-&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x7684;&#x7F3A;&#x70B9;">Timer + TimeTask &#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x7684;&#x7F3A;&#x70B9;</h3>
+<p>&#x4E00;&#x3001;&#x4EFB;&#x52A1;&#x5806;&#x79EF;</p>
+<p>&#x6240;&#x6709;&#x7684;TimerTask&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;TimerThread&#x6765;&#x6267;&#x884C;&#xFF0C;&#x56E0;&#x6B64;&#x540C;&#x4E00;&#x65F6;&#x523B;&#x53EA;&#x6709;&#x4E00;&#x4E2A;TimerTask&#x5728;&#x6267;&#x884C;&#x3002;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#x6211;&#x4EEC;&#x7684;&#x7EBF;&#x7A0B;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x6240;&#x6D88;&#x8017;&#x7684;&#x65F6;&#x95F4;&#x5E94;&#x8BE5;&#x975E;&#x5E38;&#x77ED;&#xFF0C;&#x4F46;&#x662F;&#x7531;&#x4E8E;&#x7279;&#x6B8A;&#x60C5;&#x51B5;&#x5BFC;&#x81F4;&#x67D0;&#x4E2A;&#x5B9A;&#x65F6;&#x5668;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x7684;&#x65F6;&#x95F4;&#x592A;&#x957F;&#xFF0C;&#x90A3;&#x4E48;&#x4ED6;&#x5C31;&#x4F1A;&#x201C;&#x72EC;&#x5360;&#x201D;&#x8BA1;&#x65F6;&#x5668;&#x7684;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x7EBF;&#x7A0B;&#xFF0C;&#x5176;&#x540E;&#x7684;&#x6240;&#x6709;&#x7EBF;&#x7A0B;&#x90FD;&#x5FC5;&#x987B;&#x7B49;&#x5F85;&#x5B83;&#x6267;&#x884C;&#x5B8C;&#xFF0C;&#x8FD9;&#x5C31;&#x4F1A;&#x5EF6;&#x8FDF;&#x540E;&#x7EED;&#x4EFB;&#x52A1;&#x7684;&#x6267;&#x884C;&#xFF0C;&#x4F7F;&#x8FD9;&#x4E9B;&#x4EFB;&#x52A1;&#x5806;&#x79EF;&#x5728;&#x4E00;&#x8D77;&#x3002;</p>
+<p>&#x4E8C;&#x3001;&#x4EFB;&#x52A1;&#x7EC8;&#x6B62;</p>
+<p>&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;TimerTask&#x7684;&#x6267;&#x884C;&#x5F02;&#x5E38;&#x90FD;&#x4F1A;&#x5BFC;&#x81F4;Timer&#x7EC8;&#x6B62;&#x6240;&#x6709;&#x4EFB;&#x52A1;&#xFF0C;&#x5728;&#x5F88;&#x591A;&#x573A;&#x666F;&#x4E2D;&#x8FD9;&#x6837;&#x7684;&#x60C5;&#x51B5;&#x4E5F;&#x662F;&#x4E0D;&#x5141;&#x8BB8;&#x7684;&#x3002;</p>
+<p>&#x4E09;&#x3001;&#x96C6;&#x7FA4;&#x73AF;&#x5883;&#x91CD;&#x590D;&#x6267;&#x884C;</p>
+<p>Timer + TimeTask&#x5B9A;&#x4EFB;&#x52A1;&#x548C;Spring&#x81EA;&#x5E26;&#x7684;Scheduled Task&#xFF08;&#x652F;&#x6301;&#x7EBF;&#x7A0B;&#x6C60;&#x7BA1;&#x7406;&#xFF09;&#x4E00;&#x6837;&#x6709;&#x4E00;&#x4E2A;&#x5171;&#x540C;&#x7684;&#x7F3A;&#x70B9;&#xFF0C;&#x90A3;&#x5C31;&#x662F;&#x5E94;&#x7528;&#x670D;&#x52A1;&#x5668;&#x96C6;&#x7FA4;&#x4E0B;&#x4F1A;&#x51FA;&#x73B0;&#x4EFB;&#x52A1;&#x591A;&#x6B21;&#x88AB;&#x8C03;&#x5EA6;&#x6267;&#x884C;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x56E0;&#x4E3A;&#x96C6;&#x7FA4;&#x7684;&#x8282;&#x70B9;&#x4E4B;&#x95F4;&#x662F;&#x4E0D;&#x4F1A;&#x5171;&#x4EAB;&#x4EFB;&#x52A1;&#x4FE1;&#x606F;&#x7684;&#xFF0C;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x4E0A;&#x7684;&#x4EFB;&#x52A1;&#x90FD;&#x4F1A;&#x6309;&#x65F6;&#x6267;&#x884C;&#x3002;</p>
+<p>&#x56DB;&#x3001;Timer&#x6267;&#x884C;&#x5468;&#x671F;&#x4EFB;&#x52A1;&#x65F6;&#x4F9D;&#x8D56;&#x7CFB;&#x7EDF;&#x65F6;&#x95F4;</p>
+<p>Timer&#x6267;&#x884C;&#x5468;&#x671F;&#x4EFB;&#x52A1;&#x65F6;&#x4F9D;&#x8D56;&#x7CFB;&#x7EDF;&#x65F6;&#x95F4;&#xFF0C;&#x5982;&#x679C;&#x5F53;&#x524D;&#x7CFB;&#x7EDF;&#x65F6;&#x95F4;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x4F1A;&#x51FA;&#x73B0;&#x4E00;&#x4E9B;&#x6267;&#x884C;&#x4E0A;&#x7684;&#x53D8;&#x5316;&#xFF0C;&#x800C;ScheduledExecutorService&#x57FA;&#x4E8E;&#x76F8;&#x5BF9;&#x65F6;&#x95F4;&#x7684;&#x5EF6;&#x8FDF;&#xFF0C;&#x4E0D;&#x4F1A;&#x7531;&#x4E8E;&#x7CFB;&#x7EDF;&#x65F6;&#x95F4;&#x7684;&#x6539;&#x53D8;&#x53D1;&#x751F;&#x6267;&#x884C;&#x53D8;&#x5316;&#x3002;</p>
+<h3 id="&#x4F7F;&#x7528;javautilconcurrentscheduledexecutorservice&#x4EE3;&#x66FF;javautiltimertimertask">&#x4F7F;&#x7528;<code>java.util.concurrent.ScheduledExecutorService</code>&#x4EE3;&#x66FF;<code>Java.util.Timer/TimerTask</code></h3>
+<p>&#x9274;&#x4E8E;&#x4EE5;&#x4E0A;Timer&#x7684;&#x7F3A;&#x70B9;&#xFF0C;<code>java.util.concurrent.ScheduledExecutorService</code>&#x7684;&#x51FA;&#x73B0;&#x6B63;&#x597D;&#x5F25;&#x8865;&#x4E86;Timer/TimerTask&#x7684;&#x7F3A;&#x9677;&#x3002;ScheduledExecutorService&#x57FA;&#x4E8E;ExecutorService&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;&#x7EBF;&#x7A0B;&#x6C60;&#x8C03;&#x5EA6;&#x3002;
+&#x5B83;&#x5177;&#x6709;&#x4EE5;&#x4E0B;&#x4F18;&#x70B9;&#xFF1A;</p>
+<ul>
+<li>ScheduledExecutorService&#x4EFB;&#x52A1;&#x8C03;&#x5EA6;&#x662F;&#x57FA;&#x4E8E;&#x76F8;&#x5BF9;&#x65F6;&#x95F4;&#xFF0C;&#x4E0D;&#x7BA1;&#x662F;&#x4E00;&#x6B21;&#x6027;&#x4EFB;&#x52A1;&#x8FD8;&#x662F;&#x5468;&#x671F;&#x6027;&#x4EFB;&#x52A1;&#x90FD;&#x662F;&#x76F8;&#x5BF9;&#x4E8E;&#x4EFB;&#x52A1;&#x52A0;&#x5165;&#x7EBF;&#x7A0B;&#x6C60;&#xFF08;&#x4EFB;&#x52A1;&#x961F;&#x5217;&#xFF09;&#x7684;&#x65F6;&#x95F4;&#x504F;&#x79FB;&#x3002;</li>
+<li>&#x57FA;&#x4E8E;&#x7EBF;&#x7A0B;&#x6C60;&#x7684;ScheduledExecutorService&#x5141;&#x8BB8;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x540C;&#x65F6;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#xFF0C;&#x8FD9;&#x5728;&#x6DFB;&#x52A0;&#x591A;&#x79CD;&#x4E0D;&#x540C;&#x8C03;&#x5EA6;&#x7C7B;&#x578B;&#x7684;&#x4EFB;&#x52A1;&#x662F;&#x975E;&#x5E38;&#x6709;&#x7528;&#x7684;&#x3002;</li>
+<li>&#x540C;&#x6837;&#x57FA;&#x4E8E;&#x7EBF;&#x7A0B;&#x6C60;&#x7684;ScheduledExecutorService&#x5728;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x4EFB;&#x52A1;&#x53D1;&#x751F;&#x5F02;&#x5E38;&#x65F6;&#x4F1A;&#x9000;&#x51FA;&#x6267;&#x884C;&#x7EBF;&#x7A0B;&#xFF0C;&#x4F46;&#x540C;&#x65F6;&#x4F1A;&#x6709;&#x65B0;&#x7684;&#x7EBF;&#x7A0B;&#x8865;&#x5145;&#x8FDB;&#x6765;&#x8FDB;&#x884C;&#x6267;&#x884C;&#x3002;ScheduledExecutorService&#x53EF;&#x4EE5;&#x505A;&#x5230;&#x4E0D;&#x4E22;&#x5931;&#x4EFB;&#x52A1;&#x3002;</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ScheduledExecutorServiceDemo</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+
+        Runnable runnable = <span class="hljs-keyword">new</span> Runnable() {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+                System.out.println(<span class="hljs-string">&quot;ScheduledExecutorService excute every 2 seconds, current time: &quot;</span> + <span class="hljs-keyword">new</span> Date());
+            }
+        };
+
+        ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
+        scheduledExecutorService.scheduleAtFixedRate(runnable, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, TimeUnit.SECONDS);
+    }
+
+}
+</code></pre>
+<h3 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h3>
+<p>&#x7EFC;&#x4E0A;&#x8BA8;&#x8BBA;&#x4F1A;&#x53D1;&#x73B0;<code>Timer + TimeTask</code>&#x5B9E;&#x73B0;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x53EF;&#x80FD;&#x771F;&#x7684;&#x5DF2;&#x7ECF;&#x6210;&#x4E3A;&#x5386;&#x53F2;&#xFF0C;&#x56E0;&#x4E3A;&#x5DF2;&#x7ECF;&#x51FA;&#x73B0;&#x4E86;&#x66F4;&#x4F18;&#x79C0;&#x66F4;&#x4FBF;&#x6377;&#x7684;&#x66FF;&#x4EE3;&#x65B9;&#x5F0F;&#xFF0C;ScheduledExecutorService&#x62E5;&#x6709;Timer/TimerTask&#x7684;&#x5168;&#x90E8;&#x7279;&#x6027;&#xFF0C;&#x5E76;&#x4E14;&#x4F7F;&#x7528;&#x66F4;&#x7B80;&#x5355;&#xFF0C;&#x652F;&#x6301;&#x5E76;&#x53D1;&#xFF0C;&#x800C;&#x4E14;&#x66F4;&#x5B89;&#x5168;&#xFF0C;&#x56E0;&#x6B64;&#x6CA1;&#x6709;&#x7406;&#x7531;&#x7EE7;&#x7EED;&#x4F7F;&#x7528;<code>Timer/TimerTask</code>&#xFF0C;&#x5B8C;&#x5168;&#x53EF;&#x4EE5;&#x5168;&#x90E8;&#x66FF;&#x6362;&#x3002;&#x9700;&#x8981;&#x8BF4;&#x660E;&#x7684;&#x4E00;&#x70B9;&#x662F;&#x6784;&#x9020;ScheduledExecutorService&#x7EBF;&#x7A0B;&#x6C60;&#x7684;&#x6838;&#x5FC3;&#x7EBF;&#x7A0B;&#x6C60;&#x5927;&#x5C0F;&#x8981;&#x6839;&#x636E;&#x4EFB;&#x52A1;&#x6570;&#x6765;&#x5B9A;&#xFF0C;&#x5426;&#x5219;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x8D44;&#x6E90;&#x7684;&#x6D6A;&#x8D39;&#x3002;&#x800C;Spring&#x7684;Scheduled Task&#x529F;&#x80FD;&#x672C;&#x8D28;&#x4E0A;&#x5C31;&#x662F;&#x5229;&#x7528;<code>java.util.concurrent.ScheduledExecutorService</code>&#x5B9E;&#x73B0;&#xFF0C;&#x8FD9;&#x5C06;&#x5728;&#x4E0B;&#x4E00;&#x7AE0;&#x8FDB;&#x884C;&#x8BA8;&#x8BBA;&#x3002;</p>
+<h3 id="references">References</h3>
+<ul>
+<li><a href="http://blog.csdn.net/qq_32786873/article/details/53024056" target="_blank">Timer/TimerTask&#x4E0E;ScheduledExecutorService</a></li>
+<li><a href="http://blog.csdn.net/haorengoodman/article/details/23281343/" target="_blank">Java&#x5B9E;&#x73B0;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x7684;&#x4E09;&#x79CD;&#x65B9;&#x6CD5;</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Java Schedule.html" class="navigation navigation-prev " aria-label="Previous page: Java 定时任务">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Spring Schedule.html" class="navigation navigation-next " aria-label="Next page: Spring Schedule">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Java Timer & TimerTask","level":"1.14.1","depth":2,"next":{"title":"Spring Schedule","level":"1.14.2","depth":2,"path":"Spring Schedule.md","ref":"Spring Schedule.md","articles":[]},"previous":{"title":"Java 定时任务","level":"1.14","depth":1,"path":"Java Schedule.md","ref":"Java Schedule.md","articles":[{"title":"Java Timer & TimerTask","level":"1.14.1","depth":2,"path":"Timer.md","ref":"Timer.md","articles":[]},{"title":"Spring Schedule","level":"1.14.2","depth":2,"path":"Spring Schedule.md","ref":"Spring Schedule.md","articles":[]},{"title":"Quartz 介绍","level":"1.14.3","depth":2,"path":"Quartz Introduction.md","ref":"Quartz Introduction.md","articles":[]},{"title":"Spring Boot 集成 Quartz","level":"1.14.4","depth":2,"path":"quartz springboot.md","ref":"quartz springboot.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Timer.md","mtime":"2018-08-24T03:07:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-24T03:49:57.854Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

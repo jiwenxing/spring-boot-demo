@@ -1,0 +1,866 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Spring MVC 中优雅的异常和错误处理 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Custom Favicon.html" />
+    
+    
+    <link rel="prev" href="WebMvcConfig.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Why Spring Boot.html">
+            
+                <a href="Why Spring Boot.html">
+            
+                    
+                    为什么要使用 Spring Boot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="Getting Started.html">
+            
+                <a href="Getting Started.html">
+            
+                    
+                    使用 Spring Boot 快速搭建工程实现 Hello World
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="Using Spring Boot.html">
+            
+                <a href="Using Spring Boot.html">
+            
+                    
+                    依赖管理、代码结构、配置类及热交换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="Customizing the Banner.html">
+            
+                <a href="Customizing the Banner.html">
+            
+                    
+                    如何定制 Banner
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    Spring Boot 的日志使用
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="Add color to eclipse console output by log level.html">
+            
+                <a href="Add color to eclipse console output by log level.html">
+            
+                    
+                    不同的日志级别展示不同的颜色
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="Spring Boot Log Configuration.html">
+            
+                <a href="Spring Boot Log Configuration.html">
+            
+                    
+                    日志的配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="Bean Configuration by Properties Files.html">
+            
+                <a href="Bean Configuration by Properties Files.html">
+            
+                    
+                    使用配置文件配置 Bean 的方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="Different Environment Different Profile.html">
+            
+                <a href="Different Environment Different Profile.html">
+            
+                    
+                    设置 Profiles- 不同环境读取不同 Profile 配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" >
+            
+                <span>
+            
+                    
+                    Web 开发相关
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="Using Velocity as Template Engine.html">
+            
+                <a href="Using Velocity as Template Engine.html">
+            
+                    
+                    使用 Velocity
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="Using FreeMaker as Template Engine.html">
+            
+                <a href="Using FreeMaker as Template Engine.html">
+            
+                    
+                    使用 FreeMaker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="WebMvcConfig.html">
+            
+                <a href="WebMvcConfig.html">
+            
+                    
+                    Spring MVC 的配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.9.4" data-path="Error Handling.html">
+            
+                <a href="Error Handling.html">
+            
+                    
+                    Spring MVC 中优雅的异常和错误处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="Custom Favicon.html">
+            
+                <a href="Custom Favicon.html">
+            
+                    
+                    如何定制 Favicon
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="Custom Return Format.html">
+            
+                <a href="Custom Return Format.html">
+            
+                    
+                    指定 @ResponseBody 的返回格式(Json or XML)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="Using Database.html">
+            
+                <a href="Using Database.html">
+            
+                    
+                    数据库相关
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="About JDBC.html">
+            
+                <a href="About JDBC.html">
+            
+                    
+                    关于 JDBC 的基础知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="Talking About ORM.html">
+            
+                <a href="Talking About ORM.html">
+            
+                    
+                    对 ORM 框架的简单介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="Mybatis Springboot Starter.md">
+            
+                <span>
+            
+                    
+                    通过 MyBatis-Spring-Boot-Starter 使用 Mybatis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="Mybatis Common Mapper.md">
+            
+                <span>
+            
+                    
+                    通过 Mybatis Common Mapper 使用通用 Mapper
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="Use PageHelper.html">
+            
+                <a href="Use PageHelper.html">
+            
+                    
+                    分页插件 PageHelper 使用 & 打印 sql 及运行时间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" data-path="Spring Data JPA.html">
+            
+                <a href="Spring Data JPA.html">
+            
+                    
+                    Spring Data JPA 介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="Using RestTemplate.html">
+            
+                <a href="Using RestTemplate.html">
+            
+                    
+                    使用 RestTemplate 调用 RESTful 接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="JavaMailSender.html">
+            
+                <a href="JavaMailSender.html">
+            
+                    
+                    使用 JavaMail 发送邮件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="CORS.html">
+            
+                <a href="CORS.html">
+            
+                    
+                    跨域资源共享 CORS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="Java Schedule.html">
+            
+                <a href="Java Schedule.html">
+            
+                    
+                    Java 定时任务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="Timer.html">
+            
+                <a href="Timer.html">
+            
+                    
+                    Java Timer & TimerTask
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="Spring Schedule.html">
+            
+                <a href="Spring Schedule.html">
+            
+                    
+                    Spring Schedule
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="Quartz Introduction.html">
+            
+                <a href="Quartz Introduction.html">
+            
+                    
+                    Quartz 介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.4" data-path="quartz springboot.html">
+            
+                <a href="quartz springboot.html">
+            
+                    
+                    Spring Boot 集成 Quartz
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="Spring Events.html">
+            
+                <a href="Spring Events.html">
+            
+                    
+                    Spring Events 事件机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" >
+            
+                <span>
+            
+                    
+                    Spring Data Cache(Guava Cache)
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="Spring Boot Deploy.html">
+            
+                <a href="Spring Boot Deploy.html">
+            
+                    
+                    构建部署可执行 jar
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Spring MVC 中优雅的异常和错误处理</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>&#x5BF9;&#x4E8E;&#x5F02;&#x5E38;&#x548C;&#x9519;&#x8BEF;&#x6211;&#x4EEC;&#x4E00;&#x822C;&#x5E0C;&#x671B;&#x7ED9;&#x7528;&#x6237;&#x5C55;&#x793A;&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x53CB;&#x597D;&#x7684;&#x9875;&#x9762;&#xFF0C;&#x6216;&#x8005;&#x7ED9;&#x8C03;&#x7528;&#x8005;&#x4E00;&#x4E2A;&#x683C;&#x5F0F;&#x5316;&#x5F97;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#xFF0C;springboot&#x5BF9;&#x4E8E;&#x5F02;&#x5E38;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;&#x9ED8;&#x8BA4;&#x7684;<code>&#x2018;whitelabel&#x2019; error view</code>&#x9875;&#x9762;&#xFF0C;&#x5BF9;&#x4E8E;http rest&#x5BA2;&#x6237;&#x7AEF;&#x4E5F;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6807;&#x51C6;&#x7684;json&#x6570;&#x636E;&#x3002;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x8981;&#x505A;&#x7684;&#x662F;&#x5B9A;&#x5236;&#x81EA;&#x5DF1;&#x7684;&#x9519;&#x8BEF;&#x9875;&#x548C;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x683C;&#x5F0F;&#x3002;</p>
+<h3 id="&#x5355;&#x4E2A;&#x9759;&#x6001;&#x9519;&#x8BEF;&#x9875;">&#x5355;&#x4E2A;&#x9759;&#x6001;&#x9519;&#x8BEF;&#x9875;</h3>
+<p>&#x5982;&#x679C;&#x9700;&#x6C42;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x9488;&#x5BF9;&#x4E0D;&#x540C;&#x7684;&#x5F02;&#x5E38;&#x5C55;&#x793A;&#x4E0D;&#x540C;&#x7684;&#x9875;&#x9762;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x5F02;&#x5E38;&#x548C;&#x9519;&#x8BEF;&#x90FD;&#x5BF9;&#x5E94;&#x5230;&#x67D0;&#x4E00;&#x4E2A;&#x5B9A;&#x5236;&#x7684;&#x9759;&#x6001;&#x9519;&#x8BEF;&#x9875;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5C06;&#x9759;&#x6001;&#x9875;&#x653E;&#x5728;&#x7279;&#x5B9A;&#x7684;&#x76EE;&#x5F55;&#x5373;&#x53EF;&#xFF08;src/main/resources/templates&#xFF09;&#xFF0C;springboot&#x4FBF;&#x4F1A;&#x81EA;&#x52A8;&#x6620;&#x5C04;&#x5230;&#x8BE5;&#x9875;&#x9762;&#xFF0C;&#x8FD9;&#x65F6;&#x8BBF;&#x95EE;&#x4E00;&#x4E2A;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x94FE;&#x63A5;&#x4FBF;&#x4F1A;&#x8FD4;&#x56DE;&#x8FD9;&#x4E2A;&#x9519;&#x8BEF;&#x9875;&#x3002;&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x6709;&#x4E00;&#x4E9B;&#x9519;&#x8BEF;&#x5C5E;&#x6027;&#x662F;&#x53EF;&#x4EE5;&#x5728;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x4E2D;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x7684;&#xFF0C;&#x6BD4;&#x5982;status&#x3001;message&#x3001;path&#x7B49;&#x3002;</p>
+<p><img src="http://7xry05.com1.z0.glb.clouddn.com/201707251744_27.png" alt=""></p>
+<h3 id="&#x5355;&#x4E2A;&#x52A8;&#x6001;&#x9519;&#x8BEF;&#x9875;">&#x5355;&#x4E2A;&#x52A8;&#x6001;&#x9519;&#x8BEF;&#x9875;</h3>
+<p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5B9E;&#x73B0;<code>ErrorViewResolver</code>&#x63A5;&#x53E3;&#x5411;error&#x9875;&#x9762;&#x6DFB;&#x52A0;&#x4E00;&#x4E9B;&#x52A8;&#x6001;&#x6570;&#x636E;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Component</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyErrorViewResolver</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">ErrorViewResolver</span> </span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String DEFAULT_ERROR_VIEW = <span class="hljs-string">&quot;error&quot;</span>;
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> ModelAndView <span class="hljs-title">resolveErrorView</span><span class="hljs-params">(HttpServletRequest request, HttpStatus status, Map&lt;String, Object&gt; model)</span> </span>{
+        ModelAndView mav = <span class="hljs-keyword">new</span> ModelAndView();
+        mav.addObject(<span class="hljs-string">&quot;status&quot;</span>, status.value());
+        mav.addObject(<span class="hljs-string">&quot;message&quot;</span>, status.getReasonPhrase());
+        mav.setViewName(DEFAULT_ERROR_VIEW);
+        <span class="hljs-keyword">return</span> mav;
+    }
+}
+</code></pre>
+<p>error.ftl&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>&#x7EDF;&#x4E00;&#x5F02;&#x5E38;&#x5904;&#x7406;<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Error Handler<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>status: ${status}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>message: ${message}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>url: ${url}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<p>&#x8FD9;&#x65F6;&#x542F;&#x52A8;&#x968F;&#x610F;&#x8BBF;&#x95EE;&#x4E00;&#x4E2A;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x7F51;&#x5740;&#x4FBF;&#x4F1A;&#x770B;&#x5230;</p>
+<p><img src="http://7xry05.com1.z0.glb.clouddn.com/201707252124_957.png" alt=""></p>
+<h3 id="&#x6839;&#x636E;&#x4E0D;&#x540C;&#x7684;&#x60C5;&#x51B5;&#x8FD4;&#x56DE;&#x4E0D;&#x540C;&#x7684;&#x9519;&#x8BEF;&#x9875;">&#x6839;&#x636E;&#x4E0D;&#x540C;&#x7684;&#x60C5;&#x51B5;&#x8FD4;&#x56DE;&#x4E0D;&#x540C;&#x7684;&#x9519;&#x8BEF;&#x9875;</h3>
+<p>&#x5728;&#x914D;&#x7F6E;&#x7C7B;&#x4E2D;&#x6DFB;&#x52A0;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x4E0D;&#x540C;&#x7684;&#x9519;&#x8BEF;&#x6620;&#x5C04;&#x5230;&#x4E0D;&#x540C;&#x7684;&#x5730;&#x5740;&#xFF0C;&#x800C;&#x8FD9;&#x4E9B;&#x6620;&#x5C04;&#x5E76;&#x4E0D;&#x9700;&#x8981;&#x4E13;&#x95E8;&#x7684;controller&#x53BB;&#x5904;&#x7406;&#xFF0C;springboot&#x4F1A;&#x81EA;&#x52A8;&#x4ECE;&#x7279;&#x5B9A;&#x76EE;&#x5F55;&#xFF08;src/main/resources/static&#xFF09;&#x5BFB;&#x627E;&#x8FD9;&#x4E9B;&#x9875;&#x9762;&#x3002;</p>
+<p>&#x8FD9;&#x4E2A;&#x539F;&#x7406;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x5BF9;&#x5185;&#x7F6E;Servlet&#x5BB9;&#x5668;&#x8FDB;&#x884C;&#x914D;&#x7F6E;&#xFF0C;&#x4E4B;&#x524D;&#x4F7F;&#x7528;&#x7684;&#x5916;&#x90E8;&#x5BB9;&#x5668;&#x914D;&#x7F6E;&#x7684;web.xml&#x4F5C;&#x7528;&#x4E00;&#x6837;&#x3002;&#x5982;&#x679C;Spring MVC&#x5728;&#x5904;&#x7406;&#x8FC7;&#x7A0B;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x5230;Servlet&#x5BB9;&#x5668;&#xFF0C;&#x5BB9;&#x5668;&#x4F1A;&#x5B9A;&#x5411;&#x5230;&#x6307;&#x5B9A;&#x7684;&#x9519;&#x8BEF;&#x9875;&#x9762;&#xFF08;&#x9519;&#x8BEF;&#x9875;&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#x5C31;&#x662F;<code>/error</code>&#xFF09;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * Roughly equivalent to the error-page element traditionally found in web.xml
+ */</span>
+<span class="hljs-meta">@Bean</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> EmbeddedServletContainerCustomizer <span class="hljs-title">containerCustomizer</span><span class="hljs-params">()</span> </span>{
+   <span class="hljs-keyword">return</span> (container -&gt; {
+        ErrorPage error401Page = <span class="hljs-keyword">new</span> ErrorPage(HttpStatus.UNAUTHORIZED, <span class="hljs-string">&quot;/401.html&quot;</span>);
+        ErrorPage error404Page = <span class="hljs-keyword">new</span> ErrorPage(HttpStatus.NOT_FOUND, <span class="hljs-string">&quot;/404.html&quot;</span>);
+        ErrorPage error500Page = <span class="hljs-keyword">new</span> ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, <span class="hljs-string">&quot;/500.html&quot;</span>);
+
+        container.addErrorPages(error401Page, error404Page, error500Page);
+   });
+}
+</code></pre>
+<p><img src="http://7xry05.com1.z0.glb.clouddn.com/201707252137_848.png" alt=""></p>
+<h3 id="&#x9488;&#x5BF9;&#x4E0D;&#x540C;&#x7684;&#x5F02;&#x5E38;&#xFF08;&#x6216;controller&#xFF09;&#x8FD4;&#x56DE;&#x4E0D;&#x540C;&#x7684;json&#x6570;&#x636E;">&#x9488;&#x5BF9;&#x4E0D;&#x540C;&#x7684;&#x5F02;&#x5E38;&#xFF08;&#x6216;controller&#xFF09;&#x8FD4;&#x56DE;&#x4E0D;&#x540C;&#x7684;json&#x6570;&#x636E;</h3>
+<p>&#x8FD9;&#x662F;&#x901A;&#x8FC7;<code>@ControllerAdvice</code>&#x6765;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x5B9A;&#x4E49;&#x5982;&#x4E0B;&#x4E00;&#x4E2A;&#x7C7B;&#xFF08;&#x6CE8;&#x610F;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x7EE7;&#x627F;ResponseEntityExceptionHandler&#xFF09;&#xFF0C;&#x5176;&#x4E2D;<code>basePackageClasses</code>&#x548C;<code>ExceptionHandler</code>&#x6307;&#x5B9A;&#x4E86;&#x8BE5;&#x7C7B;&#x4F1A;&#x5BF9;&#x6307;&#x5B9A;&#x7684;controller&#x548C;&#x6307;&#x5B9A;&#x7684;exception&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;By default the methods in an @ControllerAdvice apply globally to all Controllers&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@ControllerAdvice</span>(basePackageClasses = HelloController.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FooControllerAdvice</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ResponseEntityExceptionHandler</span> </span>{
+
+    <span class="hljs-meta">@ExceptionHandler</span>(RestException.class)
+    <span class="hljs-meta">@ResponseBody</span>
+    ResponseEntity&lt;?&gt; handleControllerException(HttpServletRequest request, RestException rex) {
+        HttpStatus status = getStatus(request);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ResponseEntity&lt;&gt;(<span class="hljs-keyword">new</span> CustomerErrorType(rex.getErrorEnum().code, rex.getErrorEnum().message), status);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> HttpStatus <span class="hljs-title">getStatus</span><span class="hljs-params">(HttpServletRequest request)</span> </span>{
+        Integer statusCode = (Integer) request.getAttribute(<span class="hljs-string">&quot;javax.servlet.error.status_code&quot;</span>);
+        <span class="hljs-keyword">if</span> (statusCode == <span class="hljs-keyword">null</span>) {
+        <span class="hljs-keyword">return</span> HttpStatus.INTERNAL_SERVER_ERROR;
+        }
+        <span class="hljs-keyword">return</span> HttpStatus.valueOf(statusCode);
+    }
+}
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x4FBF;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;<code>CustomerErrorType</code>&#xFF0C;&#x4F8B;&#x5982;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CustomerErrorType</span> </span>{
+    <span class="hljs-keyword">private</span> Integer code;
+    <span class="hljs-keyword">private</span> String message;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">CustomerErrorType</span><span class="hljs-params">(Integer code, String message)</span> </span>{
+        <span class="hljs-keyword">this</span>.code = code;
+        <span class="hljs-keyword">this</span>.message = message;
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">getCode</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> code;
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setCode</span><span class="hljs-params">(Integer code)</span> </span>{
+        <span class="hljs-keyword">this</span>.code = code;
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getMessage</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> message;
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setMessage</span><span class="hljs-params">(String message)</span> </span>{
+        <span class="hljs-keyword">this</span>.message = message;
+    }
+}
+</code></pre>
+<p>&#x81EA;&#x5B9A;&#x4E49;&#x5F02;&#x5E38;&#x7C7B;&#xFF0C;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RestException</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Exception</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">long</span> serialVersionUID = <span class="hljs-number">1L</span>;
+    <span class="hljs-keyword">private</span> ErrorEnum errorEnum;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">RestException</span><span class="hljs-params">(ErrorEnum errorEnum)</span> </span>{
+        <span class="hljs-keyword">super</span>();
+        <span class="hljs-keyword">this</span>.setErrorEnum(errorEnum);
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> ErrorEnum <span class="hljs-title">getErrorEnum</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> errorEnum;
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setErrorEnum</span><span class="hljs-params">(ErrorEnum errorEnum)</span> </span>{
+        <span class="hljs-keyword">this</span>.errorEnum = errorEnum;
+    }
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> ErrorEnum{
+        ERROR_SERVER(<span class="hljs-number">100</span>, <span class="hljs-string">&quot;server error&quot;</span>), ERROR_PARAMETERS(<span class="hljs-number">101</span>, <span class="hljs-string">&quot;parameters error&quot;</span>);
+        <span class="hljs-keyword">public</span> Integer code;
+        <span class="hljs-keyword">public</span> String message;
+        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">ErrorEnum</span><span class="hljs-params">(Integer code, String message)</span> </span>{
+            <span class="hljs-keyword">this</span>.code = code;
+            <span class="hljs-keyword">this</span>.message = message;
+        }
+    }
+}
+</code></pre>
+<p>&#x8FD9;&#x65F6;&#x518D;&#x8BBF;&#x95EE;&#x5982;&#x4E0B;Controller&#x65B9;&#x6CD5;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">&quot;/json&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">jsonException</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> RestException</span>{
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RestException(ErrorEnum.ERROR_PARAMETERS);
+}
+</code></pre>
+<p>&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-json">{
+<span class="hljs-string">&quot;code&quot;</span>: <span class="hljs-number">101</span>,
+<span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;parameters error&quot;</span>
+}
+</code></pre>
+<h3 id="&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x7C7B;&#x4E2D;&#x5904;&#x7406;&#x9875;&#x9762;&#x5F02;&#x5E38;&#x548C;rest&#x8BF7;&#x6C42;&#x5F02;&#x5E38;">&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x7C7B;&#x4E2D;&#x5904;&#x7406;&#x9875;&#x9762;&#x5F02;&#x5E38;&#x548C;rest&#x8BF7;&#x6C42;&#x5F02;&#x5E38;</h3>
+<p>&#x8FD8;&#x662F;&#x4F7F;&#x7528;@ControllerAdvice&#x7C7B;&#x4F3C;&#x4E8E;&#x4E0A;&#x9762;&#x63D0;&#x5230;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5C06;page&#x548C;rest&#x8BF7;&#x6C42;&#x5F02;&#x5E38;&#x5904;&#x7406;&#x653E;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x7C7B;&#x91CC;&#x5982;&#x4E0B;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@ControllerAdvice</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GlobalExceptionHandler</span> </span>{
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String DEFAULT_ERROR_VIEW = <span class="hljs-string">&quot;error&quot;</span>;
+
+    <span class="hljs-meta">@ExceptionHandler</span>(value = RestException.class)
+    <span class="hljs-meta">@ResponseBody</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> ResultWrap&lt;String&gt; <span class="hljs-title">defaultErrorJsonHandler</span><span class="hljs-params">(HttpServletRequest req, RestException e)</span> <span class="hljs-keyword">throws</span> Exception </span>{
+        ResultWrap&lt;String&gt; errorInfo = <span class="hljs-keyword">new</span> ResultWrap&lt;String&gt;();
+        errorInfo.setMessage(e.getErrorEnum().message);
+        errorInfo.setCode(e.getErrorEnum().code);
+        errorInfo.setDate(<span class="hljs-string">&quot;something is wrong!&quot;</span>);
+        errorInfo.setUrl(req.getRequestURL().toString());
+        <span class="hljs-keyword">return</span> errorInfo;
+    }
+
+    <span class="hljs-meta">@ExceptionHandler</span>(value = PageException.class)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> ModelAndView <span class="hljs-title">defaultErrorPageHandler</span><span class="hljs-params">(HttpServletRequest req, PageException e)</span> <span class="hljs-keyword">throws</span> Exception </span>{
+        ModelAndView mav = <span class="hljs-keyword">new</span> ModelAndView();
+        mav.addObject(<span class="hljs-string">&quot;code&quot;</span>, e.getErrorEnum().code);
+        mav.addObject(<span class="hljs-string">&quot;message&quot;</span>, e.getErrorEnum().message);
+        mav.addObject(<span class="hljs-string">&quot;url&quot;</span>, req.getRequestURL().toString());
+        mav.setViewName(DEFAULT_ERROR_VIEW);
+        <span class="hljs-keyword">return</span> mav;
+    }
+
+}
+</code></pre>
+<p>&#x9700;&#x8981;&#x81EA;&#x5B9A;&#x4E49;&#x4E1A;&#x52A1;&#x5F02;&#x5E38;&#xFF0C;&#x5206;&#x522B;&#x5728;page&#x548C;rest&#x8BF7;&#x6C42;&#x4E2D;&#x629B;&#x51FA;&#x4E0D;&#x540C;&#x7684;&#x5F02;&#x5E38;&#x7C7B;&#x578B;&#x5373;&#x53EF;&#x3002;&#x5F53;&#x7136;&#x5BB9;&#x5668;&#x4E2D;&#x7684;&#x5F02;&#x5E38;&#x8FD8;&#x662F;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x4E0A;&#x9762;&#x63D0;&#x5230;&#x7684;<code>EmbeddedServletContainerCustomizer</code>&#x6216;&#x91CD;&#x5199;<code>resolveErrorView</code>&#x7684;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;&#x3002;</p>
+<h3 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h3>
+<ul>
+<li><a href="http://docs.spring.io/spring-boot/docs/1.5.4.RELEASE/reference/htmlsingle/#boot-features-error-handling" target="_blank">Error Handling</a></li>
+<li><a href="https://www.sporcic.org/2014/05/custom-error-pages-with-spring-boot/" target="_blank">CUSTOM ERROR PAGES WITH SPRING BOOT</a></li>
+<li><a href="http://www.open-open.com/lib/view/open1446607376779.html" target="_blank">Spring Boot&#x5F02;&#x5E38;&#x5904;&#x7406;&#x8BE6;&#x89E3;(&#x539F;&#x7406;)</a></li>
+<li><a href="http://blog.didispace.com/springbootexception/" target="_blank">Spring Boot&#x4E2D;Web&#x5E94;&#x7528;&#x7684;&#x7EDF;&#x4E00;&#x5F02;&#x5E38;&#x5904;&#x7406;</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="WebMvcConfig.html" class="navigation navigation-prev " aria-label="Previous page: Spring MVC 的配置">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Custom Favicon.html" class="navigation navigation-next " aria-label="Next page: 如何定制 Favicon">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Spring MVC 中优雅的异常和错误处理","level":"1.9.4","depth":2,"next":{"title":"如何定制 Favicon","level":"1.9.5","depth":2,"path":"Custom Favicon.md","ref":"Custom Favicon.md","articles":[]},"previous":{"title":"Spring MVC 的配置","level":"1.9.3","depth":2,"path":"WebMvcConfig.md","ref":"WebMvcConfig.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Error Handling.md","mtime":"2018-08-24T03:07:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-24T03:49:57.854Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

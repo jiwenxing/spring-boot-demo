@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Introduction · GitBook</title>
+        <title>Spring Schedule · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,8 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Why Spring Boot.html" />
+    <link rel="next" href="Quartz Introduction.html" />
     
+    
+    <link rel="prev" href="Timer.html" />
     
 
     </head>
@@ -87,7 +89,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -483,7 +485,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.14.2" data-path="Spring Schedule.html">
+        <li class="chapter active" data-level="1.14.2" data-path="Spring Schedule.html">
             
                 <a href="Spring Schedule.html">
             
@@ -596,7 +598,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Introduction</a>
+        <a href="." >Spring Schedule</a>
     </h1>
 </div>
 
@@ -611,32 +613,90 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="introduction">Introduction</h1>
-<p>Spring Boot &#x53D1;&#x5E03;&#x4E8E; 2014 &#x5E74;&#xFF0C;&#x5B83;&#x79C9;&#x627F;&#x201C;&#x4E60;&#x60EF;&#x4F18;&#x4E8E;&#x914D;&#x7F6E;&#x201D;&#x7684;&#x7406;&#x5FF5;&#x53EF;&#x4EE5;&#x4F7F;&#x9879;&#x76EE;&#x5FEB;&#x901F;&#x8FD0;&#x884C;&#x8D77;&#x6765;&#xFF0C;&#x4F7F;&#x7528; Spring Boot &#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x8FD0;&#x884C;&#x7684;&#x3001;&#x751F;&#x4EA7;&#x7EA7;&#x522B;&#x7684;&#x57FA;&#x4E8E; Spring &#x6846;&#x67B6;&#x7684;&#x9879;&#x76EE;&#x3002;&#x9274;&#x4E8E; Spring Boot &#x5728;&#x9879;&#x76EE;&#x4E2D;&#x5927;&#x91CF;&#x4F7F;&#x7528;&#x5E76;&#x4E14;&#x65E5;&#x8D8B;&#x6D41;&#x884C;&#x7684;&#x8D8B;&#x52BF;&#xFF0C;&#x901A;&#x8FC7;&#x5BF9;&#x5176;&#x5B98;&#x65B9;&#x6587;&#x6863;&#x8FDB;&#x884C;&#x7CFB;&#x7EDF;&#x7684;&#x5B66;&#x4E60;&#x548C;&#x5B9E;&#x8DF5;&#x68B3;&#x7406;&#x51FA;&#x4E00;&#x4E9B;&#x7B14;&#x8BB0;&#x8BB0;&#x5F55;&#x4E8E;&#x6B64;&#x3002;</p>
-<p>&#x8BE5; wiki &#x5185;&#x5BB9;&#x57FA;&#x672C;&#x6309;&#x7167; <code>1.5.4.RELEASE</code> &#x7248;&#x672C;&#x5B98;&#x65B9;&#x6587;&#x6863; <a href="https://docs.spring.io/spring-boot/docs/1.5.4.RELEASE/reference/htmlsingle/#getting-started" target="_blank">Spring Boot Reference Guide</a> &#x7684;&#x987A;&#x5E8F;&#x8FDB;&#x884C;&#xFF0C;&#x5176;&#x4E2D;&#x6BD4;&#x8F83;&#x5E38;&#x7528;&#x548C;&#x91CD;&#x8981;&#x7684;&#x5185;&#x5BB9;&#x57FA;&#x672C;&#x90FD;&#x6709;&#x6240;&#x6D89;&#x53CA;&#x3002;</p>
-<p>&#x5185;&#x5BB9;&#x8FD8;&#x5728;&#x4E0D;&#x65AD;&#x66F4;&#x65B0;&#x4E2D;...</p>
-<h2 id="todo">Todo</h2>
-<p>Redis&#x3001;Elasticsearch...</p>
+                                <p>Spring3.0&#x4E4B;&#x540E;, &#x589E;&#x52A0;&#x4E86;&#x8C03;&#x5EA6;&#x5668;&#x529F;&#x80FD;, &#x63D0;&#x4F9B;&#x4E86;<code>@Schedule</code>&#x6CE8;&#x89E3;&#x3002;&#x4F7F;&#x7528;&#x8D77;&#x6765;&#x975E;&#x5E38;&#x65B9;&#x4FBF;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x7B80;&#x5355;&#x7684;&#x4E24;&#x4E2A;&#x6CE8;&#x89E3;&#x5373;&#x53EF;&#x5B9E;&#x73B0;&#x590D;&#x6742;&#x7684;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x529F;&#x80FD;&#x3002;</p>
+<h3 id="&#x4F7F;&#x7528;&#x65B9;&#x6CD5;">&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</h3>
+<p>Spring&#x4EFB;&#x52A1;&#x8C03;&#x5EA6;&#x7684;&#x5B9E;&#x73B0;&#x540C;&#x65F6;&#x652F;&#x6301;&#x6CE8;&#x89E3;&#x914D;&#x7F6E;&#x548C;XML&#x914D;&#x7F6E;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x3002;&#x8FD9;&#x91CC;&#x53EA;&#x8BB2;&#x89E3;&#x57FA;&#x4E8E;&#x6CE8;&#x89E3;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x3002;</p>
+<p>&#x4E00;&#x3001; &#x542F;&#x52A8;Spring&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x529F;&#x80FD;</p>
+<p>&#x53EA;&#x9700;&#x8981;&#x5728;&#x914D;&#x7F6E;&#x7C7B;&#x4E0A;&#x6DFB;&#x52A0;&#x6CE8;&#x89E3;<code>@EnableScheduling</code>&#x5373;&#x53EF;&#x5F00;&#x542F;Spring&#x7684;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x529F;&#x80FD;&#xFF0C;&#x5B83;&#x7684;&#x4F5C;&#x7528;&#x7C7B;&#x4F3C;&#x4E8E;xml&#x4E2D;&#x914D;&#x7F6E;<code>&lt;task:annotation-driven/&gt;</code>&#x3002;&#x4E00;&#x65E6;&#x5F00;&#x542F;Spring&#x7684;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x529F;&#x80FD;&#xFF0C;Spring&#x4FBF;&#x4F1A;&#x5BF9;&#x5176;&#x7BA1;&#x7406;&#x7684;Bean&#x81EA;&#x52A8;&#x626B;&#x63CF;&#x5176;&#x4E2D;&#x7684;<code>@Scheduled</code>&#x6CE8;&#x89E3;&#x7684;&#x65B9;&#x6CD5;&#xFF08;&#x65B9;&#x6CD5;&#x4E0D;&#x80FD;&#x6709;&#x5165;&#x53C2;&#xFF09;&#xFF0C;&#x5C06;&#x5176;&#x6CE8;&#x518C;&#x5230;&#x4EFB;&#x52A1;&#x7BA1;&#x7406;&#x5668;&#x4E2D;&#x7B49;&#x5F85;&#x6267;&#x884C;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@SpringBootApplication</span> 
+<span class="hljs-meta">@EnableScheduling</span>  <span class="hljs-comment">//Enables Spring&apos;s scheduled task execution capability</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloSpringBoot</span> </span>{
+    <span class="hljs-comment">//...</span>
+}
+</code></pre>
+<p>&#x4E8C;&#x3001; &#x521B;&#x5EFA;&#x4EFB;&#x52A1;&#x5E76;&#x4F7F;&#x7528;&#x6CE8;&#x89E3;&#x5C06;&#x5176;&#x6807;&#x8BB0;&#x4E3A;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;</p>
+<p>&#x4E0B;&#x4F8B;&#x4E2D;<code>reportCurrentTime()</code>&#x672C;&#x6765;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x666E;&#x901A;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x6DFB;&#x52A0;<code>@Scheduled(fixedRate = 5000)</code>&#x6CE8;&#x89E3;&#x540E;&#x542F;&#x52A8;&#x670D;&#x52A1;&#x4FBF;&#x80FD;&#x591F;&#x6BCF;&#x4E2A;5&#x79D2;&#x6267;&#x884C;&#x4E00;&#x6B21;&#xFF0C;&#x975E;&#x5E38;&#x65B9;&#x4FBF;&#x3002;</p>
+<p>&#x8FD9;&#x91CC;&#x6709;&#x51E0;&#x70B9;&#x9700;&#x8981;&#x6CE8;&#x610F;&#xFF1A;</p>
+<ol>
+<li>&#x65B9;&#x6CD5;&#x5FC5;&#x987B;&#x5728;Spring&#x7BA1;&#x7406;&#x7684;Bean&#x4E2D;&#xFF0C;&#x4F8B;&#x5982;&#x4F7F;&#x7528;<code>@Service</code>&#x6216;<code>@Component</code>&#x6CE8;&#x89E3;&#x7684;&#x7C7B;</li>
+<li>&#x5982;&#x679C;&#x662F;&#x96C6;&#x7FA4;&#x90E8;&#x7F72;&#x6BCF;&#x53F0;&#x5B9E;&#x4F8B;&#x5C06;&#x90FD;&#x4F1A;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x4EFB;&#x52A1;&#xFF0C;&#x8FD9;&#x4E2A;&#x53EF;&#x80FD;&#x5E76;&#x4E0D;&#x662F;&#x60F3;&#x770B;&#x5230;&#x7684;&#xFF0C;&#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x4E86;&#x6307;&#x5B9A;IP&#x6267;&#x884C;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x7684;&#x65B9;&#x6CD5;&#x907F;&#x514D;&#x4E86;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x3002;</li>
+<li>&#x6CE8;&#x89E3;&#x7684;&#x65B9;&#x6CD5;&#x5FC5;&#x987B;&#x662F;&#x65E0;&#x8F93;&#x5165;&#x53C2;&#x6570;&#x5E76;&#x8FD4;&#x56DE;&#x7A7A;&#x7C7B;&#x578B;void&#x7684;&#x3002;</li>
+<li><code>@EnableScheduling</code>&#x548C;<code>@Scheduled</code>&#x6CE8;&#x89E3;&#x90FD;&#x5728;<code>spring-context-4.3.9.RELEASE.jar</code>&#x4E2D;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x9700;&#x8981;&#x7279;&#x522B;&#x6DFB;&#x52A0;&#x8FD9;&#x4E2A;&#x4F9D;&#x8D56;&#xFF0C;spring boot&#x4E2D;&#x81EA;&#x5E26;&#x3002;</li>
+</ol>
+<pre><code class="lang-java"><span class="hljs-meta">@Service</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ScheduledTaskService</span> </span>{
+    <span class="hljs-comment">/**
+     * &#x96C6;&#x7FA4;&#x73AF;&#x5883;&#x4E0B;&#x907F;&#x514D;&#x4EFB;&#x52A1;&#x591A;&#x6B21;&#x6267;&#x884C;&#xFF1A; 
+     * 1. &#x5982;&#x679C;&#x5728;&#x96C6;&#x7FA4;&#x73AF;&#x5883;&#x4E0B;&#x53EF;&#x4EE5;&#x9650;&#x5236;&#x53EA;&#x6709;&#x67D0;&#x4E00;&#x53F0;ip&#x7684;&#x5BB9;&#x5668;&#x53EF;&#x4EE5;&#x6267;&#x884C;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#xFF0C;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x7684;&#x4F18;&#x70B9;&#x662F;&#x6BD4;&#x96C6;&#x6210;quartz&#x7B80;&#x5355;&#xFF0C;&#x4F46;&#x662F;&#x5B58;&#x5728;&#x5355;&#x70B9;&#x5931;&#x6548;&#x7684;&#x98CE;&#x9669; 
+     * 2. &#x4F7F;&#x7528;redis&#x5171;&#x4EAB;&#x4E00;&#x4E2A;&#x9501;&#x53D8;&#x91CF;&#xFF08;&#x8BBE;&#x7F6E;expired&#xFF09;&#xFF0C;&#x7F51;&#x4E0A;&#x4E5F;&#x6709;&#x4EBA;&#x4F7F;&#x7528;zookeeper&#x5171;&#x4EAB;&#x9501;&#xFF0C;quartz&#x5219;&#x4F7F;&#x7528;mysql&#x6570;&#x636E;&#x5E93;&#x5B9E;&#x73B0;
+     */</span>
+    <span class="hljs-meta">@Value</span>(<span class="hljs-string">&quot;${batch.exec.host}&quot;</span>)
+    <span class="hljs-keyword">private</span> String batchExecHost;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> SimpleDateFormat dateFormat = <span class="hljs-keyword">new</span> SimpleDateFormat(<span class="hljs-string">&quot;HH:mm:ss&quot;</span>);
+
+    <span class="hljs-meta">@Scheduled</span>(fixedRate = <span class="hljs-number">5000</span>) <span class="hljs-comment">// &#x901A;&#x8FC7;@Scheduled&#x58F0;&#x660E;&#x8BE5;&#x65B9;&#x6CD5;&#x662F;&#x8BA1;&#x5212;&#x4EFB;&#x52A1;&#xFF0C;&#x4F7F;&#x7528;fixedRate&#x5C5E;&#x6027;&#x6BCF;&#x9694;&#x56FA;&#x5B9A;&#x65F6;&#x95F4;&#x6267;&#x884C;</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">reportCurrentTime</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> UnknownHostException </span>{
+        Thread current = Thread.currentThread();
+        String hostAddr = InetAddress.getLocalHost().getHostAddress();
+        <span class="hljs-keyword">if</span> (hostAddr.equals(batchExecHost)) {
+            System.out.println(<span class="hljs-string">&quot;task excute @ 5s rate &quot;</span> + dateFormat.format(<span class="hljs-keyword">new</span> Date()) 
+            + <span class="hljs-string">&quot;, thread: &quot;</span> + current.getId());
+        } <span class="hljs-keyword">else</span> {
+            System.out.println(<span class="hljs-string">&quot;task skip &quot;</span> + dateFormat.format(<span class="hljs-keyword">new</span> Date()) 
+            + <span class="hljs-string">&quot;, thread: &quot;</span> + current.getId());
+        }
+    }
+
+    <span class="hljs-meta">@Scheduled</span>(cron = <span class="hljs-string">&quot;0/2 * * * * ?&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">depositJob</span><span class="hljs-params">()</span> </span>{
+        Thread current = Thread.currentThread();
+        System.out.println(<span class="hljs-string">&quot;hello scheduled. current time:&quot;</span> + dateFormat.format(<span class="hljs-keyword">new</span> Date()) 
+                + <span class="hljs-string">&quot;, thread: &quot;</span> + current.getId());
+    }
+}
+</code></pre>
+<p>&#x6267;&#x884C;&#x7ED3;&#x679C;&#xFF1A;</p>
+<blockquote>
+<p>hello scheduled. current time:15:46:26, thread: 26<br>hello scheduled. current time:15:46:28, thread: 26<br>hello scheduled. current time:15:46:30, thread: 26<br>task skip 15:46:30, thread: 26<br>hello scheduled. current time:15:46:32, thread: 26   </p>
+</blockquote>
+<h3 id="&#x4F7F;&#x7528;&#x591A;&#x7EBF;&#x7A0B;">&#x4F7F;&#x7528;&#x591A;&#x7EBF;&#x7A0B;</h3>
+<p>&#x4E0D;&#x96BE;&#x53D1;&#x73B0;&#x4E0A;&#x9762;&#x7684;&#x4EFB;&#x52A1;&#x90FD;&#x662F;&#x5355;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x4F7F;&#x7528;&#x591A;&#x7EBF;&#x7A0B;&#x5E76;&#x884C;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x5219;&#x9700;&#x8981;&#x914D;&#x7F6E;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x6C60;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Configuration</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SchedulingConfig</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">SchedulingConfigurer</span> </span>{
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">configureTasks</span><span class="hljs-params">(ScheduledTaskRegistrar taskRegistrar)</span> </span>{
+        taskRegistrar.setScheduler(taskExecutor());
+    }
+
+    <span class="hljs-meta">@Bean</span>(destroyMethod = <span class="hljs-string">&quot;shutdown&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Executor <span class="hljs-title">taskExecutor</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">/**
+         * &#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x521B;&#x5EFA;&#x7684;Executor&#x662F;ScheduledThreadPoolExecutor&#xFF0C;&#x800C;&#x5B83;&#x5B9E;&#x73B0;&#x4E86;ScheduledExecutorService&#x63A5;&#x53E3;
+         * &#x56E0;&#x6B64;&#x672C;&#x8D28;&#x4E0A;&#x8FD8;&#x662F;&#x5229;&#x7528;concurrent&#x5305;&#x91CC;&#x7684;ScheduledExecutorService&#x5B9E;&#x73B0;
+         */</span>
+        <span class="hljs-keyword">return</span> Executors.newScheduledThreadPool(<span class="hljs-number">100</span>);
+    }
+}
+</code></pre>
+<blockquote>
+<p>hello scheduled. current time:15:43:22, thread: 27<br>hello scheduled. current time:15:43:24, thread: 28<br>task skip 15:43:25, thread: 26<br>hello scheduled. current time:15:43:26, thread: 27<br>hello scheduled. current time:15:43:28, thread: 28<br>hello scheduled. current time:15:43:30, thread: 26<br>task skip 15:43:30, thread: 46<br>hello scheduled. current time:15:43:32, thread: 48  </p>
+</blockquote>
+<h3 id="references">References</h3>
 <ul>
-<li>NoSQL 30 Redis&#x3001;MongoDB&#x3001;LDAP&#x7B49;&#xFF0C;&#x5BF9;&#x6BD4;&#x5E76;&#x5B9E;&#x8DF5;&#x5176;&#x4E2D;&#x4E00;&#x4E9B;</li>
-<li>ElasticSearch </li>
-<li>websocket 42 &#x4F5C;&#x4E3A;h5&#x63A8;&#x51FA;&#x7684;&#x670D;&#x52A1;&#x5668;&#x63A8;&#x9001;&#x6280;&#x672F;&#xFF0C;&#x8FD8;&#x662F;&#x6709;&#x5F88;&#x591A;&#x4F7F;&#x7528;&#x573A;&#x666F;</li>
-<li>Testing  41  &#x5355;&#x5143;&#x6D4B;&#x8BD5;&#xFF0C;&#x517B;&#x6210;&#x4E00;&#x4E2A;&#x826F;&#x597D;&#x5199;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x7684;&#x4E60;&#x60EF;&#x5F88;&#x6709;&#x5FC5;&#x8981;</li>
-<li>Messaging 32 &#x5E38;&#x7528;&#xFF0C;&#x5BF9;&#x6BD4;&#x9009;&#x62E9;&#x4E00;&#x79CD;&#x5E38;&#x7528;&#x7684;&#x6280;&#x672F;&#x8FDB;&#x884C;&#x5B9E;&#x8DF5;</li>
-<li>Caching 31 &#x4E3A;&#x65B9;&#x6CD5;&#x548C;&#x5E94;&#x7528;&#x5FEB;&#x901F;&#x6DFB;&#x52A0;&#x7F13;&#x5B58;&#xFF0C;&#x770B;&#x4E0A;&#x53BB;&#x633A;&#x7B80;&#x5355;</li>
-<li>Security 28 &#x5305;&#x62EC;OAuth2&#x7B49;&#x8FD9;&#x4E9B;&#x77E5;&#x8BC6;&#x70B9;&#x8FD8;&#x662F;&#x9700;&#x8981;&#x638C;&#x63E1;</li>
-<li>auto-configuration 44 &#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#x81EA;&#x52A8;&#x914D;&#x7F6E;</li>
-<li>Deploying Spring Boot applications</li>
-</ul>
-<h2 id="useful-links">Useful Links</h2>
-<ul>
-<li><a href="https://start.spring.io/" target="_blank">SPRING INITIALIZR</a> can Generate a maven project with java and Spring Boot of specified version.</li>
-<li><a href="http://docs.spring.io/spring-boot/docs/" target="_blank">spring boot official references(pdf &amp; html) of all versions</a></li>
-<li><a href="https://github.com/ityouknow/spring-boot-examples" target="_blank">spring-boot-examples</a><ul>
-<li><a href="http://www.ityouknow.com/spring-boot" target="_blank">xiangg&#x7CFB;&#x5217;&#x6587;&#x7AE0;</a></li>
-</ul>
-</li>
-<li><a href="https://github.com/spring-guides" target="_blank">Repositories behind the Getting Started and Tutorial guides at spring.io</a></li>
+<li><a href="http://zhwbqd.github.io/2015/01/26/spring-cron.html" target="_blank">Spring Scheduler&#x5B9E;&#x73B0;&#x89E3;&#x6790;</a></li>
+<li><a href="http://www.cnblogs.com/slimer/p/6222485.html" target="_blank">SpringBoot Schedule &#x914D;&#x7F6E;</a></li>
 </ul>
 
                                 
@@ -665,8 +725,12 @@
 
             
                 
+                <a href="Timer.html" class="navigation navigation-prev " aria-label="Previous page: Java Timer & TimerTask">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="Why Spring Boot.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 为什么要使用 Spring Boot">
+                
+                <a href="Quartz Introduction.html" class="navigation navigation-next " aria-label="Next page: Quartz 介绍">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -677,7 +741,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"为什么要使用 Spring Boot","level":"1.2","depth":1,"path":"Why Spring Boot.md","ref":"Why Spring Boot.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-08-24T03:07:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-24T03:49:57.854Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Spring Schedule","level":"1.14.2","depth":2,"next":{"title":"Quartz 介绍","level":"1.14.3","depth":2,"path":"Quartz Introduction.md","ref":"Quartz Introduction.md","articles":[]},"previous":{"title":"Java Timer & TimerTask","level":"1.14.1","depth":2,"path":"Timer.md","ref":"Timer.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Spring Schedule.md","mtime":"2018-08-24T03:07:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-24T03:49:57.854Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

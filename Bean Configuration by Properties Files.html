@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Introduction · GitBook</title>
+        <title>使用配置文件配置 Bean 的方法 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,8 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Why Spring Boot.html" />
+    <link rel="next" href="Different Environment Different Profile.html" />
     
+    
+    <link rel="prev" href="Spring Boot Log Configuration.html" />
     
 
     </head>
@@ -87,7 +89,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -197,7 +199,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7" data-path="Bean Configuration by Properties Files.html">
+        <li class="chapter active" data-level="1.7" data-path="Bean Configuration by Properties Files.html">
             
                 <a href="Bean Configuration by Properties Files.html">
             
@@ -596,7 +598,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Introduction</a>
+        <a href="." >使用配置文件配置 Bean 的方法</a>
     </h1>
 </div>
 
@@ -611,33 +613,62 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="introduction">Introduction</h1>
-<p>Spring Boot &#x53D1;&#x5E03;&#x4E8E; 2014 &#x5E74;&#xFF0C;&#x5B83;&#x79C9;&#x627F;&#x201C;&#x4E60;&#x60EF;&#x4F18;&#x4E8E;&#x914D;&#x7F6E;&#x201D;&#x7684;&#x7406;&#x5FF5;&#x53EF;&#x4EE5;&#x4F7F;&#x9879;&#x76EE;&#x5FEB;&#x901F;&#x8FD0;&#x884C;&#x8D77;&#x6765;&#xFF0C;&#x4F7F;&#x7528; Spring Boot &#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x8FD0;&#x884C;&#x7684;&#x3001;&#x751F;&#x4EA7;&#x7EA7;&#x522B;&#x7684;&#x57FA;&#x4E8E; Spring &#x6846;&#x67B6;&#x7684;&#x9879;&#x76EE;&#x3002;&#x9274;&#x4E8E; Spring Boot &#x5728;&#x9879;&#x76EE;&#x4E2D;&#x5927;&#x91CF;&#x4F7F;&#x7528;&#x5E76;&#x4E14;&#x65E5;&#x8D8B;&#x6D41;&#x884C;&#x7684;&#x8D8B;&#x52BF;&#xFF0C;&#x901A;&#x8FC7;&#x5BF9;&#x5176;&#x5B98;&#x65B9;&#x6587;&#x6863;&#x8FDB;&#x884C;&#x7CFB;&#x7EDF;&#x7684;&#x5B66;&#x4E60;&#x548C;&#x5B9E;&#x8DF5;&#x68B3;&#x7406;&#x51FA;&#x4E00;&#x4E9B;&#x7B14;&#x8BB0;&#x8BB0;&#x5F55;&#x4E8E;&#x6B64;&#x3002;</p>
-<p>&#x8BE5; wiki &#x5185;&#x5BB9;&#x57FA;&#x672C;&#x6309;&#x7167; <code>1.5.4.RELEASE</code> &#x7248;&#x672C;&#x5B98;&#x65B9;&#x6587;&#x6863; <a href="https://docs.spring.io/spring-boot/docs/1.5.4.RELEASE/reference/htmlsingle/#getting-started" target="_blank">Spring Boot Reference Guide</a> &#x7684;&#x987A;&#x5E8F;&#x8FDB;&#x884C;&#xFF0C;&#x5176;&#x4E2D;&#x6BD4;&#x8F83;&#x5E38;&#x7528;&#x548C;&#x91CD;&#x8981;&#x7684;&#x5185;&#x5BB9;&#x57FA;&#x672C;&#x90FD;&#x6709;&#x6240;&#x6D89;&#x53CA;&#x3002;</p>
-<p>&#x5185;&#x5BB9;&#x8FD8;&#x5728;&#x4E0D;&#x65AD;&#x66F4;&#x65B0;&#x4E2D;...</p>
-<h2 id="todo">Todo</h2>
-<p>Redis&#x3001;Elasticsearch...</p>
-<ul>
-<li>NoSQL 30 Redis&#x3001;MongoDB&#x3001;LDAP&#x7B49;&#xFF0C;&#x5BF9;&#x6BD4;&#x5E76;&#x5B9E;&#x8DF5;&#x5176;&#x4E2D;&#x4E00;&#x4E9B;</li>
-<li>ElasticSearch </li>
-<li>websocket 42 &#x4F5C;&#x4E3A;h5&#x63A8;&#x51FA;&#x7684;&#x670D;&#x52A1;&#x5668;&#x63A8;&#x9001;&#x6280;&#x672F;&#xFF0C;&#x8FD8;&#x662F;&#x6709;&#x5F88;&#x591A;&#x4F7F;&#x7528;&#x573A;&#x666F;</li>
-<li>Testing  41  &#x5355;&#x5143;&#x6D4B;&#x8BD5;&#xFF0C;&#x517B;&#x6210;&#x4E00;&#x4E2A;&#x826F;&#x597D;&#x5199;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x7684;&#x4E60;&#x60EF;&#x5F88;&#x6709;&#x5FC5;&#x8981;</li>
-<li>Messaging 32 &#x5E38;&#x7528;&#xFF0C;&#x5BF9;&#x6BD4;&#x9009;&#x62E9;&#x4E00;&#x79CD;&#x5E38;&#x7528;&#x7684;&#x6280;&#x672F;&#x8FDB;&#x884C;&#x5B9E;&#x8DF5;</li>
-<li>Caching 31 &#x4E3A;&#x65B9;&#x6CD5;&#x548C;&#x5E94;&#x7528;&#x5FEB;&#x901F;&#x6DFB;&#x52A0;&#x7F13;&#x5B58;&#xFF0C;&#x770B;&#x4E0A;&#x53BB;&#x633A;&#x7B80;&#x5355;</li>
-<li>Security 28 &#x5305;&#x62EC;OAuth2&#x7B49;&#x8FD9;&#x4E9B;&#x77E5;&#x8BC6;&#x70B9;&#x8FD8;&#x662F;&#x9700;&#x8981;&#x638C;&#x63E1;</li>
-<li>auto-configuration 44 &#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#x81EA;&#x52A8;&#x914D;&#x7F6E;</li>
-<li>Deploying Spring Boot applications</li>
-</ul>
-<h2 id="useful-links">Useful Links</h2>
-<ul>
-<li><a href="https://start.spring.io/" target="_blank">SPRING INITIALIZR</a> can Generate a maven project with java and Spring Boot of specified version.</li>
-<li><a href="http://docs.spring.io/spring-boot/docs/" target="_blank">spring boot official references(pdf &amp; html) of all versions</a></li>
-<li><a href="https://github.com/ityouknow/spring-boot-examples" target="_blank">spring-boot-examples</a><ul>
-<li><a href="http://www.ityouknow.com/spring-boot" target="_blank">xiangg&#x7CFB;&#x5217;&#x6587;&#x7AE0;</a></li>
-</ul>
-</li>
-<li><a href="https://github.com/spring-guides" target="_blank">Repositories behind the Getting Started and Tutorial guides at spring.io</a></li>
-</ul>
+                                <p>&#x4F7F;&#x7528;&#x5916;&#x90E8;properties&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x914D;&#x7F6E;Bean&#x6709;&#x591A;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x8FD9;&#x91CC;&#x4E3B;&#x8981;&#x4ECB;&#x7ECD;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#xFF1A;@Value&#x6CE8;&#x89E3;&#x65B9;&#x5F0F;&#x53CA;@ConfigurationProperties&#x6CE8;&#x89E3;&#x65B9;&#x5F0F;</p>
+<h3 id="value&#x6CE8;&#x89E3;&#x65B9;&#x5F0F;">@Value&#x6CE8;&#x89E3;&#x65B9;&#x5F0F;</h3>
+<p>&#x8FD9;&#x4E5F;&#x662F;&#x4E4B;&#x524D;&#x5E38;&#x7528;&#x7684;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x4EE3;&#x7801;&#x793A;&#x4F8B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@PropertySource</span>(<span class="hljs-string">&quot;classpath:person.properties&quot;</span>)
+<span class="hljs-meta">@Component</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person2</span> </span>{
+    <span class="hljs-meta">@Value</span>(<span class="hljs-string">&quot;${person.firstName}&quot;</span>)
+    String firstName;
+    <span class="hljs-meta">@Value</span>(<span class="hljs-string">&quot;${person.lastName}&quot;</span>)
+    String lastName;
+    <span class="hljs-meta">@Value</span>(<span class="hljs-string">&quot;${person.age}&quot;</span>)
+    <span class="hljs-keyword">int</span> age;
+    <span class="hljs-meta">@Value</span>(<span class="hljs-string">&quot;${person.salary}&quot;</span>)
+    <span class="hljs-keyword">double</span> salary;
+
+    <span class="hljs-comment">//getters and setters...</span>
+}
+</code></pre>
+<h3 id="configurationproperties&#x6CE8;&#x89E3;&#x65B9;&#x5F0F;">@ConfigurationProperties&#x6CE8;&#x89E3;&#x65B9;&#x5F0F;</h3>
+<p>@Value&#x65B9;&#x5F0F;&#x4EE3;&#x7801;&#x611F;&#x89C9;&#x6709;&#x4E9B;&#x51CC;&#x4E71;&#xFF0C;&#x4E0B;&#x9762;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x4F1A;&#x66F4;&#x7B80;&#x6D01;&#x4E00;&#x4E9B;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@PropertySource</span>(<span class="hljs-string">&quot;classpath:person.properties&quot;</span>)
+<span class="hljs-meta">@ConfigurationProperties</span>(prefix = <span class="hljs-string">&quot;person&quot;</span>, ignoreUnknownFields = <span class="hljs-keyword">false</span>)
+<span class="hljs-meta">@Component</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>{
+    String firstName;
+    String lastName;
+    <span class="hljs-keyword">int</span> age;
+    <span class="hljs-keyword">double</span> salary;
+
+    <span class="hljs-comment">//getters and setters...</span>
+}
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x7684;properties&#x6587;&#x4EF6;&#x90FD;&#x4F4D;&#x4E8E;classpath&#x6839;&#x8DEF;&#x5F84;&#x4E0B;&#xFF0C;&#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;</p>
+<blockquote>
+<p>person.age = 22<br>person.firstName = jverson<br>person.lastName = jj<br>person.salary = 11111111    </p>
+</blockquote>
+<p>&#x5176;&#x4E2D;<code>ignoreUnknownFields = false</code>&#x8868;&#x793A;&#x5F53;&#x5C5E;&#x6027;&#x4E0D;&#x5339;&#x914D;&#x65F6;&#x629B;&#x51FA;&#x5F02;&#x5E38;</p>
+<h3 id="&#x4F7F;&#x7528;&#x57FA;&#x4E8E;java&#x7684;&#x914D;&#x7F6E;">&#x4F7F;&#x7528;&#x57FA;&#x4E8E;java&#x7684;&#x914D;&#x7F6E;</h3>
+<p>&#x4EE5;&#x4E0A;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x90FD;&#x662F;&#x76F4;&#x63A5;&#x5728;Bean&#x7684;&#x5B9A;&#x4E49;&#x4E2D;&#x6CE8;&#x5165;&#x5C5E;&#x6027;&#x914D;&#x7F6E;&#xFF0C;&#x5982;&#x679C;&#x591A;&#x4E2A;Bean&#x7684;&#x5B9A;&#x4E49;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x57FA;&#x4E8E;Java&#x7684;&#x914D;&#x7F6E;&#x5B9A;&#x4E49;&#x5B9E;&#x73B0;Bean&#x7684;&#x5B9A;&#x4E49;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Configuration</span>
+<span class="hljs-meta">@PropertySource</span>(<span class="hljs-string">&quot;classpath:person.properties&quot;</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BeanConf</span> </span>{
+    <span class="hljs-meta">@Bean</span>(<span class="hljs-string">&quot;person&quot;</span>)
+    <span class="hljs-meta">@ConfigurationProperties</span>(prefix = <span class="hljs-string">&quot;person&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Person <span class="hljs-title">person</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Person();
+    }
+
+    <span class="hljs-meta">@Bean</span>(<span class="hljs-string">&quot;person2&quot;</span>)
+    <span class="hljs-meta">@ConfigurationProperties</span>(prefix = <span class="hljs-string">&quot;person2&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Person2 <span class="hljs-title">person2</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Person2();
+    }
+}
+</code></pre>
+<p>&#x5F53;&#x7136;&#x8FD9;&#x91CC;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x7C7B;&#x7684;&#x4E24;&#x4E2A;&#x5B9E;&#x4F8B;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x53EA;&#x9700;&#x8981;&#x5728;&#x914D;&#x7F6E;&#x7C7B;&#x4E2D;&#x5F15;&#x5165;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5373;&#x53EF;&#xFF0C;&#x57FA;&#x4E8E;java&#x7684;&#x914D;&#x7F6E;&#x4E5F;&#x662F;spring boot&#x9F13;&#x52B1;&#x7684;&#x5F62;&#x5F0F;&#x3002;</p>
 
                                 
                                 </section>
@@ -665,8 +696,12 @@
 
             
                 
+                <a href="Spring Boot Log Configuration.html" class="navigation navigation-prev " aria-label="Previous page: 日志的配置">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="Why Spring Boot.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 为什么要使用 Spring Boot">
+                
+                <a href="Different Environment Different Profile.html" class="navigation navigation-next " aria-label="Next page: 设置 Profiles- 不同环境读取不同 Profile 配置">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -677,7 +712,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"为什么要使用 Spring Boot","level":"1.2","depth":1,"path":"Why Spring Boot.md","ref":"Why Spring Boot.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-08-24T03:07:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-24T03:49:57.854Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"使用配置文件配置 Bean 的方法","level":"1.7","depth":1,"next":{"title":"设置 Profiles- 不同环境读取不同 Profile 配置","level":"1.8","depth":1,"path":"Different Environment Different Profile.md","ref":"Different Environment Different Profile.md","articles":[]},"previous":{"title":"日志的配置","level":"1.6.2","depth":2,"path":"Spring Boot Log Configuration.md","ref":"Spring Boot Log Configuration.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Bean Configuration by Properties Files.md","mtime":"2018-08-24T03:07:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-24T03:49:57.854Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

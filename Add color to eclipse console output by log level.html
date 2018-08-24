@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Introduction · GitBook</title>
+        <title>不同的日志级别展示不同的颜色 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Why Spring Boot.html" />
+    <link rel="next" href="Spring Boot Log Configuration.html" />
     
     
 
@@ -87,7 +87,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -166,7 +166,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.6.1" data-path="Add color to eclipse console output by log level.html">
+        <li class="chapter active" data-level="1.6.1" data-path="Add color to eclipse console output by log level.html">
             
                 <a href="Add color to eclipse console output by log level.html">
             
@@ -596,7 +596,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Introduction</a>
+        <a href="." >不同的日志级别展示不同的颜色</a>
     </h1>
 </div>
 
@@ -611,32 +611,16 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="introduction">Introduction</h1>
-<p>Spring Boot &#x53D1;&#x5E03;&#x4E8E; 2014 &#x5E74;&#xFF0C;&#x5B83;&#x79C9;&#x627F;&#x201C;&#x4E60;&#x60EF;&#x4F18;&#x4E8E;&#x914D;&#x7F6E;&#x201D;&#x7684;&#x7406;&#x5FF5;&#x53EF;&#x4EE5;&#x4F7F;&#x9879;&#x76EE;&#x5FEB;&#x901F;&#x8FD0;&#x884C;&#x8D77;&#x6765;&#xFF0C;&#x4F7F;&#x7528; Spring Boot &#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x8FD0;&#x884C;&#x7684;&#x3001;&#x751F;&#x4EA7;&#x7EA7;&#x522B;&#x7684;&#x57FA;&#x4E8E; Spring &#x6846;&#x67B6;&#x7684;&#x9879;&#x76EE;&#x3002;&#x9274;&#x4E8E; Spring Boot &#x5728;&#x9879;&#x76EE;&#x4E2D;&#x5927;&#x91CF;&#x4F7F;&#x7528;&#x5E76;&#x4E14;&#x65E5;&#x8D8B;&#x6D41;&#x884C;&#x7684;&#x8D8B;&#x52BF;&#xFF0C;&#x901A;&#x8FC7;&#x5BF9;&#x5176;&#x5B98;&#x65B9;&#x6587;&#x6863;&#x8FDB;&#x884C;&#x7CFB;&#x7EDF;&#x7684;&#x5B66;&#x4E60;&#x548C;&#x5B9E;&#x8DF5;&#x68B3;&#x7406;&#x51FA;&#x4E00;&#x4E9B;&#x7B14;&#x8BB0;&#x8BB0;&#x5F55;&#x4E8E;&#x6B64;&#x3002;</p>
-<p>&#x8BE5; wiki &#x5185;&#x5BB9;&#x57FA;&#x672C;&#x6309;&#x7167; <code>1.5.4.RELEASE</code> &#x7248;&#x672C;&#x5B98;&#x65B9;&#x6587;&#x6863; <a href="https://docs.spring.io/spring-boot/docs/1.5.4.RELEASE/reference/htmlsingle/#getting-started" target="_blank">Spring Boot Reference Guide</a> &#x7684;&#x987A;&#x5E8F;&#x8FDB;&#x884C;&#xFF0C;&#x5176;&#x4E2D;&#x6BD4;&#x8F83;&#x5E38;&#x7528;&#x548C;&#x91CD;&#x8981;&#x7684;&#x5185;&#x5BB9;&#x57FA;&#x672C;&#x90FD;&#x6709;&#x6240;&#x6D89;&#x53CA;&#x3002;</p>
-<p>&#x5185;&#x5BB9;&#x8FD8;&#x5728;&#x4E0D;&#x65AD;&#x66F4;&#x65B0;&#x4E2D;...</p>
-<h2 id="todo">Todo</h2>
-<p>Redis&#x3001;Elasticsearch...</p>
+                                <p>&#x5982;&#x679C;&#x4F60;&#x5E0C;&#x671B;console&#x91CC;&#x7684;&#x65E5;&#x5FD7;&#x80FD;&#x591F;&#x6309;&#x7167;&#x4E0D;&#x540C;&#x7684;&#x7EA7;&#x522B;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x7740;&#x8272;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#x8FD9;&#x6837;&#x4FBF;&#x4E8E;&#x67E5;&#x770B;&#x9519;&#x8BEF;&#x548C;&#x5F02;&#x5E38;&#x65E5;&#x5FD7;&#xFF0C;&#x6709;&#x4E00;&#x4E2A;&#x5F88;&#x597D;&#x7528;&#x7684;eclipse&#x63D2;&#x4EF6;<code>Grep console</code>&#x53EF;&#x4EE5;&#x5E2E;&#x4F60;&#x5B9E;&#x73B0;&#x3002;</p>
+<p><img src="http://7xry05.com1.z0.glb.clouddn.com/201707142005_208.png" alt=""></p>
+<p>&#x9996;&#x5148;&#x5B89;&#x88C5;Grep console&#x63D2;&#x4EF6;&#xFF0C;&#x5728;help&#x9875;&#x7B7E;eclipse market&#x4E2D;&#x641C;&#x7D22;Grep console&#x5E76;&#x5B89;&#x88C5;&#xFF08;&#x5B8C;&#x6210;&#x540E;&#x9700;&#x8981;&#x91CD;&#x542F;eclipse&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x5728;preferences&#x4E2D;&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;&#x5982;&#x4E0B;&#x56FE;&#xFF0C;&#x4E00;&#x5B9A;&#x6CE8;&#x610F;&#x5C06;expression&#x7531;<code>.*(\Q[FATAL]\E).*</code>&#x6539;&#x4E3A;<code>.*(\QFATAL\E).*</code>&#xFF0C;&#x8981;&#x4E0D;&#x7136;&#x4E0D;&#x4F1A;&#x751F;&#x6548;&#x3002;</p>
+<p><img src="http://7xry05.com1.z0.glb.clouddn.com/201707142027_598.png" alt=""></p>
+<p>&#x53E6;&#x5916;&#x53EF;&#x4EE5;&#x5728;windows&#x9875;&#x7B7E;view&#x4E2D;&#x9009;&#x62E9;&#x5C06;grep view&#x7A97;&#x53E3;&#x5C55;&#x793A;&#x51FA;&#x6765;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x4E00;&#x4E9B;&#x65E5;&#x5FD7;&#x8FC7;&#x6EE4;&#x5230;grep view&#x4E2D;&#xFF0C;&#x4FBF;&#x4E8E;&#x67E5;&#x770B;&#x3002;</p>
+<p><img src="http://7xry05.com1.z0.glb.clouddn.com/201707142031_586.png" alt=""></p>
+<p>&#x5173;&#x4E8E;grep console&#x7684;&#x66F4;&#x591A;&#x8BBE;&#x7F6E;&#x53CA;&#x5176;&#x542B;&#x4E49;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x4EE5;&#x4E0B;&#x94FE;&#x63A5;&#xFF1A;</p>
 <ul>
-<li>NoSQL 30 Redis&#x3001;MongoDB&#x3001;LDAP&#x7B49;&#xFF0C;&#x5BF9;&#x6BD4;&#x5E76;&#x5B9E;&#x8DF5;&#x5176;&#x4E2D;&#x4E00;&#x4E9B;</li>
-<li>ElasticSearch </li>
-<li>websocket 42 &#x4F5C;&#x4E3A;h5&#x63A8;&#x51FA;&#x7684;&#x670D;&#x52A1;&#x5668;&#x63A8;&#x9001;&#x6280;&#x672F;&#xFF0C;&#x8FD8;&#x662F;&#x6709;&#x5F88;&#x591A;&#x4F7F;&#x7528;&#x573A;&#x666F;</li>
-<li>Testing  41  &#x5355;&#x5143;&#x6D4B;&#x8BD5;&#xFF0C;&#x517B;&#x6210;&#x4E00;&#x4E2A;&#x826F;&#x597D;&#x5199;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x7684;&#x4E60;&#x60EF;&#x5F88;&#x6709;&#x5FC5;&#x8981;</li>
-<li>Messaging 32 &#x5E38;&#x7528;&#xFF0C;&#x5BF9;&#x6BD4;&#x9009;&#x62E9;&#x4E00;&#x79CD;&#x5E38;&#x7528;&#x7684;&#x6280;&#x672F;&#x8FDB;&#x884C;&#x5B9E;&#x8DF5;</li>
-<li>Caching 31 &#x4E3A;&#x65B9;&#x6CD5;&#x548C;&#x5E94;&#x7528;&#x5FEB;&#x901F;&#x6DFB;&#x52A0;&#x7F13;&#x5B58;&#xFF0C;&#x770B;&#x4E0A;&#x53BB;&#x633A;&#x7B80;&#x5355;</li>
-<li>Security 28 &#x5305;&#x62EC;OAuth2&#x7B49;&#x8FD9;&#x4E9B;&#x77E5;&#x8BC6;&#x70B9;&#x8FD8;&#x662F;&#x9700;&#x8981;&#x638C;&#x63E1;</li>
-<li>auto-configuration 44 &#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#x81EA;&#x52A8;&#x914D;&#x7F6E;</li>
-<li>Deploying Spring Boot applications</li>
-</ul>
-<h2 id="useful-links">Useful Links</h2>
-<ul>
-<li><a href="https://start.spring.io/" target="_blank">SPRING INITIALIZR</a> can Generate a maven project with java and Spring Boot of specified version.</li>
-<li><a href="http://docs.spring.io/spring-boot/docs/" target="_blank">spring boot official references(pdf &amp; html) of all versions</a></li>
-<li><a href="https://github.com/ityouknow/spring-boot-examples" target="_blank">spring-boot-examples</a><ul>
-<li><a href="http://www.ityouknow.com/spring-boot" target="_blank">xiangg&#x7CFB;&#x5217;&#x6587;&#x7AE0;</a></li>
-</ul>
-</li>
-<li><a href="https://github.com/spring-guides" target="_blank">Repositories behind the Getting Started and Tutorial guides at spring.io</a></li>
+<li><a href="https://atechblogagain.wordpress.com/2013/06/03/add-color-to-eclipse-console-output-using-the-log-level/" target="_blank">Add color to eclipse console output using the log level</a></li>
+<li><a href="http://marian.schedenig.name/wp-content/static/grepconsole_userguide/" target="_blank">Grep Console - User Guide</a></li>
 </ul>
 
                                 
@@ -666,7 +650,7 @@
             
                 
                 
-                <a href="Why Spring Boot.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 为什么要使用 Spring Boot">
+                <a href="Spring Boot Log Configuration.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 日志的配置">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -677,7 +661,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"为什么要使用 Spring Boot","level":"1.2","depth":1,"path":"Why Spring Boot.md","ref":"Why Spring Boot.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-08-24T03:07:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-24T03:49:57.854Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"不同的日志级别展示不同的颜色","level":"1.6.1","depth":2,"next":{"title":"日志的配置","level":"1.6.2","depth":2,"path":"Spring Boot Log Configuration.md","ref":"Spring Boot Log Configuration.md","articles":[]},"previous":{"title":"Spring Boot 的日志使用","level":"1.6","depth":1,"ref":"","articles":[{"title":"不同的日志级别展示不同的颜色","level":"1.6.1","depth":2,"path":"Add color to eclipse console output by log level.md","ref":"Add color to eclipse console output by log level.md","articles":[]},{"title":"日志的配置","level":"1.6.2","depth":2,"path":"Spring Boot Log Configuration.md","ref":"Spring Boot Log Configuration.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Add color to eclipse console output by log level.md","mtime":"2018-08-24T03:07:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-24T03:49:57.854Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

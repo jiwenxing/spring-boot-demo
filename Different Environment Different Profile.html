@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Introduction · GitBook</title>
+        <title>设置 Profiles- 不同环境读取不同 Profile 配置 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,8 +57,8 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Why Spring Boot.html" />
     
+    <link rel="prev" href="Bean Configuration by Properties Files.html" />
     
 
     </head>
@@ -87,7 +87,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -210,7 +210,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8" data-path="Different Environment Different Profile.html">
+        <li class="chapter active" data-level="1.8" data-path="Different Environment Different Profile.html">
             
                 <a href="Different Environment Different Profile.html">
             
@@ -596,7 +596,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Introduction</a>
+        <a href="." >设置 Profiles- 不同环境读取不同 Profile 配置</a>
     </h1>
 </div>
 
@@ -611,32 +611,85 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="introduction">Introduction</h1>
-<p>Spring Boot &#x53D1;&#x5E03;&#x4E8E; 2014 &#x5E74;&#xFF0C;&#x5B83;&#x79C9;&#x627F;&#x201C;&#x4E60;&#x60EF;&#x4F18;&#x4E8E;&#x914D;&#x7F6E;&#x201D;&#x7684;&#x7406;&#x5FF5;&#x53EF;&#x4EE5;&#x4F7F;&#x9879;&#x76EE;&#x5FEB;&#x901F;&#x8FD0;&#x884C;&#x8D77;&#x6765;&#xFF0C;&#x4F7F;&#x7528; Spring Boot &#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x8FD0;&#x884C;&#x7684;&#x3001;&#x751F;&#x4EA7;&#x7EA7;&#x522B;&#x7684;&#x57FA;&#x4E8E; Spring &#x6846;&#x67B6;&#x7684;&#x9879;&#x76EE;&#x3002;&#x9274;&#x4E8E; Spring Boot &#x5728;&#x9879;&#x76EE;&#x4E2D;&#x5927;&#x91CF;&#x4F7F;&#x7528;&#x5E76;&#x4E14;&#x65E5;&#x8D8B;&#x6D41;&#x884C;&#x7684;&#x8D8B;&#x52BF;&#xFF0C;&#x901A;&#x8FC7;&#x5BF9;&#x5176;&#x5B98;&#x65B9;&#x6587;&#x6863;&#x8FDB;&#x884C;&#x7CFB;&#x7EDF;&#x7684;&#x5B66;&#x4E60;&#x548C;&#x5B9E;&#x8DF5;&#x68B3;&#x7406;&#x51FA;&#x4E00;&#x4E9B;&#x7B14;&#x8BB0;&#x8BB0;&#x5F55;&#x4E8E;&#x6B64;&#x3002;</p>
-<p>&#x8BE5; wiki &#x5185;&#x5BB9;&#x57FA;&#x672C;&#x6309;&#x7167; <code>1.5.4.RELEASE</code> &#x7248;&#x672C;&#x5B98;&#x65B9;&#x6587;&#x6863; <a href="https://docs.spring.io/spring-boot/docs/1.5.4.RELEASE/reference/htmlsingle/#getting-started" target="_blank">Spring Boot Reference Guide</a> &#x7684;&#x987A;&#x5E8F;&#x8FDB;&#x884C;&#xFF0C;&#x5176;&#x4E2D;&#x6BD4;&#x8F83;&#x5E38;&#x7528;&#x548C;&#x91CD;&#x8981;&#x7684;&#x5185;&#x5BB9;&#x57FA;&#x672C;&#x90FD;&#x6709;&#x6240;&#x6D89;&#x53CA;&#x3002;</p>
-<p>&#x5185;&#x5BB9;&#x8FD8;&#x5728;&#x4E0D;&#x65AD;&#x66F4;&#x65B0;&#x4E2D;...</p>
-<h2 id="todo">Todo</h2>
-<p>Redis&#x3001;Elasticsearch...</p>
+                                <h3 id="&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x4E0D;&#x540C;&#x73AF;&#x5883;&#x8BFB;&#x53D6;&#x4E0D;&#x540C;profile&#xFF1F;">&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x4E0D;&#x540C;&#x73AF;&#x5883;&#x8BFB;&#x53D6;&#x4E0D;&#x540C;profile&#xFF1F;</h3>
+<p>&#x5F00;&#x53D1;&#x8FC7;&#x7A0B;&#x4E2D;&#x9700;&#x8981;&#x9488;&#x5BF9;&#x4E0D;&#x540C;&#x7684;&#x73AF;&#x5883;&#x914D;&#x7F6E;&#x4E0D;&#x540C;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x4E4B;&#x524D;&#x90FD;&#x662F;&#x901A;&#x8FC7;maven&#x63D0;&#x4F9B;&#x7684;Profile&#x529F;&#x80FD;&#x5728;&#x6253;&#x5305;&#x7684;&#x65F6;&#x5019;&#x4E0D;&#x540C;&#x73AF;&#x5883;&#x6253;&#x4E0D;&#x540C;&#x7684;&#x5305;&#xFF0C;&#x73B0;&#x5728;springboot&#x63D0;&#x4F9B;&#x4E86;&#x8FD0;&#x884C;&#x65F6;&#x52A0;&#x8F7D;&#x4E0D;&#x540C;Profile&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x5177;&#x4F53;&#x7684;&#x7528;&#x6CD5;&#x5982;&#x4E0B;&#x3002;</p>
+<p>&#x5047;&#x8BBE;&#x9700;&#x8981;&#x533A;&#x5206;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x548C;&#x7EBF;&#x4E0A;&#x73AF;&#x5883;&#xFF0C;&#x5219;&#x521B;&#x5EFA;&#x4EE5;&#x4E0B;&#x4E09;&#x4E2A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x5176;&#x4E2D;<code>application-dev.properties</code>&#x548C;<code>application-prod.properties</code>&#x4E2D;&#x5206;&#x522B;&#x914D;&#x7F6E;&#x4E86;&#x4E0D;&#x540C;&#x73AF;&#x5883;&#x4E0B;&#x7684;&#x4E00;&#x4E9B;&#x53C2;&#x6570;&#xFF0C;&#x800C;<code>application.properties</code>&#x5219;&#x662F;springboot&#x7684;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x5176;&#x4E2D;&#x53EF;&#x4EE5;&#x914D;&#x7F6E;&#x4F7F;&#x7528;&#x54EA;&#x4E2A;&#x73AF;&#x5883;&#x7684;Profile&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x914D;&#x4E00;&#x4E9B;&#x516C;&#x7528;&#x7684;&#x914D;&#x7F6E;&#x3002;</p>
+<p><img src="http://7xry05.com1.z0.glb.clouddn.com/201707182114_190.png" alt=""></p>
+<p>&#x5176;&#x4E2D;&#xFF0C;</p>
+<p>application-dev.properties&#x5185;&#x5BB9;&#xFF1A;</p>
+<blockquote>
+<p>car.brand = ford<br>car.color = ${car.brand} red<br>car.price = 30.8    </p>
+</blockquote>
+<p>application-prod.properties&#x5185;&#x5BB9;&#xFF1A;</p>
+<blockquote>
+<p>car.brand = bmw<br>car.color = ${car.brand} yellow<br>car.price = 55.3      </p>
+</blockquote>
+<p>&#x800C;application.properties&#x4E2D;&#x6307;&#x5B9A;Profile&#xFF1A;</p>
+<blockquote>
+<p>spring.profiles.active = prod</p>
+</blockquote>
+<p>&#x8FD9;&#x65F6;&#x5019;&#x8FD0;&#x884C;&#x4FBF;&#x4F1A;&#x53D1;&#x73B0;car&#x7C7B;&#x88AB;prod&#x914D;&#x7F6E;&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x5B9E;&#x4F8B;&#x5316;&#x3002;</p>
+<h3 id="&#x7ECF;&#x9A8C;">&#x7ECF;&#x9A8C;</h3>
 <ul>
-<li>NoSQL 30 Redis&#x3001;MongoDB&#x3001;LDAP&#x7B49;&#xFF0C;&#x5BF9;&#x6BD4;&#x5E76;&#x5B9E;&#x8DF5;&#x5176;&#x4E2D;&#x4E00;&#x4E9B;</li>
-<li>ElasticSearch </li>
-<li>websocket 42 &#x4F5C;&#x4E3A;h5&#x63A8;&#x51FA;&#x7684;&#x670D;&#x52A1;&#x5668;&#x63A8;&#x9001;&#x6280;&#x672F;&#xFF0C;&#x8FD8;&#x662F;&#x6709;&#x5F88;&#x591A;&#x4F7F;&#x7528;&#x573A;&#x666F;</li>
-<li>Testing  41  &#x5355;&#x5143;&#x6D4B;&#x8BD5;&#xFF0C;&#x517B;&#x6210;&#x4E00;&#x4E2A;&#x826F;&#x597D;&#x5199;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x7684;&#x4E60;&#x60EF;&#x5F88;&#x6709;&#x5FC5;&#x8981;</li>
-<li>Messaging 32 &#x5E38;&#x7528;&#xFF0C;&#x5BF9;&#x6BD4;&#x9009;&#x62E9;&#x4E00;&#x79CD;&#x5E38;&#x7528;&#x7684;&#x6280;&#x672F;&#x8FDB;&#x884C;&#x5B9E;&#x8DF5;</li>
-<li>Caching 31 &#x4E3A;&#x65B9;&#x6CD5;&#x548C;&#x5E94;&#x7528;&#x5FEB;&#x901F;&#x6DFB;&#x52A0;&#x7F13;&#x5B58;&#xFF0C;&#x770B;&#x4E0A;&#x53BB;&#x633A;&#x7B80;&#x5355;</li>
-<li>Security 28 &#x5305;&#x62EC;OAuth2&#x7B49;&#x8FD9;&#x4E9B;&#x77E5;&#x8BC6;&#x70B9;&#x8FD8;&#x662F;&#x9700;&#x8981;&#x638C;&#x63E1;</li>
-<li>auto-configuration 44 &#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#x81EA;&#x52A8;&#x914D;&#x7F6E;</li>
-<li>Deploying Spring Boot applications</li>
+<li>&#x5404;&#x4E2A;&#x73AF;&#x5883;&#x516C;&#x5171;&#x7684;&#x914D;&#x7F6E;&#x5199;&#x5728;application.properties&#x4E2D;&#xFF08;&#x4E5F;&#x53EF;&#x4EE5;&#x5199;&#x4E00;&#x4E9B;&#x9ED8;&#x8BA4;&#x7684;&#x914D;&#x7F6E;&#xFF0C;&#x5982;&#x679C;&#x5728;&#x6307;&#x5B9A;&#x7684;Profile&#x8BFB;&#x4E0D;&#x5230;&#x53EF;&#x4EE5;&#x5F53;&#x505A;&#x9ED8;&#x8BA4;&#x503C;&#x4F7F;&#x7528;&#xFF09;</li>
+<li>&#x5404;&#x4E2A;&#x6A21;&#x5757;&#x72EC;&#x6709;&#x7684;&#x914D;&#x7F6E;&#x914D;&#x7F6E;&#x5728;&#x81EA;&#x5DF1;&#x7684;application-{xxx}.properties&#x6587;&#x4EF6;&#x4E2D;</li>
+<li>&#x7A0B;&#x5E8F;&#x8BFB;&#x53D6;&#x7684;&#x65F6;&#x5019;&#x4F18;&#x5148;&#x8BFB;&#x53D6;application.properties&#x4E2D;&#x9009;&#x4E2D;&#x7684;profile&#x7684;&#x914D;&#x7F6E;&#xFF0C;&#x82E5;&#x8BFB;&#x4E0D;&#x5230;&#x624D;&#x4F1A;&#x4ECE;application.properties&#x53BB;&#x8BFB;</li>
 </ul>
-<h2 id="useful-links">Useful Links</h2>
+<h3 id="&#x6700;&#x4F73;&#x5B9E;&#x8DF5;">&#x6700;&#x4F73;&#x5B9E;&#x8DF5;</h3>
+<p>&#x4E00;&#x822C;&#x90E8;&#x7F72;&#x90FD;&#x662F;&#x901A;&#x8FC7;maven&#x8FDB;&#x884C;&#x6253;&#x5305;&#xFF0C;maven&#x7684;&#x6253;&#x5305;&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x5E26;&#x53C2;&#x6570;&#x6307;&#x5B9A;Profile&#xFF0C;&#x56E0;&#x6B64;&#x6700;&#x4F73;&#x7684;&#x5B9E;&#x8DF5;&#x662F;&#x7ED3;&#x5408;maven&#x7684;Profile&#x529F;&#x80FD;&#x548C;springboot&#x63D0;&#x4F9B;&#x7684;Profiles&#x529F;&#x80FD;&#xFF0C;&#x8FD9;&#x6837;&#x4FBF;&#x4E0D;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x5373;&#x53EF;&#x6309;&#x7167;&#x73AF;&#x5883;&#x4E0D;&#x540C;&#x6253;&#x4E0D;&#x540C;&#x7684;&#x5305;&#xFF0C;&#x5177;&#x4F53;&#x7684;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1A;</p>
+<h4 id="&#x9996;&#x5148;&#x5728;pom&#x4E2D;&#x5B9A;&#x4E49;&#x4E0D;&#x540C;&#x7684;profile">&#x9996;&#x5148;&#x5728;pom&#x4E2D;&#x5B9A;&#x4E49;&#x4E0D;&#x540C;&#x7684;Profile</h4>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">profiles</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">profile</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>dev<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">activation</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">activeByDefault</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">activeByDefault</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">activation</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">spring.profiles.active</span>&gt;</span>dev<span class="hljs-tag">&lt;/<span class="hljs-name">spring.profiles.active</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">profile</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">profile</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>prod<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">spring.profiles.active</span>&gt;</span>prod<span class="hljs-tag">&lt;/<span class="hljs-name">spring.profiles.active</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">profile</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">profiles</span>&gt;</span>
+</code></pre>
+<h4 id="&#x548C;&#x4E0A;&#x56FE;&#x4E00;&#x6837;&#x4F9D;&#x7136;&#x521B;&#x5EFA;&#x76F8;&#x5E94;&#x7684;application-xxxproperties&#x6587;&#x4EF6;&#xFF0C;&#x53EA;&#x662F;&#x5C06;applicationproperties&#x7684;&#x5185;&#x5BB9;&#x6539;&#x4E3A;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x5373;&#x53EF;">&#x548C;&#x4E0A;&#x56FE;&#x4E00;&#x6837;&#x4F9D;&#x7136;&#x521B;&#x5EFA;&#x76F8;&#x5E94;&#x7684;<code>application-{xxx}.properties</code>&#x6587;&#x4EF6;&#xFF0C;&#x53EA;&#x662F;&#x5C06;application.properties&#x7684;&#x5185;&#x5BB9;&#x6539;&#x4E3A;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x5373;&#x53EF;</h4>
+<blockquote>
+<p>spring.profiles.active = @spring.profiles.active@</p>
+</blockquote>
+<h4 id="&#x8FD9;&#x65F6;&#x5728;eclipse&#x7684;run-configuration&#x4E2D;&#x65B0;&#x5EFA;&#x6253;&#x5305;&#x547D;&#x4EE4;&#x5982;&#x4E0B;&#xFF0C;&#x8FD0;&#x884C;&#x5373;&#x53EF;&#x6309;&#x7167;dev&#x7684;&#x914D;&#x7F6E;&#x6253;&#x5305;&#xFF0C;&#x540C;&#x7406;&#x5C06;&#x5176;&#x4E2D;&#x7684;&#x547D;&#x4EE4;&#x6539;&#x4E3A;clean-install--pprod&#x5373;&#x53EF;&#x6309;&#x7167;prod&#x7684;&#x914D;&#x7F6E;&#x6253;&#x6210;&#x751F;&#x4EA7;&#x5305;&#x3002;">&#x8FD9;&#x65F6;&#x5728;eclipse&#x7684;<code>Run Configuration</code>&#x4E2D;&#x65B0;&#x5EFA;&#x6253;&#x5305;&#x547D;&#x4EE4;&#x5982;&#x4E0B;&#xFF0C;&#x8FD0;&#x884C;&#x5373;&#x53EF;&#x6309;&#x7167;dev&#x7684;&#x914D;&#x7F6E;&#x6253;&#x5305;&#xFF0C;&#x540C;&#x7406;&#x5C06;&#x5176;&#x4E2D;&#x7684;&#x547D;&#x4EE4;&#x6539;&#x4E3A;<code>clean install -Pprod</code>&#x5373;&#x53EF;&#x6309;&#x7167;prod&#x7684;&#x914D;&#x7F6E;&#x6253;&#x6210;&#x751F;&#x4EA7;&#x5305;&#x3002;</h4>
+<p><img src="http://7xry05.com1.z0.glb.clouddn.com/201707191521_661.png" alt=""></p>
+<h3 id="&#x542F;&#x52A8;&#x65F6;&#x6253;&#x5370;&#x5F53;&#x524D;&#x6267;&#x884C;&#x73AF;&#x5883;">&#x542F;&#x52A8;&#x65F6;&#x6253;&#x5370;&#x5F53;&#x524D;&#x6267;&#x884C;&#x73AF;&#x5883;</h3>
+<p>&#x5F00;&#x53D1;&#x90E8;&#x7F72;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x6709;&#x65F6;&#x5019;&#x53EF;&#x80FD;&#x5BF9;&#x5F53;&#x524D;&#x7684;&#x6267;&#x884C;&#x73AF;&#x5883;&#x4E0D;&#x662F;&#x5F88;&#x786E;&#x5B9A;&#x5BFC;&#x81F4;&#x6D6A;&#x8D39;&#x4E00;&#x4E9B;&#x65F6;&#x95F4;&#xFF0C;&#x90A3;&#x4E48;&#x5728;&#x542F;&#x52A8;&#x7684;&#x65F6;&#x5019;&#x5C06;&#x5F53;&#x524D;&#x7684;&#x73AF;&#x5883;&#x6253;&#x5370;&#x51FA;&#x6765;&#x53EF;&#x4EE5;&#x5F88;&#x65B9;&#x4FBF;&#x7684;&#x505A;&#x5230;&#x5FC3;&#x91CC;&#x6709;&#x5E95;&#xFF0C;&#x5177;&#x4F53;&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x662F;&#x5728;&#x542F;&#x52A8;&#x8FC7;&#x7A0B;&#x4E2D;&#x6DFB;&#x52A0;&#x4EE5;&#x4E0B;&#x4E00;&#x4E9B;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        ApplicationContext ctx = <span class="hljs-keyword">new</span> SpringApplicationBuilder().sources(HelloWorld.class)
+            .bannerMode(Banner.Mode.LOG).run(args);
+        String[] activeProfiles = ctx.getEnvironment().getActiveProfiles();
+        <span class="hljs-keyword">for</span> (String string : activeProfiles) {
+            logger.warn(<span class="hljs-string">&quot;the active profile is: &quot;</span> + string);
+        }
+}
+</code></pre>
+<p>&#x518D;&#x6B21;&#x542F;&#x52A8;&#x9879;&#x76EE;&#x4FBF;&#x4F1A;&#x770B;&#x5230;console&#x4E2D;&#x6253;&#x5370;&#x5982;&#x4E0B;</p>
+<p><img src="http://7xry05.com1.z0.glb.clouddn.com/201707191529_714.png" alt=""></p>
+<h3 id="&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x6807;&#x8BC6;">&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x6807;&#x8BC6;</h3>
+<p>&#x5728;&#x5F00;&#x53D1;&#x6216;&#x8005;&#x9884;&#x53D1;&#x5E03;&#x73AF;&#x5883;&#x4E2D;&#x4E00;&#x822C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5BF9;&#x4E00;&#x4E9B;&#x62E6;&#x622A;&#x5668;&#x8FDB;&#x884C;&#x5C4F;&#x853D;&#xFF0C;&#x6700;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#x5728;&#x62E6;&#x622A;&#x5668;&#x4E2D;&#x6DFB;&#x52A0;</p>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x662F;&#x5426;&#x5F00;&#x53D1;&#x6A21;&#x5F0F;&#xFF0C;&#x9ED8;&#x8BA4;false</span>
+<span class="hljs-meta">@Value</span>(value = <span class="hljs-string">&quot;${devMode:false}&quot;</span>)
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> devMode;
+</code></pre>
+<p>&#x7136;&#x540E;&#x8BB2;&#x9700;&#x8981;&#x5C4F;&#x853D;&#x7684;&#x903B;&#x8F91;&#x5199;&#x5230;&#x4E0B;&#x9762;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">if</span> (!devMode) {
+    <span class="hljs-comment">//...</span>
+}
+</code></pre>
+<p>&#x6700;&#x540E;&#x53EA;&#x9700;&#x8981;&#x5728;&#x9884;&#x53D1;&#x5E03;&#x6216;&#x6D4B;&#x8BD5;&#x73AF;&#x5883;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x6DFB;&#x52A0;<code>devMode=true</code>&#x914D;&#x7F6E;&#x5373;&#x53EF;&#x3002;</p>
+<h3 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h3>
 <ul>
-<li><a href="https://start.spring.io/" target="_blank">SPRING INITIALIZR</a> can Generate a maven project with java and Spring Boot of specified version.</li>
-<li><a href="http://docs.spring.io/spring-boot/docs/" target="_blank">spring boot official references(pdf &amp; html) of all versions</a></li>
-<li><a href="https://github.com/ityouknow/spring-boot-examples" target="_blank">spring-boot-examples</a><ul>
-<li><a href="http://www.ityouknow.com/spring-boot" target="_blank">xiangg&#x7CFB;&#x5217;&#x6587;&#x7AE0;</a></li>
-</ul>
-</li>
-<li><a href="https://github.com/spring-guides" target="_blank">Repositories behind the Getting Started and Tutorial guides at spring.io</a></li>
+<li><a href="http://dolszewski.com/spring/spring-boot-properties-per-maven-profile/" target="_blank">SPRING BOOT PROPERTIES PER MAVEN PROFILE</a></li>
 </ul>
 
                                 
@@ -665,10 +718,10 @@
 
             
                 
-                
-                <a href="Why Spring Boot.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 为什么要使用 Spring Boot">
-                    <i class="fa fa-angle-right"></i>
+                <a href="Bean Configuration by Properties Files.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 使用配置文件配置 Bean 的方法">
+                    <i class="fa fa-angle-left"></i>
                 </a>
+                
                 
             
         
@@ -677,7 +730,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"为什么要使用 Spring Boot","level":"1.2","depth":1,"path":"Why Spring Boot.md","ref":"Why Spring Boot.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-08-24T03:07:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-24T03:49:57.854Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"设置 Profiles- 不同环境读取不同 Profile 配置","level":"1.8","depth":1,"next":{"title":"Web 开发相关","level":"1.9","depth":1,"ref":"","articles":[{"title":"使用 Velocity","level":"1.9.1","depth":2,"path":"Using Velocity as Template Engine.md","ref":"Using Velocity as Template Engine.md","articles":[]},{"title":"使用 FreeMaker","level":"1.9.2","depth":2,"path":"Using FreeMaker as Template Engine.md","ref":"Using FreeMaker as Template Engine.md","articles":[]},{"title":"Spring MVC 的配置","level":"1.9.3","depth":2,"path":"WebMvcConfig.md","ref":"WebMvcConfig.md","articles":[]},{"title":"Spring MVC 中优雅的异常和错误处理","level":"1.9.4","depth":2,"path":"Error Handling.md","ref":"Error Handling.md","articles":[]},{"title":"如何定制 Favicon","level":"1.9.5","depth":2,"path":"Custom Favicon.md","ref":"Custom Favicon.md","articles":[]},{"title":"指定 @ResponseBody 的返回格式(Json or XML)","level":"1.9.6","depth":2,"path":"Custom Return Format.md","ref":"Custom Return Format.md","articles":[]}]},"previous":{"title":"使用配置文件配置 Bean 的方法","level":"1.7","depth":1,"path":"Bean Configuration by Properties Files.md","ref":"Bean Configuration by Properties Files.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Different Environment Different Profile.md","mtime":"2018-08-24T03:07:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-24T03:49:57.854Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

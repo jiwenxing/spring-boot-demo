@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Introduction · GitBook</title>
+        <title>依赖管理、代码结构、配置类及热交换 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,8 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Why Spring Boot.html" />
+    <link rel="next" href="Customizing the Banner.html" />
     
+    
+    <link rel="prev" href="Getting Started.html" />
     
 
     </head>
@@ -87,7 +89,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -126,7 +128,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="Using Spring Boot.html">
+        <li class="chapter active" data-level="1.4" data-path="Using Spring Boot.html">
             
                 <a href="Using Spring Boot.html">
             
@@ -596,7 +598,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Introduction</a>
+        <a href="." >依赖管理、代码结构、配置类及热交换</a>
     </h1>
 </div>
 
@@ -611,33 +613,53 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="introduction">Introduction</h1>
-<p>Spring Boot &#x53D1;&#x5E03;&#x4E8E; 2014 &#x5E74;&#xFF0C;&#x5B83;&#x79C9;&#x627F;&#x201C;&#x4E60;&#x60EF;&#x4F18;&#x4E8E;&#x914D;&#x7F6E;&#x201D;&#x7684;&#x7406;&#x5FF5;&#x53EF;&#x4EE5;&#x4F7F;&#x9879;&#x76EE;&#x5FEB;&#x901F;&#x8FD0;&#x884C;&#x8D77;&#x6765;&#xFF0C;&#x4F7F;&#x7528; Spring Boot &#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x8FD0;&#x884C;&#x7684;&#x3001;&#x751F;&#x4EA7;&#x7EA7;&#x522B;&#x7684;&#x57FA;&#x4E8E; Spring &#x6846;&#x67B6;&#x7684;&#x9879;&#x76EE;&#x3002;&#x9274;&#x4E8E; Spring Boot &#x5728;&#x9879;&#x76EE;&#x4E2D;&#x5927;&#x91CF;&#x4F7F;&#x7528;&#x5E76;&#x4E14;&#x65E5;&#x8D8B;&#x6D41;&#x884C;&#x7684;&#x8D8B;&#x52BF;&#xFF0C;&#x901A;&#x8FC7;&#x5BF9;&#x5176;&#x5B98;&#x65B9;&#x6587;&#x6863;&#x8FDB;&#x884C;&#x7CFB;&#x7EDF;&#x7684;&#x5B66;&#x4E60;&#x548C;&#x5B9E;&#x8DF5;&#x68B3;&#x7406;&#x51FA;&#x4E00;&#x4E9B;&#x7B14;&#x8BB0;&#x8BB0;&#x5F55;&#x4E8E;&#x6B64;&#x3002;</p>
-<p>&#x8BE5; wiki &#x5185;&#x5BB9;&#x57FA;&#x672C;&#x6309;&#x7167; <code>1.5.4.RELEASE</code> &#x7248;&#x672C;&#x5B98;&#x65B9;&#x6587;&#x6863; <a href="https://docs.spring.io/spring-boot/docs/1.5.4.RELEASE/reference/htmlsingle/#getting-started" target="_blank">Spring Boot Reference Guide</a> &#x7684;&#x987A;&#x5E8F;&#x8FDB;&#x884C;&#xFF0C;&#x5176;&#x4E2D;&#x6BD4;&#x8F83;&#x5E38;&#x7528;&#x548C;&#x91CD;&#x8981;&#x7684;&#x5185;&#x5BB9;&#x57FA;&#x672C;&#x90FD;&#x6709;&#x6240;&#x6D89;&#x53CA;&#x3002;</p>
-<p>&#x5185;&#x5BB9;&#x8FD8;&#x5728;&#x4E0D;&#x65AD;&#x66F4;&#x65B0;&#x4E2D;...</p>
-<h2 id="todo">Todo</h2>
-<p>Redis&#x3001;Elasticsearch...</p>
-<ul>
-<li>NoSQL 30 Redis&#x3001;MongoDB&#x3001;LDAP&#x7B49;&#xFF0C;&#x5BF9;&#x6BD4;&#x5E76;&#x5B9E;&#x8DF5;&#x5176;&#x4E2D;&#x4E00;&#x4E9B;</li>
-<li>ElasticSearch </li>
-<li>websocket 42 &#x4F5C;&#x4E3A;h5&#x63A8;&#x51FA;&#x7684;&#x670D;&#x52A1;&#x5668;&#x63A8;&#x9001;&#x6280;&#x672F;&#xFF0C;&#x8FD8;&#x662F;&#x6709;&#x5F88;&#x591A;&#x4F7F;&#x7528;&#x573A;&#x666F;</li>
-<li>Testing  41  &#x5355;&#x5143;&#x6D4B;&#x8BD5;&#xFF0C;&#x517B;&#x6210;&#x4E00;&#x4E2A;&#x826F;&#x597D;&#x5199;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x7684;&#x4E60;&#x60EF;&#x5F88;&#x6709;&#x5FC5;&#x8981;</li>
-<li>Messaging 32 &#x5E38;&#x7528;&#xFF0C;&#x5BF9;&#x6BD4;&#x9009;&#x62E9;&#x4E00;&#x79CD;&#x5E38;&#x7528;&#x7684;&#x6280;&#x672F;&#x8FDB;&#x884C;&#x5B9E;&#x8DF5;</li>
-<li>Caching 31 &#x4E3A;&#x65B9;&#x6CD5;&#x548C;&#x5E94;&#x7528;&#x5FEB;&#x901F;&#x6DFB;&#x52A0;&#x7F13;&#x5B58;&#xFF0C;&#x770B;&#x4E0A;&#x53BB;&#x633A;&#x7B80;&#x5355;</li>
-<li>Security 28 &#x5305;&#x62EC;OAuth2&#x7B49;&#x8FD9;&#x4E9B;&#x77E5;&#x8BC6;&#x70B9;&#x8FD8;&#x662F;&#x9700;&#x8981;&#x638C;&#x63E1;</li>
-<li>auto-configuration 44 &#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#x81EA;&#x52A8;&#x914D;&#x7F6E;</li>
-<li>Deploying Spring Boot applications</li>
-</ul>
-<h2 id="useful-links">Useful Links</h2>
-<ul>
-<li><a href="https://start.spring.io/" target="_blank">SPRING INITIALIZR</a> can Generate a maven project with java and Spring Boot of specified version.</li>
-<li><a href="http://docs.spring.io/spring-boot/docs/" target="_blank">spring boot official references(pdf &amp; html) of all versions</a></li>
-<li><a href="https://github.com/ityouknow/spring-boot-examples" target="_blank">spring-boot-examples</a><ul>
-<li><a href="http://www.ityouknow.com/spring-boot" target="_blank">xiangg&#x7CFB;&#x5217;&#x6587;&#x7AE0;</a></li>
-</ul>
-</li>
-<li><a href="https://github.com/spring-guides" target="_blank">Repositories behind the Getting Started and Tutorial guides at spring.io</a></li>
-</ul>
+                                <p>&#x7531;&#x4E8E;Spring Boot&#x7684;&#x81EA;&#x52A8;&#x914D;&#x7F6E;&#x7279;&#x6027;&#x4EE5;&#x53CA;&#x4E00;&#x4E9B;&#x7EA6;&#x5B9A;&#x4FD7;&#x79F0;&#x7684;&#x9ED8;&#x8BA4;&#x89C4;&#x5219;&#xFF0C;&#x5728;&#x4F7F;&#x7528;Spring Boot&#x7684;&#x65F6;&#x5019;&#x5982;&#x679C;&#x80FD;&#x591F;&#x9075;&#x5FAA;&#x7684;&#x8BDD;&#x5C06;&#x4F1A;&#x8FBE;&#x5230;&#x4E8B;&#x534A;&#x529F;&#x500D;&#x7684;&#x6548;&#x679C;&#x3002;</p>
+<h3 id="&#x4F9D;&#x8D56;&#x7BA1;&#x7406;">&#x4F9D;&#x8D56;&#x7BA1;&#x7406;</h3>
+<p>Spring Boot&#x6240;&#x4F9D;&#x8D56;&#x7684;jar&#x5305;&#x7248;&#x672C;&#x5DF2;&#x7ECF;&#x5728;parent&#x4E2D;&#x7684;dependency-management&#x4E2D;&#x66FF;&#x4F60;&#x7BA1;&#x7406;&#x597D;&#x4E86;&#xFF0C;&#x5F53;&#x66F4;&#x65B0;Spring Boot&#x65F6;&#xFF0C;&#x90A3;&#x4E9B;&#x4F9D;&#x8D56;&#x4E5F;&#x4F1A;&#x4E00;&#x8D77;&#x66F4;&#x65B0;&#xFF0C;&#x56E0;&#x6B64;&#x9664;&#x975E;&#x786E;&#x5B9E;&#x6709;&#x5FC5;&#x8981;&#xFF0C;&#x4E00;&#x822C;&#x4E0D;&#x9700;&#x8981;&#x5728;&#x6784;&#x5EFA;&#x914D;&#x7F6E;&#x91CC;&#x6307;&#x5B9A;&#x8FD9;&#x4E9B;&#x4F9D;&#x8D56;&#x7684;&#x7248;&#x672C;&#x3002;</p>
+<h3 id="&#x5982;&#x4F55;&#x5728;&#x4E0D;&#x4F7F;&#x7528;parent-pom&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x4F7F;&#x7528;spring-boot">&#x5982;&#x4F55;&#x5728;&#x4E0D;&#x4F7F;&#x7528;parent POM&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x4F7F;&#x7528;Spring Boot</h3>
+<p>&#x5982;&#x679C;&#x56E0;&#x4E3A;&#x4E00;&#x4E9B;&#x539F;&#x56E0;&#x4F60;&#x4E0D;&#x60F3;&#x7EE7;&#x627F;spring-boot-starter-parent&#xFF0C;&#x90A3;&#x4E48;&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x65B9;&#x5F0F;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;Spring Boot&#x3002;</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependencyManagement</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- Import dependency management from Spring Boot --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-dependencies<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.4.1.BUILD-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">type</span>&gt;</span>pom<span class="hljs-tag">&lt;/<span class="hljs-name">type</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>import<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependencyManagement</span>&gt;</span>
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x7684;<code>spring-boot-dependencies</code>&#x5176;&#x5B9E;&#x5C31;&#x662F;<code>spring-boot-starter-parent</code>&#x7684;parent&#xFF0C;&#x5176;&#x4E2D;&#x7EF4;&#x62A4;&#x4E86;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x5168;&#x7684;dependencyManagement&#x3002;</p>
+<p>&#x5728;<code>spring-boot-starter-parent</code>&#x7684;POM&#x4E2D;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x4EE5;&#x4E0B;&#x8BBE;&#x7F6E;&#xFF0C;&#x5B83;&#x9009;&#x62E9;&#x4E86;&#x76F8;&#x5F53;&#x4FDD;&#x5B88;&#x7684;Java&#x517C;&#x5BB9;&#x7B56;&#x7565;&#xFF0C;&#x4F9D;&#x7136;&#x4F7F;&#x7528;&#x7684;java1.6&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x6362;&#x4E3A;&#x6700;&#x65B0;&#x7684;1.8&#x7248;&#x672C;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5728;&#x5DE5;&#x7A0B;&#x7684;POM&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x5373;&#x53EF;&#x3002;</p>
+<p><img src="http://7xry05.com1.z0.glb.clouddn.com/201707122206_37.png" alt=""></p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">java.version</span>&gt;</span>1.8<span class="hljs-tag">&lt;/<span class="hljs-name">java.version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span>
+</code></pre>
+<h3 id="&#x4EE3;&#x7801;&#x7684;&#x7EC4;&#x7EC7;&#x7ED3;&#x6784;">&#x4EE3;&#x7801;&#x7684;&#x7EC4;&#x7EC7;&#x7ED3;&#x6784;</h3>
+<p>Spring Boot&#x5E76;&#x6CA1;&#x7528;&#x5F3A;&#x5236;&#x7684;&#x4EE3;&#x7801;&#x7ED3;&#x6784;&#x8981;&#x6C42;&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;&#x6309;&#x7167;&#x4E00;&#x4E9B;&#x9ED8;&#x8BA4;&#x89C4;&#x5219;&#x53EF;&#x4EE5;&#x8282;&#x7701;&#x5F88;&#x591A;&#x4EE3;&#x7801;&#x3002;</p>
+<p>&#x4E00;&#x822C;root package&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x53CD;&#x8F6C;&#x7684;&#x57DF;&#x540D;&#xFF08;com.jverson.demo e.g.&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x5C06;main&#x7C7B;&#xFF08;&#x4E3B;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x53CA;&#x7A0B;&#x5E8F;&#x5165;&#x53E3;&#xFF09;&#x653E;&#x5728;&#x8FD9;&#x4E2A;root package&#x4E2D;&#xFF0C;&#x5E76;&#x5C06;<code>@EnableAutoConfiguration</code>&#x6CE8;&#x89E3;&#x5230;&#x4F60;&#x7684;main&#x7C7B;&#x4E0A;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x9690;&#x5F0F;&#x7684;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x5305;&#x641C;&#x7D22;&#x8DEF;&#x5F84;&#x4EE5;&#x641C;&#x7D22;&#x7279;&#x5B9A;&#x7684;&#x6CE8;&#x89E3;&#x5B9E;&#x4F53;&#xFF08;&#x4ECE;main&#x6839;&#x76EE;&#x5F55;&#x51FA;&#x53D1;&#x641C;&#x7D22;&#x6240;&#x6709;&#x7684;&#x5B50;&#x76EE;&#x5F55;&#xFF09;&#xFF0C;&#x8FD9;&#x65F6;<code>@ComponentScan</code>&#x6CE8;&#x89E3;&#x4FBF;&#x4E0D;&#x9700;&#x8981;&#x6307;&#x5B9A;basePackage&#x5C5E;&#x6027;&#x4E86;&#xFF0C;&#x5F53;&#x4F7F;&#x7528;<code>@SpringBootApplication</code>&#x6CE8;&#x89E3;&#x65F6;&#x4E00;&#x5207;&#x4FDD;&#x6301;&#x9ED8;&#x8BA4;&#x5373;&#x53EF;&#x3002;&#x5178;&#x578B;&#x7684;&#x7ED3;&#x6784;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<p><img src="http://7xry05.com1.z0.glb.clouddn.com/201707122221_463.png" alt=""></p>
+<h3 id="&#x914D;&#x7F6E;&#x7C7B;">&#x914D;&#x7F6E;&#x7C7B;</h3>
+<p>Spring Boot&#x5EFA;&#x8BAE;&#x5C3D;&#x91CF;&#x4F7F;&#x7528;&#x57FA;&#x4E8E;java&#x7684;&#x914D;&#x7F6E;&#xFF08;&#x4F7F;&#x7528;@Configuration&#x6CE8;&#x89E3;&#x6807;&#x8BB0;&#x4E3A;&#x914D;&#x7F6E;&#x7C7B;&#xFF09;&#xFF0C;&#x4F46;&#x662F;&#x4F60;&#x5E76;&#x4E0D;&#x9700;&#x8981;&#x5C06;&#x6240;&#x6709;&#x7684;@Configuration&#x90FD;&#x653E;&#x8FDB;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x7C7B;&#x91CC;&#xFF0C; &#x901A;&#x5E38;main&#x65B9;&#x6CD5;&#x6240;&#x5728;&#x7684;&#x7C7B;&#x4F1A;&#x88AB;&#x5B9A;&#x4E49;&#x4E3A;&#x4E3B;&#x914D;&#x7F6E;&#x7C7B;&#xFF0C;&#x901A;&#x8FC7;@Import&#x6CE8;&#x89E3;&#x5C06;&#x5176;&#x5B83;&#x914D;&#x7F6E;&#x7C7B;&#x5BFC;&#x5165;&#x5373;&#x53EF;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x6309;&#x7167;&#x6807;&#x51C6;&#x7684;&#x5305;&#x8DEF;&#x5F84;&#x89C4;&#x5212;&#x4EE3;&#x7801;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x914D;&#x7F6E;@ComponentScan&#x6CE8;&#x89E3;&#x5373;&#x53EF;&#x81EA;&#x52A8;&#x6536;&#x96C6;&#x6240;&#x6709;&#x7684;Spring&#x7EC4;&#x4EF6;&#x3002;</p>
+<p>&#x6709;&#x65F6;&#x4F7F;&#x7528;&#x7B2C;&#x4E09;&#x65B9;&#x5E93;&#x4E0D;&#x5F97;&#x4E0D;&#x4F7F;&#x7528;xml&#x914D;&#x7F6E;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;Spring Boot&#x63D0;&#x4F9B;&#x4E86;@ImportResource&#x6CE8;&#x89E3;&#x5C06;xml&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x6CE8;&#x5165;&#x5230;&#x4E3B;&#x914D;&#x7F6E;&#x7C7B;&#x4E2D;&#x3002;</p>
+<p>Spring Boot&#x7684;&#x81EA;&#x52A8;&#x914D;&#x7F6E;&#x662F;&#x5176;&#x4E00;&#x5927;&#x7279;&#x70B9;&#xFF0C;&#x5B83;&#x4F1A;&#x6839;&#x636E;&#x4F60;&#x6DFB;&#x52A0;&#x7684;jar&#x4F9D;&#x8D56;&#x81EA;&#x52A8;&#x914D;&#x7F6E;&#x5E94;&#x7528;&#x3002;&#x800C;&#x81EA;&#x52A8;&#x914D;&#x7F6E;&#x662F;&#x901A;&#x8FC7;<code>@EnableAutoConfiguration</code>&#x5F00;&#x542F;&#x7684;&#xFF08;@SpringBootApplication&#x6CE8;&#x89E3;&#x5305;&#x542B;&#x4E86;&#x6B64;&#x6CE8;&#x89E3;&#xFF09;&#xFF0C;&#x4E00;&#x822C;&#x53EA;&#x9700;&#x5C06;&#x5176;&#x6DFB;&#x52A0;&#x5230;&#x4E3B;&#x914D;&#x7F6E;&#x7C7B;&#x4E0A;&#x5373;&#x53EF;&#x3002;&#x5982;&#x679C;&#x60F3;&#x7981;&#x7528;&#x67D0;&#x4E2A;&#x81EA;&#x52A8;&#x914D;&#x7F6E;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8BE5;&#x6CE8;&#x89E3;&#x7684;exclude&#x5C5E;&#x6027;&#x5982;&#x4E0B;&#xFF1A;
+<code>@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})</code></p>
+<blockquote>
+<p>&#x6CE8;&#x610F;&#xFF1A;@SpringBootApplication same as @Configuration @EnableAutoConfiguration @ComponentScan</p>
+</blockquote>
+<h3 id="&#x70ED;&#x4EA4;&#x6362;">&#x70ED;&#x4EA4;&#x6362;</h3>
+<p>&#x5F00;&#x53D1;&#x7684;&#x65F6;&#x5019;&#x5E0C;&#x671B;&#x6539;&#x52A8;&#x80FD;&#x591F;&#x9A6C;&#x4E0A;&#x5F97;&#x4EE5;&#x4F53;&#x73B0;&#xFF0C;<code>spring-boot-devtools</code>&#x6A21;&#x5757;&#x4FBF;&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x8FD9;&#x4E9B;development-time&#x7279;&#x6027;&#xFF0C;&#x53EA;&#x8981;classpath&#x4E0B;&#x7684;&#x6587;&#x4EF6;&#x6709;&#x53D8;&#x52A8;&#xFF0C;&#x5B83;&#x5C31;&#x4F1A;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#x3002;&#x4F7F;&#x7528;&#x5B83;&#x7684;&#x65B9;&#x6CD5;&#x4E5F;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x6DFB;&#x52A0;pom&#x4EE5;&#x6765;&#x5373;&#x53EF;&#xFF1A;</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-devtools<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">optional</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">optional</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+</code></pre>
+<p>&#x4F60;&#x53EF;&#x80FD;&#x4F1A;&#x53D1;&#x73B0;devtools&#x7684;&#x70ED;&#x542F;&#x52A8;&#x4F1A;&#x6BD4;&#x81EA;&#x5DF1;&#x624B;&#x52A8;&#x51B7;&#x542F;&#x52A8;&#x66F4;&#x5FEB;&#xFF0C;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x5B83;&#x662F;&#x901A;&#x8FC7;&#x4E24;&#x4E2A;&#x7C7B;&#x52A0;&#x8F7D;&#x5668;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x4E00;&#x4E2A;&#x662F;&#x52A0;&#x8F7D;&#x90A3;&#x4E9B;&#x4E0D;&#x4F1A;&#x53D8;&#x52A8;&#x7684;&#x57FA;&#x7840;&#x7C7B;&#xFF08;&#x7B2C;&#x4E09;&#x65B9;jar e.g.&#xFF09;&#x52A0;&#x8F7D;&#x5668;basic classloader&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x662F;&#x6B63;&#x5728;&#x5F00;&#x53D1;&#x7684;&#x7C7B;&#x52A0;&#x8F7D;&#x5668;restart classloader&#xFF0C;&#x70ED;&#x542F;&#x52A8;&#x65F6;&#x53EA;&#x662F;&#x91CD;&#x65B0;&#x52A0;&#x8F7D;restart classloader&#x800C;&#x5DF2;&#x3002;</p>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;classpath&#x4E0B;&#x7684;&#x4EFB;&#x4F55;&#x6587;&#x4EF6;&#x6539;&#x52A8;&#x90FD;&#x4F1A;&#x88AB;&#x76D1;&#x63A7;&#x5E76;&#x91CD;&#x542F;&#xFF0C;&#x800C;&#x4E00;&#x4E9B;&#x8D44;&#x6E90;&#x7684;&#x53D8;&#x5316;&#x4E0D;&#x9700;&#x8981;&#x91CD;&#x542F;&#xFF0C;&#x4F8B;&#x5982;vm&#x7684;&#x4FEE;&#x6539;&#x7B49;&#x3002;</p>
 
                                 
                                 </section>
@@ -665,8 +687,12 @@
 
             
                 
+                <a href="Getting Started.html" class="navigation navigation-prev " aria-label="Previous page: 使用 Spring Boot 快速搭建工程实现 Hello World">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="Why Spring Boot.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 为什么要使用 Spring Boot">
+                
+                <a href="Customizing the Banner.html" class="navigation navigation-next " aria-label="Next page: 如何定制 Banner">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -677,7 +703,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"为什么要使用 Spring Boot","level":"1.2","depth":1,"path":"Why Spring Boot.md","ref":"Why Spring Boot.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-08-24T03:07:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-24T03:49:57.854Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"依赖管理、代码结构、配置类及热交换","level":"1.4","depth":1,"next":{"title":"如何定制 Banner","level":"1.5","depth":1,"path":"Customizing the Banner.md","ref":"Customizing the Banner.md","articles":[]},"previous":{"title":"使用 Spring Boot 快速搭建工程实现 Hello World","level":"1.3","depth":1,"path":"Getting Started.md","ref":"Getting Started.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Using Spring Boot.md","mtime":"2018-08-24T03:07:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-24T03:49:57.854Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
