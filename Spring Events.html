@@ -4,17 +4,33 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Spring Events 事件机制 · GitBook</title>
+        <title>Spring Events 事件机制 · Spring Boot</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
-        
+        <meta name="author" content="Jverson <i@jverson.com>">
         
         
     
     <link rel="stylesheet" href="gitbook/style.css">
 
     
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
             
                 
                 <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
@@ -49,6 +65,7 @@
         
     
     
+    
     <meta name="HandheldFriendly" content="true"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -57,9 +74,22 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="Spring Data Cache.html" />
+    
     
     <link rel="prev" href="quartz springboot.html" />
     
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"jiwenxing","repo":"spring-boot-demo","type":"star","size":"small","count":true},{"user":"jiwenxing","repo":"spring-boot-demo","type":"fork","size":"small","count":true}]};
+    </script>
 
     </head>
     <body>
@@ -80,7 +110,16 @@
 <ul class="summary">
     
     
+    
+        
+        <li>
+            <a href="https://jverson.com" target="_blank" class="custom-link">Jverson's Blog</a>
+        </li>
+    
+    
 
+    
+    <li class="divider"></li>
     
 
     
@@ -91,6 +130,8 @@
             
                 <a href="./">
             
+                    
+                        <b>1.1.</b>
                     
                     Introduction
             
@@ -105,6 +146,8 @@
                 <a href="Why Spring Boot.html">
             
                     
+                        <b>1.2.</b>
+                    
                     为什么要使用 Spring Boot
             
                 </a>
@@ -117,6 +160,8 @@
             
                 <a href="Getting Started.html">
             
+                    
+                        <b>1.3.</b>
                     
                     使用 Spring Boot 快速搭建工程实现 Hello World
             
@@ -131,6 +176,8 @@
                 <a href="Using Spring Boot.html">
             
                     
+                        <b>1.4.</b>
+                    
                     依赖管理、代码结构、配置类及热交换
             
                 </a>
@@ -144,6 +191,8 @@
                 <a href="Customizing the Banner.html">
             
                     
+                        <b>1.5.</b>
+                    
                     如何定制 Banner
             
                 </a>
@@ -156,6 +205,8 @@
             
                 <span>
             
+                    
+                        <b>1.6.</b>
                     
                     Spring Boot 的日志使用
             
@@ -171,6 +222,8 @@
                 <a href="Add color to eclipse console output by log level.html">
             
                     
+                        <b>1.6.1.</b>
+                    
                     不同的日志级别展示不同的颜色
             
                 </a>
@@ -183,6 +236,8 @@
             
                 <a href="Spring Boot Log Configuration.html">
             
+                    
+                        <b>1.6.2.</b>
                     
                     日志的配置
             
@@ -202,6 +257,8 @@
                 <a href="Bean Configuration by Properties Files.html">
             
                     
+                        <b>1.7.</b>
+                    
                     使用配置文件配置 Bean 的方法
             
                 </a>
@@ -215,6 +272,8 @@
                 <a href="Different Environment Different Profile.html">
             
                     
+                        <b>1.8.</b>
+                    
                     设置 Profiles- 不同环境读取不同 Profile 配置
             
                 </a>
@@ -227,6 +286,8 @@
             
                 <span>
             
+                    
+                        <b>1.9.</b>
                     
                     Web 开发相关
             
@@ -242,6 +303,8 @@
                 <a href="Using Velocity as Template Engine.html">
             
                     
+                        <b>1.9.1.</b>
+                    
                     使用 Velocity
             
                 </a>
@@ -254,6 +317,8 @@
             
                 <a href="Using FreeMaker as Template Engine.html">
             
+                    
+                        <b>1.9.2.</b>
                     
                     使用 FreeMaker
             
@@ -268,6 +333,8 @@
                 <a href="WebMvcConfig.html">
             
                     
+                        <b>1.9.3.</b>
+                    
                     Spring MVC 的配置
             
                 </a>
@@ -280,6 +347,8 @@
             
                 <a href="Error Handling.html">
             
+                    
+                        <b>1.9.4.</b>
                     
                     Spring MVC 中优雅的异常和错误处理
             
@@ -294,6 +363,8 @@
                 <a href="Custom Favicon.html">
             
                     
+                        <b>1.9.5.</b>
+                    
                     如何定制 Favicon
             
                 </a>
@@ -306,6 +377,8 @@
             
                 <a href="Custom Return Format.html">
             
+                    
+                        <b>1.9.6.</b>
                     
                     指定 @ResponseBody 的返回格式(Json or XML)
             
@@ -325,6 +398,8 @@
                 <a href="Using Database.html">
             
                     
+                        <b>1.10.</b>
+                    
                     数据库相关
             
                 </a>
@@ -339,6 +414,8 @@
                 <a href="About JDBC.html">
             
                     
+                        <b>1.10.1.</b>
+                    
                     关于 JDBC 的基础知识
             
                 </a>
@@ -351,6 +428,8 @@
             
                 <a href="Talking About ORM.html">
             
+                    
+                        <b>1.10.2.</b>
                     
                     对 ORM 框架的简单介绍
             
@@ -365,6 +444,8 @@
                 <a href="Mybatis-Springboot-Starter.html">
             
                     
+                        <b>1.10.3.</b>
+                    
                     通过 MyBatis-Spring-Boot-Starter 使用 Mybatis
             
                 </a>
@@ -377,6 +458,8 @@
             
                 <a href="Mybatis-Common-Mapper.html">
             
+                    
+                        <b>1.10.4.</b>
                     
                     通过 Mybatis Common Mapper 使用通用 Mapper
             
@@ -391,6 +474,8 @@
                 <a href="Use PageHelper.html">
             
                     
+                        <b>1.10.5.</b>
+                    
                     分页插件 PageHelper 使用 & 打印 sql 及运行时间
             
                 </a>
@@ -403,6 +488,8 @@
             
                 <a href="Spring Data JPA.html">
             
+                    
+                        <b>1.10.6.</b>
                     
                     Spring Data JPA 介绍
             
@@ -422,6 +509,8 @@
                 <a href="Using RestTemplate.html">
             
                     
+                        <b>1.11.</b>
+                    
                     使用 RestTemplate 调用 RESTful 接口
             
                 </a>
@@ -434,6 +523,8 @@
             
                 <a href="JavaMailSender.html">
             
+                    
+                        <b>1.12.</b>
                     
                     使用 JavaMail 发送邮件
             
@@ -448,6 +539,8 @@
                 <a href="CORS.html">
             
                     
+                        <b>1.13.</b>
+                    
                     跨域资源共享 CORS
             
                 </a>
@@ -460,6 +553,8 @@
             
                 <a href="Java Schedule.html">
             
+                    
+                        <b>1.14.</b>
                     
                     Java 定时任务
             
@@ -475,6 +570,8 @@
                 <a href="Timer.html">
             
                     
+                        <b>1.14.1.</b>
+                    
                     Java Timer & TimerTask
             
                 </a>
@@ -487,6 +584,8 @@
             
                 <a href="Spring Schedule.html">
             
+                    
+                        <b>1.14.2.</b>
                     
                     Spring Schedule
             
@@ -501,6 +600,8 @@
                 <a href="Quartz Introduction.html">
             
                     
+                        <b>1.14.3.</b>
+                    
                     Quartz 介绍
             
                 </a>
@@ -513,6 +614,8 @@
             
                 <a href="quartz springboot.html">
             
+                    
+                        <b>1.14.4.</b>
                     
                     Spring Boot 集成 Quartz
             
@@ -532,6 +635,8 @@
                 <a href="Spring Events.html">
             
                     
+                        <b>1.15.</b>
+                    
                     Spring Events 事件机制
             
                 </a>
@@ -540,14 +645,16 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16" >
+        <li class="chapter " data-level="1.16" data-path="Spring Data Cache.html">
             
-                <span>
+                <a href="Spring Data Cache.html">
             
+                    
+                        <b>1.16.</b>
                     
                     Spring Data Cache(Guava Cache)
             
-                </span>
+                </a>
             
 
             
@@ -557,6 +664,8 @@
             
                 <a href="Spring Boot Deploy.html">
             
+                    
+                        <b>1.17.</b>
                     
                     构建部署可执行 jar
             
@@ -611,7 +720,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>Spring &#x4E8B;&#x4EF6;&#x4F53;&#x7CFB;&#x662F;&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;&#x7684;&#x5178;&#x578B;&#x5E94;&#x7528;&#xFF0C;&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;&#x4E2D;&#x6709;&#x4E3B;&#x9898;(Subject)&#x548C;&#x89C2;&#x5BDF;&#x8005;(Observer)&#xFF0C;&#x5B83;&#x5B9A;&#x4E49;&#x4E86;&#x5BF9;&#x8C61;&#x4E4B;&#x95F4;&#x7684;&#x4E00;&#x5BF9;&#x591A;&#x7684;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#xFF0C;&#x5F53;&#x4E3B;&#x9898;&#x72B6;&#x6001;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x65F6;&#xFF0C;&#x6240;&#x6709;&#x89C2;&#x5BDF;&#x8005;&#x90FD;&#x4F1A;&#x6536;&#x5230;&#x901A;&#x77E5;&#x5E76;&#x4E14;&#x81EA;&#x52A8;&#x66F4;&#x65B0;.</p>
+                                <h1 id="spring-events">Spring Events</h1>
+<hr>
+<p>Spring &#x4E8B;&#x4EF6;&#x4F53;&#x7CFB;&#x662F;&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;&#x7684;&#x5178;&#x578B;&#x5E94;&#x7528;&#xFF0C;&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;&#x4E2D;&#x6709;&#x4E3B;&#x9898;(Subject)&#x548C;&#x89C2;&#x5BDF;&#x8005;(Observer)&#xFF0C;&#x5B83;&#x5B9A;&#x4E49;&#x4E86;&#x5BF9;&#x8C61;&#x4E4B;&#x95F4;&#x7684;&#x4E00;&#x5BF9;&#x591A;&#x7684;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#xFF0C;&#x5F53;&#x4E3B;&#x9898;&#x72B6;&#x6001;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x65F6;&#xFF0C;&#x6240;&#x6709;&#x89C2;&#x5BDF;&#x8005;&#x90FD;&#x4F1A;&#x6536;&#x5230;&#x901A;&#x77E5;&#x5E76;&#x4E14;&#x81EA;&#x52A8;&#x66F4;&#x65B0;.</p>
 <p><img src="http://7xry05.com1.z0.glb.clouddn.com/201801241600_183.png" alt=""></p>
 <!-- more -->
 <h2 id="overview">Overview</h2>
@@ -791,7 +902,9 @@
 <li><a href="http://zoltanaltfatter.com/2016/05/11/application-events-with-spring/" target="_blank">Application events with Spring</a></li>
 <li><a href="https://muyinchen.github.io/2017/09/27/Spring5%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90-Spring%E6%A1%86%E6%9E%B6%E4%B8%AD%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%92%8C%E7%9B%91%E5%90%AC%E5%99%A8/" target="_blank">Spring5&#x6E90;&#x7801;&#x89E3;&#x6790;-Spring&#x6846;&#x67B6;&#x4E2D;&#x7684;&#x4E8B;&#x4EF6;&#x548C;&#x76D1;&#x542C;&#x5668;</a></li>
 </ul>
-
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; jverson.com 2018 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">File Modify: 
+2018-08-25 00:14:27
+</span></footer>
                                 
                                 </section>
                             
@@ -818,10 +931,14 @@
 
             
                 
-                <a href="quartz springboot.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Spring Boot 集成 Quartz">
+                <a href="quartz springboot.html" class="navigation navigation-prev " aria-label="Previous page: Spring Boot 集成 Quartz">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="Spring Data Cache.html" class="navigation navigation-next " aria-label="Next page: Spring Data Cache(Guava Cache)">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -830,7 +947,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Spring Events 事件机制","level":"1.15","depth":1,"next":{"title":"Spring Data Cache(Guava Cache)","level":"1.16","depth":1,"ref":"","articles":[]},"previous":{"title":"Spring Boot 集成 Quartz","level":"1.14.4","depth":2,"path":"quartz springboot.md","ref":"quartz springboot.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Spring Events.md","mtime":"2018-08-24T03:07:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-24T09:05:23.373Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Spring Events 事件机制","level":"1.15","depth":1,"next":{"title":"Spring Data Cache(Guava Cache)","level":"1.16","depth":1,"path":"Spring Data Cache.md","ref":"Spring Data Cache.md","articles":[]},"previous":{"title":"Spring Boot 集成 Quartz","level":"1.14.4","depth":2,"path":"quartz springboot.md","ref":"quartz springboot.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","custom-favicon-new","disqus","todo","splitter","tbfed-pagefooter","page-toc-button"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018","modify_label":"","modify_format":"YYYY-MM-DD HH:mm:ss"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/spring-boot-demo"},"todo":{},"splitter":{},"search":{},"custom-favicon-new":{"myConfigKey":"default"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"/favicon.ico","page-toc-button":{"maxTocDepth":2,"minTocSize":2},"appleTouchIconPrecomposed152":"gitbook/images/apple-touch-icon-precomposed-152.png","github-buttons":{"buttons":[{"user":"jiwenxing","repo":"spring-boot-demo","type":"star","size":"small","count":true},{"user":"jiwenxing","repo":"spring-boot-demo","type":"fork","size":"small","count":true}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Spring Boot","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Spring Boot Practise & Notes","extension":null},"file":{"path":"Spring Events.md","mtime":"2018-08-24T16:14:27.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-24T16:32:33.179Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -838,6 +955,30 @@
         
     <script src="gitbook/gitbook.js"></script>
     <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
     
         
         <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>

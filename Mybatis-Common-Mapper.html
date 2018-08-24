@@ -4,17 +4,33 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>通过 Mybatis Common Mapper 使用通用 Mapper · GitBook</title>
+        <title>通过 Mybatis Common Mapper 使用通用 Mapper · Spring Boot</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
-        
+        <meta name="author" content="Jverson <i@jverson.com>">
         
         
     
     <link rel="stylesheet" href="gitbook/style.css">
 
     
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
             
                 
                 <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
@@ -49,6 +65,7 @@
         
     
     
+    
     <meta name="HandheldFriendly" content="true"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -62,6 +79,17 @@
     
     <link rel="prev" href="Mybatis-Springboot-Starter.html" />
     
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"jiwenxing","repo":"spring-boot-demo","type":"star","size":"small","count":true},{"user":"jiwenxing","repo":"spring-boot-demo","type":"fork","size":"small","count":true}]};
+    </script>
 
     </head>
     <body>
@@ -82,7 +110,16 @@
 <ul class="summary">
     
     
+    
+        
+        <li>
+            <a href="https://jverson.com" target="_blank" class="custom-link">Jverson's Blog</a>
+        </li>
+    
+    
 
+    
+    <li class="divider"></li>
     
 
     
@@ -93,6 +130,8 @@
             
                 <a href="./">
             
+                    
+                        <b>1.1.</b>
                     
                     Introduction
             
@@ -107,6 +146,8 @@
                 <a href="Why Spring Boot.html">
             
                     
+                        <b>1.2.</b>
+                    
                     为什么要使用 Spring Boot
             
                 </a>
@@ -119,6 +160,8 @@
             
                 <a href="Getting Started.html">
             
+                    
+                        <b>1.3.</b>
                     
                     使用 Spring Boot 快速搭建工程实现 Hello World
             
@@ -133,6 +176,8 @@
                 <a href="Using Spring Boot.html">
             
                     
+                        <b>1.4.</b>
+                    
                     依赖管理、代码结构、配置类及热交换
             
                 </a>
@@ -146,6 +191,8 @@
                 <a href="Customizing the Banner.html">
             
                     
+                        <b>1.5.</b>
+                    
                     如何定制 Banner
             
                 </a>
@@ -158,6 +205,8 @@
             
                 <span>
             
+                    
+                        <b>1.6.</b>
                     
                     Spring Boot 的日志使用
             
@@ -173,6 +222,8 @@
                 <a href="Add color to eclipse console output by log level.html">
             
                     
+                        <b>1.6.1.</b>
+                    
                     不同的日志级别展示不同的颜色
             
                 </a>
@@ -185,6 +236,8 @@
             
                 <a href="Spring Boot Log Configuration.html">
             
+                    
+                        <b>1.6.2.</b>
                     
                     日志的配置
             
@@ -204,6 +257,8 @@
                 <a href="Bean Configuration by Properties Files.html">
             
                     
+                        <b>1.7.</b>
+                    
                     使用配置文件配置 Bean 的方法
             
                 </a>
@@ -217,6 +272,8 @@
                 <a href="Different Environment Different Profile.html">
             
                     
+                        <b>1.8.</b>
+                    
                     设置 Profiles- 不同环境读取不同 Profile 配置
             
                 </a>
@@ -229,6 +286,8 @@
             
                 <span>
             
+                    
+                        <b>1.9.</b>
                     
                     Web 开发相关
             
@@ -244,6 +303,8 @@
                 <a href="Using Velocity as Template Engine.html">
             
                     
+                        <b>1.9.1.</b>
+                    
                     使用 Velocity
             
                 </a>
@@ -256,6 +317,8 @@
             
                 <a href="Using FreeMaker as Template Engine.html">
             
+                    
+                        <b>1.9.2.</b>
                     
                     使用 FreeMaker
             
@@ -270,6 +333,8 @@
                 <a href="WebMvcConfig.html">
             
                     
+                        <b>1.9.3.</b>
+                    
                     Spring MVC 的配置
             
                 </a>
@@ -282,6 +347,8 @@
             
                 <a href="Error Handling.html">
             
+                    
+                        <b>1.9.4.</b>
                     
                     Spring MVC 中优雅的异常和错误处理
             
@@ -296,6 +363,8 @@
                 <a href="Custom Favicon.html">
             
                     
+                        <b>1.9.5.</b>
+                    
                     如何定制 Favicon
             
                 </a>
@@ -308,6 +377,8 @@
             
                 <a href="Custom Return Format.html">
             
+                    
+                        <b>1.9.6.</b>
                     
                     指定 @ResponseBody 的返回格式(Json or XML)
             
@@ -327,6 +398,8 @@
                 <a href="Using Database.html">
             
                     
+                        <b>1.10.</b>
+                    
                     数据库相关
             
                 </a>
@@ -341,6 +414,8 @@
                 <a href="About JDBC.html">
             
                     
+                        <b>1.10.1.</b>
+                    
                     关于 JDBC 的基础知识
             
                 </a>
@@ -353,6 +428,8 @@
             
                 <a href="Talking About ORM.html">
             
+                    
+                        <b>1.10.2.</b>
                     
                     对 ORM 框架的简单介绍
             
@@ -367,6 +444,8 @@
                 <a href="Mybatis-Springboot-Starter.html">
             
                     
+                        <b>1.10.3.</b>
+                    
                     通过 MyBatis-Spring-Boot-Starter 使用 Mybatis
             
                 </a>
@@ -379,6 +458,8 @@
             
                 <a href="Mybatis-Common-Mapper.html">
             
+                    
+                        <b>1.10.4.</b>
                     
                     通过 Mybatis Common Mapper 使用通用 Mapper
             
@@ -393,6 +474,8 @@
                 <a href="Use PageHelper.html">
             
                     
+                        <b>1.10.5.</b>
+                    
                     分页插件 PageHelper 使用 & 打印 sql 及运行时间
             
                 </a>
@@ -405,6 +488,8 @@
             
                 <a href="Spring Data JPA.html">
             
+                    
+                        <b>1.10.6.</b>
                     
                     Spring Data JPA 介绍
             
@@ -424,6 +509,8 @@
                 <a href="Using RestTemplate.html">
             
                     
+                        <b>1.11.</b>
+                    
                     使用 RestTemplate 调用 RESTful 接口
             
                 </a>
@@ -436,6 +523,8 @@
             
                 <a href="JavaMailSender.html">
             
+                    
+                        <b>1.12.</b>
                     
                     使用 JavaMail 发送邮件
             
@@ -450,6 +539,8 @@
                 <a href="CORS.html">
             
                     
+                        <b>1.13.</b>
+                    
                     跨域资源共享 CORS
             
                 </a>
@@ -462,6 +553,8 @@
             
                 <a href="Java Schedule.html">
             
+                    
+                        <b>1.14.</b>
                     
                     Java 定时任务
             
@@ -477,6 +570,8 @@
                 <a href="Timer.html">
             
                     
+                        <b>1.14.1.</b>
+                    
                     Java Timer & TimerTask
             
                 </a>
@@ -489,6 +584,8 @@
             
                 <a href="Spring Schedule.html">
             
+                    
+                        <b>1.14.2.</b>
                     
                     Spring Schedule
             
@@ -503,6 +600,8 @@
                 <a href="Quartz Introduction.html">
             
                     
+                        <b>1.14.3.</b>
+                    
                     Quartz 介绍
             
                 </a>
@@ -515,6 +614,8 @@
             
                 <a href="quartz springboot.html">
             
+                    
+                        <b>1.14.4.</b>
                     
                     Spring Boot 集成 Quartz
             
@@ -534,6 +635,8 @@
                 <a href="Spring Events.html">
             
                     
+                        <b>1.15.</b>
+                    
                     Spring Events 事件机制
             
                 </a>
@@ -542,14 +645,16 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16" >
+        <li class="chapter " data-level="1.16" data-path="Spring Data Cache.html">
             
-                <span>
+                <a href="Spring Data Cache.html">
             
+                    
+                        <b>1.16.</b>
                     
                     Spring Data Cache(Guava Cache)
             
-                </span>
+                </a>
             
 
             
@@ -559,6 +664,8 @@
             
                 <a href="Spring Boot Deploy.html">
             
+                    
+                        <b>1.17.</b>
                     
                     构建部署可执行 jar
             
@@ -613,10 +720,11 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="&#x901A;&#x7528;mapper&#xFF08;common-mapper&#xFF09;">&#x901A;&#x7528;mapper&#xFF08;common mapper&#xFF09;</h3>
+                                <h1 id="&#x901A;&#x7528;mapper&#xFF08;common-mapper&#xFF09;">&#x901A;&#x7528;mapper&#xFF08;common mapper&#xFF09;</h1>
+<hr>
 <p>&#x5728;&#x524D;&#x9762;&#x53EA;&#x662F;&#x7528;<code>mybatis-spring-boot-starter</code>&#x7684;&#x65F6;&#x5019;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x6CE8;&#x89E3;&#x6216;&#x8005;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5C06;sql&#x548C;&#x5BF9;&#x5E94;&#x7684;&#x65B9;&#x6CD5;&#x6620;&#x5C04;&#x8D77;&#x6765;&#xFF0C;&#x5E76;&#x4E14;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x90FD;&#x9700;&#x8981;&#x624B;&#x52A8;&#x5199;sql&#xFF0C;&#x6CE8;&#x89E3;&#x7684;&#x65B9;&#x5F0F;&#x4E0D;&#x591F;&#x7075;&#x6D3B;&#xFF0C;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x5F62;&#x5F0F;&#x53C8;&#x592A;&#x7E41;&#x7410;&#x3002;&#x4E8E;&#x662F;&#x4FBF;&#x51FA;&#x73B0;&#x4E86;&#x901A;&#x7528;mapper&#xFF0C;&#x901A;&#x7528;mapper&#x672C;&#x8EAB;&#x5DF2;&#x7ECF;&#x63D0;&#x4F9B;&#x5355;&#x8868;&#x7684;&#x589E;&#x5220;&#x6539;&#x67E5;&#x901A;&#x7528;&#x65B9;&#x6CD5;&#xFF0C;&#x65E0;&#x9700;&#x6BCF;&#x6B21;&#x90FD;&#x53BB;&#x5199;sql&#x6216;&#x8005;&#x914D;&#x7F6E;xml&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x7B80;&#x5355;&#x7EE7;&#x627F;&#x5B83;&#x63D0;&#x4F9B;&#x7684;&#x901A;&#x7528;mapper&#x63A5;&#x53E3;&#x5373;&#x53EF;&#x8F7B;&#x677E;&#x83B7;&#x5F97;&#x6240;&#x6709;&#x65B9;&#x6CD5;&#x3002;</p>
 <p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x901A;&#x7528;mapper&#x76EE;&#x524D;&#x8FD8;&#x53EA;&#x652F;&#x6301;&#x5355;&#x8868;&#x64CD;&#x4F5C;&#xFF0C;&#x4E0D;&#x652F;&#x6301;&#x901A;&#x7528;&#x7684;&#x591A;&#x8868;&#x8054;&#x5408;&#x67E5;&#x8BE2;&#x3002;</p>
-<h3 id="spring-boot-&#x96C6;&#x6210;&#x901A;&#x7528;mapper">spring boot &#x96C6;&#x6210;&#x901A;&#x7528;mapper</h3>
+<h2 id="spring-boot-&#x96C6;&#x6210;&#x901A;&#x7528;mapper">spring boot &#x96C6;&#x6210;&#x901A;&#x7528;mapper</h2>
 <p>&#x901A;&#x7528;mapper&#x7684;&#x4F5C;&#x8005;&#x4E3A;&#x4E86;&#x4FBF;&#x4E8E;spring boot&#x7528;&#x6237;&#x96C6;&#x6210;&#x5F00;&#x53D1;&#x4E86;&#x4E00;&#x4E2A;&#x4E13;&#x95E8;&#x7684;<a href="https://github.com/abel533/mapper-boot-starter" target="_blank"><code>mapper-spring-boot-starter</code></a>&#x7528;&#x4E8E;&#x96C6;&#x6210;&#x5230;springboot&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x6DFB;&#x52A0;&#x4EE5;&#x4E0B;&#x4F9D;&#x8D56;&#x5373;&#x53EF;&#xFF0C;&#x8BE5;&#x4F9D;&#x8D56;&#x96C6;&#x6210;&#x4E86;<code>mybatis-spring-boot-starter</code>&#x548C;<code>&#x901A;&#x7528;mapper</code>&#x4F9D;&#x8D56;&#x3002;&#x53E6;&#x5916;&#x5982;&#x679C;&#x9700;&#x8981;&#x7528;&#x5230;&#x5206;&#x9875;&#x63D2;&#x4EF6;&#x8FD8;&#x9700;&#x8981;&#x6DFB;&#x52A0;<code>pagehelper-spring-boot-starter</code>&#x4F9D;&#x8D56;&#x3002;</p>
 <p>common-mapper &amp; pagehelper &amp; mysql&#x7684;&#x5B8C;&#x6210;&#x4F9D;&#x8D56;&#x5982;&#x4E0B;&#x3002;</p>
 <pre><code class="lang-xml"><span class="hljs-comment">&lt;!-- MySQL JDBC Type 4 driver --&gt;</span>
@@ -637,8 +745,8 @@
     <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.1.3<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
 </code></pre>
-<h3 id="&#x4F7F;&#x7528;&#x901A;&#x7528;mapper">&#x4F7F;&#x7528;&#x901A;&#x7528;mapper</h3>
-<h4 id="&#x914D;&#x7F6E;">&#x914D;&#x7F6E;</h4>
+<h2 id="&#x4F7F;&#x7528;&#x901A;&#x7528;mapper">&#x4F7F;&#x7528;&#x901A;&#x7528;mapper</h2>
+<h3 id="&#x914D;&#x7F6E;">&#x914D;&#x7F6E;</h3>
 <p>&#x5982;&#x679C;&#x5728;&#x6CA1;&#x6709;&#x96C6;&#x6210;pagehelper&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x901A;&#x7528;mapper&#x7684;starter&#x81EA;&#x52A8;&#x914D;&#x7F6E;&#x9664;&#x6570;&#x636E;&#x5E93;&#x8D26;&#x53F7;&#x4FE1;&#x606F;&#x4EE5;&#x5916;&#x65E0;&#x9700;&#x4EFB;&#x4F55;&#x989D;&#x5916;&#x914D;&#x7F6E;&#x5373;&#x53EF;&#x542F;&#x52A8;&#x6210;&#x529F;&#x5E76;&#x4F7F;&#x7528;&#xFF0C;&#x5982;&#x679C;&#x6DFB;&#x52A0;&#x4E86;&#x5206;&#x9875;&#x63D2;&#x4EF6;&#x5219;&#x9700;&#x8981;&#x5728;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x5BF9;&#x5176;&#x6307;&#x5B9A;&#x6570;&#x636E;&#x5E93;&#x7C7B;&#x578B;&#x624D;&#x80FD;&#x6B63;&#x5E38;&#x4F7F;&#x7528;<code>pagehelper.helperDialect=mysql</code>&#x3002;</p>
 <p>&#x56E0;&#x6B64;&#x5728;&#x4EE5;&#x4E0A;&#x4F9D;&#x8D56;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5982;&#x4E0B;&#x5373;&#x53EF;&#x4F7F;&#x7528;</p>
 <pre><code class="lang-properties">#-----------database configurations----------
@@ -649,7 +757,7 @@ spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 #-----------mybatis common-mapper configurations----------
 pagehelper.helperDialect=mysql
 </code></pre>
-<h4 id="&#x7EE7;&#x627F;&#x901A;&#x7528;&#x7684;mapper&#x83B7;&#x5F97;&#x6240;&#x6709;&#x901A;&#x7528;&#x65B9;&#x6CD5;">&#x7EE7;&#x627F;&#x901A;&#x7528;&#x7684;Mapper<t>&#x83B7;&#x5F97;&#x6240;&#x6709;&#x901A;&#x7528;&#x65B9;&#x6CD5;</t></h4>
+<h3 id="&#x7EE7;&#x627F;&#x901A;&#x7528;&#x7684;mapper&#x83B7;&#x5F97;&#x6240;&#x6709;&#x901A;&#x7528;&#x65B9;&#x6CD5;">&#x7EE7;&#x627F;&#x901A;&#x7528;&#x7684;Mapper<t>&#x83B7;&#x5F97;&#x6240;&#x6709;&#x901A;&#x7528;&#x65B9;&#x6CD5;</t></h3>
 <pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">CountryMapper</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">MyMapper</span>&lt;<span class="hljs-title">Country</span>&gt;</span>{
     <span class="hljs-comment">//&#x5176;&#x4ED6;&#x624B;&#x5199;&#x7684;&#x63A5;&#x53E3;...</span>
 }
@@ -663,7 +771,7 @@ pagehelper.helperDialect=mysql
 <blockquote>
 <p>sun.reflect.generics.reflectiveObjects.TypeVariableImpl cannot be cast to java.lang.Class</p>
 </blockquote>
-<h4 id="&#x521B;&#x5EFA;&#x6CDB;&#x578B;&#x5B9E;&#x4F53;">&#x521B;&#x5EFA;&#x6CDB;&#x578B;&#x5B9E;&#x4F53;</h4>
+<h3 id="&#x521B;&#x5EFA;&#x6CDB;&#x578B;&#x5B9E;&#x4F53;">&#x521B;&#x5EFA;&#x6CDB;&#x578B;&#x5B9E;&#x4F53;</h3>
 <pre><code class="lang-java"><span class="hljs-meta">@Table</span>(name = <span class="hljs-string">&quot;country&quot;</span>)
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Country</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseEntity</span> </span>{
     <span class="hljs-keyword">private</span> String countryname;
@@ -730,7 +838,7 @@ pagehelper.helperDialect=mysql
 <li>&#x7531;&#x4E8E;&#x57FA;&#x672C;&#x7C7B;&#x578B;,&#x5982;int&#x4F5C;&#x4E3A;&#x5B9E;&#x4F53;&#x7C7B;&#x5B57;&#x6BB5;&#x65F6;&#x4F1A;&#x6709;&#x9ED8;&#x8BA4;&#x503C;0,&#x800C;&#x4E14;&#x65E0;&#x6CD5;&#x6D88;&#x9664;,&#x6240;&#x4EE5;&#x5B9E;&#x4F53;&#x7C7B;&#x4E2D;&#x5EFA;&#x8BAE;&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x57FA;&#x672C;&#x7C7B;&#x578B;.</li>
 <li>&#x8868;&#x540D;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;@Table(name = &quot;tableName&quot;)&#x8FDB;&#x884C;&#x6307;&#x5B9A;</li>
 </ol>
-<h4 id="&#x626B;&#x63CF;&#x7EE7;&#x627F;&#x7684;mapper&#x63A5;&#x53E3;">&#x626B;&#x63CF;&#x7EE7;&#x627F;&#x7684;mapper&#x63A5;&#x53E3;</h4>
+<h3 id="&#x626B;&#x63CF;&#x7EE7;&#x627F;&#x7684;mapper&#x63A5;&#x53E3;">&#x626B;&#x63CF;&#x7EE7;&#x627F;&#x7684;mapper&#x63A5;&#x53E3;</h3>
 <p>&#x4F20;&#x7EDF;&#x7684;xml&#x914D;&#x7F6E;&#x4E2D;&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;&#x4EE5;&#x4E0B;&#x914D;&#x7F6E;&#x5230;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tk.mybatis.spring.mapper.MapperScannerConfigurer&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;basePackage&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;com.isea533.mybatis.mapper&quot;</span>/&gt;</span>
@@ -739,7 +847,7 @@ pagehelper.helperDialect=mysql
 <p>&#x4F46;&#x662F;springboot&#x63D0;&#x5021;&#x96F6;xml&#x914D;&#x7F6E;&#xFF0C;&#x56E0;&#x6B64;&#x53EA;&#x9700;&#x8981;&#x5728;&#x4E3B;&#x914D;&#x7F6E;&#x7C7B;&#x4E0A;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6CE8;&#x89E3;&#x626B;&#x63CF;&#x6240;&#x6709;&#x63A5;&#x53E3;&#x5373;&#x53EF;&#x3002;</p>
 <pre><code class="lang-java"><span class="hljs-meta">@MapperScan</span>(basePackages = <span class="hljs-string">&quot;com.jverson.springboot.mapper&quot;</span>)
 </code></pre>
-<h4 id="&#x4EE3;&#x7801;&#x4E2D;&#x4F7F;&#x7528;">&#x4EE3;&#x7801;&#x4E2D;&#x4F7F;&#x7528;</h4>
+<h3 id="&#x4EE3;&#x7801;&#x4E2D;&#x4F7F;&#x7528;">&#x4EE3;&#x7801;&#x4E2D;&#x4F7F;&#x7528;</h3>
 <p>&#x76F4;&#x63A5;&#x5728;&#x9700;&#x8981;&#x7684;&#x5730;&#x65B9;&#x6CE8;&#x5165;Mapper&#x7EE7;&#x627F;&#x7684;&#x63A5;&#x53E3;&#x5373;&#x53EF;,&#x548C;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#x7684;&#x4F7F;&#x7528;&#x6CA1;&#x6709;&#x533A;&#x522B;.</p>
 <pre><code class="lang-java"><span class="hljs-meta">@Service</span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CountryService</span> </span>{
@@ -763,15 +871,17 @@ pagehelper.helperDialect=mysql
 
 }
 </code></pre>
-<h3 id="references">references</h3>
+<h2 id="references">references</h2>
 <p>&#x5173;&#x4E8E;mapper&#x7684;&#x8BE6;&#x7EC6;&#x7528;&#x6CD5;&#x5C31;&#x4E0D;&#x642C;&#x8FD0;&#x4E86;&#xFF0C;&#x5728;&#x4E0B;&#x9762;&#x7684;&#x53C2;&#x8003;&#x6587;&#x6863;&#x4E2D;&#x90FD;&#x80FD;&#x627E;&#x5230;&#x3002;</p>
 <ul>
 <li><a href="https://github.com/abel533/mapper-boot-starter" target="_blank">&#x5B98;&#x65B9;&#x6587;&#x6863;&#x5730;&#x5740;</a></li>
 <li><a href="https://github.com/abel533/MyBatis-Spring-Boot" target="_blank">github&#x4EE3;&#x7801;&#x793A;&#x4F8B;</a></li>
 <li><a href="https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/zh/HowToUse.md" target="_blank">&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x5206;&#x9875;&#x63D2;&#x4EF6;PageHelper</a></li>
-<li><a href="http://git.oschina.net/free/Mapper/blob/master/wiki/mapper3/5.Mappers.md#mapper3%E9%80%9A%E7%94%A8%E6%8E%A5%E5%8F%A3%E5%A4%A7%E5%85%A8" target="_blank">Mapper3&#x901A;&#x7528;&#x63A5;&#x53E3;&#x5927;&#x5168;</a></li>
+<li><a href="http://git.oschina.net/free/Mapper/blob/master/wiki/mapper3/5.Mappers.md#mapper3%E9%80%9A%E7%94%A8%E6%8E%A5%E5%8F%A3%E5%A4%A7%E5%85%A8" target="_blank">Mapper3&#x901A;&#x7528;&#x63A5;&#x53E3;&#x5927;&#x5168;</a> </li>
 </ul>
-
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; jverson.com 2018 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">File Modify: 
+2018-08-25 00:08:10
+</span></footer>
                                 
                                 </section>
                             
@@ -814,7 +924,7 @@ pagehelper.helperDialect=mysql
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"通过 Mybatis Common Mapper 使用通用 Mapper","level":"1.10.4","depth":2,"next":{"title":"分页插件 PageHelper 使用 & 打印 sql 及运行时间","level":"1.10.5","depth":2,"path":"Use PageHelper.md","ref":"Use PageHelper.md","articles":[]},"previous":{"title":"通过 MyBatis-Spring-Boot-Starter 使用 Mybatis","level":"1.10.3","depth":2,"path":"Mybatis-Springboot-Starter.md","ref":"Mybatis-Springboot-Starter.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Mybatis-Common-Mapper.md","mtime":"2018-08-24T03:07:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-24T09:05:23.373Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"通过 Mybatis Common Mapper 使用通用 Mapper","level":"1.10.4","depth":2,"next":{"title":"分页插件 PageHelper 使用 & 打印 sql 及运行时间","level":"1.10.5","depth":2,"path":"Use PageHelper.md","ref":"Use PageHelper.md","articles":[]},"previous":{"title":"通过 MyBatis-Spring-Boot-Starter 使用 Mybatis","level":"1.10.3","depth":2,"path":"Mybatis-Springboot-Starter.md","ref":"Mybatis-Springboot-Starter.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","custom-favicon-new","disqus","todo","splitter","tbfed-pagefooter","page-toc-button"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018","modify_label":"","modify_format":"YYYY-MM-DD HH:mm:ss"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/spring-boot-demo"},"todo":{},"splitter":{},"search":{},"custom-favicon-new":{"myConfigKey":"default"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"/favicon.ico","page-toc-button":{"maxTocDepth":2,"minTocSize":2},"appleTouchIconPrecomposed152":"gitbook/images/apple-touch-icon-precomposed-152.png","github-buttons":{"buttons":[{"user":"jiwenxing","repo":"spring-boot-demo","type":"star","size":"small","count":true},{"user":"jiwenxing","repo":"spring-boot-demo","type":"fork","size":"small","count":true}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Spring Boot","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Spring Boot Practise & Notes","extension":null},"file":{"path":"Mybatis-Common-Mapper.md","mtime":"2018-08-24T16:08:10.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-24T16:32:33.179Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -822,6 +932,30 @@ pagehelper.helperDialect=mysql
         
     <script src="gitbook/gitbook.js"></script>
     <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
     
         
         <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
