@@ -1,9 +1,11 @@
+# Spring Boot Log Configuration
+---
 
-### Spring Boot默认日志
+## Spring Boot 默认日志
 
 如果是继承Starter使用Spring Boot，则默认使用的是logback，不过不用担心，不管依赖的那些库使用的是什么日志框架，通常你不需要改变任何日志依赖，Springboot可以确保那些框架都能正常的工作。
 
-#### Log Level
+### Log Level
 
 默认情况下springboot会将info及以上级别的log回显在console里，可以使用`debug=true`或`trace=true`显示更加详细的日志。
 
@@ -13,13 +15,13 @@
 logging.level.org.springframework.web=DEBUG    
 logging.level.org.hibernate=ERROR    
 
-#### File output
+### File output
 
 默认情况下Springboot只会将日志输出到console，并不会输出为文件。如果需要记录为文件则需要在配置文件中指定日志输出路径（logging.file）和名称（logging.path）。
 例如在配置文件中设置`logging.file = /export/Logs/mylog.log`，则日志便会输出到该目录下，并且文件大小达到10MB时便会自动分割。但是发现这样并没有办法将日志按照Level输出到不同的文件中，如果想实现则需要在classpath下添加`logback-spring.xml`（推荐）或`logback.xml`配置文件。
 
 
-### Custom log configuration
+## Custom log configuration
 
 如果不想使用默认的logback日志框架，可以添加其它框架的依赖（例如log4j2），Log4j2.0基于LMAX Disruptor的异步日志在多线程环境下性能会远远优于Log4j1.x和logback（官方数据是10倍以上）。具体的使用流程如下：
 
@@ -99,7 +101,7 @@ logging.level.org.hibernate=ERROR
 </Configuration>
 ```
 
-### 参考
+## 参考
 
 1. [Apache Log4j 2](https://logging.apache.org/log4j/2.x/)
 2. [Configure Log4j for logging](http://docs.spring.io/spring-boot/docs/1.5.1.RELEASE/reference/htmlsingle/#howto-configure-log4j-for-logging)

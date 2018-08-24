@@ -1,3 +1,6 @@
+# Add color to eclipse console output by log level
+---
+
 如果你希望console里的日志能够按照不同的级别有不同的着色，如下图这样便于查看错误和异常日志，有一个很好用的eclipse插件`Grep console`可以帮你实现。
 
 ![](http://7xry05.com1.z0.glb.clouddn.com/201707142005_208.png)

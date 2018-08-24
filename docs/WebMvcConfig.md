@@ -1,10 +1,11 @@
-### `@EnableWebMvc`介绍
+# `@EnableWebMvc` 介绍
+---
 
 > 该部分内容参考[Configuring Spring MVC](https://docs.spring.io/spring/docs/3.2.x/spring-framework-reference/html/mvc.html#mvc-config)
 
 在Spring中有两种方式启用并配置SpringMVC，即`the MVC Java config` and `the MVC XML namespace`。
 
-#### the MVC Java config
+## the MVC Java config
 
 ```java
 @Configuration
@@ -14,7 +15,7 @@ public class WebConfig {
 }
 ```
 
-#### the MVC XML namespace
+## the MVC XML namespace
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -51,7 +52,7 @@ public @interface EnableWebMvc {
 > Don’t use @EnableWebMvc in Spring Boot, just include spring-web as a maven/gradle dependency and it will be autoconfigured
 这里参考[Spring Boot, @EnableWebMvc, and Common Use Cases](https://dzone.com/articles/spring-boot-enablewebmvc-and-common-use-cases)
 
-### 自定义配置
+## 自定义配置
 
 如果想在默认配置的基础上添加一些自定义配置，只需要实现`WebMvcConfigurer`接口即可，但是这样就需要实现该接口的所有方法，一种更方便的方法是继承`WebMvcConfigurerAdapter`类（该类实现了WebMvcConfigurer接口，不过实现方法体基本都是空的），并选择性的覆写其中需要的方法即可。这里简单就几个最常用的配置举例如下。
 
@@ -112,6 +113,6 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 }
 ```
 
-### 总结
+## 总结
 
 在springboot中只要依赖了mvc的jar包，自动配置会自动引入mvc的默认配置，无需`@EnableWebMvc`注解。如果想自定义一些配置，则创建一个继承`WebMvcConfigurerAdapter`的配置类即可。

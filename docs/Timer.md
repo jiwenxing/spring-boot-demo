@@ -1,8 +1,9 @@
+# Java Timer & TimeTask
+---
 
+## Java 定时任务原理
 
-### Java 定时任务原理
-
-在Java 中要实现多线程有实现Runnable 接口和扩展Thread 类两种方式。只要将需要异步执行的任务放在run() 方法中，在主线程中启动要执行任务的子线程就可以实现任务的异步执行。如果需要实现基于时间点触发的任务调度，就需要在子线程中循环的检查系统当前的时间跟触发条件是否一致，然后触发任务的执行。所以最原始的定时任务是创建一个thread，然后让它在while循环里一直运行着，通过sleep方法来达到定时任务的效果。如下所示：
+在 Java 中要实现多线程有实现 Runnable 接口和扩展 Thread 类两种方式。只要将需要异步执行的任务放在 run() 方法中，在主线程中启动要执行任务的子线程就可以实现任务的异步执行。如果需要实现基于时间点触发的任务调度，就需要在子线程中循环的检查系统当前的时间跟触发条件是否一致，然后触发任务的执行。所以最原始的定时任务是创建一个 thread，然后让它在 while 循环里一直运行着，通过 sleep 方法来达到定时任务的效果。如下所示：
 
 ```java
 public class RunnableTaskDemo {
@@ -32,7 +33,7 @@ public class RunnableTaskDemo {
 }
 ```
 
-### Java Timer 和 TimeTask 实现任务调度
+## Java Timer 和 TimeTask 实现任务调度
 
 使用Timer 和 TimeTask的简单实现如下：
 
@@ -112,7 +113,7 @@ public class JavaTimerTaskDemo extends TimerTask{
 }
 ```
 
-### Timer + TimeTask 定时任务的缺点
+## Timer + TimeTask 定时任务的缺点
 
 一、任务堆积
 
@@ -130,7 +131,7 @@ Timer + TimeTask定任务和Spring自带的Scheduled Task（支持线程池管�
 
 Timer执行周期任务时依赖系统时间，如果当前系统时间发生变化会出现一些执行上的变化，而ScheduledExecutorService基于相对时间的延迟，不会由于系统时间的改变发生执行变化。
 
-### 使用`java.util.concurrent.ScheduledExecutorService`代替`Java.util.Timer/TimerTask`
+## 使用`java.util.concurrent.ScheduledExecutorService`代替`Java.util.Timer/TimerTask`
 
 鉴于以上Timer的缺点，`java.util.concurrent.ScheduledExecutorService`的出现正好弥补了Timer/TimerTask的缺陷。ScheduledExecutorService基于ExecutorService，是一个完整的线程池调度。
 它具有以下优点：
@@ -159,11 +160,11 @@ public class ScheduledExecutorServiceDemo {
 ```
 
 
-### 总结
+## 总结
 
 综上讨论会发现`Timer + TimeTask`实现定时任务可能真的已经成为历史，因为已经出现了更优秀更便捷的替代方式，ScheduledExecutorService拥有Timer/TimerTask的全部特性，并且使用更简单，支持并发，而且更安全，因此没有理由继续使用`Timer/TimerTask`，完全可以全部替换。需要说明的一点是构造ScheduledExecutorService线程池的核心线程池大小要根据任务数来定，否则可能导致资源的浪费。而Spring的Scheduled Task功能本质上就是利用`java.util.concurrent.ScheduledExecutorService`实现，这将在下一章进行讨论。
 
-### References
+## References
 
 - [Timer/TimerTask与ScheduledExecutorService](http://blog.csdn.net/qq_32786873/article/details/53024056)
 - [Java实现定时任务的三种方法](http://blog.csdn.net/haorengoodman/article/details/23281343/)

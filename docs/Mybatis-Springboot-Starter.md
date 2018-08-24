@@ -1,8 +1,9 @@
-### MyBatis-Spring-Boot-Starter
+# MyBatis-Spring-Boot-Starter
+---
 
 [MyBatis-Spring-Boot-Starter](http://www.mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/)是mybatis为springboot提供的快速集成的方案（因为springboot太火了），原话是The MyBatis-Spring-Boot-Starter help you build quickly MyBatis applications on top of the Spring Boot。因此如果项目中使用springboot和mybatis的话，这个starter可以大大的简化你的工作。
 
-### 添加依赖
+## 添加依赖
 
 用法如同其它的starter一样，添加starter的依赖以后，关于数据库的几乎所有必要依赖都已注入（包括tomcat-jdbc连接池、mybatis自动配置等），如果使用mysql的话还需要单独添加相关依赖，如下：
 ```xml
@@ -25,7 +26,7 @@
 </dependency>
 ```
 
-### 添加配置
+## 添加配置
 
 > spring.datasource.url=jdbc:MySql://192.168.192.125:3358/spring_boot_test?useUnicode=true    
 spring.datasource.username=root  
@@ -34,7 +35,7 @@ spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 
 springboot会自动使用配置创建DataSource，然后通过SqlSessionFactoryBean将DataSource传入构造SqlSessionFactory实例。而SqlSessionFactory是mybatis的核心，类似一种连接池管理类，每次的数据操作都将由连接池来分配连接后进行。
 
-### 创建mapper（dao）
+## 创建mapper（dao）
 ```java
 @Mapper
 public interface UserMapper {
@@ -51,7 +52,7 @@ public interface UserMapper {
 
 注意这里有两种方式实现对象方法与数据库操作sql之间的映射，注解方式和xml配置方式，相对传统的xml配置方式，注解方式要清爽很多。但是这只针对于简单语句来说，Java 注解对于稍微复杂的语句就会力不从心并且会显得更加混乱。因此，如果你需要做很复杂的事情，那么最好使用 XML 来映射语句。
 
-### 单元测试
+## 单元测试
 
 对于注解方式spring注入Mapper便可以直接调用了。
 ```java
@@ -93,7 +94,7 @@ public class MybatisTest {
 其中HelloSpringBoot为程序的主入口类。
 
 
-### xml配置方式
+## xml配置方式
 
 对于传统的xml配置方式，需要创建一个xml配置文件将mapper接口方法与对应的sql映射起来，之前的项目一直用这种方式，已经很熟悉了。
 `UserMapper.xml`
@@ -174,10 +175,10 @@ mybatis.type-aliases-package=com.jverson
 
 
 
-### 更新操作属性为空的情况
+## 更新操作属性为空的情况
 当更新操作传入的对象某些属性为空时希望该字段不会被更新，及updateSelective的功能，在传统使用配置文件的方式中使用判断既可以解决，但是在注解的方式中还不知道要怎么去写，不过后面会介绍更加好用的通用mapper则封装有现成的方法`updateSelective`以供使用。
 
-### 日志显示控制
+## 日志显示控制
 
 日志会自动打印执行的sql语句及参数，但是为debug级别，如果开发的时候需要观察sql的执行过程可以在配置文件中将Mapper所在的包的日志级别指定为debug
 
@@ -187,11 +188,11 @@ mybatis.type-aliases-package=com.jverson
 
 ![](http://7xry05.com1.z0.glb.clouddn.com/201708211740_408.pn，可以看到其他部分的日志依然是配置文件中配的INFO级别，但是mapper包中执行sql的debug日志也显示出来了。)
 
-### 扩展-关于Mybatis的SqlSessionFactory
+## 扩展-关于Mybatis的SqlSessionFactory
 
 每个基于 MyBatis 的应用都是以一个 SqlSessionFactory 的实例为中心的。SqlSessionFactory 的实例可以通过 SqlSessionFactoryBuilder 获得。而 SqlSessionFactoryBuilder 则可以从 XML 配置文件或一个预先定制的 Configuration 的实例构建出 SqlSessionFactory 的实例。
 
-#### 使用xml构建SqlSessionFactory
+### 使用xml构建SqlSessionFactory
 
 ```java
 String resource = "org/mybatis/example/mybatis-config.xml";
@@ -221,9 +222,9 @@ SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(input
     <mapper resource="org/mybatis/example/BlogMapper.xml"/>
   </mappers>
 </configuration>
- ```
+```
 
-#### 不使用xml构建SqlSessionFactory
+### 不使用xml构建SqlSessionFactory
 
 ```java
 DataSource dataSource = BlogDataSourceFactory.getBlogDataSource();
@@ -260,13 +261,13 @@ public void testInsert(){
 通常通过上面的形式从sqlSession中获取mapper来执行相应的方法，这样相对来说依然比较繁琐，而在MyBatis-Spring-Boot-Starter中，它会自动通过SqlSessionFactory创建一个SqlSessionTemplate实例，扫描所有的mapper将其与SqlSessionTemplate关联，并**将所有的mapper注册到spring的容器中**，这样在使用MyBatis-Spring-Boot-Starter时，就可以不用像上面那么麻烦，直接注入mapper即可。
 
 
-### 如何选择
+## 如何选择
 
 注解方式对于简单的场景开发更加高效，不需要映射配置文件，但是对于稍微复杂的sql场景则不够灵活，力不从心。xml方式可以满足各种使用场景，但是繁琐的映射配置真的烦人，好在后面会介绍基于mybatis的通用mapper结合了两种方式的有点，灵活并且不需要配置。
 
 选择何种方式以及映射语句的定义的一致性对你来说有多重要这些完全取决于你和你的团队。换句话说，永远不要拘泥于一种方式，你可以很轻松的在基于注解和 XML 的语句映射方式间自由移植和切换。
 
-### 参考
+## 参考
 
 - [Examples for MyBatis-Spring-Boot-Starter](https://github.com/ityouknow/spring-boot-examples)
 - [mybatis-spring-boot-autoconfigure](http://www.mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/)

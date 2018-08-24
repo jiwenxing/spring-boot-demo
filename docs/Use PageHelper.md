@@ -1,6 +1,9 @@
+# Use PageHelper
+---
+
 这一篇讲一下 Mybatis Common Mapper 中的 PageHelper 用法。PageHelper 确实使分页简单了很多，它自动实现了分页查询逻辑及返回结果的封装，具体的使用方法可以参考 [官方文档](https://github.com/pagehelper/pagehelper-spring-boot)。下面主要介绍一下自己的实践，另外会附带介绍一下打印sql、打印 sql 运行时间等一些小技巧。
 
-### 使用方法
+## 使用方法
 
 在 spring boot 中使用 mysql 和 common mapper，首先在 pom 中添加以下依赖，其中 `pagehelper-spring-boot-starter` 即是 pagehelper 插件。
 
@@ -133,7 +136,7 @@ public static <E> Page<E> startPage(int pageNum, int pageSize, boolean count) {
 
 
 
-### 打印 sql
+## 打印 sql
 
 由于使用 Common Mapper 不用手写 sql，有时候需要知道真正运行 sql 长什么样，便于优化和排查问题，因此最好能将 当前执行的 sql 在 console 中打印出来，网上说的一些设置 mysql 的日志级别等我这里都没有生效，由于框架的 sql 日志以 debug 级别输出，最后无奈将 console 全局日志级别设置为 debug，然后排除了一些不想看到的类日志。
 
@@ -157,7 +160,7 @@ public static <E> Page<E> startPage(int pageNum, int pageSize, boolean count) {
 
 
 
-### 打印 sql 执行时间
+## 打印 sql 执行时间
 
 有时候会比较关心程序运行的效率，尤其是数据库操作的效率，以便于后期优化，这时打印 sql 的执行时间即可监控影响性能的一些数据库操作进行针对性的优化。打印 sql 运行时间是一个典型的 AOP 插入日志的问题，很容易想到动态代理什么的，这里通过实现 ibatis 的拦截器 `org.apache.ibatis.plugin.Interceptor` 来实现。
 
@@ -215,7 +218,7 @@ public class MyBatisConf implements TransactionManagementConfigurer {
 
 
 
-### 参考
+## 参考
 
 - [How to Use Mybatis-PageHelper](https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/zh/HowToUse.md)
 - [spring boot mybatis 打印 sql 执行时间](https://blog.csdn.net/zdyueguanyun/article/details/78980067)

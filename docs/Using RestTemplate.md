@@ -1,4 +1,5 @@
-## RestTemplate介绍
+# RestTemplate介绍
+---
 
 spring框架提供的RestTemplate类可用于在应用中调用rest服务，它简化了与http服务的通信方式，统一了RESTful的标准，封装了http链接，我们只需要传入url及返回值类型即可。相较于之前常用的httpClient，RestTemplate是一种更优雅的调用RESTful服务的方式。
 

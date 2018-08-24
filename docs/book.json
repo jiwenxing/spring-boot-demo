@@ -1,0 +1,82 @@
+{
+    "author": "Jverson <i@jverson.com>",
+    "description": "Spring Boot Practise & Notes",
+    "extension": null,
+    "generator": "site",
+    "isbn": "",
+    "links": {
+        "sharing": {
+            "all": null,
+            "facebook": null,
+            "google": null,
+            "twitter": null,
+            "weibo": null
+        },
+        "sidebar": {
+            "Jverson's Blog": "https://jverson.com"
+        }
+    },
+    "output": null,
+    "pdf": {
+        "fontSize": 12,
+        "footerTemplate": null,
+        "headerTemplate": null,
+        "margin": {
+            "bottom": 36,
+            "left": 62,
+            "right": 62,
+            "top": 36
+        },
+        "pageNumbers": false,
+        "paperSize": "a4"
+    },
+    "plugins": [
+       "github",
+       "github-buttons",
+       "custom-favicon-new",
+       "disqus",
+       "todo",
+       "splitter",
+       "tbfed-pagefooter",
+       "page-toc-button"
+    ],
+    "title": "Spring Boot",
+    "variables": {},
+    "pluginsConfig": {
+        "theme-default": {
+            "showLevel": true
+        },
+        "github": {
+            "url": "https://github.com/jiwenxing/spring-boot-demo"
+        },
+        "github-buttons": {
+            "buttons": [{
+                "user": "jiwenxing",
+                "repo": "spring-boot-demo",
+                "type": "star",
+                "size": "small",
+                "count": true
+              }, {
+                "user": "jiwenxing",
+                "repo": "spring-boot-demo",
+                "type": "fork",
+                "size": "small",
+                "count": true
+            }]
+        },
+        "favicon": "/favicon.ico",
+        "appleTouchIconPrecomposed152": "gitbook/images/apple-touch-icon-precomposed-152.png",
+        "disqus": {
+            "shortName": "jverson"
+        },
+        "tbfed-pagefooter": {
+            "copyright": "Copyright © jverson.com 2018",
+            "modify_label": "",
+            "modify_format": "YYYY-MM-DD HH:mm:ss"
+        },
+        "page-toc-button": {
+            "maxTocDepth": 2,
+            "minTocSize": 2
+        }
+    }
+}

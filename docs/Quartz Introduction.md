@@ -1,10 +1,12 @@
+# Quartz Introduction
+---
 
 Quartz是一个完全由java编写的开源作业调度框架。如果有这样一个需求：在某一个有规律的时间点干某件事。并且时间的触发的条件可以非常复杂（比如每月最后一个工作日的17:50），复杂到需要一个专门的框架来干这个事。 Quartz就是来干这样的事，你给它一个触发条件的定义，它负责到了时间点，触发相应的Job起来干活。
 
 > Quartz is a richly featured, open source job scheduling library that can be integrated within virtually any Java application - from the smallest stand-alone application to the largest e-commerce system. Quartz can be used to create simple or complex schedules for executing tens, hundreds, or even tens-of-thousands of jobs; jobs whose tasks are defined as standard Java components that may execute virtually anything you may program them to do. The Quartz Scheduler includes many enterprise-class features, such as support for JTA transactions and clustering.
 
 
-### Quartz体系结构
+## Quartz体系结构
 
 Quartz对任务调度的领域问题进行了高度的抽象，提出了调度器、作业任务和触发器这3个核心的概念，并在org.quartz通过接口和类对重要的这些核心概念进行描述：
 
@@ -36,7 +38,7 @@ Quartz主要类和接口之间的关系如下：
 ![](http://7xry05.com1.z0.glb.clouddn.com/201711071513_476.png)
 
 
-### 代码示例
+## 代码示例
 
 下面是一个quartz的简单示例demo，当然quartz还可以集成到springboot的自动配置，也可以利用数据库进行集群部署，这些都会在后面的文章中讲解。
 
@@ -114,7 +116,7 @@ public class MyJob implements Job {
 
 这里需要注意，execute 方法接受一个 JobExecutionContext 对象作为参数。这个对象提供了作业实例的运行时上下文。特别地，它**提供了对调度器和触发器的访问**，这两者协作来启动作业以及作业的 JobDetail 对象的执行。Quartz通过把作业的状态放在JobDetail对象中并让JobDetail构造函数启动一个作业的实例，分离了作业的执行和作业周围的状态。JobDetail对象储存作业的侦听器、群组、数据映射、描述以及作业的其他属性。
 
-### Cron表达式举例
+## Cron表达式举例
  
 > "30 * * * * ?" 每半分钟触发任务  
 "30 10 * * * ?" 每小时的10分30秒触发任务  

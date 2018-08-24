@@ -1,10 +1,13 @@
-### velocity废弃之后怎么办
+# Using FreeMaker as Template Engine
+---
+
+## velocity 废弃之后怎么办
 
 Velocity被spring boot废弃以后我们要做的不是去寻找额外的方法使其再次支持velocity（这样显然会花费更多的功夫并不会有好的效果），而应该积极的寻找一个最好的替代方案。从springboot1.5.4官方文档及网上的[一些资料](https://dzone.com/articles/template-engines-review-after-deprecated-velocity)来看FreeMaker都是一个很不错的选择，其受到Apache软件基金会的资助并且在Apache的众多项目中广泛应用，起码不会很快又被废弃掉。
 
 ![](http://7xry05.com1.z0.glb.clouddn.com/201707241025_560.png)
 
-### 使用FreeMaker
+## 使用 FreeMaker
 
 FreeMaker在springboot中的用法几乎一样
 
@@ -42,6 +45,6 @@ spring.freemarker.request-context-attribute=request
 spring.freemarker.suffix=.ftl    
 
 
-### 参考
+## 参考
 
 - [A Review of Template Engines: What Next After Velocity?](https://dzone.com/articles/template-engines-review-after-deprecated-velocity)

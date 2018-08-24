@@ -1,11 +1,14 @@
-由于Spring Boot的自动配置特性以及一些约定俗称的默认规则，在使用Spring Boot的时候如果能够遵循的话将会达到事半功倍的效果。
+# Using Spring Boot
+---
 
-### 依赖管理
+由于 Spring Boot 的自动配置特性以及一些约定俗称的默认规则，在使用 Spring Boot 的时候如果能够遵循的话将会达到事半功倍的效果。
 
-Spring Boot所依赖的jar包版本已经在parent中的dependency-management中替你管理好了，当更新Spring Boot时，那些依赖也会一起更新，因此除非确实有必要，一般不需要在构建配置里指定这些依赖的版本。
+## 依赖管理
+
+Spring Boot 所依赖的jar包版本已经在parent中的dependency-management中替你管理好了，当更新Spring Boot时，那些依赖也会一起更新，因此除非确实有必要，一般不需要在构建配置里指定这些依赖的版本。
 
 
-### 如何在不使用parent POM的情况下使用Spring Boot
+## 如何在不使用 parent POM 的情况下使用 Spring Boot
 
 如果因为一些原因你不想继承spring-boot-starter-parent，那么通过以下方式依然可以使用Spring Boot。
 ```xml
@@ -36,15 +39,15 @@ Spring Boot所依赖的jar包版本已经在parent中的dependency-management中
 ```
 
 
-### 代码的组织结构
+## 代码的组织结构
 
-Spring Boot并没用强制的代码结构要求，但是如果按照一些默认规则可以节省很多代码。
+Spring Boot 并没用强制的代码结构要求，但是如果按照一些默认规则可以节省很多代码。
 
 一般root package使用一个反转的域名（com.jverson.demo e.g.），然后将main类（主配置文件及程序入口）放在这个root package中，并将`@EnableAutoConfiguration`注解到你的main类上，这样就隐式的定义了一个包搜索路径以搜索特定的注解实体（从main根目录出发搜索所有的子目录），这时`@ComponentScan`注解便不需要指定basePackage属性了，当使用`@SpringBootApplication`注解时一切保持默认即可。典型的结构如下所示：
 
 ![](http://7xry05.com1.z0.glb.clouddn.com/201707122221_463.png)
 
-### 配置类
+## 配置类
 
 Spring Boot建议尽量使用基于java的配置（使用@Configuration注解标记为配置类），但是你并不需要将所有的@Configuration都放进一个单独的类里， 通常main方法所在的类会被定义为主配置类，通过@Import注解将其它配置类导入即可，如果你按照标准的包路径规划代码，只需要配置@ComponentScan注解即可自动收集所有的Spring组件。
 
@@ -56,7 +59,7 @@ Spring Boot的自动配置是其一大特点，它会根据你添加的jar依赖
 > 注意：@SpringBootApplication same as @Configuration @EnableAutoConfiguration @ComponentScan
 
 
-### 热交换
+## 热交换
 
 开发的时候希望改动能够马上得以体现，`spring-boot-devtools`模块便可以提供这些development-time特性，只要classpath下的文件有变动，它就会自动重启。使用它的方法也很简单，只需要添加pom以来即可：
 

@@ -1,4 +1,7 @@
 
+# Spring Conditional Annotation
+---
+
 `@Conditional` 注解是 Spring 4 提供的基于条件的Bean的创建方式，Spring Boot 大量利用了这个特定来实现自动配置。比如，当某一个 jar 包在一个类路径下时，自动配置一个或者多个Bean；或者只有一个Bean创建时，才会创建另一个Bean。总的来说，就是根据特定条件来控制Bean的创建行为，这样就可以利用这个特性进行一些自动配置。
 
 <!-- more -->

@@ -1,12 +1,15 @@
+# Error Handling
+---
+
 对于异常和错误我们一般希望给用户展示一个比较友好的页面，或者给调用者一个格式化得错误信息，springboot对于异常会有一个默认的`‘whitelabel’ error view`页面，对于http rest客户端也会返回一个标准的json数据。现在我们要做的是定制自己的错误页和错误信息格式。
 
-### 单个静态错误页
+## 单个静态错误页
 
 如果需求很简单，不需要针对不同的异常展示不同的页面，所有的异常和错误都对应到某一个定制的静态错误页，只需要将静态页放在特定的目录即可（src/main/resources/templates），springboot便会自动映射到该页面，这时访问一个不存在的链接便会返回这个错误页。值得注意的是有一些错误属性是可以在模板文件中直接使用的，比如status、message、path等。
 
 ![](http://7xry05.com1.z0.glb.clouddn.com/201707251744_27.png)
 
-### 单个动态错误页
+## 单个动态错误页
 
 可以通过实现`ErrorViewResolver`接口向error页面添加一些动态数据
 
@@ -46,7 +49,7 @@ error.ftl代码如下：
 
 ![](http://7xry05.com1.z0.glb.clouddn.com/201707252124_957.png)
 
-### 根据不同的情况返回不同的错误页
+## 根据不同的情况返回不同的错误页
 
 在配置类中添加以下代码，可以将不同的错误映射到不同的地址，而这些映射并不需要专门的controller去处理，springboot会自动从特定目录（src/main/resources/static）寻找这些页面。
 
@@ -70,7 +73,7 @@ public EmbeddedServletContainerCustomizer containerCustomizer() {
 
 ![](http://7xry05.com1.z0.glb.clouddn.com/201707252137_848.png)
 
-### 针对不同的异常（或controller）返回不同的json数据
+## 针对不同的异常（或controller）返回不同的json数据
 
 这是通过`@ControllerAdvice`来实现的，定义如下一个类（注意可以不用继承ResponseEntityExceptionHandler），其中`basePackageClasses`和`ExceptionHandler`指定了该类会对指定的controller和指定的exception进行处理，By default the methods in an @ControllerAdvice apply globally to all Controllers。
 
@@ -166,7 +169,7 @@ public class RestException extends Exception {
 }
 ```
 
-### 在同一个类中处理页面异常和rest请求异常
+## 在同一个类中处理页面异常和rest请求异常
 
 还是使用@ControllerAdvice类似于上面提到的方法，将page和rest请求异常处理放在同一个类里如下
 
@@ -204,7 +207,7 @@ public class GlobalExceptionHandler {
 
 
 
-### 参考
+## 参考
 
 - [Error Handling](http://docs.spring.io/spring-boot/docs/1.5.4.RELEASE/reference/htmlsingle/#boot-features-error-handling)
 - [CUSTOM ERROR PAGES WITH SPRING BOOT](https://www.sporcic.org/2014/05/custom-error-pages-with-spring-boot/)

@@ -1,10 +1,12 @@
+# JavaMailSender
+---
 
-我们知道Spring提供了非常好用的JavaMailSender接口实现邮件发送。在Spring Boot中也有提供对应Starter模块为此提供了自动化配置。这里简单介绍在spring boot中使用spring提供的`JavaMailSender`发送邮件。
+我们知道 Spring 提供了非常好用的 JavaMailSender 接口实现邮件发送。在 Spring Boot 中也有提供对应 Starter 模块为此提供了自动化配置。这里简单介绍在 spring boot 中使用 spring 提供的 `JavaMailSender` 发送邮件。
 
 
 ## 添加依赖
 
-Spring框架通过JavaMailSender接口为发送邮件提供了一个简单的抽象，并且SpringBoot也为它提供了自动配置和一个starter模块。在pom中添加以下依赖后，Spring Boot将创建一个默认的JavaMailSender，该sender可以通过spring.mail命名空间下的配置项进一步自定义。
+Spring 框架通过 JavaMailSender 接口为发送邮件提供了一个简单的抽象，并且 SpringBoot 也为它提供了自动配置和一个 starter 模块。在 pom 中添加以下依赖后，Spring Boot 将创建一个默认的 JavaMailSender，该 sender 可以通过 spring.mail 命名空间下的配置项进一步自定义。
 
 ```xml
 <!-- JavaMail -->

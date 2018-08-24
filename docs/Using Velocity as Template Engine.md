@@ -1,5 +1,8 @@
 
-工作以来服务端的模板引擎一直使用的是Velocity，直到最近在试用Spring Boot 1.5的时候突然发现用不了了，上网一查原来是SpringBoot从1.5版本将1.4中标记为`deprecated`的方法和类直接移除掉了（移除上个版本废弃的内容也是Spring Boot的一贯做法）。
+# Using Velocity as Template Engine
+---
+
+工作以来服务端的模板引擎一直使用的是 Velocity，直到最近在试用 Spring Boot 1.5的时候突然发现用不了了，上网一查原来是 SpringBoot 从1.5版本将1.4中标记为`deprecated`的方法和类直接移除掉了（移除上个版本废弃的内容也是 Spring Boot的一贯做法）。
 
 ![](http://7xry05.com1.z0.glb.clouddn.com/201707211809_650.jpg)
 
@@ -10,7 +13,7 @@
 不过在使用1.4.x版本的spring boot时还是支持的，而且现有的代码基本也都是基于velocity，因此有必要熟悉一下velocity的集成方法。
 
 
-### 更新Spring Boot的版本
+## 更新Spring Boot的版本
 
 之前的示例都是基于1.5.4版本，在本例中为了使用velocity，需要将版本改回为1.4.5（浪费了我很多时间发现这个问题），并添加velocity的依赖
 
@@ -28,7 +31,7 @@
 </dependency>
 ```
 
-### 创建一个controller
+## 创建一个controller
 
 ```java
 @Controller
@@ -41,7 +44,7 @@ public class HelloController {
 }
 ```
 
-### 在src/main/resources/templates目录下创建一个vm文件
+## 在src/main/resources/templates目录下创建一个vm文件
 
 ```html
 <html>  
@@ -55,7 +58,7 @@ public class HelloController {
 
 这时候不出意外启动程序便可以访问这个页面了。
 
-### 其它配置
+## 其它配置
 
 可以在`application.properties`中对velocity做一些配置（上面的示例使用默认配置即可正常工作），例如：
 > -----------velocity configurations----------    

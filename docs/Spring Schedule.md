@@ -1,10 +1,11 @@
-
+# Spring Schedule
+---
 
 
 Spring3.0之后, 增加了调度器功能, 提供了`@Schedule`注解。使用起来非常方便，只需要简单的两个注解即可实现复杂的定时任务功能。
 
 
-### 使用方法
+## 使用方法
 
 Spring任务调度的实现同时支持注解配置和XML配置两种方式。这里只讲解基于注解的使用方式。
 
@@ -74,7 +75,7 @@ hello scheduled. current time:15:46:30, thread: 26
 task skip 15:46:30, thread: 26   
 hello scheduled. current time:15:46:32, thread: 26   
 
-### 使用多线程
+## 使用多线程
 
 不难发现上面的任务都是单线程执行的，如果想使用多线程并行执行任务则需要配置一个线程池，如下所示：
 
@@ -108,7 +109,7 @@ task skip 15:43:30, thread: 46
 hello scheduled. current time:15:43:32, thread: 48  
 
 
-### References
+## References
 
 - [Spring Scheduler实现解析](http://zhwbqd.github.io/2015/01/26/spring-cron.html)
 - [SpringBoot Schedule 配置](http://www.cnblogs.com/slimer/p/6222485.html)

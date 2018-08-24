@@ -1,6 +1,9 @@
+# Spring Boot Deploy
+---
+
 Spring Boot 可以将应该打包成可执行的 jar 包，该 jar 文件可以在生产环境运行，可执行 jars（也称为"fat jars"）是包含你的编译后的类和你的代码运行所需的依赖 jar 的存档。
 
-### 构建可执行 jar
+## 构建可执行 jar
 
 为了创建可执行的jar，需要将`spring-boot-maven-plugin`添加到我们的 pom.xml 中。在 dependencies 节点下插入以下内容，此时可以根据 package 的设置打包成 jar 或者传统的 war 包形式。
 
@@ -27,7 +30,8 @@ Spring Boot 可以将应该打包成可执行的 jar 包，该 jar 文件可以�
 
 此时执行 maven clean install 之后便会在 target 目录里看到 hello-world.jar 以及一个 hello-world.jar.original 的文件。其中 *.original 文件是 Spring Boot 打包之前 Maven 创建的原始 jar 文件，该文件很小是一个标准的 jar 包，其并不包含其它的依赖文件。
 
-### 运行可执行 jar
+
+## 运行可执行 jar
 
 ```ba
 java -jar target/hello-world.jar
@@ -45,7 +49,7 @@ java -jar target/hello-world.jar
 
 
 
-### 后台启动应用
+## 后台启动应用
 
 按照上面的方法在 terminal 中启动应用后，关闭 terminal 时应用也会终止，如果我们想将应用以后台进程的形式启动，命令如下：
 
@@ -143,7 +147,7 @@ esac
 
 
 
-### 参考
+## 参考
 
 - [Springboot 启动脚本](https://www.pocketdigi.com/20180127/1592.html)
 

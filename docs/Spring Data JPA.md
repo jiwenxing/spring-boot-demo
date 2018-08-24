@@ -1,4 +1,7 @@
 
+# Spring Data JPA
+---
+
 ## JPA介绍
 
 前面介绍过JPA是sun在JDK5中引入的JPA ORM规范，其目的在于整合ORM技术，统一规范和标准。目前比较成熟的JPA框架主要包括Jboss的HibernateEntityManager、Oracle 捐献给 Eclipse 社区的 EclipseLink、Apache的OpenJPA等。下面将以Hibernate为例介绍JPA的使用。

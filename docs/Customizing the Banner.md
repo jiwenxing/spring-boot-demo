@@ -1,4 +1,7 @@
 
+# Customizing the Banner
+---
+
 springboot启动的时候会有一个默认的banner，如果想替换的话只需要在src/main/resources目录下创建一个banner.txt文件即可，banner.txt文件中就是自定义的图案如下
 
 ![](http://7xry05.com1.z0.glb.clouddn.com/201707141540_19.png)

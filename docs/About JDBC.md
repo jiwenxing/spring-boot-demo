@@ -1,4 +1,7 @@
 
+# About JDBC
+---
+
 ## 什么是JDBC
 
 Java数据库连接（Java Database Connectivity）是Java语言中用来规范客户端程序如何来访问数据库的应用程序接口，提供了诸如查询和更新数据库中数据的方法。是面向关系型数据库的。

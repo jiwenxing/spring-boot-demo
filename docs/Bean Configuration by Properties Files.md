@@ -1,6 +1,9 @@
+# Bean Configuration by Properties Files
+---
+
 使用外部properties配置文件配置Bean有多种方式，这里主要介绍两种方式：@Value注解方式及@ConfigurationProperties注解方式
 
-### @Value注解方式
+## @Value注解方式
 
 这也是之前常用的一种方式，代码示例如下：
 
@@ -21,7 +24,7 @@ public class Person2 {
 }
 ```
 
-### @ConfigurationProperties注解方式
+## @ConfigurationProperties注解方式
 
 @Value方式代码感觉有些凌乱，下面这种方式会更简洁一些
 
@@ -48,7 +51,7 @@ person.salary = 11111111
 
 其中`ignoreUnknownFields = false`表示当属性不匹配时抛出异常
 
-### 使用基于java的配置
+## 使用基于java的配置
 
 以上两种方式都是直接在Bean的定义中注入属性配置，如果多个Bean的定义在同一个配置文件中，可以使用基于Java的配置定义实现Bean的定义如下：
 

@@ -1,19 +1,22 @@
-### 创建Spring Boot工程
+# Getting Started
+---
 
-创建一个Spring Boot的工程非常简单，首先使用eclipse创建一个普通的maven工程，然后在pom中添加一个`spring-boot-starter-parent`的节点，这是一个特殊的starter，有以下一些特性：
+## 创建 Spring Boot 工程
+
+创建一个 Spring Boot 的工程非常简单，首先使用 eclipse 创建一个普通的 maven 工程，然后在 pom 中添加一个`spring-boot-starter-parent`的节点，这是一个特殊的 starter，有以下一些特性：
 
 1. 提供了一些有用的Maven默认配置（默认编译级别是Java1.6，默认编码是utf-8）
 2. 提供了一个`dependency-management`节点，这样的话其它的相关依赖便可以省略version标记。但是其本身并不提供任何依赖
 3. 恰到好处的资源过滤
 4. 恰到好处的插件配置（exec插件，surefire，Git commit ID，shade）
-5. 恰到好处的对 application.properties 和 application.yml 进行筛选，包括特定profile（profile-specific）的文件
+5. 恰到好处的对 application.properties 和 application.yml 进行筛选，包括特定 profile（profile-specific）的文件
 
 
-其它的Starters只简单提供开发特定类型应用所需的依赖。由于我们准备开发一个web应用，因此继续添加spring-boot-starter-web依赖。这时再看看maven的依赖树会发现Tomcat、Spring Boot等相关的依赖都已引入，并且就连这些库的版本也都是Spring Boot精选的适配做好的。注意Spring Boot每次发布都关联一个Spring框架的基础版本（这里是4.3.9），所以强烈建议你不要自己指定Spring版本。
+其它的Starters只简单提供开发特定类型应用所需的依赖。由于我们准备开发一个web应用，因此继续添加 spring-boot-starter-web 依赖。这时再看看 maven 的依赖树会发现 Tomcat、Spring Boot 等相关的依赖都已引入，并且就连这些库的版本也都是 Spring Boot 精选的适配做好的。注意 Spring Boot 每次发布都关联一个 Spring 框架的基础版本（这里是4.3.9），所以强烈建议你不要自己指定 Spring 版本。
 
 ![](http://7xry05.com1.z0.glb.clouddn.com/201707111832_191.png)
 
-这时候的pom如下所示：
+这时候的 pom 如下所示：
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -50,7 +53,7 @@
 </project>
 ```
 
-### 不使用parent POM的情况下引入Spring Boot
+## 不使用parent POM的情况下引入Spring Boot
 
 处于某些原因你不能继承spring-boot-starter-parent的POM，这时候可以在pom中通过设置`scope=import`的依赖达到同样的效果如下所示：
 ```xml
@@ -69,7 +72,7 @@
 ```
 
 
-### 编写代码
+## 编写代码
 
 在`src/main/java`下创建一个helloworld.java测试类，内容如下，这时便可以直接run java application来运行程序了。
 
@@ -98,7 +101,7 @@ main方法是java标准的程序入口方法，在main中通过调用run将业�
 > 4. Trigger any CommandLineRunner beans
 
 
-### 创建可执行jar
+## 创建可执行jar
 
 所谓可行性jar即“fat jars”，它包含了编译后的类及运行所依赖jar的存档。Spring Boot允许在jar中直接内嵌jars。为了创建可执行jar，如上面pom所示需要将`spring-boot-maven-plugin`插件添加到pom.xml
 中。
