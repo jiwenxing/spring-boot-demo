@@ -58,10 +58,10 @@ public class HelloController {
 ### 其它配置
 
 可以在`application.properties`中对velocity做一些配置（上面的示例使用默认配置即可正常工作），例如：
-> #-----------velocity configurations----------    
-#spring.velocity.charset = UTF-8    
-#spring.velocity.properties.input.encoding = UTF-8    
-#spring.velocity.properties.output.encoding = UTF-8    
-#spring.velocity.resource-loader-path = classpath:/templates/    
-#spring.velocity.suffix=.vm    
-#spring.velocity.toolbox-config-location = /WEB-INF/toolbox.xml    
+> -----------velocity configurations----------    
+spring.velocity.charset = UTF-8    
+spring.velocity.properties.input.encoding = UTF-8    
+spring.velocity.properties.output.encoding = UTF-8    
+spring.velocity.resource-loader-path = classpath:/templates/    
+spring.velocity.suffix=.vm    
+spring.velocity.toolbox-config-location = /WEB-INF/toolbox.xml    

@@ -152,7 +152,7 @@ public class MybatisTest {
 ```
 
 另外对于xml方式配置文件中还需要增加一些mybatis的配置以指定配置文件
-> #mybatis.config-locations=classpath:mybatis/mybatis-config.xml  
+> mybatis.config-locations=classpath:mybatis/mybatis-config.xml  
 mybatis.mapper-locations=classpath:mapper/*.xml  
 mybatis.type-aliases-package=com.jverson  
 
