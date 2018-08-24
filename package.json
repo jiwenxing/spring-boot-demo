@@ -1,0 +1,29 @@
+{
+  "name": "spring-boot-demo",
+  "version": "1.0.0",
+  "description": "spring-boot-demo是对spring boot的一些实践和总结，基本按照`1.5.4.RELEASE`版本官方文档[Spring Boot Reference Guide](https://docs.spring.io/spring-boot/docs/1.5.4.RELEASE/reference/htmlsingle/#getting-started)的顺序进行，其中比较常用和重要的内容基本都有所涉及。",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "gitbook serve ./docs ./gh-pages",
+    "build": "gitbook build ./docs ./gh-pages",
+    "deploy": "node ./scripts/deploy-gh-pages.js",
+    "publish": "npm run build && npm run deploy",
+    "port": "lsof -i :35729"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jiwenxing/spring-boot-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jiwenxing/spring-boot-demo/issues"
+  },
+  "homepage": "https://github.com/jiwenxing/spring-boot-demo#readme",
+  "dependencies": {
+    "gh-pages": "^1.2.0"
+  }
+}

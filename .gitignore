@@ -1,4 +1,5 @@
 
+.DS_Store
 /.apt_generated/
 /target/
 /.settings/
@@ -7,3 +8,5 @@
 /.classpath
 /.springBeans
 *.iml
+node_modules
+gh-pages
