@@ -33,12 +33,12 @@
     "plugins": [
        "github",
        "github-buttons",
-       "custom-favicon-new",
        "disqus",
        "todo",
        "splitter",
        "tbfed-pagefooter",
-       "page-toc-button"
+       "page-toc-button",
+       "-sharing"
     ],
     "title": "Spring Boot",
     "variables": {},
@@ -64,8 +64,6 @@
                 "count": true
             }]
         },
-        "favicon": "/favicon.ico",
-        "appleTouchIconPrecomposed152": "gitbook/images/apple-touch-icon-precomposed-152.png",
         "disqus": {
             "shortName": "jverson"
         },

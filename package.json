@@ -7,8 +7,9 @@
     "doc": "docs"
   },
   "scripts": {
-    "start": "gitbook serve ./docs ./gh-pages",
-    "build": "gitbook build ./docs ./gh-pages",
+    "favicon": "rm -rf ./gh-pages/gitbook/images/favicon.ico && cp ./docs/favicon.ico ./gh-pages/gitbook/images/favicon.ico",
+    "dev": "gitbook serve ./docs ./gh-pages && npm run favicon",
+    "build": "gitbook build ./docs ./gh-pages && npm run favicon",
     "deploy": "node ./scripts/deploy-gh-pages.js",
     "publish": "npm run build && npm run deploy",
     "port": "lsof -i :35729"
