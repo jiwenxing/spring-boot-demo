@@ -6,7 +6,8 @@
 源码：https://github.com/jiwenxing/springboot-quartz
 
 预览：    
-![](http://ochyazsr6.bkt.clouddn.com/206751c9ac95c7860f087a02e5f2fd9f.jpg)
+![](http://
+pgdgu8c3d.bkt.clouddn.com/206751c9ac95c7860f087a02e5f2fd9f.jpg)
 
 
 这里也将常规的 Quartz 与 Spring 的整合过程记录如下。

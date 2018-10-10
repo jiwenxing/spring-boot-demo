@@ -10,3 +10,6 @@
 *.iml
 node_modules
 gh-pages
+_book/
+docs/_book/
+docs/npm-debug.log

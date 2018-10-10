@@ -7,7 +7,8 @@
 
 如果需求很简单，不需要针对不同的异常展示不同的页面，所有的异常和错误都对应到某一个定制的静态错误页，只需要将静态页放在特定的目录即可（src/main/resources/templates），springboot便会自动映射到该页面，这时访问一个不存在的链接便会返回这个错误页。值得注意的是有一些错误属性是可以在模板文件中直接使用的，比如status、message、path等。
 
-![](http://7xry05.com1.z0.glb.clouddn.com/201707251744_27.png)
+![](http://
+pgdgu8c3d.bkt.clouddn.com/201707251744_27.png)
 
 ## 单个动态错误页
 
@@ -47,7 +48,8 @@ error.ftl代码如下：
 
 这时启动随意访问一个不存在的网址便会看到
 
-![](http://7xry05.com1.z0.glb.clouddn.com/201707252124_957.png)
+![](http://
+pgdgu8c3d.bkt.clouddn.com/201707252124_957.png)
 
 ## 根据不同的情况返回不同的错误页
 
@@ -71,7 +73,8 @@ public EmbeddedServletContainerCustomizer containerCustomizer() {
 }
 ```
 
-![](http://7xry05.com1.z0.glb.clouddn.com/201707252137_848.png)
+![](http://
+pgdgu8c3d.bkt.clouddn.com/201707252137_848.png)
 
 ## 针对不同的异常（或controller）返回不同的json数据
 

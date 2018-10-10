@@ -68,9 +68,7 @@
             "shortName": "jverson"
         },
         "tbfed-pagefooter": {
-            "copyright": "Copyright © jverson.com 2018",
-            "modify_label": "",
-            "modify_format": "YYYY-MM-DD HH:mm:ss"
+            "copyright": "Copyright © jverson.com 2018"
         },
         "page-toc-button": {
             "maxTocDepth": 2,

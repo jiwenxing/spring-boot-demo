@@ -8,7 +8,8 @@
 
 假设需要区分开发环境和线上环境，则创建以下三个配置文件，其中`application-dev.properties`和`application-prod.properties`中分别配置了不同环境下的一些参数，而`application.properties`则是springboot的默认配置文件，其中可以配置使用哪个环境的Profile，也可以配一些公用的配置。
 
-![](http://7xry05.com1.z0.glb.clouddn.com/201707182114_190.png)
+![](http://
+pgdgu8c3d.bkt.clouddn.com/201707182114_190.png)
 
 其中，
 
@@ -69,7 +70,8 @@ car.price = 55.3
 
 ### 这时在eclipse的`Run Configuration`中新建打包命令如下，运行即可按照dev的配置打包，同理将其中的命令改为`clean install -Pprod`即可按照prod的配置打成生产包。
 
-![](http://7xry05.com1.z0.glb.clouddn.com/201707191521_661.png)
+![](http://
+pgdgu8c3d.bkt.clouddn.com/201707191521_661.png)
 
 
 ## 启动时打印当前执行环境
@@ -89,7 +91,8 @@ public static void main(String[] args) {
 
 再次启动项目便会看到console中打印如下
 
-![](http://7xry05.com1.z0.glb.clouddn.com/201707191529_714.png)
+![](http://
+pgdgu8c3d.bkt.clouddn.com/201707191529_714.png)
 
 ## 开发环境标识
 
