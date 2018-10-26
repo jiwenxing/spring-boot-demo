@@ -44,6 +44,12 @@
 - [Quartz 介绍](Quartz Introduction.md)
 - [Spring Boot 集成 Quartz](quartz springboot.md)
 
+## Deploy
+
+- [构建部署可执行 jar](Spring Boot Deploy.md)
+- [构建 war 包部署](springboot_war.md)
+- [打包指定 JDK 编译版本](basic_jdk_version.md)
+
 ## Others
 
 - [Spring Events 事件机制](Spring Events.md)
@@ -52,4 +58,3 @@
 - [使用 RestTemplate 调用 RESTful 接口](Using RestTemplate.md)
 - [使用 JavaMail 发送邮件](JavaMailSender.md)
 - [跨域资源共享 CORS](CORS.md)
-- [构建部署可执行 jar](Spring Boot Deploy.md)
