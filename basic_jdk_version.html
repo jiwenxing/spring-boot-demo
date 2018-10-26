@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Spring Data Cache(Guava Cache) · Spring Boot</title>
+        <title>打包指定 JDK 编译版本 · Spring Boot</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -74,10 +74,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Using RestTemplate.html" />
+    <link rel="next" href="Spring Events.html" />
     
     
-    <link rel="prev" href="Spring Conditional Annotation.html" />
+    <link rel="prev" href="springboot_war.html" />
     
 
     <style>
@@ -598,7 +598,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.3" data-path="basic_jdk_version.html">
+        <li class="chapter active" data-level="6.3" data-path="basic_jdk_version.html">
             
                 <a href="basic_jdk_version.html">
             
@@ -650,7 +650,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="7.3" data-path="Spring Data Cache.html">
+        <li class="chapter " data-level="7.3" data-path="Spring Data Cache.html">
             
                 <a href="Spring Data Cache.html">
             
@@ -740,7 +740,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Spring Data Cache(Guava Cache)</a>
+        <a href="." >打包指定 JDK 编译版本</a>
     </h1>
 </div>
 
@@ -755,17 +755,49 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="spring-data-cache">Spring Data Cache</h1>
+                                <h1 id="&#x6307;&#x5B9A;&#x5E94;&#x7528;&#x53CA;&#x5B50;&#x5E94;&#x7528;&#x7F16;&#x8BD1;&#x7684;--jdk-&#x7248;&#x672C;">&#x6307;&#x5B9A;&#x5E94;&#x7528;&#x53CA;&#x5B50;&#x5E94;&#x7528;&#x7F16;&#x8BD1;&#x7684;  JDK &#x7248;&#x672C;</h1>
 <hr>
-<p>&#x9ED8;&#x8BA4;&#x4F7F;&#x7528; ConcurrentMapCacheManager  &#x4E0D;&#x53EF;&#x914D;&#x7F6E;&#xFF0C;&#x4E00;&#x822C;&#x7528;&#x4E8E;&#x6D4B;&#x8BD5;</p>
-<p> it comes with no cache configuration options. However, it may be useful for testing or simple caching scenarios. For advanced local caching needs, consider <a href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/cache/jcache/JCacheCacheManager.html" target="_blank"><code>JCacheCacheManager</code></a>, <a href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/cache/ehcache/EhCacheCacheManager.html" target="_blank"><code>EhCacheCacheManager</code></a>, <a href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/cache/caffeine/CaffeineCacheManager.html" target="_blank"><code>CaffeineCacheManager</code></a>.</p>
-<p><a href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/cache/concurrent/ConcurrentMapCacheManager.html" target="_blank">https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/cache/concurrent/ConcurrentMapCacheManager.html</a></p>
-<p>guava cache</p>
-<p>&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</p>
-<p>&#x539F;&#x7406; &#x53CA; &#x6570;&#x636E;&#x7ED3;&#x6784;</p>
-<p>&#x5F3A;&#x5F15;&#x7528; &#x5F31;&#x5F15;&#x7528;</p>
+<p>&#x6709;&#x65F6;&#x5019;&#x5E94;&#x7528;&#x7684;&#x5B9E;&#x73B0;&#x9700;&#x8981;&#x7528;&#x5230;&#x9AD8;&#x7248;&#x672C; JDK &#x7684;&#x4E00;&#x4E9B;&#x7279;&#x6027;&#xFF0C;&#x6BD4;&#x5982;&#x8BF4; lambda &#x8868;&#x8FBE;&#x5F0F;&#x9700;&#x8981; 1.8 &#x7248;&#x672C;&#x4EE5;&#x4E0A;&#xFF0C;&#x800C;&#x5BF9;&#x5916;&#x63D0;&#x4F9B;&#x7684; API &#x5219;&#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x8F83;&#x4F4E;&#x7684; JDK &#x7248;&#x672C;&#x4FBF;&#x4E8E;&#x517C;&#x5BB9;&#x5916;&#x90E8;&#x8F83;&#x8001;&#x7684;&#x5E94;&#x7528;&#xFF0C;&#x8FD9;&#x5C31;&#x9700;&#x8981;&#x5206;&#x522B;&#x5355;&#x72EC;&#x8BBE;&#x7F6E;&#x7F16;&#x8BD1;&#x7248;&#x672C;&#x3002;&#x5728; Spring Boot &#x7684; <code>1.5.17.RELEASE</code> &#x7248;&#x672C;&#x7684; pom &#x6587;&#x4EF6;&#x4E2D;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5176;&#x9ED8;&#x8BA4;&#x7684;&#x7248;&#x672C;&#x662F; 1.6 &#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x4E0D;&#x505A;&#x53E6;&#x884C;&#x8BBE;&#x7F6E;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5C06;&#x6309;&#x7167; 1.6 &#x7248;&#x672C;&#x7F16;&#x8BD1;&#x3002;</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">java.version</span>&gt;</span>1.6<span class="hljs-tag">&lt;/<span class="hljs-name">java.version</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">resource.delimiter</span>&gt;</span>@<span class="hljs-tag">&lt;/<span class="hljs-name">resource.delimiter</span>&gt;</span> <span class="hljs-comment">&lt;!-- delimiter that doesn&apos;t clash with Spring ${} placeholders --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="hljs-tag">&lt;/<span class="hljs-name">project.build.sourceEncoding</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">project.reporting.outputEncoding</span>&gt;</span>UTF-8<span class="hljs-tag">&lt;/<span class="hljs-name">project.reporting.outputEncoding</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">maven.compiler.source</span>&gt;</span>${java.version}<span class="hljs-tag">&lt;/<span class="hljs-name">maven.compiler.source</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">maven.compiler.target</span>&gt;</span>${java.version}<span class="hljs-tag">&lt;/<span class="hljs-name">maven.compiler.target</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span>
+</code></pre>
+<p>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x60F3;&#x5C06;&#x5E94;&#x7528;&#x4E2D;&#x7684; API &#x90E8;&#x5206;&#x4F7F;&#x7528; 1.7 &#x7248;&#x672C;&#xFF0C;&#x800C;&#x5B9E;&#x73B0;&#x90E8;&#x5206;&#x7528; 1.8 &#x7248;&#x672C;&#xFF0C;&#x5E94;&#x8BE5;&#x600E;&#x4E48;&#x5B9E;&#x73B0;&#x5462;&#xFF1F;</p>
+<ul>
+<li>&#x9996;&#x5148;&#x6211;&#x4EEC;&#x5728;&#x5E94;&#x7528;&#x7684;&#x6839; pom &#x4E2D;&#x5C06;&#x9ED8;&#x8BA4;&#x7F16;&#x8BD1;&#x7248;&#x672C;&#x4FEE;&#x6539;&#x4E3A; 1.8</li>
+</ul>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- &#x4FEE;&#x6539;&#x9ED8;&#x8BA4;&#x7248;&#x672C;&#x7F16;&#x8BD1;&#x4E3A; 1.8 --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">java.version</span>&gt;</span>1.8<span class="hljs-tag">&lt;/<span class="hljs-name">java.version</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- API &#x7EDF;&#x4E00;&#x4F7F;&#x7528; 1.7 &#x7F16;&#x8BD1; --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">api.jdk.version</span>&gt;</span>1.7<span class="hljs-tag">&lt;/<span class="hljs-name">api.jdk.version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span>
+</code></pre>
+<ul>
+<li>&#x7136;&#x540E;&#x5BF9; api &#x7684; pom &#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x5355;&#x72EC;&#x8FDB;&#x884C;&#x914D;&#x7F6E;</li>
+</ul>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- &#x6307;&#x5B9A;&#x7F16;&#x8BD1; JDK &#x7248;&#x672C; --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">source</span>&gt;</span>${api.jdk.version}<span class="hljs-tag">&lt;/<span class="hljs-name">source</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">target</span>&gt;</span>${api.jdk.version}<span class="hljs-tag">&lt;/<span class="hljs-name">target</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">encoding</span>&gt;</span>${project.build.sourceEncoding}<span class="hljs-tag">&lt;/<span class="hljs-name">encoding</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span>
+</code></pre>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; jverson.com 2018 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">File Modify: 
-2018-08-25 00:12:59
+2018-10-26 22:50:07
 </span></footer>
                                 
                                 </section>
@@ -793,12 +825,12 @@
 
             
                 
-                <a href="Spring Conditional Annotation.html" class="navigation navigation-prev " aria-label="Previous page: Spring @Conditional Annotation">
+                <a href="springboot_war.html" class="navigation navigation-prev " aria-label="Previous page: 构建 war 包部署">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="Using RestTemplate.html" class="navigation navigation-next " aria-label="Next page: 使用 RestTemplate 调用 RESTful 接口">
+                <a href="Spring Events.html" class="navigation navigation-next " aria-label="Next page: Spring Events 事件机制">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -809,7 +841,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Spring Data Cache(Guava Cache)","level":"7.3","depth":1,"next":{"title":"使用 RestTemplate 调用 RESTful 接口","level":"7.4","depth":1,"path":"Using RestTemplate.md","ref":"Using RestTemplate.md","articles":[]},"previous":{"title":"Spring @Conditional Annotation","level":"7.2","depth":1,"path":"Spring Conditional Annotation.md","ref":"Spring Conditional Annotation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/spring-boot-demo"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"spring-boot-demo","type":"star","size":"small","count":true},{"user":"jiwenxing","repo":"spring-boot-demo","type":"fork","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Spring Boot","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Spring Boot Practise & Notes","extension":null},"file":{"path":"Spring Data Cache.md","mtime":"2018-08-24T16:12:59.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T14:50:56.953Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"打包指定 JDK 编译版本","level":"6.3","depth":1,"next":{"title":"Spring Events 事件机制","level":"7.1","depth":1,"path":"Spring Events.md","ref":"Spring Events.md","articles":[]},"previous":{"title":"构建 war 包部署","level":"6.2","depth":1,"path":"springboot_war.md","ref":"springboot_war.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/spring-boot-demo"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"spring-boot-demo","type":"star","size":"small","count":true},{"user":"jiwenxing","repo":"spring-boot-demo","type":"fork","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Spring Boot","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Spring Boot Practise & Notes","extension":null},"file":{"path":"basic_jdk_version.md","mtime":"2018-10-26T14:50:07.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T14:50:56.953Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
