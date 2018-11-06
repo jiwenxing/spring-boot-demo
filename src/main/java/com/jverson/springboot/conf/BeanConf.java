@@ -44,7 +44,7 @@ public class BeanConf {
 	@Bean("person")
 	@ConfigurationProperties(prefix = "person")
 	public Person person(){
-		return new Person();
+		return new Person("jverson", 20, 1000.5);
 	}
 	
 	@Bean("person2")

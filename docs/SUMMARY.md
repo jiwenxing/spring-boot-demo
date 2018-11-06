@@ -36,6 +36,12 @@
 - [分页插件 PageHelper 使用 & 打印 sql 及运行时间](Use PageHelper.md)
 - [Spring Data JPA 介绍](Spring Data JPA.md)
 
+## Cache
+
+- [Cache Introduction](cache_introduction.md)
+- [Local Cache - Guava Cache by Spring Boot](cache_guava.md)
+- [Remote Cache - Redis](cache_redis.md)
+
 ## Timer & Schedule
 
 - [Java 定时任务](Java Schedule.md)
