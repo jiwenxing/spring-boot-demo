@@ -13,13 +13,13 @@ Spring Boot 发布于 2014 年，它秉承“习惯优于配置”的理念可�
 
 内容还在不断更新中...
 
-- [x] Deploying Spring Boot applications   done
-- [ ] NoSQL 30 Redis、MongoDB、LDAP 等，对比并实践其中一些
+- [x] Deploying Spring Boot applications
+- [x] NoSQL 30 Redis、MongoDB、LDAP
+- [ ] Caching 31 为方法和应用快速添加缓存
 - [ ] ElasticSearch 
 - [ ] websocket 42 作为 h5 推出的服务器推送技术，还是有很多使用场景
 - [ ] Testing  41  单元测试，养成一个良好写单元测试的习惯很有必要
 - [ ] Messaging 32 常用，对比选择一种常用的技术进行实践
-- [ ] Caching 31 为方法和应用快速添加缓存，看上去挺简单   done
 - [ ] Security 28 包括 OAuth2 等这些知识点还是需要掌握
 - [ ] auto-configuration 44 自己实现自动配置
 
