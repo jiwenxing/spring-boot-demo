@@ -39,6 +39,7 @@
 ## Cache
 
 - [Cache Introduction](cache_introduction.md)
+- [Cache Usage](cache_usage.md)
 - [Local Cache - Guava Cache by Spring Boot](cache_guava.md)
 - [Remote Cache - Redis](cache_redis.md)
 
