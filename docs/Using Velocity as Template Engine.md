@@ -4,13 +4,11 @@
 
 工作以来服务端的模板引擎一直使用的是 Velocity，直到最近在试用 Spring Boot 1.5的时候突然发现用不了了，上网一查原来是 SpringBoot 从1.5版本将1.4中标记为`deprecated`的方法和类直接移除掉了（移除上个版本废弃的内容也是 Spring Boot的一贯做法）。
 
-![](http://
-pgdgu8c3d.bkt.clouddn.com/201707211809_650.jpg)
+![](https://jverson.oss-cn-beijing.aliyuncs.com/201707211809_650.jpg)
 
 然后再看看1.4的Release Note，发现velocity被废弃赫然在列（而且是第一条）。
 
-![](http://
-pgdgu8c3d.bkt.clouddn.com/201707211812_927.jpg)
+![](https://jverson.oss-cn-beijing.aliyuncs.com/201707211812_927.jpg)
 
 不过在使用1.4.x版本的spring boot时还是支持的，而且现有的代码基本也都是基于velocity，因此有必要熟悉一下velocity的集成方法。
 
@@ -56,8 +54,7 @@ public class HelloController {
 </html>  
 ```
 
-![](http://
-pgdgu8c3d.bkt.clouddn.com/201707211829_224.png)
+![](https://jverson.oss-cn-beijing.aliyuncs.com/201707211829_224.png)
 
 这时候不出意外启动程序便可以访问这个页面了。
 

@@ -26,6 +26,12 @@
 - [如何定制 Favicon](Custom Favicon.md)
 - [指定 @ResponseBody 的返回格式(Json or XML)](Custom Return Format.md)
 
+## Cache
+
+- [Spring Data Cache(Guava Cache)](Spring Data Cache.md)
+- [Caffeine Cache](cache-caffeine.md)
+
+
 ## Database
 
 - [数据库使用](Using Database.md)
@@ -61,7 +67,7 @@
 
 - [Spring Events 事件机制](Spring Events.md)
 - [Spring @Conditional Annotation](Spring Conditional Annotation.md)
-- [Spring Data Cache(Guava Cache)](Spring Data Cache.md)
 - [使用 RestTemplate 调用 RESTful 接口](Using RestTemplate.md)
 - [使用 JavaMail 发送邮件](JavaMailSender.md)
 - [跨域资源共享 CORS](CORS.md)
+- [Springboot + FreeMarker 国际化](others-locale.md)

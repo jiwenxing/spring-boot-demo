@@ -5,6 +5,5 @@
 
 > Spring Boot looks for a favicon.ico in the configured static content locations and the root of the classpath (in that order). If such file is present, it is automatically used as the favicon of the application.
 
-![](http://
-pgdgu8c3d.bkt.clouddn.com/201707261049_748.png)
+![](https://jverson.oss-cn-beijing.aliyuncs.com/201707261049_748.png)
 

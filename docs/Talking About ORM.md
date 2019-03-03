@@ -17,8 +17,7 @@ JPA的全称是Java Persistence API， 即JAVA持久化API，可以理解为是�
 hibernate特点就是所有的sql都用Java代码来生成，不用跳出程序去写（看）sql，Spring Data JPA就是Spring基于ORM框架JPA规范的基础上封装的一套JPA应用框架，可使开发者用极简的代码即可实现对数据的访问和操作。它提供了包括增删改查等在内的常用功能，且易于扩展！ 在spring boot中`spring-boot-starter-data-jpa`提供了一个快速的方法集成Spring Data JPA、Hibernate、Spring ORMs(Core ORM support from the Spring Framework)。
 
 spring data jpa、jpa以及ORM框架之间的关系
-![](http://
-pgdgu8c3d.bkt.clouddn.com/201709181701_866.png)
+![](https://jverson.oss-cn-beijing.aliyuncs.com/201709181701_866.png)
 
 
 ## 什么是 MyBatis

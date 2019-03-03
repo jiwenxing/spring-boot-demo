@@ -124,12 +124,10 @@ public void sendTemplateMail(){
 ```
 
 模板文件位于classpath的templates目录下
-![](http://
-pgdgu8c3d.bkt.clouddn.com/201710141441_9.png
+![](https://jverson.oss-cn-beijing.aliyuncs.com/201710141441_9.png
 
 收到的邮件效果：
-![](http://
-pgdgu8c3d.bkt.clouddn.com/201710132224_512.png)
+![](https://jverson.oss-cn-beijing.aliyuncs.com/201710132224_512.png)
 
 ## 发送带附件的邮件
 
@@ -167,8 +165,7 @@ public void sendAttachmentsMail() throws Exception {
 
 
 注意附件是从classpath路径下加载的两个图片文件，目录如下：
-![](http://
-pgdgu8c3d.bkt.clouddn.com/201710141331_435.png)
+![](https://jverson.oss-cn-beijing.aliyuncs.com/201710141331_435.png)
 
 
 ## 正文中嵌入图片
@@ -203,8 +200,7 @@ public void sendInlineResourceMail(){
 ```
 
 收到的邮件是这样：
-![](http://
-pgdgu8c3d.bkt.clouddn.com/201710141436_814.png)
+![](https://jverson.oss-cn-beijing.aliyuncs.com/201710141436_814.png)
 
 > 需要特别注意的是公司网络环境可能会有限制导致连接不上smtp服务器从而测试失败。
 

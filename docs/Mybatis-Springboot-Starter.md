@@ -186,7 +186,7 @@ mybatis.type-aliases-package=com.jverson
 
 这时的日志显示如下所示，可以看到其他部分的日志依然是配置文件中配的INFO级别，但是mapper包中执行sql的debug日志也显示出来了。可以看到其他部分的日志依然是配置文件中配的INFO级别，但是mapper包中执行sql的debug日志也显示出来了。
 
-![](http://pgdgu8c3d.bkt.clouddn.com/201708211740_408.png)
+![](https://jverson.oss-cn-beijing.aliyuncs.com/201708211740_408.png)
 
 ## 扩展-关于Mybatis的SqlSessionFactory
 

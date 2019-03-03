@@ -36,8 +36,7 @@ public class WebConfig {
 以上两种方式等效的启用了mvc的默认配置，具体的作用包括不限于：注册了`RequestMappingHandlerMapping`、`RequestMappingHandlerAdapter`及`ExceptionHandlerExceptionResolver`从而可以支持处理注解了`@RequestMapping`及`@ExceptionHandler`的Controller。
 
 其实打开`@EnableWebMvc`的源码会发现它主要是引入了一个配置类`DelegatingWebMvcConfiguration`，在进入这个类发现它继承了`WebMvcConfigurationSupport`， 然后再跟进去会发现它有很多`@Bean`的注解，这就能明白@EnableWebMvc的作用了
-![](http://
-pgdgu8c3d.bkt.clouddn.com/201709132142_791.png)
+![](https://jverson.oss-cn-beijing.aliyuncs.com/201709132142_791.png)
 
 `EnableWebMvc`注解源码
 ```java
