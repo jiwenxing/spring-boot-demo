@@ -86,6 +86,8 @@ public class GlobalErrorHandler implements ErrorPageRegistrar{
 
 ```
 
+参考：https://www.cnblogs.com/wangzhuxing/p/10158390.html
+
 ## 针对不同的异常（或controller）返回不同的json数据
 
 这是通过`@ControllerAdvice`来实现的，定义如下一个类（注意可以不用继承ResponseEntityExceptionHandler），其中`basePackageClasses`和`ExceptionHandler`指定了该类会对指定的controller和指定的exception进行处理，By default the methods in an @ControllerAdvice apply globally to all Controllers。
