@@ -51,27 +51,40 @@ error.ftl代码如下：
 
 ## 根据不同的情况返回不同的错误页
 
-在配置类中添加以下代码，可以将不同的错误映射到不同的地址，而这些映射并不需要专门的controller去处理，springboot会自动从特定目录（src/main/resources/static）寻找这些页面。
-
-这个原理其实就是对内置Servlet容器进行配置，之前使用的外部容器配置的web.xml作用一样。如果Spring MVC在处理过程抛出异常到Servlet容器，容器会定向到指定的错误页面（错误页的默认值就是`/error`）。
+在 springboot 2.x 中实现方式如下，注意还有一种 EmbeddedServletContainerCustomizer 的方式只适用 springboot 1.x，现已经被废弃。
 
 ```java
-/**
- * Roughly equivalent to the error-page element traditionally found in web.xml
- */
-@Bean
-public EmbeddedServletContainerCustomizer containerCustomizer() {
-   return (container -> {
-        ErrorPage error401Page = new ErrorPage(HttpStatus.UNAUTHORIZED, "/401.html");
-        ErrorPage error404Page = new ErrorPage(HttpStatus.NOT_FOUND, "/404.html");
-        ErrorPage error500Page = new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "/500.html");
+@Controller
+public class GlobalErrorHandler implements ErrorPageRegistrar{
 
-        container.addErrorPages(error401Page, error404Page, error500Page);
-   });
+  @Override
+    public void registerErrorPages(ErrorPageRegistry registry) {
+//        ErrorPage error400Page = new ErrorPage(HttpStatus.BAD_REQUEST, "/error400Page");
+        ErrorPage error401Page = new ErrorPage(HttpStatus.UNAUTHORIZED, "/error401Page");
+        ErrorPage error404Page = new ErrorPage(HttpStatus.NOT_FOUND, "/error404Page");
+        ErrorPage error500Page = new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "/error500Page");
+        registry.addErrorPages(error401Page, error404Page, error500Page);
+    }
+  
+
+  @RequestMapping(value = "/error401Page")
+  public String error400Page() {
+    return "error/noperm";
+  }
+  
+  @RequestMapping(value = "/error404Page")
+  public String error404Page() {
+    return "error/notfound";
+  }
+  
+  @RequestMapping(value = "/error500Page")
+    public String error500Page() {
+        return "error/server-error.ftl";
+    }
+  
 }
-```
 
-![](https://jverson.oss-cn-beijing.aliyuncs.com/201707252137_848.png)
+```
 
 ## 针对不同的异常（或controller）返回不同的json数据
 
