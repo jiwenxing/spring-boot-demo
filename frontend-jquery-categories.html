@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>使用 RestTemplate 调用 RESTful 接口 · Spring Boot</title>
+        <title>jQuery 三级联动下拉框实现 · Spring Boot</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -74,10 +74,8 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="JavaMailSender.html" />
     
-    
-    <link rel="prev" href="Spring Conditional Annotation.html" />
+    <link rel="prev" href="frontend-locale.html" />
     
 
     <style>
@@ -754,7 +752,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="9.3" data-path="Using RestTemplate.html">
+        <li class="chapter " data-level="9.3" data-path="Using RestTemplate.html">
             
                 <a href="Using RestTemplate.html">
             
@@ -821,7 +819,7 @@
             
         </li>
     
-        <li class="chapter " data-level="10.2" data-path="frontend-jquery-categories.html">
+        <li class="chapter active" data-level="10.2" data-path="frontend-jquery-categories.html">
             
                 <a href="frontend-jquery-categories.html">
             
@@ -866,7 +864,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >使用 RestTemplate 调用 RESTful 接口</a>
+        <a href="." >jQuery 三级联动下拉框实现</a>
     </h1>
 </div>
 
@@ -881,183 +879,74 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="resttemplate&#x4ECB;&#x7ECD;">RestTemplate&#x4ECB;&#x7ECD;</h1>
-<hr>
-<p>spring&#x6846;&#x67B6;&#x63D0;&#x4F9B;&#x7684;RestTemplate&#x7C7B;&#x53EF;&#x7528;&#x4E8E;&#x5728;&#x5E94;&#x7528;&#x4E2D;&#x8C03;&#x7528;rest&#x670D;&#x52A1;&#xFF0C;&#x5B83;&#x7B80;&#x5316;&#x4E86;&#x4E0E;http&#x670D;&#x52A1;&#x7684;&#x901A;&#x4FE1;&#x65B9;&#x5F0F;&#xFF0C;&#x7EDF;&#x4E00;&#x4E86;RESTful&#x7684;&#x6807;&#x51C6;&#xFF0C;&#x5C01;&#x88C5;&#x4E86;http&#x94FE;&#x63A5;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x4F20;&#x5165;url&#x53CA;&#x8FD4;&#x56DE;&#x503C;&#x7C7B;&#x578B;&#x5373;&#x53EF;&#x3002;&#x76F8;&#x8F83;&#x4E8E;&#x4E4B;&#x524D;&#x5E38;&#x7528;&#x7684;httpClient&#xFF0C;RestTemplate&#x662F;&#x4E00;&#x79CD;&#x66F4;&#x4F18;&#x96C5;&#x7684;&#x8C03;&#x7528;RESTful&#x670D;&#x52A1;&#x7684;&#x65B9;&#x5F0F;&#x3002;</p>
-<p>RestTemplate&#x9ED8;&#x8BA4;&#x4F9D;&#x8D56;JDK&#x63D0;&#x4F9B;http&#x8FDE;&#x63A5;&#x7684;&#x80FD;&#x529B;&#xFF08;HttpURLConnection&#xFF09;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x9700;&#x8981;&#x7684;&#x8BDD;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>setRequestFactory</code>&#x65B9;&#x6CD5;&#x66FF;&#x6362;&#x4E3A;&#x4F8B;&#x5982;<code>Apache HttpComponents</code>&#x3001;<code>Netty</code>&#x6216;<code>OkHttp</code>&#x7B49;&#x5176;&#x5B83;HTTP library&#x3002;</p>
-<h2 id="resttemplate&#x4F7F;&#x7528;">RestTemplate&#x4F7F;&#x7528;</h2>
-<h3 id="&#x76F4;&#x63A5;&#x4F7F;&#x7528;">&#x76F4;&#x63A5;&#x4F7F;&#x7528;</h3>
-<p><code>RestTemplateTest.java</code></p>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RestTemplateTest</span> </span>{
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
-        RestTemplate restT = <span class="hljs-keyword">new</span> RestTemplate();
-        <span class="hljs-comment">//&#x901A;&#x8FC7;Jackson JSON processing library&#x76F4;&#x63A5;&#x5C06;&#x8FD4;&#x56DE;&#x503C;&#x7ED1;&#x5B9A;&#x5230;&#x5BF9;&#x8C61;</span>
-        Quote quote = restT.getForObject(<span class="hljs-string">&quot;http://gturnquist-quoters.cfapps.io/api/random&quot;</span>, Quote.class);  
-        String quoteString = restT.getForObject(<span class="hljs-string">&quot;http://gturnquist-quoters.cfapps.io/api/random&quot;</span>, String.class);
-        System.out.println(quoteString);
-    }
-}
+                                <h2 id="&#x591A;&#x7EA7;&#x8054;&#x52A8;&#x4E0B;&#x62C9;&#x6846;&#x7684;-jquery-&#x5B9E;&#x73B0;">&#x591A;&#x7EA7;&#x8054;&#x52A8;&#x4E0B;&#x62C9;&#x6846;&#x7684; jQuery &#x5B9E;&#x73B0;</h2>
+<p>&#x7ECF;&#x5E38;&#x4F1A;&#x9047;&#x5230;&#x591A;&#x7EA7;&#x8054;&#x52A8;&#x4E0B;&#x62C9;&#x6846;&#x7684;&#x573A;&#x666F;&#xFF0C;&#x6BD4;&#x5982;&#x5546;&#x54C1;&#x7684;&#x4E09;&#x7EA7;&#x5206;&#x7C7B;&#xFF0C;&#x6BD4;&#x5982;&#x5730;&#x5740;&#x9009;&#x62E9;&#x7B49;&#x7B49;&#x3002;</p>
+<p>&#x8FD9;&#x91CC;&#x4EE5;&#x5546;&#x54C1;&#x4E09;&#x7EA7;&#x5206;&#x7C7B;&#x4E3A;&#x4F8B;&#xFF0C;&#x9875;&#x9762;&#x521D;&#x59CB;&#x52A0;&#x8F7D;&#x6240;&#x6709;&#x7684;&#x4E00;&#x7EA7;&#x5206;&#x7C7B;&#xFF0C;&#x9009;&#x4E2D;&#x67D0;&#x4E2A;&#x4E00;&#x7EA7;&#x5206;&#x7C7B;&#x65F6;&#xFF0C;&#x81EA;&#x52A8;&#x52A0;&#x8F7D;&#x5BF9;&#x5E94;&#x7684;&#x4E8C;&#x7EA7;&#x5206;&#x7C7B;&#x5217;&#x8868;&#xFF0C;&#x4E8C;&#x4E09;&#x7EA7;&#x5206;&#x7C7B;&#x4E00;&#x6B21;&#x7C7B;&#x63A8;&#xFF0C;&#x91CD;&#x65B0;&#x4FEE;&#x6539;&#x4E00;&#x7EA7;&#x5206;&#x7C7B;&#x9700;&#x8981;&#x91CD;&#x7F6E;&#x4E8C;&#x7EA7;&#x5206;&#x7C7B;&#x7684;&#x540C;&#x65F6;&#x6E05;&#x7A7A;&#x4E09;&#x7EA7;&#x5206;&#x7C7B;&#xFF0C;jQuery&#x5B9E;&#x73B0;&#x5982;&#x4E0B;</p>
+<h3 id="html">html</h3>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-group&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;categoryRow&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;categoryId&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-sm-1 control-label&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">@spring.message</span> &quot;<span class="hljs-attr">index.search.cat</span>&quot;/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-sm-1&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-control category1&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;categoryOne&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">@spring.message</span> &quot;<span class="hljs-attr">index.search.cat.one</span>&quot;/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-sm-1&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-control category2&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;categoryTwo&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">@spring.message</span> &quot;<span class="hljs-attr">index.search.cat.two</span>&quot;/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-sm-1&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-control category3&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;categoryThree&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">@spring.message</span> &quot;<span class="hljs-attr">index.search.cat.three</span>&quot;/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 </code></pre>
-<blockquote>
-<p>Because the Jackson JSON processing library is in the classpath, RestTemplate will use it (via a message converter) to convert the incoming JSON data into a Quote object.</p>
-</blockquote>
-<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x53EF;&#x4EE5;&#x5C06;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x653E;&#x5728;&#x4E00;&#x4E2A;String&#x5BF9;&#x8C61;&#x4E2D;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x7ED1;&#x5B9A;&#x5230;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x5BF9;&#x8C61;&#x4E0A;&#xFF0C;&#x5176;&#x4E2D;Quote&#x5982;&#x4E0B;&#xFF1A;</p>
-<p><code>Quote.java</code></p>
-<pre><code class="lang-java"><span class="hljs-meta">@JsonIgnoreProperties</span>(ignoreUnknown = <span class="hljs-keyword">true</span>) <span class="hljs-comment">// indicate that any properties not bound in this type should be ignored.</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Quote</span> </span>{
+<h3 id="js">js</h3>
+<pre><code class="lang-javascript">$(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> cateJson;
 
-    <span class="hljs-keyword">private</span> String type;
-    <span class="hljs-keyword">private</span> Value value;
-
-    <span class="hljs-comment">//getters &amp; setters</span>
-}
-</code></pre>
-<p>&#x8FD9;&#x91CC;&#x6709;&#x5982;&#x4E0B;&#x4E24;&#x70B9;&#x9700;&#x8981;&#x6CE8;&#x610F;&#xFF08;&#x61D2;&#x5F97;&#x7FFB;&#x8BD1;&#xFF09;&#xFF0C;@JsonIgnoreProperties&#x5982;&#x679C;&#x5B9A;&#x4E49;&#x4E86;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x4E2D;&#x6CA1;&#x6709;&#x7684;&#x5C5E;&#x6027;&#x5219;&#x5FFD;&#x7565;&#xFF0C;&#x53E6;&#x5916;&#x5C5E;&#x6027;&#x540D;&#x9700;&#x8981;&#x548C;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x7684;&#x5C5E;&#x6027;&#x540D;&#x4E00;&#x81F4;&#xFF0C;&#x5426;&#x5219;&#x9700;&#x8981;&#x4F7F;&#x7528;@JsonProperty&#x6CE8;&#x89E3;&#x8FDB;&#x884C;&#x5339;&#x914D;&#x3002;</p>
-<ul>
-<li>It&#x2019;s annotated with @JsonIgnoreProperties from the Jackson JSON processing library to indicate that any properties not bound in this type should be ignored.</li>
-<li>In order for you to directly bind your data to your custom types, you need to specify the variable name exact same as the key in the JSON Document returned from the API. In case your variable name and key in JSON doc are not matching, you need to use @JsonProperty annotation to specify the exact key of JSON document.</li>
-</ul>
-<h3 id="&#x5728;spring-boot&#x4E2D;&#x4F7F;&#x7528;resttemplate">&#x5728;Spring boot&#x4E2D;&#x4F7F;&#x7528;RestTemplate</h3>
-<p><code>application.java</code></p>
-<pre><code class="lang-java"><span class="hljs-meta">@SpringBootApplication</span> 
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloSpringBoot</span> </span>{
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
-        SpringApplication.run(HelloWorld.class, args);
+    <span class="hljs-comment">// &#x83B7;&#x53D6;json&#x6570;&#x636E;</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">loadData</span>(<span class="hljs-params">url, level</span>)</span>{
+        $.getJSON(url, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">result</span>) </span>{
+            <span class="hljs-keyword">if</span>(result.success){
+                cateJson = result.data;
+                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;cateJson = &quot;</span> + cateJson)
+                initCategory(level);
+            }
+        });
     }
 
-    <span class="hljs-meta">@Bean</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> RestTemplate <span class="hljs-title">restTemplate</span><span class="hljs-params">(RestTemplateBuilder builder)</span> </span>{
-        <span class="hljs-keyword">return</span> builder.build();
-    }    
-}
-</code></pre>
-<p>&#x6CE8;&#x610F;spring boot&#x5E76;&#x4E0D;&#x4F1A;&#x81EA;&#x52A8;&#x88C5;&#x914D;<code>RestTemplate</code>&#x7C7B;&#xFF0C;&#x56E0;&#x4E3A;&#x901A;&#x5E38;&#x7528;&#x6237;&#x90FD;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x5B9A;&#x5236;&#x7684;RestTemplate&#xFF0C;&#x56E0;&#x6B64;springboot&#x81EA;&#x52A8;&#x88C5;&#x914D;&#x4E86;&#x4E00;&#x4E2A;<code>RestTemplateBuilder</code>&#x7C7B;&#x65B9;&#x4FBF;&#x7528;&#x6237;&#x5B9A;&#x5236;&#x521B;&#x5EFA;&#x81EA;&#x5DF1;&#x7684;RestTemplate&#x7C7B;&#x3002;</p>
-<blockquote>
-<p>Since RestTemplate instances often need to be customized before being used, Spring Boot does not provide any single auto-configured RestTemplate bean. It does, however, auto-configure a RestTemplateBuilder which can be used to create RestTemplate instances when needed. The auto-configured RestTemplateBuilder will ensure that sensible HttpMessageConverters are applied to RestTemplate instances.</p>
-</blockquote>
-<p><code>RestTemplateService.java</code></p>
-<pre><code class="lang-java"><span class="hljs-meta">@Service</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RestTemplateService</span> </span>{
-    <span class="hljs-meta">@Autowired</span> RestTemplate restTemplate;
+    <span class="hljs-comment">//  &#x521D;&#x59CB;&#x5316;&#x5206;&#x7C7B;&#x5217;&#x8868;</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">initCategory</span>(<span class="hljs-params">level</span>)</span>{
+        <span class="hljs-keyword">var</span> temp_html;
+        $.each(cateJson, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">i, item</span>) </span>{
+            temp_html += <span class="hljs-string">&quot;&lt;option value=&apos;&quot;</span> + item.productSortId + <span class="hljs-string">&quot;&apos;&gt;&quot;</span>
+                    + item.name + <span class="hljs-string">&quot;&lt;/option&gt;&quot;</span>;
+        });
+        $(<span class="hljs-string">&quot;.category&quot;</span> + level +  <span class="hljs-string">&quot; option:not(:first)&quot;</span>).remove(); <span class="hljs-comment">//&#x5148;&#x6E05;&#x7A7A;&#x9009;&#x9879;</span>
+        $(<span class="hljs-string">&quot;#categoryRow&quot;</span>).find(<span class="hljs-string">&quot;.category&quot;</span>+level).append(temp_html);
+    };
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> Quote <span class="hljs-title">someRestCall</span><span class="hljs-params">()</span></span>{
-        <span class="hljs-keyword">return</span> restTemplate.getForObject(<span class="hljs-string">&quot;http://gturnquist-quoters.cfapps.io/api/random&quot;</span>, Quote.class);
-    }    
-}
-</code></pre>
-<p><code>RestTemplateController.java</code></p>
-<pre><code class="lang-java"><span class="hljs-meta">@RestController</span>
-<span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">&quot;/api/rest&quot;</span>)
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RestTemplateController</span> </span>{
-    <span class="hljs-meta">@Autowired</span> 
-    <span class="hljs-keyword">private</span> RestTemplateService restTemplateService;
+    <span class="hljs-comment">// &#x4E00;&#x7EA7;&#x5206;&#x7C7B;&#x53D8;&#x5316;</span>
+    $(<span class="hljs-string">&quot;#categoryRow&quot;</span>).find(<span class="hljs-string">&quot;.category1&quot;</span>).change(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">const</span> fid = $(<span class="hljs-keyword">this</span>).val();
+        loadData(<span class="hljs-string">&quot;/common/getCategoryList?categoryLevel=1&amp;fid=&quot;</span>+fid, <span class="hljs-number">2</span>);
+        $(<span class="hljs-string">&quot;.category3 option:not(:first)&quot;</span>).remove(); <span class="hljs-comment">//&#x4E00;&#x7EA7;&#x53D8;&#x5316;&#x9700;&#x8981;&#x6E05;&#x7A7A;&#x4E09;&#x7EA7;&#x5386;&#x53F2;</span>
+    });
 
-    <span class="hljs-meta">@RequestMapping</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">index</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> restTemplateService.someRestCall();
-    }
-}
-</code></pre>
-<p>&#x8FD9;&#x662F;&#x8BBF;&#x95EE;<code>http://localhost/api/rest</code>&#x8FD4;&#x56DE;&#x4EE5;&#x4E0B;&#x7ED3;&#x679C;&#xFF1A;</p>
-<pre><code class="lang-json">{
-<span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;success&quot;</span>,
-<span class="hljs-string">&quot;value&quot;</span>: {
-    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">9</span>,
-    <span class="hljs-string">&quot;quote&quot;</span>: <span class="hljs-string">&quot;So easy it is to switch container in #springboot.&quot;</span>
-    }
-}
-</code></pre>
-<blockquote>
-<p> <code>http://gturnquist-quoters.cfapps.io/api/random</code> is a RESTful service that randomly fetches quotes about Spring Boot and returns them as a JSON document.</p>
-</blockquote>
-<h2 id="resttemplate&#x5B9A;&#x5236;">RestTemplate&#x5B9A;&#x5236;</h2>
-<p>&#x7531;&#x4E8E;&#x4E0D;&#x540C;&#x7684;rest&#x670D;&#x52A1;&#x8C03;&#x7528;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x4E0D;&#x540C;&#x7684;RestTemplate&#x914D;&#x7F6E;&#xFF0C;&#x6839;&#x636E;&#x9002;&#x7528;&#x8303;&#x56F4;&#x901A;&#x5E38;&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x914D;&#x7F6E;&#x3002;</p>
-<p>&#x4E00;&#x3001;&#x5355;&#x7C7B;&#x5B9A;&#x5236;</p>
-<p><code>RestTemplateService.java</code></p>
-<pre><code class="lang-java"><span class="hljs-meta">@Service</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RestTemplateService</span> </span>{
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> RestTemplate restTemplate;
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">RestTemplateService</span><span class="hljs-params">(RestTemplateBuilder builder)</span></span>{  <span class="hljs-comment">//RestTemplateBuilder will be auto-configured</span>
-        <span class="hljs-keyword">this</span>.restTemplate = builder.setConnectTimeout(<span class="hljs-number">1000</span>).setReadTimeout(<span class="hljs-number">1000</span>).build();
-    }
+    <span class="hljs-comment">// &#x4E8C;&#x7EA7;&#x5206;&#x7C7B;&#x53D8;&#x5316;</span>
+    $(<span class="hljs-string">&quot;#categoryRow&quot;</span>).find(<span class="hljs-string">&quot;.category2&quot;</span>).change(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">const</span> fid = $(<span class="hljs-keyword">this</span>).val();
+        loadData(<span class="hljs-string">&quot;/common/getCategoryList?categoryLevel=2&amp;fid=&quot;</span>+fid, <span class="hljs-number">3</span>);
+    });
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> Quote <span class="hljs-title">someRestCall</span><span class="hljs-params">()</span></span>{
-        <span class="hljs-keyword">return</span> restTemplate.getForObject(<span class="hljs-string">&quot;http://gturnquist-quoters.cfapps.io/api/random&quot;</span>, Quote.class);
-    }    
-}
-</code></pre>
-<p>&#x4E8C;&#x3001;&#x8DE8;&#x7C7B;&#x5B9A;&#x5236;</p>
-<p><code>BeanConf.class</code></p>
-<pre><code class="lang-java"><span class="hljs-meta">@Configuration</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BeanConf</span> </span>{
+    loadData(<span class="hljs-string">&quot;/common/getCategoryList?categoryLevel=0&quot;</span>, <span class="hljs-number">1</span>);
 
-    <span class="hljs-meta">@Bean</span>(name = <span class="hljs-string">&quot;restTemplateA&quot;</span>)
-    <span class="hljs-function"><span class="hljs-keyword">public</span> RestTemplate <span class="hljs-title">restTemplateA</span><span class="hljs-params">(RestTemplateBuilder builder)</span> </span>{
-        <span class="hljs-keyword">return</span> builder.basicAuthorization(<span class="hljs-string">&quot;username&quot;</span>, <span class="hljs-string">&quot;password&quot;</span>)  
-            .setConnectTimeout(<span class="hljs-number">3000</span>)  
-            .setReadTimeout(<span class="hljs-number">5000</span>)  
-            .rootUri(<span class="hljs-string">&quot;http://api1.example.com/&quot;</span>)  
-            .errorHandler(<span class="hljs-keyword">new</span> CustomResponseErrorHandler())  
-            .additionalMessageConverters(<span class="hljs-keyword">new</span> CustomHttpMessageConverter())  
-            .uriTemplateHandler(<span class="hljs-keyword">new</span> OkHttp3ClientHttpRequestFactory())  
-            .build();
-    }
-
-    <span class="hljs-meta">@Bean</span>(name = <span class="hljs-string">&quot;restTemplateB&quot;</span>)
-    <span class="hljs-function"><span class="hljs-keyword">public</span> RestTemplate <span class="hljs-title">restTemplateB</span><span class="hljs-params">(RestTemplateBuilder builder)</span> </span>{
-        <span class="hljs-keyword">return</span> builder.basicAuthorization(<span class="hljs-string">&quot;username&quot;</span>, <span class="hljs-string">&quot;password&quot;</span>)  
-            .setConnectTimeout(<span class="hljs-number">1000</span>)  
-            .setReadTimeout(<span class="hljs-number">1000</span>)  
-            .rootUri(<span class="hljs-string">&quot;http://api2.example.com/&quot;</span>)  
-            .errorHandler(<span class="hljs-keyword">new</span> CustomResponseErrorHandler())  
-            .additionalMessageConverters(<span class="hljs-keyword">new</span> CustomHttpMessageConverter())  
-            .uriTemplateHandler(<span class="hljs-keyword">new</span> OkHttp3ClientHttpRequestFactory())  
-            .build();
-    }
-}
+});
 </code></pre>
-<p><code>RestTemplateService.java</code></p>
-<pre><code class="lang-java"><span class="hljs-meta">@Service</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RestTemplateService</span> </span>{
-    <span class="hljs-meta">@Resource</span>(name = <span class="hljs-string">&quot;restTemplateB&quot;</span>)
-    <span class="hljs-keyword">private</span> RestTemplate restTemplate;
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> Quote <span class="hljs-title">someRestCall</span><span class="hljs-params">()</span></span>{
-        <span class="hljs-keyword">return</span> restTemplate.getForObject(<span class="hljs-string">&quot;http://gturnquist-quoters.cfapps.io/api/random&quot;</span>, Quote.class);
-    }
-}
-</code></pre>
-<p>&#x4E09;&#x3001;&#x5E94;&#x7528;&#x5185;&#x5B9A;&#x5236;</p>
-<p>&#x901A;&#x8FC7;&#x5B9E;&#x73B0;<code>RestTemplateCustomizer</code>&#x63A5;&#x53E3;&#xFF0C;&#x5176;&#x4E2D;&#x7684;&#x8BBE;&#x7F6E;&#x5728;&#x6240;&#x6709;&#x901A;&#x8FC7;<code>RestTemplateBuilder</code>&#x521B;&#x5EFA;&#x7684;RestTemplate&#x90FD;&#x5C06;&#x751F;&#x6548;&#x3002;</p>
-<pre><code class="lang-java"><span class="hljs-meta">@Component</span>  
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CustomRestTemplateCustomizer</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">RestTemplateCustomizer</span> </span>{  
-    <span class="hljs-meta">@Override</span>  
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">customize</span><span class="hljs-params">(RestTemplate restTemplate)</span> </span>{  
-        <span class="hljs-keyword">new</span> RestTemplateBuilder()  
-                .detectRequestFactory(<span class="hljs-keyword">false</span>)  
-                .basicAuthorization(<span class="hljs-string">&quot;username&quot;</span>, <span class="hljs-string">&quot;password&quot;</span>)  
-                .uriTemplateHandler(<span class="hljs-keyword">new</span> OkHttp3ClientHttpRequestFactory())  
-                .errorHandler(<span class="hljs-keyword">new</span> CustomResponseErrorHandler())  
-                .configure(restTemplate);  
-    }  
-}
-</code></pre>
-<h2 id="http&#x8FDE;&#x63A5;&#x6C60;">http&#x8FDE;&#x63A5;&#x6C60;</h2>
-<blockquote>
-<p>By default RestTemplate creates new Httpconnection every time and closes the connection once done.If you need to have a connection pooling under rest template then you may use different implementation of the ClientHttpRequestFactory that pools the connections.</p>
-</blockquote>
-<p>RestTemplate&#x9ED8;&#x8BA4;&#x4E0D;&#x4F7F;&#x7528;&#x8FDE;&#x63A5;&#x6C60;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x4F7F;&#x7528;&#x5219;&#x9700;&#x8981;&#x4E00;&#x4E2A;<code>ClientHttpRequestFactory</code>&#x63A5;&#x53E3;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#x6765;&#x6C60;&#x5316;&#x8FDE;&#x63A5;&#x3002;&#x4F8B;&#x5982;&#x4F7F;&#x7528;<code>HttpComponentsClientHttpRequestFactory</code>&#x3002;</p>
-<pre><code class="lang-java">RestTemplate restT = <span class="hljs-keyword">new</span> RestTemplate(<span class="hljs-keyword">new</span> HttpComponentsClientHttpRequestFactory());
-</code></pre>
-<p>&#x6CE8;&#x610F;<code>HttpComponentsClientHttpRequestFactory</code> &#x662F; <code>org.springframework.http.client.ClientHttpRequestFactory</code>&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#xFF0C;&#x5B83;&#x5E95;&#x5C42;&#x4F7F;&#x7528;&#x4E86;<a href="http://hc.apache.org/httpcomponents-client-ga/" target="_blank">Apache HttpComponents HttpClient</a> to create requests.</p>
-<h2 id="references">References</h2>
-<ul>
-<li><a href="https://docs.spring.io/spring-boot/docs/1.5.4.RELEASE/reference/htmlsingle/#boot-features-restclient" target="_blank">spring-boot docs Calling REST services</a></li>
-<li><a href="https://github.com/spring-guides/gs-consuming-rest" target="_blank">an application that uses Spring&#x2019;s RestTemplate to retrieve a random Spring Boot quotation</a></li>
-<li><a href="https://spring.io/guides/gs/consuming-rest/" target="_blank">Consuming a RESTful Web Service</a> </li>
-</ul>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; jverson.com 2018 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">File Modify: 
-2018-08-25 00:18:13
+2019-04-21 09:26:54
 </span></footer>
                                 
                                 </section>
@@ -1085,14 +974,10 @@
 
             
                 
-                <a href="Spring Conditional Annotation.html" class="navigation navigation-prev " aria-label="Previous page: Spring @Conditional Annotation">
+                <a href="frontend-locale.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Springboot + FreeMarker 国际化">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="JavaMailSender.html" class="navigation navigation-next " aria-label="Next page: 使用 JavaMail 发送邮件">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -1101,7 +986,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"使用 RestTemplate 调用 RESTful 接口","level":"9.3","depth":1,"next":{"title":"使用 JavaMail 发送邮件","level":"9.4","depth":1,"path":"JavaMailSender.md","ref":"JavaMailSender.md","articles":[]},"previous":{"title":"Spring @Conditional Annotation","level":"9.2","depth":1,"path":"Spring Conditional Annotation.md","ref":"Spring Conditional Annotation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/spring-boot-demo"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"spring-boot-demo","type":"star","size":"small","count":true},{"user":"jiwenxing","repo":"spring-boot-demo","type":"fork","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Spring Boot","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Spring Boot Practise & Notes","extension":null},"file":{"path":"Using RestTemplate.md","mtime":"2018-08-24T16:18:13.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-21T01:40:49.664Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"jQuery 三级联动下拉框实现","level":"10.2","depth":1,"previous":{"title":"Springboot + FreeMarker 国际化","level":"10.1","depth":1,"path":"frontend-locale.md","ref":"frontend-locale.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/spring-boot-demo"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"spring-boot-demo","type":"star","size":"small","count":true},{"user":"jiwenxing","repo":"spring-boot-demo","type":"fork","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Spring Boot","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Spring Boot Practise & Notes","extension":null},"file":{"path":"frontend-jquery-categories.md","mtime":"2019-04-21T01:26:54.165Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-21T01:40:49.664Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
