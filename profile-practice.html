@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>设置 Profiles- 不同环境读取不同 Profile 配置 · Spring Boot</title>
+        <title>Springboot 中 Profiles 最佳实践 · Spring Boot</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -77,7 +77,7 @@
     <link rel="next" href="Add color to eclipse console output by log level.html" />
     
     
-    <link rel="prev" href="Bean Configuration by Properties Files.html" />
+    <link rel="prev" href="profile-maven.html" />
     
 
     <style>
@@ -218,14 +218,29 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.7" data-path="Different Environment Different Profile.html">
+        <li class="chapter " data-level="1.7" data-path="profile-maven.html">
             
-                <a href="Different Environment Different Profile.html">
+                <a href="profile-maven.html">
             
                     
                         <b>1.7.</b>
                     
-                    设置 Profiles- 不同环境读取不同 Profile 配置
+                    Profiles + Maven 不同环境读取不同配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8" data-path="profile-practice.html">
+            
+                <a href="profile-practice.html">
+            
+                    
+                        <b>1.8.</b>
+                    
+                    Springboot 中 Profiles 最佳实践
             
                 </a>
             
@@ -866,7 +881,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >设置 Profiles- 不同环境读取不同 Profile 配置</a>
+        <a href="." >Springboot 中 Profiles 最佳实践</a>
     </h1>
 </div>
 
@@ -881,90 +896,171 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="different-environment-different-profile">Different Environment Different Profile</h1>
+                                <h1 id="springboot-&#x4E2D;-profiles-&#x6700;&#x4F73;&#x5B9E;&#x8DF5;">Springboot &#x4E2D; Profiles &#x6700;&#x4F73;&#x5B9E;&#x8DF5;</h1>
 <hr>
-<h2 id="&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x4E0D;&#x540C;&#x73AF;&#x5883;&#x8BFB;&#x53D6;&#x4E0D;&#x540C;profile&#xFF1F;">&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x4E0D;&#x540C;&#x73AF;&#x5883;&#x8BFB;&#x53D6;&#x4E0D;&#x540C;profile&#xFF1F;</h2>
-<p>&#x5F00;&#x53D1;&#x8FC7;&#x7A0B;&#x4E2D;&#x9700;&#x8981;&#x9488;&#x5BF9;&#x4E0D;&#x540C;&#x7684;&#x73AF;&#x5883;&#x914D;&#x7F6E;&#x4E0D;&#x540C;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x4E4B;&#x524D;&#x90FD;&#x662F;&#x901A;&#x8FC7;maven&#x63D0;&#x4F9B;&#x7684;Profile&#x529F;&#x80FD;&#x5728;&#x6253;&#x5305;&#x7684;&#x65F6;&#x5019;&#x4E0D;&#x540C;&#x73AF;&#x5883;&#x6253;&#x4E0D;&#x540C;&#x7684;&#x5305;&#xFF0C;&#x73B0;&#x5728;springboot&#x63D0;&#x4F9B;&#x4E86;&#x8FD0;&#x884C;&#x65F6;&#x52A0;&#x8F7D;&#x4E0D;&#x540C;Profile&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x5177;&#x4F53;&#x7684;&#x7528;&#x6CD5;&#x5982;&#x4E0B;&#x3002;</p>
-<p>&#x5047;&#x8BBE;&#x9700;&#x8981;&#x533A;&#x5206;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x548C;&#x7EBF;&#x4E0A;&#x73AF;&#x5883;&#xFF0C;&#x5219;&#x521B;&#x5EFA;&#x4EE5;&#x4E0B;&#x4E09;&#x4E2A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x5176;&#x4E2D;<code>application-dev.properties</code>&#x548C;<code>application-prod.properties</code>&#x4E2D;&#x5206;&#x522B;&#x914D;&#x7F6E;&#x4E86;&#x4E0D;&#x540C;&#x73AF;&#x5883;&#x4E0B;&#x7684;&#x4E00;&#x4E9B;&#x53C2;&#x6570;&#xFF0C;&#x800C;<code>application.properties</code>&#x5219;&#x662F;springboot&#x7684;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x5176;&#x4E2D;&#x53EF;&#x4EE5;&#x914D;&#x7F6E;&#x4F7F;&#x7528;&#x54EA;&#x4E2A;&#x73AF;&#x5883;&#x7684;Profile&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x914D;&#x4E00;&#x4E9B;&#x516C;&#x7528;&#x7684;&#x914D;&#x7F6E;&#x3002;</p>
-<p><img src="https://jverson.oss-cn-beijing.aliyuncs.com/201707182114_190.png" alt=""></p>
-<p>&#x5176;&#x4E2D;&#xFF0C;</p>
-<p>application-dev.properties&#x5185;&#x5BB9;&#xFF1A;</p>
-<blockquote>
-<p>car.brand = ford<br>car.color = ${car.brand} red<br>car.price = 30.8    </p>
-</blockquote>
-<p>application-prod.properties&#x5185;&#x5BB9;&#xFF1A;</p>
-<blockquote>
-<p>car.brand = bmw<br>car.color = ${car.brand} yellow<br>car.price = 55.3      </p>
-</blockquote>
-<p>&#x800C;application.properties&#x4E2D;&#x6307;&#x5B9A;Profile&#xFF1A;</p>
-<blockquote>
-<p>spring.profiles.active = prod</p>
-</blockquote>
-<p>&#x8FD9;&#x65F6;&#x5019;&#x8FD0;&#x884C;&#x4FBF;&#x4F1A;&#x53D1;&#x73B0;car&#x7C7B;&#x88AB;prod&#x914D;&#x7F6E;&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x5B9E;&#x4F8B;&#x5316;&#x3002;</p>
-<h2 id="&#x7ECF;&#x9A8C;">&#x7ECF;&#x9A8C;</h2>
+<p>&#x4E0A;&#x4E00;&#x7BC7;<a href="https://jverson.com/spring-boot-demo/profile-maven.html" target="_blank">Profiles + Maven &#x4E0D;&#x540C;&#x73AF;&#x5883;&#x8BFB;&#x53D6;&#x4E0D;&#x540C;&#x914D;&#x7F6E;</a>&#x4E2D;&#x5DF2;&#x7ECF;&#x5927;&#x6982;&#x4ECB;&#x7ECD;&#x4E86;&#x57FA;&#x672C;&#x7684; Profiles &#x7528;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x80DC;&#x4EFB;&#x5927;&#x591A;&#x6570;&#x573A;&#x666F;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x80FD;&#x5728;&#x5B9E;&#x9645;&#x5E94;&#x7528;&#x4E2D;&#x9762;&#x4E34;&#x66F4;&#x52A0;&#x590D;&#x6742;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x6BD4;&#x5982;&#x6700;&#x8FD1;&#x5728;&#x505A;&#x7684;&#x7EC4;&#x4EF6;&#x5316;&#x5C31;&#x8981;&#x6C42;&#x540C;&#x4E00;&#x5957;&#x4EE3;&#x7801;&#x80FD;&#x591F;&#x652F;&#x6301;&#x591A;&#x7AD9;&#x70B9;&#xFF0C;&#x4E0D;&#x540C;&#x7AD9;&#x70B9;&#x4E0D;&#x540C;&#x5206;&#x7EC4;&#xFF08;&#x6216;&#x4E0D;&#x540C;&#x673A;&#x623F;&#xFF09;&#xFF0C;&#x5B58;&#x5728;&#x4EE5;&#x4E0B;&#x60C5;&#x51B5;</p>
 <ul>
-<li>&#x5404;&#x4E2A;&#x73AF;&#x5883;&#x516C;&#x5171;&#x7684;&#x914D;&#x7F6E;&#x5199;&#x5728;application.properties&#x4E2D;&#xFF08;&#x4E5F;&#x53EF;&#x4EE5;&#x5199;&#x4E00;&#x4E9B;&#x9ED8;&#x8BA4;&#x7684;&#x914D;&#x7F6E;&#xFF0C;&#x5982;&#x679C;&#x5728;&#x6307;&#x5B9A;&#x7684;Profile&#x8BFB;&#x4E0D;&#x5230;&#x53EF;&#x4EE5;&#x5F53;&#x505A;&#x9ED8;&#x8BA4;&#x503C;&#x4F7F;&#x7528;&#xFF09;</li>
-<li>&#x5404;&#x4E2A;&#x6A21;&#x5757;&#x72EC;&#x6709;&#x7684;&#x914D;&#x7F6E;&#x914D;&#x7F6E;&#x5728;&#x81EA;&#x5DF1;&#x7684;application-{xxx}.properties&#x6587;&#x4EF6;&#x4E2D;</li>
-<li>&#x7A0B;&#x5E8F;&#x8BFB;&#x53D6;&#x7684;&#x65F6;&#x5019;&#x4F18;&#x5148;&#x8BFB;&#x53D6;application.properties&#x4E2D;&#x9009;&#x4E2D;&#x7684;profile&#x7684;&#x914D;&#x7F6E;&#xFF0C;&#x82E5;&#x8BFB;&#x4E0D;&#x5230;&#x624D;&#x4F1A;&#x4ECE;application.properties&#x53BB;&#x8BFB;</li>
+<li>&#x6BCF;&#x4E2A;&#x7AD9;&#x70B9;&#x4E4B;&#x95F4;&#x65E2;&#x6709;&#x5171;&#x540C;&#x7684;&#x914D;&#x7F6E;&#x53C8;&#x6709;&#x72EC;&#x7ACB;&#x7684;&#x914D;&#x7F6E;</li>
+<li>&#x4E0D;&#x540C;&#x7AD9;&#x70B9;&#x4E0D;&#x540C; jar &#x4F9D;&#x8D56;&#xFF0C;&#x4E0D;&#x540C;&#x7684; Bean &#x5B9E;&#x4F8B;&#x5316;&#x914D;&#x7F6E;&#xFF0C;&#x90E8;&#x7F72; Site A &#x4E0D;&#x8981;&#x6709; Site B &#x7684;&#x4F9D;&#x8D56;&#xFF0C;&#x4E5F;&#x4E0D;&#x8981;&#x521D;&#x59CB;&#x5316;&#x53EA;&#x6709; Site B &#x624D;&#x4F7F;&#x7528;&#x7684; Bean</li>
+<li>&#x533A;&#x5206;&#x6D4B;&#x8BD5;&#x3001;&#x9884;&#x53D1;&#x3001;&#x7EBF;&#x4E0A;&#x914D;&#x7F6E;</li>
+<li>properties &#x6587;&#x4EF6;&#x9700;&#x8981;&#x62C6;&#x5206;&#x7EF4;&#x62A4;&#xFF0C;&#x4E4B;&#x524D;&#x7684; application-{xxx}.properties &#x65B9;&#x5F0F;&#x4E0D;&#x518D;&#x9002;&#x7528;</li>
 </ul>
-<h2 id="&#x6700;&#x4F73;&#x5B9E;&#x8DF5;">&#x6700;&#x4F73;&#x5B9E;&#x8DF5;</h2>
-<p>&#x4E00;&#x822C;&#x90E8;&#x7F72;&#x90FD;&#x662F;&#x901A;&#x8FC7;maven&#x8FDB;&#x884C;&#x6253;&#x5305;&#xFF0C;maven&#x7684;&#x6253;&#x5305;&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x5E26;&#x53C2;&#x6570;&#x6307;&#x5B9A;Profile&#xFF0C;&#x56E0;&#x6B64;&#x6700;&#x4F73;&#x7684;&#x5B9E;&#x8DF5;&#x662F;&#x7ED3;&#x5408;maven&#x7684;Profile&#x529F;&#x80FD;&#x548C;springboot&#x63D0;&#x4F9B;&#x7684;Profiles&#x529F;&#x80FD;&#xFF0C;&#x8FD9;&#x6837;&#x4FBF;&#x4E0D;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x5373;&#x53EF;&#x6309;&#x7167;&#x73AF;&#x5883;&#x4E0D;&#x540C;&#x6253;&#x4E0D;&#x540C;&#x7684;&#x5305;&#xFF0C;&#x5177;&#x4F53;&#x7684;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1A;</p>
-<h3 id="&#x9996;&#x5148;&#x5728;pom&#x4E2D;&#x5B9A;&#x4E49;&#x4E0D;&#x540C;&#x7684;profile">&#x9996;&#x5148;&#x5728;pom&#x4E2D;&#x5B9A;&#x4E49;&#x4E0D;&#x540C;&#x7684;Profile</h3>
+<h2 id="properties-&#x6587;&#x4EF6;&#x7EC4;&#x7EC7;&#x65B9;&#x5F0F;">properties &#x6587;&#x4EF6;&#x7EC4;&#x7EC7;&#x65B9;&#x5F0F;</h2>
+<p>&#x4E00;&#x822C;&#x6211;&#x4EEC;&#x4F1A;&#x5C06;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x7684; properties &#x6587;&#x4EF6;&#x5206;&#x5F00;&#x7EF4;&#x62A4;&#xFF0C;&#x4F8B;&#x5982; alias.properties &#x8D1F;&#x8D23;&#x7EF4;&#x62A4;&#x522B;&#x540D;&#xFF0C;&#x800C; important.properties &#x5219;&#x8D1F;&#x8D23;&#x7EF4;&#x62A4;&#x6570;&#x636E;&#x5E93;&#x914D;&#x7F6E;&#x3002;&#x4E0D;&#x540C;&#x7AD9;&#x70B9;&#x914D;&#x7F6E;&#x4E0D;&#x540C;&#xFF0C;&#x4E0D;&#x540C;&#x73AF;&#x5883;&#x914D;&#x7F6E;&#x4E5F;&#x4E0D;&#x540C;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728; classpath &#x4E0B;&#x65B0;&#x5EFA; profiles &#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5206;&#x522B;&#x5728;&#x4E0D;&#x540C;&#x76EE;&#x5F55;&#x4E0B;&#x7EF4;&#x62A4;&#x4E0D;&#x540C;&#x7684;&#x914D;&#x7F6E;&#xFF0C;&#x76EE;&#x5F55;&#x7ED3;&#x6784;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<pre><code>/src/main/resources
+&#x251C;&#x2500;&#x2500; application.properties
+&#x251C;&#x2500;&#x2500; TEST
+&#x2502;   &#x251C;&#x2500;&#x2500; alias.properties
+&#x2502;   &#x251C;&#x2500;&#x2500; reply.properties
+&#x2502;   &#x251C;&#x2500;&#x2500; sso.properties
+&#x2502;   &#x2514;&#x2500;&#x2500; ucc.properties
+&#x251C;&#x2500;&#x2500; TH
+&#x2502;   &#x251C;&#x2500;&#x2500; alias.properties
+&#x2502;   &#x251C;&#x2500;&#x2500; reply.properties
+&#x2502;   &#x251C;&#x2500;&#x2500; sso.properties
+&#x2502;   &#x2514;&#x2500;&#x2500; ucc.properties
+&#x2514;&#x2500;&#x2500; US
+    &#x251C;&#x2500;&#x2500; alias.properties
+    &#x251C;&#x2500;&#x2500; reply.properties
+    &#x251C;&#x2500;&#x2500; sso.properties
+    &#x2514;&#x2500;&#x2500; ucc.properties
+</code></pre><p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x4F7F;&#x7528; xml &#x7684;&#x65B9;&#x5F0F;&#x914D;&#x7F6E; PropertyPlaceholderConfigurer&#xFF0C;&#x4F7F;&#x5176;&#x6309;&#x7167;&#x6307;&#x5B9A;&#x73AF;&#x5883;&#x52A0;&#x8F7D;&#x4E0D;&#x540C;&#x914D;&#x7F6E;&#x5982;&#x4E0B;</p>
+<pre><code class="lang-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.springframework.beans.factory.config.PropertyPlaceholderConfigurer&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;locations&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">list</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>classpath:profile/${spring.profiles.active}/alias.properties<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>classpath:profile/${spring.profiles.active}/sso.properties<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>classpath:profile/${spring.profiles.active}/uim.properties<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>classpath:profile/${spring.profiles.active}/ucc.properties<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">list</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span>
+</code></pre>
+<p>&#x6700;&#x540E;&#x5728; application.properties &#x4E2D;&#x6307;&#x5B9A;&#x5F53;&#x524D;&#x73AF;&#x5883;&#x7684;&#x7684; profile &#x5373;&#x53EF;&#xFF0C;&#x4F8B;&#x5982;&#x6D4B;&#x8BD5;&#x73AF;&#x5883;&#x6307;&#x5B9A;&#x4E3A; TEST&#xFF0C;&#x7136;&#x540E;&#x5728;&#x6CF0;&#x56FD;&#x9884;&#x53D1;&#x73AF;&#x5883;&#x914D;&#x7F6E;&#x4E2D;&#x6307;&#x5B9A;&#x4E3A; TH&#xFF0C;&#x6CF0;&#x56FD;&#x7684;&#x7EBF;&#x4E0A;&#x540C;&#x6837;&#x6307;&#x5B9A;&#x4E3A; TH&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5C06;&#x9884;&#x53D1;&#x548C;&#x7EBF;&#x4E0A;&#x6709;&#x533A;&#x5206;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5728;&#x5B9E;&#x4F8B;&#x5206;&#x7EC4;&#x914D;&#x7F6E;&#x4E2D;&#x914D;&#x7F6E;&#x4E00;&#x4E0B;&#x8986;&#x76D6;&#x5F53;&#x524D; profile &#x914D;&#x7F6E;&#x5373;&#x53EF;&#x3002;</p>
+<pre><code>spring.profiles.active=TEST
+</code></pre><h2 id="&#x4E0D;&#x540C;-profile-&#x52A0;&#x8F7D;&#x4E0D;&#x540C;-bean">&#x4E0D;&#x540C; profile &#x52A0;&#x8F7D;&#x4E0D;&#x540C; Bean</h2>
+<p>&#x53EF;&#x4EE5;&#x501F;&#x52A9; Spring &#x81EA;&#x5E26;&#x7684; profile &#x529F;&#x80FD;&#x5B9E;&#x73B0; Bean &#x7684;&#x6761;&#x4EF6;&#x52A0;&#x8F7D;&#xFF0C;&#x5728; JavaConfig &#x548C; xml &#x4E2D;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;</p>
+<h3 id="javaconfig-&#x914D;&#x7F6E;-bean">JavaConfig &#x914D;&#x7F6E; Bean</h3>
+<p>&#x6307;&#x5B9A;&#x73AF;&#x5883;&#x914D;&#x7F6E;&#x6307;&#x5B9A;bean&#xFF0C;&#x4F7F;&#x7528;&#x6CE8;&#x89E3;<code>@Profile({&quot;TH&quot;,&quot;TEST&quot;})</code>&#xFF0C;&#x793A;&#x4F8B;&#x5982;&#x4E0B;</p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x6CF0;&#x56FD;&#x7AD9; &#x72EC;&#x6709; &#x914D;&#x7F6E;&#x670D;&#x52A1;
+ */</span>
+<span class="hljs-meta">@Configuration</span>
+<span class="hljs-meta">@Profile</span>({<span class="hljs-string">&quot;TH&quot;</span>,<span class="hljs-string">&quot;TEST&quot;</span>})
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">THConf</span> </span>{
+
+    <span class="hljs-meta">@Value</span>(<span class="hljs-string">&quot;${ucc.env}&quot;</span>)
+    <span class="hljs-keyword">private</span> String env;
+
+    <span class="hljs-meta">@Bean</span>(<span class="hljs-string">&quot;thConfigService&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> ConfigService <span class="hljs-title">UCCConf</span><span class="hljs-params">()</span> </span>{
+        ConfigServiceImpl configService = <span class="hljs-keyword">new</span> ConfigServiceImpl();
+        configService.setEnv(env);
+        configService.init();
+        <span class="hljs-keyword">return</span> configService;
+    }
+}
+</code></pre>
+<p><code>@Profile</code> &#x5176;&#x5B9E;&#x5C31;&#x662F; Spring &#x7684; Condition &#x6CE8;&#x89E3;&#xFF0C; &#x4E4B;&#x524D;&#x7684;&#x6587;&#x7AE0; <a href="https://jverson.com/spring-boot-demo/Spring%20Conditional%20Annotation.html" target="_blank">Spring Conditional Annotation</a> &#x6709;&#x4ECB;&#x7ECD;&#x8FC7;&#xFF0C;&#x91CC;&#x9762;&#x5305;&#x542B;<code>@Conditional(ProfileCondition.class)</code> &#x6CE8;&#x89E3;&#xFF0C;&#x5176;&#x4E2D; ProfileCondition &#x5B9E;&#x73B0;&#x5982;&#x4E0B;</p>
+<pre><code class="lang-java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ProfileCondition</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Condition</span> </span>{
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">matches</span><span class="hljs-params">(ConditionContext context, AnnotatedTypeMetadata metadata)</span> </span>{
+        MultiValueMap&lt;String, Object&gt; attrs = metadata.getAllAnnotationAttributes(Profile.class.getName());
+        <span class="hljs-keyword">if</span> (attrs != <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">for</span> (Object value : attrs.get(<span class="hljs-string">&quot;value&quot;</span>)) {
+                <span class="hljs-keyword">if</span> (context.getEnvironment().acceptsProfiles(Profiles.of((String[]) value))) {
+                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+                }
+            }
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+    }
+
+}
+</code></pre>
+<p>&#x8FD9;&#x91CC; Condition &#x63A5;&#x53E3;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;&#xFF0C;&#x5373; FunctionInterface</p>
+<pre><code class="lang-java"><span class="hljs-meta">@FunctionalInterface</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Condition</span> </span>{
+
+    <span class="hljs-comment">/**
+     * Determine if the condition matches.
+     * <span class="hljs-doctag">@param</span> context the condition context
+     * <span class="hljs-doctag">@param</span> metadata metadata of the {<span class="hljs-doctag">@link</span> org.springframework.core.type.AnnotationMetadata class}
+     * or {<span class="hljs-doctag">@link</span> org.springframework.core.type.MethodMetadata method} being checked
+     * <span class="hljs-doctag">@return</span> {<span class="hljs-doctag">@code</span> true} if the condition matches and the component can be registered,
+     * or {<span class="hljs-doctag">@code</span> false} to veto the annotated component&apos;s registration
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">matches</span><span class="hljs-params">(ConditionContext context, AnnotatedTypeMetadata metadata)</span></span>;
+
+}
+</code></pre>
+<h3 id="xml-&#x914D;&#x7F6E;-bean">xml &#x914D;&#x7F6E; Bean</h3>
+<p>&#x6839;&#x636E; profile &#x52A0;&#x8F7D;&#x6307;&#x5B9A;&#x5B9E;&#x4F8B;</p>
+<pre><code class="lang-xml"><span class="hljs-comment">&lt;!-- &#x6CF0;&#x56FD;&#x7AD9;&#x72EC;&#x6709;&#x914D;&#x7F6E; --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">beans</span> <span class="hljs-attr">profile</span>=<span class="hljs-string">&quot;TH,TEST&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;configService&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.jverson.web.conf.ConfigServiceImpl&quot;</span>
+        <span class="hljs-attr">init-method</span>=<span class="hljs-string">&quot;init&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;env&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;${ucc.env}&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span>        
+<span class="hljs-tag">&lt;/<span class="hljs-name">beans</span>&gt;</span>
+</code></pre>
+<h2 id="&#x4E0D;&#x540C;-profile-&#x52A0;&#x8F7D;&#x4E0D;&#x540C;-jar-&#x4F9D;&#x8D56;">&#x4E0D;&#x540C; profile &#x52A0;&#x8F7D;&#x4E0D;&#x540C; jar &#x4F9D;&#x8D56;</h2>
+<p>&#x8FD9;&#x4E2A;&#x5B9E;&#x73B0;&#x5C31;&#x53EA;&#x80FD;&#x4F9D;&#x8D56; Maven &#x63D0;&#x4F9B;&#x7684; profile &#x80FD;&#x529B;&#xFF0C;&#x8FD9;&#x4E2A;&#x5728;&#x4E0A;&#x4E00;&#x7BC7;&#x4E2D;&#x4ECB;&#x7ECD;&#x8FC7;&#x4E86;&#xFF0C;&#x5C31;&#x662F;&#x5177;&#x4F53;&#x7684; profile &#x4E0D;&#x518D; application.properties &#x4E2D;&#x6307;&#x5B9A;&#xFF0C;&#x800C;&#x662F;&#x901A;&#x8FC7; Maven package &#x65F6;&#x53C2;&#x6570;&#x6307;&#x5B9A; profile &#x6765;&#x6307;&#x5B9A;&#xFF0C;&#x8FD9;&#x65F6; application.properties &#x4E2D;&#x914D;&#x7F6E;&#x53D8;&#x6210;&#x8FD9;&#x6837;</p>
+<blockquote>
+<p>spring.profiles.active = @spring.profiles.active@</p>
+</blockquote>
+<p>maven &#x914D;&#x7F6E;&#x7C7B;&#x4F3C;&#x8FD9;&#x6837;</p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">profiles</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">profile</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>dev<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>TEST<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">activation</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">activeByDefault</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">activeByDefault</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">activation</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">spring.profiles.active</span>&gt;</span>dev<span class="hljs-tag">&lt;/<span class="hljs-name">spring.profiles.active</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.jverson<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>ucc-test<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">profile</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">profile</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>prod<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>TH<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">spring.profiles.active</span>&gt;</span>prod<span class="hljs-tag">&lt;/<span class="hljs-name">spring.profiles.active</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.jverson<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>ucc-th<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>        
     <span class="hljs-tag">&lt;/<span class="hljs-name">profile</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">profile</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>US<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">spring.profiles.active</span>&gt;</span>prod<span class="hljs-tag">&lt;/<span class="hljs-name">spring.profiles.active</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.jverson<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>ucc-us<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>        
+    <span class="hljs-tag">&lt;/<span class="hljs-name">profile</span>&gt;</span>    
 <span class="hljs-tag">&lt;/<span class="hljs-name">profiles</span>&gt;</span>
 </code></pre>
-<h3 id="&#x548C;&#x4E0A;&#x56FE;&#x4E00;&#x6837;&#x4F9D;&#x7136;&#x521B;&#x5EFA;&#x76F8;&#x5E94;&#x7684;application-xxxproperties&#x6587;&#x4EF6;&#xFF0C;&#x53EA;&#x662F;&#x5C06;applicationproperties&#x7684;&#x5185;&#x5BB9;&#x6539;&#x4E3A;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x5373;&#x53EF;">&#x548C;&#x4E0A;&#x56FE;&#x4E00;&#x6837;&#x4F9D;&#x7136;&#x521B;&#x5EFA;&#x76F8;&#x5E94;&#x7684;<code>application-{xxx}.properties</code>&#x6587;&#x4EF6;&#xFF0C;&#x53EA;&#x662F;&#x5C06;application.properties&#x7684;&#x5185;&#x5BB9;&#x6539;&#x4E3A;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x5373;&#x53EF;</h3>
-<blockquote>
-<p>spring.profiles.active = @spring.profiles.active@</p>
-</blockquote>
-<h3 id="&#x8FD9;&#x65F6;&#x5728;eclipse&#x7684;run-configuration&#x4E2D;&#x65B0;&#x5EFA;&#x6253;&#x5305;&#x547D;&#x4EE4;&#x5982;&#x4E0B;&#xFF0C;&#x8FD0;&#x884C;&#x5373;&#x53EF;&#x6309;&#x7167;dev&#x7684;&#x914D;&#x7F6E;&#x6253;&#x5305;&#xFF0C;&#x540C;&#x7406;&#x5C06;&#x5176;&#x4E2D;&#x7684;&#x547D;&#x4EE4;&#x6539;&#x4E3A;clean-install--pprod&#x5373;&#x53EF;&#x6309;&#x7167;prod&#x7684;&#x914D;&#x7F6E;&#x6253;&#x6210;&#x751F;&#x4EA7;&#x5305;&#x3002;">&#x8FD9;&#x65F6;&#x5728;eclipse&#x7684;<code>Run Configuration</code>&#x4E2D;&#x65B0;&#x5EFA;&#x6253;&#x5305;&#x547D;&#x4EE4;&#x5982;&#x4E0B;&#xFF0C;&#x8FD0;&#x884C;&#x5373;&#x53EF;&#x6309;&#x7167;dev&#x7684;&#x914D;&#x7F6E;&#x6253;&#x5305;&#xFF0C;&#x540C;&#x7406;&#x5C06;&#x5176;&#x4E2D;&#x7684;&#x547D;&#x4EE4;&#x6539;&#x4E3A;<code>clean install -Pprod</code>&#x5373;&#x53EF;&#x6309;&#x7167;prod&#x7684;&#x914D;&#x7F6E;&#x6253;&#x6210;&#x751F;&#x4EA7;&#x5305;&#x3002;</h3>
+<p>&#x6253;&#x5305;&#x65F6;&#x5C06;&#x5176;&#x4E2D;&#x7684;&#x547D;&#x4EE4;&#x6539;&#x4E3A; <code>clean install -PTH</code> &#x5373;&#x53EF;&#x6309;&#x7167; TH &#x7684;&#x914D;&#x7F6E;&#x6253;&#x6210;&#x751F;&#x4EA7;&#x5305;&#x3002;</p>
 <p><img src="https://jverson.oss-cn-beijing.aliyuncs.com/201707191521_661.png" alt=""></p>
-<h2 id="&#x542F;&#x52A8;&#x65F6;&#x6253;&#x5370;&#x5F53;&#x524D;&#x6267;&#x884C;&#x73AF;&#x5883;">&#x542F;&#x52A8;&#x65F6;&#x6253;&#x5370;&#x5F53;&#x524D;&#x6267;&#x884C;&#x73AF;&#x5883;</h2>
-<p>&#x5F00;&#x53D1;&#x90E8;&#x7F72;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x6709;&#x65F6;&#x5019;&#x53EF;&#x80FD;&#x5BF9;&#x5F53;&#x524D;&#x7684;&#x6267;&#x884C;&#x73AF;&#x5883;&#x4E0D;&#x662F;&#x5F88;&#x786E;&#x5B9A;&#x5BFC;&#x81F4;&#x6D6A;&#x8D39;&#x4E00;&#x4E9B;&#x65F6;&#x95F4;&#xFF0C;&#x90A3;&#x4E48;&#x5728;&#x542F;&#x52A8;&#x7684;&#x65F6;&#x5019;&#x5C06;&#x5F53;&#x524D;&#x7684;&#x73AF;&#x5883;&#x6253;&#x5370;&#x51FA;&#x6765;&#x53EF;&#x4EE5;&#x5F88;&#x65B9;&#x4FBF;&#x7684;&#x505A;&#x5230;&#x5FC3;&#x91CC;&#x6709;&#x5E95;&#xFF0C;&#x5177;&#x4F53;&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x662F;&#x5728;&#x542F;&#x52A8;&#x8FC7;&#x7A0B;&#x4E2D;&#x6DFB;&#x52A0;&#x4EE5;&#x4E0B;&#x4E00;&#x4E9B;&#x4EE3;&#x7801;&#xFF1A;</p>
-<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
-        ApplicationContext ctx = <span class="hljs-keyword">new</span> SpringApplicationBuilder().sources(HelloWorld.class)
-            .bannerMode(Banner.Mode.LOG).run(args);
-        String[] activeProfiles = ctx.getEnvironment().getActiveProfiles();
-        <span class="hljs-keyword">for</span> (String string : activeProfiles) {
-            logger.warn(<span class="hljs-string">&quot;the active profile is: &quot;</span> + string);
-        }
-}
-</code></pre>
-<p>&#x518D;&#x6B21;&#x542F;&#x52A8;&#x9879;&#x76EE;&#x4FBF;&#x4F1A;&#x770B;&#x5230;console&#x4E2D;&#x6253;&#x5370;&#x5982;&#x4E0B;</p>
-<p><img src="https://jverson.oss-cn-beijing.aliyuncs.com/201707191529_714.png" alt=""></p>
-<h2 id="&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x6807;&#x8BC6;">&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x6807;&#x8BC6;</h2>
-<p>&#x5728;&#x5F00;&#x53D1;&#x6216;&#x8005;&#x9884;&#x53D1;&#x5E03;&#x73AF;&#x5883;&#x4E2D;&#x4E00;&#x822C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5BF9;&#x4E00;&#x4E9B;&#x62E6;&#x622A;&#x5668;&#x8FDB;&#x884C;&#x5C4F;&#x853D;&#xFF0C;&#x6700;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#x5728;&#x62E6;&#x622A;&#x5668;&#x4E2D;&#x6DFB;&#x52A0;</p>
-<pre><code class="lang-java"><span class="hljs-comment">// &#x662F;&#x5426;&#x5F00;&#x53D1;&#x6A21;&#x5F0F;&#xFF0C;&#x9ED8;&#x8BA4;false</span>
-<span class="hljs-meta">@Value</span>(value = <span class="hljs-string">&quot;${devMode:false}&quot;</span>)
-<span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> devMode;
-</code></pre>
-<p>&#x7136;&#x540E;&#x8BB2;&#x9700;&#x8981;&#x5C4F;&#x853D;&#x7684;&#x903B;&#x8F91;&#x5199;&#x5230;&#x4E0B;&#x9762;</p>
-<pre><code class="lang-java"><span class="hljs-keyword">if</span> (!devMode) {
-    <span class="hljs-comment">//...</span>
-}
-</code></pre>
-<p>&#x6700;&#x540E;&#x53EA;&#x9700;&#x8981;&#x5728;&#x9884;&#x53D1;&#x5E03;&#x6216;&#x6D4B;&#x8BD5;&#x73AF;&#x5883;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x6DFB;&#x52A0;<code>devMode=true</code>&#x914D;&#x7F6E;&#x5373;&#x53EF;&#x3002;</p>
-<h2 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h2>
-<ul>
-<li><a href="http://dolszewski.com/spring/spring-boot-properties-per-maven-profile/" target="_blank">SPRING BOOT PROPERTIES PER MAVEN PROFILE</a> </li>
-</ul>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>&#x6CA1;&#x6709;&#x54EA;&#x4E00;&#x79CD;&#x5F62;&#x5F0F;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x4E07;&#x91D1;&#x6CB9;&#x9002;&#x7528;&#x4EFB;&#x4F55;&#x573A;&#x666F;&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x9762;&#x5BF9;&#x5177;&#x4F53;&#x4E1A;&#x52A1;&#x7684;&#x65F6;&#x5019;&#x6839;&#x636E;&#x60C5;&#x51B5;&#x9009;&#x62E9;&#x5408;&#x9002;&#x7684;&#x65B9;&#x5F0F;&#x5373;&#x53EF;&#xFF0C;&#x524D;&#x63D0;&#x662F;&#x9700;&#x8981;&#x5BF9;&#x8FD9;&#x4E9B;&#x65B9;&#x5F0F;&#x6709;&#x5145;&#x5206;&#x7684;&#x4E86;&#x89E3;&#xFF0C;&#x624D;&#x80FD;&#x505A;&#x51FA;&#x66F4;&#x5408;&#x7406;&#x7684;&#x9009;&#x62E9;&#x3002;</p>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; jverson.com 2018 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">File Modify: 
-2019-03-03 22:26:44
+2019-04-21 12:02:38
 </span></footer>
                                 
                                 </section>
@@ -992,7 +1088,7 @@
 
             
                 
-                <a href="Bean Configuration by Properties Files.html" class="navigation navigation-prev " aria-label="Previous page: 使用配置文件配置 Bean 的方法">
+                <a href="profile-maven.html" class="navigation navigation-prev " aria-label="Previous page: Profiles + Maven 不同环境读取不同配置">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -1008,7 +1104,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"设置 Profiles- 不同环境读取不同 Profile 配置","level":"1.7","depth":1,"next":{"title":"不同的日志级别展示不同的颜色","level":"2.1","depth":1,"path":"Add color to eclipse console output by log level.md","ref":"Add color to eclipse console output by log level.md","articles":[]},"previous":{"title":"使用配置文件配置 Bean 的方法","level":"1.6","depth":1,"path":"Bean Configuration by Properties Files.md","ref":"Bean Configuration by Properties Files.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/spring-boot-demo"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"spring-boot-demo","type":"star","size":"small","count":true},{"user":"jiwenxing","repo":"spring-boot-demo","type":"fork","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Spring Boot","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Spring Boot Practise & Notes","extension":null},"file":{"path":"Different Environment Different Profile.md","mtime":"2019-03-03T14:26:44.098Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-21T01:40:49.664Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Springboot 中 Profiles 最佳实践","level":"1.8","depth":1,"next":{"title":"不同的日志级别展示不同的颜色","level":"2.1","depth":1,"path":"Add color to eclipse console output by log level.md","ref":"Add color to eclipse console output by log level.md","articles":[]},"previous":{"title":"Profiles + Maven 不同环境读取不同配置","level":"1.7","depth":1,"path":"profile-maven.md","ref":"profile-maven.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/spring-boot-demo"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"spring-boot-demo","type":"star","size":"small","count":true},{"user":"jiwenxing","repo":"spring-boot-demo","type":"fork","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Spring Boot","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Spring Boot Practise & Notes","extension":null},"file":{"path":"profile-practice.md","mtime":"2019-04-21T04:02:38.901Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-21T04:04:04.764Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
