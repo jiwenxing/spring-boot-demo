@@ -97,3 +97,4 @@ public int testCache(int i) {
 - [Caffeine official github repo](https://github.com/ben-manes/caffeine)
 - [Design Of A Modern Cache - Caffeine 设计原理](http://highscalability.com/blog/2016/1/25/design-of-a-modern-cache.html)
 - [Caffeine Cache Statistics](https://github.com/ben-manes/caffeine/wiki/Statistics)
+- [Caffeine Guava Ehcache 等不同缓存性能对比](https://github.com/ben-manes/caffeine/wiki/Benchmarks)

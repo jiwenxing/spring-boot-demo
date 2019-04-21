@@ -8,7 +8,8 @@
 - [依赖管理、代码结构、配置类及热交换](Using Spring Boot.md)
 - [如何定制 Banner](Customizing the Banner.md)
 - [使用配置文件配置 Bean 的方法](Bean Configuration by Properties Files.md)
-- [设置 Profiles- 不同环境读取不同 Profile 配置](Different Environment Different Profile.md)
+- [Profiles + Maven 不同环境读取不同配置](profile-maven.md)
+- [Springboot 中 Profiles 最佳实践](profile-practice.md)
 
 
 ## Logging
@@ -70,4 +71,10 @@
 - [使用 RestTemplate 调用 RESTful 接口](Using RestTemplate.md)
 - [使用 JavaMail 发送邮件](JavaMailSender.md)
 - [跨域资源共享 CORS](CORS.md)
-- [Springboot + FreeMarker 国际化](others-locale.md)
+
+## Frontend
+
+- [Springboot + FreeMarker 国际化](frontend-locale.md)
+- [jQuery 三级联动下拉框实现](frontend-jquery-categories.md)
+
+
