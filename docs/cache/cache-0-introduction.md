@@ -94,3 +94,4 @@ Memcached 和 Redis 都是 C 语言实现，被大量使用的开源缓存中间
 - [Design Of A Modern Cache](http://highscalability.com/blog/2016/1/25/design-of-a-modern-cache.html)
 - [spring-boot-docs-1.5.17.RELEASE](https://docs.spring.io/spring-boot/docs/1.5.17.RELEASE/reference/htmlsingle/#boot-features-caching-provider-caffeine)
 - [Memcached 与 Redis](https://www.imooc.com/article/23549)
+- [Caffeine Cache 进程缓存之王](https://www.itcodemonkey.com/article/9498.html)

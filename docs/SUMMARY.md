@@ -27,12 +27,6 @@
 - [如何定制 Favicon](Custom Favicon.md)
 - [指定 @ResponseBody 的返回格式(Json or XML)](Custom Return Format.md)
 
-## Cache
-
-- [Spring Data Cache(Guava Cache)](Spring Data Cache.md)
-- [Caffeine Cache](cache-caffeine.md)
-
-
 ## Database
 
 - [数据库使用](Using Database.md)
@@ -45,10 +39,13 @@
 
 ## Cache
 
-- [Cache Introduction](cache_introduction.md)
-- [Cache Usage](cache_usage.md)
-- [Local Cache - Guava Cache by Spring Boot](cache_guava.md)
-- [Remote Cache - Redis](cache_redis.md)
+- [Cache Introduction](cache/cache-0-introduction.md)
+- [Cache Usage](cache/cache-1-usage.md)
+- [Caffeine Cache](cache/cache-2-caffeine.md)
+- [分布式缓存 - Redis](cache/cache-3-redis.md)
+
+- [Summary](cache/cache-9-interview.md)
+
 
 ## Timer & Schedule
 
