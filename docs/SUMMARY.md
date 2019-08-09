@@ -69,6 +69,8 @@
 - [使用 JavaMail 发送邮件](JavaMailSender.md)
 - [跨域资源共享 CORS](CORS.md)
 
+- [IntelliJ IDEA 使用技巧](IntelliJ-IDEA.md)
+
 ## Frontend
 
 - [Springboot + FreeMarker 国际化](frontend-locale.md)
