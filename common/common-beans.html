@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Caffeine Cache · Spring Boot</title>
+        <title>通用对象定义及使用 · Spring Boot</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -74,10 +74,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="cache-3-redis.html" />
+    <link rel="next" href="aop.html" />
     
     
-    <link rel="prev" href="cache-1-usage.html" />
+    <link rel="prev" href="IntelliJ-IDEA.html" />
     
 
     <style>
@@ -516,9 +516,9 @@
         
         
     
-        <li class="chapter " data-level="5.1" data-path="cache-0-introduction.html">
+        <li class="chapter " data-level="5.1" data-path="../cache/cache-0-introduction.html">
             
-                <a href="cache-0-introduction.html">
+                <a href="../cache/cache-0-introduction.html">
             
                     
                         <b>5.1.</b>
@@ -531,9 +531,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2" data-path="cache-1-usage.html">
+        <li class="chapter " data-level="5.2" data-path="../cache/cache-1-usage.html">
             
-                <a href="cache-1-usage.html">
+                <a href="../cache/cache-1-usage.html">
             
                     
                         <b>5.2.</b>
@@ -546,9 +546,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="5.3" data-path="cache-2-caffeine.html">
+        <li class="chapter " data-level="5.3" data-path="../cache/cache-2-caffeine.html">
             
-                <a href="cache-2-caffeine.html">
+                <a href="../cache/cache-2-caffeine.html">
             
                     
                         <b>5.3.</b>
@@ -561,9 +561,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.4" data-path="cache-3-redis.html">
+        <li class="chapter " data-level="5.4" data-path="../cache/cache-3-redis.html">
             
-                <a href="cache-3-redis.html">
+                <a href="../cache/cache-3-redis.html">
             
                     
                         <b>5.4.</b>
@@ -576,9 +576,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.5" data-path="cache-9-interview.html">
+        <li class="chapter " data-level="5.5" data-path="../cache/cache-9-interview.html">
             
-                <a href="cache-9-interview.html">
+                <a href="../cache/cache-9-interview.html">
             
                     
                         <b>5.5.</b>
@@ -814,9 +814,9 @@
         
         
     
-        <li class="chapter " data-level="9.1" data-path="../common/IntelliJ-IDEA.html">
+        <li class="chapter " data-level="9.1" data-path="IntelliJ-IDEA.html">
             
-                <a href="../common/IntelliJ-IDEA.html">
+                <a href="IntelliJ-IDEA.html">
             
                     
                         <b>9.1.</b>
@@ -829,9 +829,9 @@
             
         </li>
     
-        <li class="chapter " data-level="9.2" data-path="../common/common-beans.html">
+        <li class="chapter active" data-level="9.2" data-path="common-beans.html">
             
-                <a href="../common/common-beans.html">
+                <a href="common-beans.html">
             
                     
                         <b>9.2.</b>
@@ -844,9 +844,9 @@
             
         </li>
     
-        <li class="chapter " data-level="9.3" data-path="../common/aop.html">
+        <li class="chapter " data-level="9.3" data-path="aop.html">
             
-                <a href="../common/aop.html">
+                <a href="aop.html">
             
                     
                         <b>9.3.</b>
@@ -926,7 +926,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Caffeine Cache</a>
+        <a href=".." >通用对象定义及使用</a>
     </h1>
 </div>
 
@@ -941,92 +941,110 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="caffeine-cache">Caffeine Cache</h1>
+                                <h1 id="&#x5E38;&#x7528;&#x7684;&#x5BF9;&#x8C61;&#x5B9A;&#x4E49;">&#x5E38;&#x7528;&#x7684;&#x5BF9;&#x8C61;&#x5B9A;&#x4E49;</h1>
 <hr>
-<p>&#x60F3;&#x5FC5;&#x5F88;&#x591A;&#x4EBA;&#x5BF9; Google &#x51FA;&#x54C1;&#x7684; Guava Cache &#x90FD;&#x4E0D;&#x964C;&#x751F;&#xFF0C;&#x8FD8;&#x6CA1;&#x600E;&#x4E48;&#x542C;&#x8FC7; Caffeine Cache&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528; 2.0.0 &#x4EE5;&#x4E0A;&#x7248;&#x672C;&#x7684; Springboot &#x65F6;&#x4F1A;&#x60CA;&#x8BB6;&#x7684;&#x53D1;&#x73B0;&#x5176;&#x5DF2;&#x7ECF;&#x4E0D;&#x518D;&#x652F;&#x6301; Guava Cache &#x4E86;&#xFF0C;&#x5728;&#x5176;&#x6587;&#x6863;&#x4E2D;&#x63A8;&#x8350;&#x4E86; Caffeine Cache&#x3002;Guava &#x8FD9;&#x4E48;&#x4F18;&#x79C0;&#x7684;&#x5DE5;&#x5177;&#x600E;&#x4E48;&#x7A81;&#x7136;&#x5C31;&#x7ED9;&#x5E9F;&#x4E86;&#x5462;&#xFF1F;</p>
-<p>&#x5176;&#x5B9E; Caffeine Cache &#x5C31;&#x662F; Guava Cache &#x7684; JDK8 &#x91CD;&#x5199;&#x7248;&#x672C;&#xFF0C;&#x52A0;&#x5165;&#x4E86;&#x4E00;&#x4E9B;&#x4F18;&#x5316;&#xFF0C;&#x4E24;&#x8005;&#x7684;&#x539F;&#x7406;&#x5305;&#x62EC;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x90FD;&#x57FA;&#x672C;&#x7C7B;&#x4F3C;&#xFF0C;&#x4F46;&#x662F;&#x6027;&#x80FD;&#x6709;&#x4E86;&#x5F88;&#x5927;&#x7684;&#x63D0;&#x5347;&#x3002;&#x4E0B;&#x56FE;&#x662F;&#x51E0;&#x79CD; Cache &#x7684;&#x6027;&#x80FD;&#x5BF9;&#x6BD4;&#xFF0C;<a href="http://highscalability.com/blog/2016/1/25/design-of-a-modern-cache.html" target="_blank">&#x6570;&#x636E;&#x51FA;&#x5904;</a></p>
-<p><img src="https://jverson.oss-cn-beijing.aliyuncs.com/5f9035ee96f6e4e571c30328dd734c79.jpg" alt=""></p>
-<p>&#x4E0B;&#x9762;&#x91CD;&#x70B9;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;&#x5728; Springboot &#x9879;&#x76EE;&#x4E2D;&#x96C6;&#x6210; Caffeine &#x7684;&#x8FC7;&#x7A0B;&#x3002;</p>
-<p>&#x9996;&#x5148;&#x52A0;&#x5165; Maven &#x4F9D;&#x8D56;</p>
-<pre><code class="lang-xml"><span class="hljs-comment">&lt;!-- cache --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-cache<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.github.ben-manes.caffeine<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>caffeine<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
-</code></pre>
-<p>Caffeine &#x914D;&#x7F6E;</p>
-<pre><code class="lang-java"><span class="hljs-meta">@Configuration</span>
-<span class="hljs-meta">@EnableCaching</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CaffeineCacheConf</span> </span>{
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> DEFAULT_MAXSIZE = <span class="hljs-number">50000</span>;
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> DEFAULT_TTL = <span class="hljs-number">30</span>*<span class="hljs-number">60</span>;    
-    <span class="hljs-comment">/**
-     * cache name&#x3001;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#xFF08;&#x79D2;&#xFF09;&#x3001;&#x6700;&#x5927;&#x5BB9;&#x91CF;(&#x6761;)
-     * &#x7F3A;&#x7701;&#xFF1A;30&#x5206;&#x949F;&#x8D85;&#x65F6;&#x3001;&#x6700;&#x591A;&#x7F13;&#x5B58;50000&#x6761;&#x6570;&#x636E;&#xFF0C;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x53EF;&#x4EE5;&#x5728;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x4E2D;&#x6307;&#x5B9A;&#x3002;
-     */</span>
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> Caches{
-        testCache, <span class="hljs-comment">//&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x503C;</span>
-        testCache1(<span class="hljs-number">60</span>), <span class="hljs-comment">//&#x4E00;&#x5206;&#x949F;&#x8FC7;&#x671F;&#x3002;&#x6700;&#x5927;&#x5BB9;&#x91CF;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x503C;</span>
-        testCache2(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>), <span class="hljs-comment">//&#x6307;&#x5B9A;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x548C;&#x6700;&#x5927;&#x5BB9;&#x91CF;</span>
-        ;    
-        Caches() {
-        }
-        Caches(<span class="hljs-keyword">int</span> ttl) {
-            <span class="hljs-keyword">this</span>.ttl = ttl;
-        }
-        Caches(<span class="hljs-keyword">int</span> ttl, <span class="hljs-keyword">int</span> maxSize) {
-            <span class="hljs-keyword">this</span>.ttl = ttl;
-            <span class="hljs-keyword">this</span>.maxSize = maxSize;
-        }        
-        <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> maxSize = DEFAULT_MAXSIZE;    
-        <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> ttl = DEFAULT_TTL;    
+<p>&#x5F00;&#x53D1;&#x5E38;&#x7528;&#x7684;&#x4E00;&#x4E9B;&#x901A;&#x7528; bean &#x5B9A;&#x4E49;&#xFF0C;&#x5EFA;&#x8BAE;&#x540E;&#x671F;&#x76F4;&#x63A5;&#x505A;&#x4E00;&#x4E2A;&#x811A;&#x624B;&#x67B6;&#x7684; repository&#xFF0C;&#x6682;&#x65F6;&#x5148;&#x5728;&#x8FD9;&#x91CC;&#x8BB0;&#x5F55;&#x4E00;&#x4E0B;</p>
+<h2 id="result-&#x63A5;&#x53E3;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x901A;&#x7528;&#x5BF9;&#x8C61;">result &#x63A5;&#x53E3;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x901A;&#x7528;&#x5BF9;&#x8C61;</h2>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Result</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
+    <span class="hljs-keyword">private</span> Integer status = <span class="hljs-number">200</span>;
+    <span class="hljs-keyword">private</span> String msg;
+    <span class="hljs-keyword">private</span> T data;
 
-        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getMaxSize</span><span class="hljs-params">()</span> </span>{
-            <span class="hljs-keyword">return</span> maxSize;
-        }
-        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getTtl</span><span class="hljs-params">()</span> </span>{
-            <span class="hljs-keyword">return</span> ttl;
-        }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Result</span><span class="hljs-params">()</span> </span>{
     }
 
-    <span class="hljs-meta">@Bean</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> CacheManager <span class="hljs-title">cacheManager</span><span class="hljs-params">()</span> </span>{
-        SimpleCacheManager cacheManager = <span class="hljs-keyword">new</span> SimpleCacheManager();
-        ArrayList&lt;CaffeineCache&gt; caches = <span class="hljs-keyword">new</span> ArrayList&lt;CaffeineCache&gt;();
-        <span class="hljs-keyword">for</span>(Caches c : Caches.values()){
-            caches.add(<span class="hljs-keyword">new</span> CaffeineCache(c.name(), 
-                Caffeine.newBuilder()
-                .expireAfterWrite(c.getTtl(), TimeUnit.SECONDS)
-                .maximumSize(c.getMaxSize())
-                .build())
-            );
-        }
-        cacheManager.setCaches(caches);
-        <span class="hljs-keyword">return</span> cacheManager;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Result</span><span class="hljs-params">(Integer status, String msg)</span> </span>{
+        <span class="hljs-keyword">this</span>.status = status;
+        <span class="hljs-keyword">this</span>.msg = msg;
     }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Result</span><span class="hljs-params">(ResultEnum resultEnum, T data)</span> </span>{
+        <span class="hljs-keyword">this</span>.status = resultEnum.getCode();
+        <span class="hljs-keyword">this</span>.msg = resultEnum.getMsg();
+        <span class="hljs-keyword">this</span>.data = data;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Result</span><span class="hljs-params">(ResultEnum resultEnum)</span> </span>{
+        <span class="hljs-keyword">this</span>.status = resultEnum.getCode();
+        <span class="hljs-keyword">this</span>.msg = resultEnum.getMsg();
+    }
+
+    <span class="hljs-comment">//getter &amp; setter</span>
 
 }
 </code></pre>
-<p>&#x5229;&#x7528;&#x6CE8;&#x89E3;&#x5BF9;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x7F13;&#x5B58;&#xFF0C;&#x53EF;&#x4EE5;&#x7B80;&#x5355;&#x7684;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;&#x3002;</p>
-<pre><code class="lang-java"><span class="hljs-meta">@Cacheable</span>(value=<span class="hljs-string">&quot;testCache&quot;</span>, sync=<span class="hljs-keyword">true</span>)
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">testCache</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i)</span> </span>{
-    System.out.println(<span class="hljs-string">&quot;----- not from cache!&quot;</span>);
-    <span class="hljs-keyword">return</span> i*i;
+<p>&#x5176;&#x4E2D;&#x901A;&#x7528;&#x54CD;&#x5E94;&#x7801;&#x5B9A;&#x4E49;&#x5982;&#x4E0B;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> ResultEnum {
+    SUCCESS(<span class="hljs-number">200</span>, <span class="hljs-string">&quot;&#x6210;&#x529F;&quot;</span>),
+    INVALID_PARAMS(<span class="hljs-number">400</span>, <span class="hljs-string">&quot;&#x53C2;&#x6570;&#x5F02;&#x5E38;&quot;</span>),
+    AUTH_FAIL(<span class="hljs-number">401</span>, <span class="hljs-string">&quot;&#x672A;&#x6388;&#x6743;&quot;</span>),
+    SWITCH_OPEN(<span class="hljs-number">451</span>, <span class="hljs-string">&quot;&#x529F;&#x80FD;&#x5DF2;&#x964D;&#x7EA7;&quot;</span>),
+    EXCEPTION(<span class="hljs-number">500</span>, <span class="hljs-string">&quot;&#x7CFB;&#x7EDF;&#x5F02;&#x5E38;&quot;</span>),
+    ;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Map&lt;Integer, ResultEnum&gt; RESULT_ENUM_MAP = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+    <span class="hljs-keyword">static</span> {
+        Arrays.stream(ResultEnum.values()).forEach(resultEnum -&gt; RESULT_ENUM_MAP.put(resultEnum.code, resultEnum));
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> ResultEnum <span class="hljs-title">getResultByCode</span><span class="hljs-params">(Integer code)</span> </span>{
+        <span class="hljs-keyword">return</span> RESULT_ENUM_MAP.get(code);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">getMsgByCode</span><span class="hljs-params">(Integer code)</span> </span>{
+        <span class="hljs-keyword">return</span> RESULT_ENUM_MAP.containsKey(code) ? RESULT_ENUM_MAP.get(code).msg : <span class="hljs-keyword">null</span>;
+    }
+
+    <span class="hljs-keyword">private</span> String msg;
+    <span class="hljs-keyword">private</span> Integer code;
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">ResultEnum</span><span class="hljs-params">(Integer code, String error)</span> </span>{
+        <span class="hljs-keyword">this</span>.msg = error;
+        <span class="hljs-keyword">this</span>.code = code;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getMsg</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.msg;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">getCode</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.code;
+    }
 }
 </code></pre>
-<h2 id="&#x94FE;&#x63A5;">&#x94FE;&#x63A5;</h2>
-<ul>
-<li><a href="https://github.com/ben-manes/caffeine" target="_blank">Caffeine official github repo</a></li>
-<li><a href="http://highscalability.com/blog/2016/1/25/design-of-a-modern-cache.html" target="_blank">Design Of A Modern Cache - Caffeine &#x8BBE;&#x8BA1;&#x539F;&#x7406;</a></li>
-<li><a href="https://github.com/ben-manes/caffeine/wiki/Statistics" target="_blank">Caffeine Cache Statistics</a></li>
-<li><a href="https://github.com/ben-manes/caffeine/wiki/Benchmarks" target="_blank">Caffeine Guava Ehcache &#x7B49;&#x4E0D;&#x540C;&#x7F13;&#x5B58;&#x6027;&#x80FD;&#x5BF9;&#x6BD4;</a> </li>
-</ul>
+<h2 id="&#x901A;&#x7528;&#x7684;&#x5206;&#x9875;&#x5BF9;&#x8C61;">&#x901A;&#x7528;&#x7684;&#x5206;&#x9875;&#x5BF9;&#x8C61;</h2>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PageVo</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> page;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> pageSize;
+    <span class="hljs-keyword">private</span> List&lt;T&gt; list;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;T&gt; <span class="hljs-title">getList</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> list;
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setList</span><span class="hljs-params">(List&lt;T&gt; list)</span> </span>{
+        <span class="hljs-keyword">this</span>.list = list;
+    }
+
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getPageSize</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> pageSize;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setPageSize</span><span class="hljs-params">(<span class="hljs-keyword">int</span> pageSize)</span> </span>{
+        <span class="hljs-keyword">this</span>.pageSize = pageSize;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getPage</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> page;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setPage</span><span class="hljs-params">(<span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> page)</span> </span>{
+        <span class="hljs-keyword">this</span>.page = page;
+    }
+}
+</code></pre>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; jverson.com 2018 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">File Modify: 
-2019-04-21 23:09:08
+2019-08-28 07:16:49
 </span></footer>
                                 
                                 </section>
@@ -1054,12 +1072,12 @@
 
             
                 
-                <a href="cache-1-usage.html" class="navigation navigation-prev " aria-label="Previous page: Cache Usage">
+                <a href="IntelliJ-IDEA.html" class="navigation navigation-prev " aria-label="Previous page: IntelliJ IDEA 使用技巧">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="cache-3-redis.html" class="navigation navigation-next " aria-label="Next page: 分布式缓存 - Redis">
+                <a href="aop.html" class="navigation navigation-next " aria-label="Next page: aop 实现接口统一日志打印和方法监控">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1070,7 +1088,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Caffeine Cache","level":"5.3","depth":1,"next":{"title":"分布式缓存 - Redis","level":"5.4","depth":1,"path":"cache/cache-3-redis.md","ref":"cache/cache-3-redis.md","articles":[]},"previous":{"title":"Cache Usage","level":"5.2","depth":1,"path":"cache/cache-1-usage.md","ref":"cache/cache-1-usage.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/spring-boot-demo"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"spring-boot-demo","type":"star","size":"small","count":true},{"user":"jiwenxing","repo":"spring-boot-demo","type":"fork","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Spring Boot","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Spring Boot Practise & Notes","extension":null},"file":{"path":"cache/cache-2-caffeine.md","mtime":"2019-04-21T15:09:08.939Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-27T23:59:17.826Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"通用对象定义及使用","level":"9.2","depth":1,"next":{"title":"aop 实现接口统一日志打印和方法监控","level":"9.3","depth":1,"path":"common/aop.md","ref":"common/aop.md","articles":[]},"previous":{"title":"IntelliJ IDEA 使用技巧","level":"9.1","depth":1,"path":"common/IntelliJ-IDEA.md","ref":"common/IntelliJ-IDEA.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/spring-boot-demo"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"spring-boot-demo","type":"star","size":"small","count":true},{"user":"jiwenxing","repo":"spring-boot-demo","type":"fork","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Spring Boot","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Spring Boot Practise & Notes","extension":null},"file":{"path":"common/common-beans.md","mtime":"2019-08-27T23:16:49.258Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-27T23:59:17.826Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
