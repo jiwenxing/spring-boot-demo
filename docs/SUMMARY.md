@@ -37,6 +37,8 @@
 - [分页插件 PageHelper 使用 & 打印 sql 及运行时间](Use PageHelper.md)
 - [Spring Data JPA 介绍](Spring Data JPA.md)
 
+- [Mysql 知识点](mysql/mysql-index.md)
+
 ## Cache
 
 - [Cache Introduction](cache/cache-0-introduction.md)
@@ -69,7 +71,13 @@
 - [使用 JavaMail 发送邮件](JavaMailSender.md)
 - [跨域资源共享 CORS](CORS.md)
 
-- [IntelliJ IDEA 使用技巧](IntelliJ-IDEA.md)
+
+
+## Common
+
+- [IntelliJ IDEA 使用技巧](common/IntelliJ-IDEA.md)
+- [通用对象定义及使用](common/common-beans.md)
+- [aop 实现接口统一日志打印和方法监控](common/aop.md)
 
 ## Frontend
 
