@@ -67,9 +67,7 @@
 
 - [Spring Events 事件机制](Spring Events.md)
 - [Spring @Conditional Annotation](Spring Conditional Annotation.md)
-- [使用 RestTemplate 调用 RESTful 接口](Using RestTemplate.md)
 - [使用 JavaMail 发送邮件](JavaMailSender.md)
-- [跨域资源共享 CORS](CORS.md)
 
 
 
@@ -78,6 +76,12 @@
 - [IntelliJ IDEA 使用技巧](common/IntelliJ-IDEA.md)
 - [通用对象定义及使用](common/common-beans.md)
 - [aop 实现接口统一日志打印和方法监控](common/aop.md)
+- [Junit 参数化测试](common/junit-paramterized.md)
+- [CRC32 算法百分比切量](common/crc32-distribute.md)
+- [使用 RestTemplate 调用 RESTful 接口](common/restTemplate.md)
+- [跨域资源共享 CORS](common/CORS.md)
+
+
 
 ## Frontend
 
