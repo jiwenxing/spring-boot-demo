@@ -1,79 +1,136 @@
-# Mysql 梳理
+# MySQL 索引及其优化
 ---
 
+## 索引概述
 
-Mysql 是一种被普遍使用的开源关系型数据库。下面是对 Mysql 一些知识点的整理。
+索引是对数据库表中一列或多列的值进行排序的一种结构，使用索引可快速访问数据库表中的特定信息。索引就像是书的目录，可以通过目录快速查找书中指定内容的位置。
 
-## 存储引擎
+索引一般以文件形式存在磁盘中（也可以存于内存中），数据库在未添加索引的时候进行查询默认是全局扫描，而建立索引之后，会将索引字段 key 值放在一个 n 叉树上（BTree）。因为 B 树的特点就是适合在磁盘等直接存储设备上组织动态查找表，每次以索引进行条件查询时，会去树上根据 key 值直接进行搜索。
 
-引擎（Engine）是机器发动机的核心，而数据库存储引擎便是数据库的底层软件组织。数据库使用数据存储引擎实现存储、处理和保护数据的核心服务。利用数据库引擎可控制访问权限并快速处理事务。不同的存储引擎提供不同的存储机制、索引技巧、锁定水平等功能，MySql 的核心就是插件式存储引擎，可以支持多种不同的数据引擎。目前常见的存储引擎及对比如下：
+索引的好处很显然，可以显著提升查询、分组及排序的效率。但它同样会带来一些副作用，比如说占用更多的空间（索引其实就是空间换时间）、降低表增删改的效率等（同时要维护索引）。下面主要以 MySQL 为例讲解索引的相关知识。
 
-![](https://jverson.oss-cn-beijing.aliyuncs.com/71f19ff023994d1a80052b36ff3e2dea.jpg)
+## MySQL 索引类型
 
-以下是查看 Mysql 数据库存储引擎的几个常用命令。
-
-
-```bash
-mysql> show engines; # 查看 MySQL 提供的所有存储引擎
-
-mysql> show variables like '%storage_engine%'; # 查看MySQL当前默认的存储引擎
-
-mysql> show table status like "table_name"; # 查看表的存储引擎
+- **PRIMARY**，主键索引，索引列唯一且不能为空；一张表只能有一个主键索引（主键索引通常在建表的时候就指定）   
+```sql
+# 建表时指定主键即可创建主键索引（聚簇索引）
+CREATE TABLE T_USER(ID INT NOT NULL,USERNAME VARCHAR(16) NOT NULL,PRIMARY KEY(ID))
 ```
 
-### MyISAM vs InnoDB
+- **NORMAL**，普通索引，索引列没什么限制。可以建表时创建也可随时添加，是最常用的索引    
+```sql
+# 建表时创建
+CREATE TABLE T_USER(ID INT NOT NULL,USERNAME VARCHAR(16) NOT NULL,INDEX USERNAME_INDEX(USERNAME(16)))
+# alter 后期添加
+ALTER TABLE T_USER ADD INDEX U_INDEX(USERNAME)
+# 删除索引
+DROP INDEX U_INDEX ON t_user
+```
 
-这是最常用也是总放在一起对比的两个存储引擎，上面的图标也基本列出了两者的差异。MyISAM 是 v5.5 之前 MySQL 的默认数据库引擎，而 InnoDB 则是后续版本的默认引擎，也就是所谓的事务性数据库引擎。两者的区别大概总结一下：
+- **UNIQUE**，唯一索引，索引列的值必须是唯一的，但允许有空值    
+```sql
+# 建表时创建
+CREATE TABLE t_user(ID INT NOT NULL,USERNAME VARCHAR(16) NOT NULL,UNIQUE U_INDEX(USERNAME))
+# alter 后期添加
+ALTER TABLE t_user ADD UNIQUE u_index(USERNAME)
+# 删除索引
+DROP INDEX U_INDEX ON t_user
+```
 
-- **是否支持行级锁**，MyISAM 只有表级锁(table-level locking)，而 InnoDB 支持行级锁(row-level locking)和表级锁，默认为行级锁。
-- **是否支持事务**，MyISAM 强调的是性能，但是不提供事务支持。InnoDB 提供事务支持、外键等高级数据库功能。 具有事务(commit)、回滚(rollback)和崩溃修复能力(crash recovery capabilities)的事务安全(transaction-safe (ACID compliant))型表。
-- **是否支持外键**，MyISAM 不支持，InnoDB 支持。
-- **是否支持MVCC**，仅 InnoDB 支持。应对高并发事务, MVCC 比单纯的加锁更高效，MVCC 只在 READ COMMITTED 和 REPEATABLE READ 两个隔离级别下工作；MVCC 可以使用乐观(optimistic)锁和悲观(pessimistic)锁来实现；各数据库中 MVCC 实现并不统一。
+- **FULLTEXT**，全文索引，一般用的比较少，可以使用 solr 或者 ElasticSearch 等专门的全文搜索引擎替代
 
-至于两个存储引擎怎么选择的问题，闭着眼睛用 InnoDB 就完事了，不需要纠结。
+- ** 复合索引 **，复合索引是在多个字段上创建的索引。复合索引遵守 **“最左前缀” 原则**，即在查询条件中使用了复合索引的第一个字段，索引才会被使用。因此，在复合索引中索引列的顺序至关重要。    
+```sql
+# 方式 1
+create index index_name on table_name(col_name1,col_name2,...);
+# 方式 2
+alter table table_name add index index_name(col_name,col_name2,...);
+```
 
-### MVCC(Multiversion Concurrency Control)
+抛开不怎么用的 FULLTEXT 索引，可以说唯一索引是一种特殊的普通索引（唯一性约束），而主键索引则是一种特殊的唯一索引（非空约束）。平时最常接触的还是主键索引和普通索引，主键索引在我们创建表时指定了主键以后就自动存在了。而需要说明的可能就是普通索引和唯一索引的区别，两者的区别就是是否有唯一性约束，在可以确定字段不可能重复的情况下可以选择唯一索引，其它情况都选普通索引即可。实际上在许多场合，人们创建唯一索引的目的往往不是为了提高访问速度，而只是为了避免数据出现重复。
 
-> **多版本控制**: 指的是一种提高并发的技术。最早的数据库系统，只有读读之间可以并发，读写、写读、写写都要阻塞。引入多版本之后，只有写写之间相互阻塞，其他三种操作都可以并行，这样大幅度提高了 InnoDB 的并发度。在内部实现中，与 Postgres 在数据行上实现多版本不同，InnoDB 是在 undolog 中实现的，通过 undolog 可以找回数据的历史版本。找回的数据历史版本可以提供给用户读(按照隔离级别的定义，有些读请求只能看到比较老的数据版本)，也可以在回滚的时候覆盖数据页上的数据。在 InnoDB 内部中，会记录一个全局的活跃读写事务数组，其主要用来判断事务的可见性。
+## MySQL 索引结构
 
-- 可以认为 MVCC 是行级锁的一个变种, 但是它在很多情况下避免了加锁操作, 因此开销更低。虽然实现机制有所不同, 但大都实现了非阻塞的读操作，写操作也只锁定必要的行。
-- MVCC 可以使用乐观(optimistic)锁和悲观(pessimistic)锁来实现;
-- 应对高并发事务, MVCC 比单纯的加锁更高效;
-- MVCC 只在 READ COMMITTED 和 REPEATABLE READ 两个隔离级别下工作;
-- InnoDB 的 MVCC 是通过在每行记录后面保存隐藏的列来实现的
+1. HASH（用于对等比较，如 "=" 和 "<=>"）   //<=> 安全的比对，对 null 值比较，语义类似 is null（）
+2. BTREE（用于非对等比较，比如范围查询）>，>=，<，<=、BETWEEN、Like
 
-将会在事务的章节中详细讲解。
+Innodb 和 MyISAM 默认的索引是 Btree 索引
 
-## 索引
+## 索引的基本操作
 
-从数据结构角度讲，MySQL 索引主要有 B+Tree 索引和哈希索引。
-- **哈希索引**，底层的数据结构就是哈希表，因此在绝大多数需求为单条记录查询的时候，可以选择哈希索引，查询性能最快；
-- **B+Tree 索引**，大部分场景建议选择 B+Tree 索引。
+```sql
+# 查看表索引
+show index from lj_house;
+show keys from table_name; # 等同上面
 
-MySQL 的 B+Tree 索引还可以分为聚集索引和非聚集索引。
+# 创建索引
+CREATE TABLE table_name[col_name data type][unique|fulltext][index|key][index_name](col_name[length])[asc|desc]
 
-- **聚集索引（聚簇索引/clustered index）**，表数据按照索引的顺序来存储的，也就是说索引项的顺序与表中记录的物理顺序一致。对于聚集索引，叶子结点即存储了真实的数据行，不再有另外单独的数据页。 在一张表上最多只能创建一个聚集索引，因为真实数据的物理顺序只能有一种。
-  - 每个 InnoDB 表都有且仅有一个聚簇索引。如果你为表定义了一个主键，MySQL将使用主键作为聚簇索引。如果你不为表指定一个主键，MySQL将第一个组成列都 not null 的唯一索引作为聚簇索引。如果 InnoBD 表没有主键且没有适合的唯一索引，将自动创建一个隐藏的名字为 “GEN_CLUST_INDEX” 的聚簇索引。
-  - 聚簇索引是物理索引，数据表就是按索引顺序存储的，物理上是连续的。
-  - 主索引文件和数据文件为同一份文件
-- **非聚集索引（非聚簇索引/辅助索引/二级索引/secondary index）**，指聚簇索引之外的所有其它的索引。
-  - 非聚簇所以可以有多个，而且只能由用户自己添加，InnoDB 默认并不会创建任何非聚簇索引。
-  - 对于非聚簇索引存储来说，主键B+树在叶子节点存储指向真正数据行的指针，而非主键。
+# 查看索引使用情况，
+show status like 'Handler_read%';
 
-索引这块后面也将单独章节进行介绍，敬请期待。
+# 删除索引
+DROP INDEX index_name ON table_name
 
+# 查看执行计划
+explain select * from lj_house where house_url_id=10310179316;
 
-## 事务
-
-事务是逻辑上的一组操作，要么都执行，要么都不执行。下面来看看事物的四大特性(ACID)：
-
-- **原子性（Atomicity）**，事务是最小的执行单位，不允许分割。事务的原子性确保动作要么全部完成，要么完全不起作用；
-- **一致性（Consistency）**，执行事务前后，数据保持一致，多个事务对同一个数据读取的结果是相同的；
-- **隔离性（Isolation）**，并发访问数据库时，一个用户的事务不被其他事务所干扰，各并发事务之间数据库是独立的；
-- **持久性（Durability）**，一个事务被提交之后。它对数据库中数据的改变是持久的，即使数据库发生故障也不应该有任何影响。
-
-###  并发事务带来的问题
+```
 
 
+## Explain 命令使用
+
+使用 explain 查询和分析 SQl 的执行计划，可以进行 sql 的性能优化！关于 Explain 这部分详解可以参考 - [MySQL 5.7 - EXPLAIN Output Format](https://dev.mysql.com/doc/refman/5.7/en/explain-output.html)，写的很详细。
+
+![](https://jverson.oss-cn-beijing.aliyuncs.com/f213eed6fc75476f360fdff37f963b1c.jpg)
+
+
+通过上面的示例可以看到 explain 命令可以给出这条 sql 的很多信息，下面就来一一解释一下。
+
+**select_type**，SELECT 类型，可以为以下任何一种:
+
+- SIMPLE：简单 SELECT(不使用 UNION 或子查询)
+- PRIMARY：最外面的 SELECT
+- UNION：UNION 中的第二个或后面的 SELECT 语句
+- DEPENDENT UNION：UNION 中的第二个或后面的 SELECT 语句, 取决于外面的查询
+- UNION RESULT：UNION 的结果
+- SUBQUERY：子查询中的第一个 SELECT
+- DEPENDENT SUBQUERY：子查询中的第一个 SELECT, 取决于外面的查询
+- DERIVED：导出表的 SELECT(FROM 子句的子查询)
+
+**type**，联接类型。这是重要的列，显示连接使用了何种类型。从最好到最差的连接类型为 const、eq_ref、ref、range、index 和 ALL。下面给出各种联接类型，按照从最佳类型到最坏类型进行排序:
+
+1. system：表仅有一行 (= 系统表)。这是 const 联接类型的一个特例。
+2. const：表最多有一个匹配行, 它将在查询开始时被读取。因为仅有一行, 在这行的列值可被优化器剩余部分认为是常数。const 表很快, 因为它们只读取一次!
+3. eq_ref：类似 ref，区别就在使用的索引是唯一索引，对于每个索引键值，表中只有一条记录匹配，简单来说，就是多表连接中使用 primary key 或者 unique key 作为关联条件。
+4. ref：对于每个来自于前面的表的行组合, 所有有匹配索引值的行将从这张表中读取。
+5. range：只检索给定范围的行，使用一个索引来选择行
+6. index：Full Index Scan，index 与 ALL 区别为 index 类型只遍历索引树
+7. ALL：Full Table Scan， MySQL 将遍历全表以找到匹配的行
+
+
+**possible_keys**，指出 MySQL 能使用哪个索引在表中找到记录，查询涉及到的字段上若存在索引，则该索引将被列出，但不一定被查询使用
+
+
+**Key**，key 列显示 MySQL 实际决定使用的键（索引），如果没有选择索引，键是 NULL。要想强制 MySQL 使用或忽视 possible_keys 列中的索引，在查询中使用 FORCE INDEX、USE INDEX 或者 IGNORE INDEX。
+
+**key_len**，表示索引中使用的字节数，不损失精确性的情况下，长度越短越好 
+
+**ref**，表示上述表的连接匹配条件，即哪些列或常量被用于查找索引列上的值
+
+**rows**，表示 MySQL 根据表统计信息及索引选用情况，估算的找到所需的记录所需要读取的行数
+
+**Extra**，该列包含 MySQL 解决查询的详细信息, 有以下几种情况：
+
+- Using where: 列数据是从仅仅使用了索引中的信息而没有读取实际的行动的表返回的，这发生在对表的全部的请求列都是同一个索引的部分的时候，表示 mysql 服务器将在存储引擎检索行后再进行过滤
+- Using temporary：表示 MySQL 需要使用临时表来存储结果集，常见于排序和分组查询
+- Using filesort：MySQL 中无法利用索引完成的排序操作称为 “文件排序”
+- Using join buffer：改值强调了在获取连接条件时没有使用索引，并且需要连接缓冲区来存储中间结果。如果出现了这个值，那应该注意，根据查询的具体情况可能需要添加索引来改进能。
+- Impossible where：这个值强调了 where 语句会导致没有符合条件的行。
+
+
+## 参考
+
+- [MySQL 5.7 - EXPLAIN Output Format](https://dev.mysql.com/doc/refman/5.7/en/explain-output.html)
 
 

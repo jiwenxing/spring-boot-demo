@@ -29,15 +29,19 @@
 
 ## Database
 
-- [数据库使用](Using Database.md)
-- [关于 JDBC 的基础知识](About JDBC.md)
-- [对 ORM 框架的简单介绍](Talking About ORM.md)
-- [通过 MyBatis-Spring-Boot-Starter 使用 Mybatis](Mybatis-Springboot-Starter.md)
-- [通过 Mybatis Common Mapper 使用通用 Mapper](Mybatis-Common-Mapper.md)
-- [分页插件 PageHelper 使用 & 打印 sql 及运行时间](Use PageHelper.md)
-- [Spring Data JPA 介绍](Spring Data JPA.md)
+- [数据库使用](jdbc-orm/database.md)
+- [关于 JDBC 的基础知识](jdbc-orm/jdbc.md)
+- [对 ORM 框架的简单介绍](jdbc-orm/orm.md)
+- [MyBatis 原理_](jdbc-orm/mybatis.md)
+- [通过 MyBatis-Spring-Boot-Starter 使用 Mybatis](jdbc-orm/Mybatis-Springboot-Starter.md)
+- [通过 Mybatis Common Mapper 使用通用 Mapper](jdbc-orm/Mybatis-Common-Mapper.md)
+- [分页插件 PageHelper 使用 & 打印 sql 及运行时间](jdbc-orm/PageHelper.md)
+- [Spring Data JPA 介绍](jdbc-orm/Spring-Data-JPA.md)
 
-- [Mysql 知识点](mysql/mysql-index.md)
+- [Mysql 知识点](mysql/mysql-basic.md)
+- [基于 Mysql 的分布式 ID 生成](mysql/mysql-gen-id.md)
+- [Mysql 索引及其优化](mysql/mysql-index.md)
+- [Mysql 开发规约_](mysql/mysql-rules.md)
 
 ## Cache
 

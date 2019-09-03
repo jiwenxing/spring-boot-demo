@@ -1,7 +1,7 @@
 # Use PageHelper
 ---
 
-这一篇讲一下 Mybatis Common Mapper 中的 PageHelper 用法。PageHelper 确实使分页简单了很多，它自动实现了分页查询逻辑及返回结果的封装，具体的使用方法可以参考 [官方文档](https://github.com/pagehelper/pagehelper-spring-boot)。下面主要介绍一下自己的实践，另外会附带介绍一下打印sql、打印 sql 运行时间等一些小技巧。
+这一篇讲一下 Mybatis Common Mapper 中的 PageHelper 用法。PageHelper 确实使分页简单了很多，它自动实现了分页查询逻辑及返回结果的封装，具体的使用方法可以参考 [官方文档](https://github.com/pagehelper/pagehelper-spring-boot)。下面主要介绍一下自己的实践，另外会附带介绍一下打印 sql、打印 sql 运行时间等一些小技巧。
 
 ## 使用方法
 
@@ -13,13 +13,13 @@
   <groupId>mysql</groupId>
   <artifactId>mysql-connector-java</artifactId>
 </dependency>
-<!--common mapper （包含了mybatis-spring-boot-starter依赖） -->
+<!--common mapper （包含了 mybatis-spring-boot-starter 依赖） -->
 <dependency>
   <groupId>tk.mybatis</groupId>
   <artifactId>mapper-spring-boot-starter</artifactId>
   <version>1.1.4</version>
 </dependency>
-<!--pagehelper 通用mapper分页插件 -->
+<!--pagehelper 通用 mapper 分页插件 -->
 <dependency>
   <groupId>com.github.pagehelper</groupId>
   <artifactId>pagehelper-spring-boot-starter</artifactId>
@@ -40,11 +40,11 @@ pagehelper.helperDialect=mysql
 /**
 	 * 分页查找
 	 * @param wrap 
-	 *     通过wrap属性设置查找筛选条件
+	 *     通过 wrap 属性设置查找筛选条件
 	 * @param params
-	 *     设置分页属性：pageNum（当前页数，默认1），pageSize（页面行数，默认10）
+	 *     设置分页属性：pageNum（当前页数，默认 1），pageSize（页面行数，默认 10）
 	 * @return
-	 *     见PageWrap说明
+	 *     见 PageWrap 说明
 	 */
 public PageWrap<SkillWrap> getAll(SkillWrap wrap, Map<String, Object> params) {
   // 此处进行分页参数设置
@@ -53,13 +53,12 @@ public PageWrap<SkillWrap> getAll(SkillWrap wrap, Map<String, Object> params) {
   example.setOrderByClause("state, create_time desc");
   Example.Criteria criteria = example.createCriteria();
   criteria.andEqualTo("yn", "N");
-  if (wrap.getState() != null) {
-    criteria.andEqualTo("state", wrap.getState());
+  if (wrap.getState() != null) {criteria.andEqualTo("state", wrap.getState());
   }
   List<Skill> skills = mapper.selectByExample(example);
-  // 将sql查询结果转换为分页对象
+  // 将 sql 查询结果转换为分页对象
   PageInfo<Skill> page = new PageInfo<Skill>(skills);
-  // 将分页对象实体从model转换为view
+  // 将分页对象实体从 model 转换为 view
   PageWrap<SkillWrap> pageWrap = PageUtil.transfer(page, SkillWrap.class);
   return pageWrap;
 }
@@ -72,18 +71,14 @@ public class PageUtil {
 	 * @param clazz
 	 * @return
 	 */
-	public static <T> PageWrap<T> transfer(PageInfo<? extends BaseEntity> page, Class<T> clazz) {
-		PageWrap<T> pageWrap = null;
-		if (page != null) {
-			pageWrap = new PageWrap<T>();
+	public static <T> PageWrap<T> transfer(PageInfo<? extends BaseEntity> page, Class<T> clazz) {PageWrap<T> pageWrap = null;
+		if (page != null) {pageWrap = new PageWrap<T>();
 			List<? extends BaseEntity> lists = page.getList();
 			List<T> wraps = lists.stream().map(model -> {
 				T t = null;
-				try {
-					t = clazz.newInstance();
+				try {t = clazz.newInstance();
 					BeanUtils.copyProperties(model, t);
-				} catch (Exception e) {
-					e.printStackTrace();
+				} catch (Exception e) {e.printStackTrace();
 				}
 				return t;
 			}).collect(Collectors.toList());
@@ -103,13 +98,13 @@ public class PageUtil {
 	public static void handlePage(Map<String, Object> params) {
 		int pageNum = 1;
 		int pageSize = 10;
-		int numSet = MapUtils.getInteger(params, "pageNum", 1);
-		int sizeSet = MapUtils.getInteger(params, "pageSize", 10);
-		if (params != null && numSet > 0 && sizeSet > 0) {
+		int numSet = MapUtils.getInteger(params,"pageNum", 1);
+		int sizeSet = MapUtils.getInteger(params,"pageSize", 10);
+		if (params != null && numSet> 0 && sizeSet > 0) {
 			pageNum = numSet;
 			pageSize = sizeSet;
 		}
-		PageHelper.startPage(pageNum, pageSize); //这里使用了threadlocal变量
+		PageHelper.startPage(pageNum, pageSize); // 这里使用了 threadlocal 变量
 	}
 }
 ```
@@ -123,12 +118,10 @@ protected static final ThreadLocal<Page> LOCAL_PAGE = new ThreadLocal<Page>();
      *
      * @param page
      */
-protected static void setLocalPage(Page page) {
-  LOCAL_PAGE.set(page);
+protected static void setLocalPage(Page page) {LOCAL_PAGE.set(page);
 }
 
-public static <E> Page<E> startPage(int pageNum, int pageSize, boolean count) {
-  Page<E> page = new Page<E>(pageNum, pageSize, count);
+public static <E> Page<E> startPage(int pageNum, int pageSize, boolean count) {Page<E> page = new Page<E>(pageNum, pageSize, count);
   setLocalPage(page);
   return page;
 }
@@ -143,17 +136,17 @@ public static <E> Page<E> startPage(int pageNum, int pageSize, boolean count) {
 ```xml
 <Loggers>
   <!-- 可以使用 OFF 关闭一些日志 -->
-  <logger name="org.springframework" level="OFF" />
+  <logger name="org.springframework"level="OFF"/>
   <!-- 可以对特定类单独设置日志级别 -->
-  <logger name="org.hibernate" level="INFO"  />
-  <logger name="org.mybatis" level="INFO"  />
-  <logger name="io.netty" level="INFO"  />
-  <logger name="org.apache.http" level="INFO"  />
+  <logger name="org.hibernate"level="INFO"/>
+  <logger name="org.mybatis"level="INFO"/>
+  <logger name="io.netty"level="INFO"/>
+  <logger name="org.apache.http"level="INFO"/>
   
-  <Root level="DEBUG" includeLocation="true">
-    <appender-ref ref="CONSOLE" />
-    <appender-ref ref="INFO-LOG" />
-    <appender-ref ref="ERROR-LOG" />
+  <Root level="DEBUG"includeLocation="true">
+    <appender-ref ref="CONSOLE"/>
+    <appender-ref ref="INFO-LOG"/>
+    <appender-ref ref="ERROR-LOG"/>
   </Root>
 </Loggers>
 ```
@@ -168,20 +161,17 @@ public static <E> Page<E> startPage(int pageNum, int pageSize, boolean count) {
 
 ```java
 @Override
-public Object intercept(Invocation invocation) throws Throwable {
-  Object target = invocation.getTarget();
+public Object intercept(Invocation invocation) throws Throwable {Object target = invocation.getTarget();
   long startTime = System.currentTimeMillis();
   StatementHandler statementHandler = (StatementHandler) target;
-  try {
-    return invocation.proceed();
-  } finally {
-    long endTime = System.currentTimeMillis();
+  try {return invocation.proceed();
+  } finally {long endTime = System.currentTimeMillis();
     long sqlCost = endTime - startTime;
     BoundSql boundSql = statementHandler.getBoundSql();
     String sql = boundSql.getSql();
     Object parameterObject = boundSql.getParameterObject();
     List<ParameterMapping> parameterMappingList = boundSql.getParameterMappings();
-    // 格式化Sql语句，去除换行符，替换参数
+    // 格式化 Sql 语句，去除换行符，替换参数
     sql = formatSql(sql, parameterObject, parameterMappingList);
     System.out.println("SQL：[" + sql + "] cost [" + sqlCost + "ms]");
   }
@@ -196,20 +186,16 @@ public class MyBatisConf implements TransactionManagementConfigurer {
 	@Autowired
 	private DataSource dataSource;
 	@Override
-	public PlatformTransactionManager annotationDrivenTransactionManager() {
-		return new DataSourceTransactionManager(dataSource);
+	public PlatformTransactionManager annotationDrivenTransactionManager() {return new DataSourceTransactionManager(dataSource);
 	}
 
-	@Bean(name = "sqlSessionFactory")
-	public SqlSessionFactory sqlSessionFactoryBean() throws IOException {
-		SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
+	@Bean(name ="sqlSessionFactory")
+	public SqlSessionFactory sqlSessionFactoryBean() throws IOException {SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
 		bean.setDataSource(dataSource);
-		//配置打印 sql 执行时间的拦截器插件
-		bean.setPlugins(new Interceptor[] { new SqlCostInterceptor() });
-		try {
-			return bean.getObject();
-		} catch (Exception e) {
-			e.printStackTrace();
+		// 配置打印 sql 执行时间的拦截器插件
+		bean.setPlugins(new Interceptor[] {new SqlCostInterceptor() });
+		try {return bean.getObject();
+		} catch (Exception e) {e.printStackTrace();
 			throw new RuntimeException(e);
 		}
 	}
