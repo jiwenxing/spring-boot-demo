@@ -1,38 +1,33 @@
 # Summary
 
+- [Introduction](README.md)
+
 ## Basic
 
-- [Introduction](README.md)
-- [为什么要使用 Spring Boot](Why Spring Boot.md)
-- [使用 Spring Boot 快速搭建工程实现 Hello World](Getting Started.md)
-- [依赖管理、代码结构、配置类及热交换](Using Spring Boot.md)
-- [如何定制 Banner](Customizing the Banner.md)
-- [使用配置文件配置 Bean 的方法](Bean Configuration by Properties Files.md)
-- [Profiles + Maven 不同环境读取不同配置](profile-maven.md)
-- [Springboot 中 Profiles 最佳实践](profile-practice.md)
-
-
-## Logging
-
-- [不同的日志级别展示不同的颜色](Add color to eclipse console output by log level.md)
-- [日志的配置](Spring Boot Log Configuration.md)
-
+- [为什么要使用 Spring Boot](basic/why-spring-boot.md)
+- [使用 Spring Boot 快速搭建工程实现 Hello World](basic/springboot-getting-started.md)
+- [依赖管理、代码结构、配置类及热交换](basic/using-springboot.md)
+- [如何定制 Banner](basic/customizing-banner.md)
+- [使用配置文件配置 Bean 的方法](basic/bean-configuration-by-properties-files.md)
+- [Profiles + Maven 不同环境读取不同配置](basic/profile-maven.md)
+- [Springboot 中 Profiles 最佳实践](basic/profile-practice.md)
+- [日志的配置](basic/log-configuration.md)
 
 ## Web
 
-- [使用 Velocity](Using Velocity as Template Engine.md)
-- [使用 FreeMaker](Using FreeMaker as Template Engine.md)
-- [Spring MVC 的配置](WebMvcConfig.md)
-- [Spring MVC 中优雅的异常和错误处理](Error Handling.md)
-- [如何定制 Favicon](Custom Favicon.md)
-- [指定 @ResponseBody 的返回格式(Json or XML)](Custom Return Format.md)
+- [使用 Velocity](web/using-velocity.md)
+- [使用 FreeMaker](web/using-freeMaker.md)
+- [Spring MVC 的配置](web/WebMvcConfig.md)
+- [Spring MVC 中优雅的异常和错误处理](web/error-handling.md)
+- [如何定制 Favicon](web/custom-favicon.md)
+- [指定 @ResponseBody 的返回格式(Json or XML)](web/custom-return-format.md)
 
 ## Database
 
 - [数据库使用](jdbc-orm/database.md)
 - [关于 JDBC 的基础知识](jdbc-orm/jdbc.md)
 - [对 ORM 框架的简单介绍](jdbc-orm/orm.md)
-- [MyBatis 原理_](jdbc-orm/mybatis.md)
+- [MyBatis 原理](jdbc-orm/mybatis.md)
 - [通过 MyBatis-Spring-Boot-Starter 使用 Mybatis](jdbc-orm/Mybatis-Springboot-Starter.md)
 - [通过 Mybatis Common Mapper 使用通用 Mapper](jdbc-orm/Mybatis-Common-Mapper.md)
 - [分页插件 PageHelper 使用 & 打印 sql 及运行时间](jdbc-orm/PageHelper.md)
@@ -55,24 +50,25 @@
 
 ## Timer & Schedule
 
-- [Java 定时任务](Java Schedule.md)
-- [Java Timer & TimerTask](Timer.md)
-- [Spring Schedule](Spring Schedule.md)
-- [Quartz 介绍](Quartz Introduction.md)
-- [Spring Boot 集成 Quartz](quartz springboot.md)
+- [Java 定时任务](schedule/java-schedule.md)
+- [Java Timer & TimerTask](schedule/Timer.md)
+- [Spring Schedule](schedule/spring-schedule.md)
+- [Quartz 介绍](schedule/quartz-introduction.md)
+- [Spring Boot 集成 Quartz](schedule/quartz-springboot.md)
 
 ## Deploy
 
-- [构建部署可执行 jar](Spring Boot Deploy.md)
-- [构建 war 包部署](springboot_war.md)
-- [打包指定 JDK 编译版本](basic_jdk_version.md)
+- [构建部署可执行 jar](deploy/springboot-deploy.md)
+- [构建 war 包部署](deploy/springboot_war.md)
+- [打包指定 JDK 编译版本](deploy/basic_jdk_version.md)
 
 ## Others
 
-- [Spring Events 事件机制](Spring Events.md)
-- [Spring @Conditional Annotation](Spring Conditional Annotation.md)
-- [使用 JavaMail 发送邮件](JavaMailSender.md)
-
+- [Spring Events 事件机制](other/spring-events.md)
+- [Spring @Conditional Annotation](other/conditional-annotation.md)
+- [使用 JavaMail 发送邮件](other/JavaMailSender.md)
+- [Annotation - 自定义注解](other/self-definied-annotation.md)
+- [filter vs interceptor vs aop](other/filter-interceptor-aop.md)
 
 
 ## Common

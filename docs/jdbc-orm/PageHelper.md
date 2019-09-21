@@ -72,13 +72,16 @@ public class PageUtil {
 	 * @return
 	 */
 	public static <T> PageWrap<T> transfer(PageInfo<? extends BaseEntity> page, Class<T> clazz) {PageWrap<T> pageWrap = null;
-		if (page != null) {pageWrap = new PageWrap<T>();
+		if (page != null) {
+			pageWrap = new PageWrap<T>();
 			List<? extends BaseEntity> lists = page.getList();
 			List<T> wraps = lists.stream().map(model -> {
 				T t = null;
-				try {t = clazz.newInstance();
+				try {
+					t = clazz.newInstance();
 					BeanUtils.copyProperties(model, t);
-				} catch (Exception e) {e.printStackTrace();
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
 				return t;
 			}).collect(Collectors.toList());
@@ -118,10 +121,12 @@ protected static final ThreadLocal<Page> LOCAL_PAGE = new ThreadLocal<Page>();
      *
      * @param page
      */
-protected static void setLocalPage(Page page) {LOCAL_PAGE.set(page);
+protected static void setLocalPage(Page page) {
+	LOCAL_PAGE.set(page);
 }
 
-public static <E> Page<E> startPage(int pageNum, int pageSize, boolean count) {Page<E> page = new Page<E>(pageNum, pageSize, count);
+public static <E> Page<E> startPage(int pageNum, int pageSize, boolean count) {
+	Page<E> page = new Page<E>(pageNum, pageSize, count);
   setLocalPage(page);
   return page;
 }
@@ -186,7 +191,8 @@ public class MyBatisConf implements TransactionManagementConfigurer {
 	@Autowired
 	private DataSource dataSource;
 	@Override
-	public PlatformTransactionManager annotationDrivenTransactionManager() {return new DataSourceTransactionManager(dataSource);
+	public PlatformTransactionManager annotationDrivenTransactionManager() {
+		return new DataSourceTransactionManager(dataSource);
 	}
 
 	@Bean(name ="sqlSessionFactory")

@@ -11,7 +11,8 @@
 Hibernate 本身是独立于 spring 的，如果不使用 spring 框架，则 Dao 层的代码如下所示，这时还需要一个标准的 `persistence.xml` 配置文件
 
 ```java
-public class UserDaoImpl implements UserDao {public AccountInfo save(AccountInfo accountInfo) { 
+public class UserDaoImpl implements UserDao {
+	public AccountInfo save(AccountInfo accountInfo) { 
 		EntityManagerFactory emf = 
 		Persistence.createEntityManagerFactory("SimplePU"); 
 		EntityManager em = emf.createEntityManager(); 
@@ -37,8 +38,10 @@ public class UserDaoImpl implements UserDao {
 	private EntityManager em; 
 	 
 	@Transactional 
-	public Long save(AccountInfo accountInfo) {em.persist(accountInfo); 
-		return accountInfo.getAccountId();} 
+	public Long save(AccountInfo accountInfo) {
+		em.persist(accountInfo); 
+		return accountInfo.getAccountId();
+	} 
 }
 ```
 
@@ -109,7 +112,8 @@ Spring Data JPA 为自定义查询提供了一些表达条件查询的关键字�
 @Query 注解的使用非常简单，只需在声明的方法上面标注该注解，同时提供一个 JP QL 查询语句即可
 
 ```java
-public interface UserDao extends Repository<AccountInfo, Long> {@Query("select a from AccountInfo a where a.accountId = ?1") 
+public interface UserDao extends Repository<AccountInfo, Long> {
+	@Query("select a from AccountInfo a where a.accountId = ?1") 
 	AccountInfo findByAccountId(Long accountId); 
 	 
 	   @Query("select a from AccountInfo a where a.balance> ?1") 
@@ -177,7 +181,8 @@ public class User {
 四、创建数据访问接口
 
 ```java
-public interface UserRepository extends JpaRepository<User, Long> {User findByName(String name);
+public interface UserRepository extends JpaRepository<User, Long> {
+	User findByName(String name);
     User findByNameAndAge(String name, Integer age);
     @Query("from User u where u.name=:name")
     User findUser(@Param("name") String name);

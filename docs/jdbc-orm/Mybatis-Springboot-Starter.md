@@ -1,13 +1,13 @@
 # MyBatis-Spring-Boot-Starter
 ---
 
-[MyBatis-Spring-Boot-Starter](http://www.mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/)是mybatis为springboot提供的快速集成的方案（因为springboot太火了），原话是The MyBatis-Spring-Boot-Starter help you build quickly MyBatis applications on top of the Spring Boot。因此如果项目中使用springboot和mybatis的话，这个starter可以大大的简化你的工作。
+[MyBatis-Spring-Boot-Starter](http://www.mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/) 是 mybatis 为 springboot 提供的快速集成的方案（因为 springboot 太火了），原话是 The MyBatis-Spring-Boot-Starter help you build quickly MyBatis applications on top of the Spring Boot。因此如果项目中使用 springboot 和 mybatis 的话，这个 starter 可以大大的简化你的工作。
 
 ## 添加依赖
 
-用法如同其它的starter一样，添加starter的依赖以后，关于数据库的几乎所有必要依赖都已注入（包括tomcat-jdbc连接池、mybatis自动配置等），如果使用mysql的话还需要单独添加相关依赖，如下：
+用法如同其它的 starter 一样，添加 starter 的依赖以后，关于数据库的几乎所有必要依赖都已注入（包括 tomcat-jdbc 连接池、mybatis 自动配置等），如果使用 mysql 的话还需要单独添加相关依赖，如下：
 ```xml
-<!-- Spring Boot mybatis 依赖(包含了jdbc、tomcat-jdbc连接池、mybatis等各种所需的依赖) -->
+<!-- Spring Boot mybatis 依赖 (包含了 jdbc、tomcat-jdbc 连接池、mybatis 等各种所需的依赖) -->
 <dependency>
 	<groupId>org.mybatis.spring.boot</groupId>
 	<artifactId>mybatis-spring-boot-starter</artifactId>
@@ -33,13 +33,12 @@ spring.datasource.username=root
 spring.datasource.password=root  
 spring.datasource.driver-class-name=com.mysql.jdbc.Driver  
 
-springboot会自动使用配置创建DataSource，然后通过SqlSessionFactoryBean将DataSource传入构造SqlSessionFactory实例。而SqlSessionFactory是mybatis的核心，类似一种连接池管理类，每次的数据操作都将由连接池来分配连接后进行。
+springboot 会自动使用配置创建 DataSource，然后通过 SqlSessionFactoryBean 将 DataSource 传入构造 SqlSessionFactory 实例。而 SqlSessionFactory 是 mybatis 的核心，类似一种连接池管理类，每次的数据操作都将由连接池来分配连接后进行。
 
-## 创建mapper（dao）
+## 创建 mapper（dao）
 ```java
 @Mapper
-public interface UserMapper {
-	@Select("SELECT * FROM USER WHERE name = #{name}")
+public interface UserMapper {@Select("SELECT * FROM USER WHERE name = #{name}")
 	List<User> findByName(@Param("name") String name);
 
 	@Insert("INSERT INTO user(name,age) VALUES(#{name}, #{age})")
@@ -50,11 +49,11 @@ public interface UserMapper {
 }
 ```
 
-注意这里有两种方式实现对象方法与数据库操作sql之间的映射，注解方式和xml配置方式，相对传统的xml配置方式，注解方式要清爽很多。但是这只针对于简单语句来说，Java 注解对于稍微复杂的语句就会力不从心并且会显得更加混乱。因此，如果你需要做很复杂的事情，那么最好使用 XML 来映射语句。
+注意这里有两种方式实现对象方法与数据库操作 sql 之间的映射，注解方式和 xml 配置方式，相对传统的 xml 配置方式，注解方式要清爽很多。但是这只针对于简单语句来说，Java 注解对于稍微复杂的语句就会力不从心并且会显得更加混乱。因此，如果你需要做很复杂的事情，那么最好使用 XML 来映射语句。
 
 ## 单元测试
 
-对于注解方式spring注入Mapper便可以直接调用了。
+对于注解方式 spring 注入 Mapper 便可以直接调用了。
 ```java
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = HelloSpringBoot.class)
@@ -63,26 +62,22 @@ public class MybatisTest {
 	@Autowired UserMapper userMapper;
 	
 	@Test
-	public void testInsert(){
-		User user = new User();
+	public void testInsert(){User user = new User();
 		user.setName("kobe");
 		user.setAge(41);
 		userMapper.insert(user);
 	}
 	
 	@Test
-	public void testQuery(){
-		assertTrue(userMapper.findByName("kobe").size()==1);
+	public void testQuery(){assertTrue(userMapper.findByName("kobe").size()==1);
 	}
 	
 	@Test
-	public void testQueryAll(){
-		assertTrue(userMapper.getAll().size()>0);
+	public void testQueryAll(){assertTrue(userMapper.getAll().size()>0);
 	}
 	
 	@Test
-	public void testUpdate(){
-		User user = new User();
+	public void testUpdate(){User user = new User();
 		user.setId(1L);
 		user.setName("james");
 		userMapper.update(user);
@@ -91,41 +86,41 @@ public class MybatisTest {
 	
 }
 ```
-其中HelloSpringBoot为程序的主入口类。
+其中 HelloSpringBoot 为程序的主入口类。
 
 
-## xml配置方式
+## xml 配置方式
 
-对于传统的xml配置方式，需要创建一个xml配置文件将mapper接口方法与对应的sql映射起来，之前的项目一直用这种方式，已经很熟悉了。
+对于传统的 xml 配置方式，需要创建一个 xml 配置文件将 mapper 接口方法与对应的 sql 映射起来，之前的项目一直用这种方式，已经很熟悉了。
 `UserMapper.xml`
 ```xml
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.jverson.springboot.mapper.UserMapper" >
-    <resultMap id="BaseResultMap" type="com.jverson.springboot.bean.User" >
-        <id column="id" property="id" jdbcType="BIGINT" />
-        <result column="name" property="name" jdbcType="VARCHAR" />
-        <result column="age" property="age" jdbcType="INTEGER" />
+<?xml version="1.0"encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC"-//mybatis.org//DTD Mapper 3.0//EN""http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jverson.springboot.mapper.UserMapper">
+    <resultMap id="BaseResultMap"type="com.jverson.springboot.bean.User">
+        <id column="id"property="id"jdbcType="BIGINT"/>
+        <result column="name"property="name"jdbcType="VARCHAR"/>
+        <result column="age"property="age"jdbcType="INTEGER"/>
     </resultMap>
     
-    <sql id="Base_Column_List" >
+    <sql id="Base_Column_List">
         id, name, age
     </sql>
 
-    <select id="getAll" resultMap="BaseResultMap"  >
+    <select id="getAll"resultMap="BaseResultMap">
        SELECT 
-       <include refid="Base_Column_List" />
+       <include refid="Base_Column_List"/>
 	   FROM user
     </select>
 
-    <select id="getOne" parameterType="java.lang.Long" resultMap="BaseResultMap" >
+    <select id="getOne"parameterType="java.lang.Long"resultMap="BaseResultMap">
         SELECT 
-       <include refid="Base_Column_List" />
+       <include refid="Base_Column_List"/>
 	   FROM user
 	   WHERE id = #{id}
     </select>
 
-    <insert id="insert" parameterType="com.jverson.springboot.bean.User" >
+    <insert id="insert"parameterType="com.jverson.springboot.bean.User">
        INSERT INTO 
        		user
        		(name,age) 
@@ -133,7 +128,7 @@ public class MybatisTest {
        		(#{name}, #{age})
     </insert>
     
-    <update id="update" parameterType="com.jverson.springboot.bean.User" >
+    <update id="update"parameterType="com.jverson.springboot.bean.User">
        UPDATE 
        		user 
        SET 
@@ -143,7 +138,7 @@ public class MybatisTest {
        		id = #{id}
     </update>
     
-    <delete id="delete" parameterType="java.lang.Long" >
+    <delete id="delete"parameterType="java.lang.Long">
        DELETE FROM
        		 user 
        WHERE 
@@ -152,23 +147,23 @@ public class MybatisTest {
 </mapper>
 ```
 
-另外对于xml方式配置文件中还需要增加一些mybatis的配置以指定配置文件
+另外对于 xml 方式配置文件中还需要增加一些 mybatis 的配置以指定配置文件
 > mybatis.config-locations=classpath:mybatis/mybatis-config.xml  
 mybatis.mapper-locations=classpath:mapper/*.xml  
 mybatis.type-aliases-package=com.jverson  
 
-其中mybatis-config.xml中定义了一些别名
+其中 mybatis-config.xml 中定义了一些别名
 ```xml
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<?xml version="1.0"encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC"-//mybatis.org//DTD Config 3.0//EN""http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias alias="Integer" type="java.lang.Integer" />
-		<typeAlias alias="Long" type="java.lang.Long" />
-		<typeAlias alias="HashMap" type="java.util.HashMap" />
-		<typeAlias alias="LinkedHashMap" type="java.util.LinkedHashMap" />
-		<typeAlias alias="ArrayList" type="java.util.ArrayList" />
-		<typeAlias alias="LinkedList" type="java.util.LinkedList" />
+		<typeAlias alias="Integer"type="java.lang.Integer"/>
+		<typeAlias alias="Long"type="java.lang.Long"/>
+		<typeAlias alias="HashMap"type="java.util.HashMap"/>
+		<typeAlias alias="LinkedHashMap"type="java.util.LinkedHashMap"/>
+		<typeAlias alias="ArrayList"type="java.util.ArrayList"/>
+		<typeAlias alias="LinkedList"type="java.util.LinkedList"/>
 	</typeAliases>
 </configuration>
 ```
@@ -176,33 +171,33 @@ mybatis.type-aliases-package=com.jverson
 
 
 ## 更新操作属性为空的情况
-当更新操作传入的对象某些属性为空时希望该字段不会被更新，及updateSelective的功能，在传统使用配置文件的方式中使用判断既可以解决，但是在注解的方式中还不知道要怎么去写，不过后面会介绍更加好用的通用mapper则封装有现成的方法`updateSelective`以供使用。
+当更新操作传入的对象某些属性为空时希望该字段不会被更新，及 updateSelective 的功能，在传统使用配置文件的方式中使用判断既可以解决，但是在注解的方式中还不知道要怎么去写，不过后面会介绍更加好用的通用 mapper 则封装有现成的方法 `updateSelective` 以供使用。
 
 ## 日志显示控制
 
-日志会自动打印执行的sql语句及参数，但是为debug级别，如果开发的时候需要观察sql的执行过程可以在配置文件中将Mapper所在的包的日志级别指定为debug
+日志会自动打印执行的 sql 语句及参数，但是为 debug 级别，如果开发的时候需要观察 sql 的执行过程可以在配置文件中将 Mapper 所在的包的日志级别指定为 debug
 
 > logging.level.com.jverson.springboot.mapper=DEBUG
 
-这时的日志显示如下所示，可以看到其他部分的日志依然是配置文件中配的INFO级别，但是mapper包中执行sql的debug日志也显示出来了。可以看到其他部分的日志依然是配置文件中配的INFO级别，但是mapper包中执行sql的debug日志也显示出来了。
+这时的日志显示如下所示，可以看到其他部分的日志依然是配置文件中配的 INFO 级别，但是 mapper 包中执行 sql 的 debug 日志也显示出来了。可以看到其他部分的日志依然是配置文件中配的 INFO 级别，但是 mapper 包中执行 sql 的 debug 日志也显示出来了。
 
 ![](https://jverson.oss-cn-beijing.aliyuncs.com/201708211740_408.png)
 
-## 扩展-关于Mybatis的SqlSessionFactory
+## 扩展 - 关于 Mybatis 的 SqlSessionFactory
 
 每个基于 MyBatis 的应用都是以一个 SqlSessionFactory 的实例为中心的。SqlSessionFactory 的实例可以通过 SqlSessionFactoryBuilder 获得。而 SqlSessionFactoryBuilder 则可以从 XML 配置文件或一个预先定制的 Configuration 的实例构建出 SqlSessionFactory 的实例。
 
-### 使用xml构建SqlSessionFactory
+### 使用 xml 构建 SqlSessionFactory
 
 ```java
 String resource = "org/mybatis/example/mybatis-config.xml";
 InputStream inputStream = Resources.getResourceAsStream(resource);
 SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 ```
- xml简单配置示例，其中mappers 元素则是包含一组 mapper 映射器（这些 mapper 的 XML 文件包含了 SQL 代码和映射定义信息）。
+ xml 简单配置示例，其中 mappers 元素则是包含一组 mapper 映射器（这些 mapper 的 XML 文件包含了 SQL 代码和映射定义信息）。
 
- ```xml
-<?xml version="1.0" encoding="UTF-8" ?>
+```xml
+<?xml version="1.0"encoding="UTF-8"?>
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
@@ -211,10 +206,10 @@ SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(input
     <environment id="development">
       <transactionManager type="JDBC"/>
       <dataSource type="POOLED">
-        <property name="driver" value="${driver}"/>
-        <property name="url" value="${url}"/>
-        <property name="username" value="${username}"/>
-        <property name="password" value="${password}"/>
+        <property name="driver"value="${driver}"/>
+        <property name="url"value="${url}"/>
+        <property name="username"value="${username}"/>
+        <property name="password"value="${password}"/>
       </dataSource>
     </environment>
   </environments>
@@ -224,7 +219,7 @@ SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(input
 </configuration>
 ```
 
-### 不使用xml构建SqlSessionFactory
+### 不使用 xml 构建 SqlSessionFactory
 
 ```java
 DataSource dataSource = BlogDataSourceFactory.getBlogDataSource();
@@ -235,7 +230,7 @@ configuration.addMapper(BlogMapper.class);
 SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(configuration);
 ```
 
-但需要注意的是，configuration 添加了一个映射器类（mapper class）。映射器类是 Java 类，它们包含 SQL 映射语句的注解从而避免了 XML 文件的依赖。但是**由于 Java 注解的一些限制加之某些 MyBatis 映射的复杂性，XML 映射对于大多数高级映射（比如：嵌套 Join 映射）来说仍然是必须的。有鉴于此，如果存在一个对等的 XML 配置文件的话，MyBatis 会自动查找并加载它。**
+但需要注意的是，configuration 添加了一个映射器类（mapper class）。映射器类是 Java 类，它们包含 SQL 映射语句的注解从而避免了 XML 文件的依赖。但是 ** 由于 Java 注解的一些限制加之某些 MyBatis 映射的复杂性，XML 映射对于大多数高级映射（比如：嵌套 Join 映射）来说仍然是必须的。有鉴于此，如果存在一个对等的 XML 配置文件的话，MyBatis 会自动查找并加载它。**
 
 
 有了 SqlSessionFactory ，顾名思义，我们就可以从中获得 SqlSession 的实例了。SqlSession 完全包含了面向数据库执行 SQL 命令所需的所有方法。你可以通过 SqlSession 实例来直接执行已映射的 SQL 语句。
@@ -244,26 +239,23 @@ SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(confi
 @Autowired SqlSessionFactory sqlSessionFactory;
 	
 @Test
-public void testInsert(){
-	SqlSession session = sqlSessionFactory.openSession();
+public void testInsert(){SqlSession session = sqlSessionFactory.openSession();
 	UserMapper userMapper = session.getMapper(UserMapper.class);
 	User user = new User();
 	user.setName("kobe");
 	user.setAge(41);
-	try {
-		userMapper.insert(user);
-	} finally {
-		session.close();
+	try {userMapper.insert(user);
+	} finally {session.close();
 	}
 }
 ```
 
-通常通过上面的形式从sqlSession中获取mapper来执行相应的方法，这样相对来说依然比较繁琐，而在MyBatis-Spring-Boot-Starter中，它会自动通过SqlSessionFactory创建一个SqlSessionTemplate实例，扫描所有的mapper将其与SqlSessionTemplate关联，并**将所有的mapper注册到spring的容器中**，这样在使用MyBatis-Spring-Boot-Starter时，就可以不用像上面那么麻烦，直接注入mapper即可。
+通常通过上面的形式从 sqlSession 中获取 mapper 来执行相应的方法，这样相对来说依然比较繁琐，而在 MyBatis-Spring-Boot-Starter 中，它会自动通过 SqlSessionFactory 创建一个 SqlSessionTemplate 实例，扫描所有的 mapper 将其与 SqlSessionTemplate 关联，并 ** 将所有的 mapper 注册到 spring 的容器中 **，这样在使用 MyBatis-Spring-Boot-Starter 时，就可以不用像上面那么麻烦，直接注入 mapper 即可。
 
 
 ## 如何选择
 
-注解方式对于简单的场景开发更加高效，不需要映射配置文件，但是对于稍微复杂的sql场景则不够灵活，力不从心。xml方式可以满足各种使用场景，但是繁琐的映射配置真的烦人，好在后面会介绍基于mybatis的通用mapper结合了两种方式的有点，灵活并且不需要配置。
+注解方式对于简单的场景开发更加高效，不需要映射配置文件，但是对于稍微复杂的 sql 场景则不够灵活，力不从心。xml 方式可以满足各种使用场景，但是繁琐的映射配置真的烦人，好在后面会介绍基于 mybatis 的通用 mapper 结合了两种方式的有点，灵活并且不需要配置。
 
 选择何种方式以及映射语句的定义的一致性对你来说有多重要这些完全取决于你和你的团队。换句话说，永远不要拘泥于一种方式，你可以很轻松的在基于注解和 XML 的语句映射方式间自由移植和切换。
 
