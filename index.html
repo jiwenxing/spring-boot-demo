@@ -168,7 +168,7 @@
                     
                         <b>2.2.</b>
                     
-                    使用 Spring Boot 快速搭建工程实现 Hello World
+                    搭建工程 & 多 Module & 配置资源加载
             
                 </a>
             
@@ -356,21 +356,6 @@
                         <b>3.6.</b>
                     
                     指定 @ResponseBody 的返回格式(Json or XML)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.7" data-path="web/urlrewrite.html">
-            
-                <a href="web/urlrewrite.html">
-            
-                    
-                        <b>3.7.</b>
-                    
-                    使用 urlrewrite 进行请求改写
             
                 </a>
             
@@ -975,21 +960,6 @@
             
         </li>
     
-        <li class="chapter " data-level="9.8" data-path="common/FactoryBean.html">
-            
-                <a href="common/FactoryBean.html">
-            
-                    
-                        <b>9.8.</b>
-                    
-                    FactoryBean 原理及使用
-            
-                </a>
-            
-
-            
-        </li>
-    
 
     
         
@@ -1073,23 +1043,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="introduction">Introduction</h1>
-<p>Spring Boot &#x53D1;&#x5E03;&#x4E8E; 2014 &#x5E74;&#xFF0C;&#x5B83;&#x79C9;&#x627F;&#x201C;&#x4E60;&#x60EF;&#x4F18;&#x4E8E;&#x914D;&#x7F6E;&#x201D;&#x7684;&#x7406;&#x5FF5;&#x53EF;&#x4EE5;&#x4F7F;&#x9879;&#x76EE;&#x5FEB;&#x901F;&#x8FD0;&#x884C;&#x8D77;&#x6765;&#xFF0C;&#x4F7F;&#x7528; Spring Boot &#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x8FD0;&#x884C;&#x7684;&#x3001;&#x751F;&#x4EA7;&#x7EA7;&#x522B;&#x7684;&#x57FA;&#x4E8E; Spring &#x6846;&#x67B6;&#x7684;&#x9879;&#x76EE;&#x3002;&#x9274;&#x4E8E; Spring Boot &#x5728;&#x9879;&#x76EE;&#x4E2D;&#x5927;&#x91CF;&#x4F7F;&#x7528;&#x5E76;&#x4E14;&#x65E5;&#x8D8B;&#x6D41;&#x884C;&#x7684;&#x8D8B;&#x52BF;&#xFF0C;&#x901A;&#x8FC7;&#x5BF9;&#x5176;&#x5B98;&#x65B9;&#x6587;&#x6863;&#x8FDB;&#x884C;&#x7CFB;&#x7EDF;&#x7684;&#x5B66;&#x4E60;&#x548C;&#x5B9E;&#x8DF5;&#x68B3;&#x7406;&#x51FA;&#x4E00;&#x4E9B;&#x7B14;&#x8BB0;&#x8BB0;&#x5F55;&#x4E8E;&#x6B64;&#x3002;</p>
-<p>&#x8BE5;&#x7B14;&#x8BB0;&#x5185;&#x5BB9;&#x57FA;&#x672C;&#x6309;&#x7167; <code>1.5.4.RELEASE</code> &#x7248;&#x672C;&#x5B98;&#x65B9;&#x6587;&#x6863; <a href="https://docs.spring.io/spring-boot/docs/1.5.4.RELEASE/reference/htmlsingle/#getting-started" target="_blank">Spring Boot Reference Guide</a> &#x7684;&#x987A;&#x5E8F;&#x8FDB;&#x884C;&#xFF0C;&#x5176;&#x4E2D;&#x6BD4;&#x8F83;&#x5E38;&#x7528;&#x548C;&#x91CD;&#x8981;&#x7684;&#x5185;&#x5BB9;&#x57FA;&#x672C;&#x90FD;&#x6709;&#x6240;&#x6D89;&#x53CA;&#x3002;</p>
-<blockquote>
-<p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>&#x524D;&#x671F;&#x8BE5;&#x7B14;&#x8BB0;&#x7EF4;&#x62A4;&#x5728; github wiki &#x4E0A;&#xFF0C;&#x73B0;&#x8FC1;&#x79FB;&#x5230; gitbook&#xFF0C;&#x539F; wiki &#x4E0A;&#x5185;&#x5BB9;&#x4E0D;&#x518D;&#x7EF4;&#x62A4;&#x3002;</p>
-</blockquote>
-<h2 id="todo">Todo</h2>
-<p>&#x5185;&#x5BB9;&#x8FD8;&#x5728;&#x4E0D;&#x65AD;&#x66F4;&#x65B0;&#x4E2D;...</p>
-<ul>
-<li style="list-style: none"><input type="checkbox" disabled="disabled" checked="checked"> Deploying Spring Boot applications</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> Caching 31 &#x4E3A;&#x65B9;&#x6CD5;&#x548C;&#x5E94;&#x7528;&#x5FEB;&#x901F;&#x6DFB;&#x52A0;&#x7F13;&#x5B58;</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> ElasticSearch </li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> websocket 42 h5 &#x63A8;&#x51FA;&#x7684;&#x670D;&#x52A1;&#x5668;&#x63A8;&#x9001;&#x6280;&#x672F;</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> Testing  41  &#x5355;&#x5143;&#x6D4B;&#x8BD5;&#xFF0C;&#x517B;&#x6210;&#x4E00;&#x4E2A;&#x826F;&#x597D;&#x5199;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x7684;&#x4E60;&#x60EF;&#x5F88;&#x6709;&#x5FC5;&#x8981;</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> Messaging 32 &#x5E38;&#x7528;&#xFF0C;&#x5BF9;&#x6BD4;&#x9009;&#x62E9;&#x4E00;&#x79CD;&#x5E38;&#x7528;&#x7684;&#x6280;&#x672F;&#x8FDB;&#x884C;&#x5B9E;&#x8DF5;</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> Security 28 &#x5305;&#x62EC; OAuth2 &#x7B49;&#x8FD9;&#x4E9B;&#x77E5;&#x8BC6;&#x70B9;&#x8FD8;&#x662F;&#x9700;&#x8981;&#x638C;&#x63E1;</li>
-<li style="list-style: none"><input type="checkbox" disabled="disabled"> auto-configuration 44 &#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#x81EA;&#x52A8;&#x914D;&#x7F6E;</li>
-</ul>
+<p>&#x4E3B;&#x8981;&#x662F;&#x5173;&#x4E8E; spring &#x76F8;&#x5173;&#x6587;&#x6863;&#x548C;&#x7B14;&#x8BB0;&#x6574;&#x7406;</p>
 <h2 id="useful-links">Useful Links</h2>
 <ul>
 <li><a href="https://start.spring.io/" target="_blank">SPRING INITIALIZR - Generate a maven project with java and Spring Boot of specified version</a></li>
@@ -1101,7 +1055,7 @@
 <li><a href="https://github.com/spring-guides" target="_blank">Repositories behind the Getting Started and Tutorial guides at spring.io</a></li>
 </ul>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; jverson.com 2018 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">File Modify: 
-2020-11-22 16:07:34
+2021-04-13 22:34:50
 </span></footer>
                                 
                                 </section>
@@ -1141,7 +1095,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"为什么要使用 Spring Boot","level":"2.1","depth":1,"path":"basic/why-spring-boot.md","ref":"basic/why-spring-boot.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/spring-boot-demo"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"spring-boot-demo","type":"star","size":"small","count":true},{"user":"jiwenxing","repo":"spring-boot-demo","type":"fork","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Spring Boot","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Spring Boot Practise & Notes","extension":null},"file":{"path":"README.md","mtime":"2020-11-22T08:07:34.449Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-22T13:18:21.208Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"为什么要使用 Spring Boot","level":"2.1","depth":1,"path":"basic/why-spring-boot.md","ref":"basic/why-spring-boot.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","disqus","todo","splitter","tbfed-pagefooter","page-toc-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jverson.com 2018"},"disqus":{"useIdentifier":false,"shortName":"jverson"},"github":{"url":"https://github.com/jiwenxing/spring-boot-demo"},"todo":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"jiwenxing","repo":"spring-boot-demo","type":"star","size":"small","count":true},{"user":"jiwenxing","repo":"spring-boot-demo","type":"fork","size":"small","count":true}]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","author":"Jverson <i@jverson.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Spring Boot","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"Jverson's Blog":"https://jverson.com"}},"gitbook":"*","description":"Spring Boot Practise & Notes","extension":null},"file":{"path":"README.md","mtime":"2021-04-13T14:34:50.554Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-15T15:18:48.916Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
