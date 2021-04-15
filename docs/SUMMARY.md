@@ -12,6 +12,7 @@
 - [Profiles + Maven 不同环境读取不同配置](basic/profile-maven.md)
 - [Springboot 中 Profiles 最佳实践](basic/profile-practice.md)
 - [日志的配置](basic/log-configuration.md)
+- [Classpath in Java Web](basic/classpath.md)
 
 ## Web
 
