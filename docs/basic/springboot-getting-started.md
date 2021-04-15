@@ -87,6 +87,34 @@ properties.load(inStream);
 <import resource="classpath*:config_from_jar_classpath.xml" />
 ```
 
+## ClassLoader.getResourceAsStream() 与 Class.getResourceAsStream() 区别
+
+ClassLoader.getResourceAsStream() 类加载器默认是从 classPath 路径加载资源，并且放在 resources 下的文件加载时不能加（“/”）。例如
+
+![](https://jverson.oss-cn-beijing.aliyuncs.com/a1107b4e3ce3d3f3352f7b91ae5bbc0c.jpg)
+
+```Java
+InputStream in = PropertiesUtil.class.getClassLoader().getResourceAsStream("xx.properties");
+```
+
+而 Class.getResourceAsStream() 默认要加载的资源路径与当前类所在包的路径一致
+
+```Java
+InputStream in = PropertiesUtil.class.getResourceAsStream("xx.properties");
+```
+
+![](https://jverson.oss-cn-beijing.aliyuncs.com/6db03f5f9fe25fc745b27972a2087303.jpg)
+
+
+如果想要加载 classpath 路径下资源，则需要路径以 '/' 开头
+
+```Java
+InputStream in = PropertiesUtil.class.getResourceAsStream("/xx.properties");
+```
+
+总结：ClassLoader 直接从 classpath 下查询，不能以/开头，不能相对路径。Class 如果以/开头，直接截取/之后的路径，不以/开头，转换成包含 package 的全路径，内部还是调用的 ClassLoader 的方法。
+
+
 ## 给 bean name 起别名
 
 spring xml 里可以给 bean 配置别名，这样我可以使用不同的 name 对其进行注入
