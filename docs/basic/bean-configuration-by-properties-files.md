@@ -10,7 +10,8 @@
 ```java
 @PropertySource("classpath:person.properties")
 @Component
-public class Person2 {@Value("${person.firstName}")
+public class Person2 {
+	@Value("${person.firstName}")
 	String firstName;
 	@Value("${person.lastName}")
 	String lastName;
@@ -58,6 +59,57 @@ public class ApplicationConf {
 		devMode = devModeConf;
 	}
 	
+}
+```
+
+## 给枚举属性赋值
+
+枚举其实类似于静态属性，无法直接通过注解给枚举的某个属性赋值，如果希望枚举的属性通过配置文件来配置，可以创建一个 spring 管理的静态内部类，通过 `@PostConstruct` 将 `@Value` 注入的属性设置到枚举中，其实和上面提到的使用 postConstruct 给静态变量赋值是一个道理。
+
+下面的例子中就希望枚举的各级审核对应的金额上限能够通过配置文件配置的方式抽取出来，实现如下：
+
+```java
+public enum AppendStatusEnum {
+
+    AUDIT_STEP1(10,"待初审"),
+    AUDIT_STEP2(12,"待二审"),
+    AUDIT_STEP3(13,"待三审"),
+    ;
+
+    //通过配置文件设置审核金额阈值
+    @Component
+    public static class PriceConfig{
+        @Value("${auditStep1MaxPrice}")
+        private Integer auditStep1MaxPrice;
+        @Value("${auditStep2MaxPrice}")
+        private Integer auditStep2MaxPrice;
+        @PostConstruct
+        public void postConstruct() {
+            AUDIT_STEP1.setPriceThreshold(auditStep1MaxPrice);
+            AUDIT_STEP2.setPriceThreshold(auditStep2MaxPrice);
+            System.out.println("审核金额阈值设置完成！auditStep1MaxPrice = "
+                    + auditStep1MaxPrice + ", auditStep2MaxPrice = " + auditStep2MaxPrice);
+        }
+    }
+
+    private Integer value = null;
+    private String name = null;
+    private Integer priceThreshold = null; //当前流程处理的金额上限，希望能抽取到配置文件中
+
+    private AppendStatusEnum(Integer value, String name){
+        this.value = value;
+        this.name = name;
+    }
+    public Integer getPriceThreshold() {
+        return priceThreshold;
+    }
+
+    public void setPriceThreshold(Integer priceThreshold) {
+        this.priceThreshold = priceThreshold;
+    }
+
+    //getter & setter
+
 }
 ```
 

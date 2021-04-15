@@ -5,7 +5,7 @@
 ## Basic
 
 - [为什么要使用 Spring Boot](basic/why-spring-boot.md)
-- [使用 Spring Boot 快速搭建工程实现 Hello World](basic/springboot-getting-started.md)
+- [搭建工程 & 多 Module & 配置资源加载](basic/springboot-getting-started.md)
 - [依赖管理、代码结构、配置类及热交换](basic/using-springboot.md)
 - [如何定制 Banner](basic/customizing-banner.md)
 - [使用配置文件配置 Bean 的方法](basic/bean-configuration-by-properties-files.md)

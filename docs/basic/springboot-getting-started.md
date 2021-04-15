@@ -1,6 +1,100 @@
 # Getting Started
 ---
 
+## 创建多 module 工程
+
+### 创建 module 方式
+
+右键点击父 project，new module 直接点击 next，不需要勾 create from archetype，填 artifactId 后点击 next，最关键的在这一步，直接点击 next 肯定不行。这里的 content root 默认是父 project 的目录，这里要改为 module 的目录，只需要在 content root 这一行再添加一级 module 路径即可（不需要提前创建文件夹）
+
+![image.png](https://images.zenhubusercontent.com/5b83aeb622e474383b984d11/4f016e86-1bc4-4908-bf9e-d241d08631cf)
+
+### 版本管理
+
+一般父pom版本号和各个子module版本保持一致，在父 module 的 properties 中定义版本号
+
+父 pom 这样写
+
+```xml
+    <groupId>com.jverson.demo</groupId>
+    <artifactId>projectA</artifactId>
+    <packaging>pom</packaging>
+    <version>${revision}</version>
+
+    <properties>
+        <revision>1.0.0.4.3-SNAPSHOT</revision>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <guava.version>29.0-jre</guava.version>
+        <spring.boot.version>2.3.4.RELEASE</spring.boot.version>
+    </properties>
+```
+
+子 pom 中不需要显式写版本号，子 module 有互相依赖的话直接使用 maven 内置变量 ${project.version}
+
+```xml
+<parent>
+    <artifactId>projectA</artifactId>
+    <groupId>com.sankuai.datapp.orchestration</groupId>
+    <version>${revision}</version>
+</parent>
+<modelVersion>4.0.0</modelVersion>
+
+<artifactId>module0</artifactId>
+
+<dependencies>
+    <dependency>
+        <groupId>com.jverson.demo</groupId>
+        <artifactId>module1</artifactId>
+        <version>${project.version}</version>
+    </dependency>
+</dependencies>
+```
+
+这样当我们需要修改版本号是只需要修改一个地方即可。
+
+但是这样会存在一个问题，deploy 之后的父 pom 文件里版本号没打进去还是个变量
+
+![image.png](https://images.zenhubusercontent.com/5b83aeb622e474383b984d11/3b0a24af-c877-4f2f-8621-d6c2c54ec0de)
+
+这样就会导致其它依赖这些 module 的服务构建失败
+
+![image.png](https://images.zenhubusercontent.com/5b83aeb622e474383b984d11/cac6efd5-9b09-4589-93ea-de7f84b1e245)
+
+这个问题可以使用一个插件解决 [flatten-maven-plugin](https://www.mojohaus.org/flatten-maven-plugin/usage.html)
+
+还可以参考 [maven 版本管理与 flatten-maven-plugin](https://zhuanlan.zhihu.com/p/270574226)
+
+### 加载资源
+
+第一种情况，我们在做一个三方工具 jar，里面可能需要获取使用方 classpath 下的一些配置，在 Springboot 工程里可以直接写一个 starter。也可以直接这样引用
+
+```xml
+<context:property-placeholder location="classpath:config/config.properties"/>
+```
+
+
+第二种情况子 module 的 jar 里可能也会提供一些配置文件，使用方在使用的时候需要加载使用，举个例子
+
+```Java
+InputStream inStream = Thread.currentThread().getClassLoader().getResourceAsStream("tracer.properties"); // tracer.properties 是放在 jar 的 classpath 下
+Properties properties = new Properties();
+properties.load(inStream);
+```
+
+如果是 xml 配置
+
+```xml
+<import resource="classpath*:config_from_jar_classpath.xml" />
+```
+
+## 给 bean name 起别名
+
+spring xml 里可以给 bean 配置别名，这样我可以使用不同的 name 对其进行注入
+
+```xml
+<alias name="aaClient" alias="bbClient"/>
+```
+
 ## 创建 Spring Boot 工程
 
 创建一个 Spring Boot 的工程非常简单，首先使用 eclipse 创建一个普通的 maven 工程，然后在 pom 中添加一个`spring-boot-starter-parent`的节点，这是一个特殊的 starter，有以下一些特性：
