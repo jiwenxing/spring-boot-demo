@@ -13,6 +13,7 @@
 - [Springboot 中 Profiles 最佳实践](basic/profile-practice.md)
 - [日志的配置](basic/log-configuration.md)
 - [Classpath in Java Web](basic/classpath.md)
+- [Bean 生命周期](basic/bean-lifecycle.md)
 
 ## Web
 
@@ -45,8 +46,9 @@
 - [Cache Usage](cache/cache-1-usage.md)
 - [Caffeine Cache](cache/cache-2-caffeine.md)
 - [分布式缓存 - Redis](cache/cache-3-redis.md)
-
+- [静态兜底缓存方案设计](cache/protection-cache.md)
 - [Summary](cache/cache-9-interview.md)
+
 
 
 ## Timer & Schedule
