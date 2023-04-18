@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/jiwenxing/spring-boot-demo#readme",
   "dependencies": {
-    "gh-pages": "^1.2.0",
+    "gh-pages": "^5.0.0",
     "gitbook-plugin-todo": "^0.1.3"
   }
 }
